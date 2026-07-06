@@ -1,0 +1,88 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Inter", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-ridge: var(--ridge);
+}
+
+:root {
+  --radius: 0.5rem;
+  /* N45 brand palette — sourced from n45tech.com/assets */
+  --background: #081020;        /* Deep Navy / Ink */
+  --foreground: #F2F4F6;        /* Light Text */
+  --surface: #101C30;           /* Dark Navy */
+  --surface-2: #101C2C;         /* Panel Navy */
+  --card: #101C30;
+  --card-foreground: #F2F4F6;
+  --primary: #2CDCC4;           /* Primary Teal */
+  --primary-foreground: #081020;
+  --accent: #34C4E8;            /* Mark Cyan */
+  --accent-foreground: #081020;
+  --muted: #18444C;             /* Outline Teal */
+  --muted-foreground: #AAB6C8;  /* Muted Blue */
+  --border: #2C384C;            /* Border Slate */
+  --ring: #2CDCC4;
+  --ridge: #7E8DA4;             /* Subtle Blue */
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  ::selection { background: var(--color-primary); color: var(--color-primary-foreground); }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .text-balance { text-wrap: balance; }
+  .grain {
+    background-image: radial-gradient(rgba(44,220,196,0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+  .ridge-line {
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  }
+  .brand-gradient {
+    background: linear-gradient(135deg, #2CDCC4 0%, #30CCD0 45%, #34C4E8 100%);
+  }
+  .brand-gradient-text {
+    background: linear-gradient(135deg, #2CDCC4 0%, #34C4E8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

@@ -1,0 +1,23 @@
+services:
+  n45-site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: n45-site:local
+    container_name: n45-site
+    restart: unless-stopped
+    init: true
+
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+
+    ports:
+      - "127.0.0.1:3045:3000"
+
+    security_opt:
+      - no-new-privileges:true
+
+    tmpfs:
+      - /tmp

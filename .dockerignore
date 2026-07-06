@@ -1,0 +1,10 @@
+node_modules
+.output
+dist
+.git
+.gitignore
+package-lock.json
+*.log
+*.tar.gz
+.env
+.env.*

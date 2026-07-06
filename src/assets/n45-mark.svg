@@ -1,0 +1,13 @@
+<svg viewBox="0 0 512 512" role="img" aria-label="N45 mark" xmlns="http://www.w3.org/2000/svg">
+            
+          <defs>
+            <linearGradient id="mark-gradient-gradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2CDCC4" />
+              <stop offset="0.52" stop-color="#30CCD0" />
+              <stop offset="1" stop-color="#34C4E8" />
+            </linearGradient>
+          </defs>
+        
+            <rect x="0" y="0" width="512" height="512" rx="143.36" fill="url(#mark-gradient-gradient)" />
+            <text x="50%" y="54%" fill="#081020" font-family="Inter, DM Sans, Arial, sans-serif" font-size="168.96" font-weight="950" text-anchor="middle" dominant-baseline="middle" letter-spacing="0">N45</text>
+          </svg>

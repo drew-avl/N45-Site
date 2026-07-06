@@ -1,0 +1,15 @@
+<svg viewBox="0 0 840 150" role="img" aria-label="N45 Technology Solutions primary lockup" xmlns="http://www.w3.org/2000/svg">
+            
+          <defs>
+            <linearGradient id="primary-light-gradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2CDCC4" />
+              <stop offset="0.52" stop-color="#30CCD0" />
+              <stop offset="1" stop-color="#34C4E8" />
+            </linearGradient>
+          </defs>
+        
+            <rect x="12" y="18" width="112" height="112" rx="34" fill="url(#primary-light-gradient)" />
+            <text x="68" y="78" fill="#081020" font-family="Inter, DM Sans, Arial, sans-serif" font-size="38" font-weight="950" text-anchor="middle" dominant-baseline="middle" letter-spacing="0">N45</text>
+            <text x="152" y="64" fill="#F2F4F6" font-family="Inter, DM Sans, Arial, sans-serif" font-size="40" font-weight="950" letter-spacing="0" textLength="610" lengthAdjust="spacingAndGlyphs">N45 Technology Solutions</text>
+            <text x="153" y="103" fill="#AAB6C8" font-family="Inter, DM Sans, Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="0" textLength="452" lengthAdjust="spacingAndGlyphs">Managed IT for Modern Operations</text>
+          </svg>
