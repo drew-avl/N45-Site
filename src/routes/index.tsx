@@ -709,7 +709,7 @@ function CTA() {
             </p>
 
             <p className="text-xs leading-relaxed text-muted-foreground">
-              This securely sends your message to N45 from noreply@n45tech.com.
+              This securely sends your message to N45.
               For urgent assistance, call{" "}
               <a
                 href="tel:+18285151530"

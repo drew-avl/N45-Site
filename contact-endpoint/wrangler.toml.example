@@ -1,0 +1,13 @@
+name = "n45-contact-endpoint"
+main = "worker.js"
+compatibility_date = "2026-07-07"
+
+[vars]
+ALLOWED_ORIGINS = "https://n45tech.com,https://www.n45tech.com"
+SENDER_EMAIL = "noreply@n45tech.com"
+RECIPIENT_EMAIL = "hello@n45tech.com"
+MS_TENANT_ID = ""
+MS_CLIENT_ID = ""
+
+# Set this as a secret, not a plain var:
+# wrangler secret put MS_CLIENT_SECRET
