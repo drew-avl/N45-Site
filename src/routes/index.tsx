@@ -3,6 +3,15 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import heroImg from "@/assets/hero-mountains.jpg";
 import n45Mark from "@/assets/n45-mark.svg";
 
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as
+  string | undefined;
+const CONTACT_FROM_EMAIL = "noreply@n45tech.com";
+
+type ContactResponse = {
+  success?: boolean;
+  message?: string;
+};
+
 const verticals = [
   {
     tag: "01 — Healthcare",
@@ -435,7 +444,7 @@ function CTA() {
   >("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -459,31 +468,63 @@ function CTA() {
     const topic = String(formData.get("topic") ?? "").trim();
     const message = String(formData.get("message") ?? "").trim();
 
-    const subject = `IT review request from ${
-      businessName || contactName || "N45 website"
-    }`;
-    const body = [
-      `Business name: ${businessName}`,
-      `Contact name: ${contactName}`,
-      `Email: ${email}`,
-      `Topic: ${topic}`,
-      "",
-      "Situation:",
-      message,
-    ].join("\n");
-    const mailto = `mailto:hello@n45tech.com?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    if (!CONTACT_ENDPOINT) {
+      setSubmitState("error");
+      setStatusMessage(
+        "The contact form is not configured yet. Call N45 at (828) 515-1530.",
+      );
+      return;
+    }
 
     setSubmitState("sending");
-    setStatusMessage("Opening your email app...");
+    setStatusMessage("");
 
-    window.location.href = mailto;
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          businessName,
+          contactName,
+          email,
+          topic,
+          message,
+          to: "hello@n45tech.com",
+          from: CONTACT_FROM_EMAIL,
+          replyTo: email,
+          subject: `IT review request from ${
+            businessName || contactName || "N45 website"
+          }`,
+          source: "n45-site",
+          submittedAt: new Date().toISOString(),
+        }),
+      });
 
-    setSubmitState("success");
-    setStatusMessage(
-      "Your email app should open with the message ready to send.",
-    );
+      const result = (await response
+        .json()
+        .catch(() => ({}))) as ContactResponse;
+
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || "The message could not be sent.");
+      }
+
+      form.reset();
+      setSubmitState("success");
+      setStatusMessage(
+        result.message ||
+          "Your message has been sent. N45 will follow up shortly.",
+      );
+    } catch (error) {
+      setSubmitState("error");
+      setStatusMessage(
+        error instanceof Error
+          ? error.message
+          : "The message could not be sent. Call N45 at (828) 515-1530.",
+      );
+    }
   }
 
   return (
@@ -668,7 +709,8 @@ function CTA() {
             </p>
 
             <p className="text-xs leading-relaxed text-muted-foreground">
-              This opens a prepared email to N45. For urgent assistance, call{" "}
+              This securely sends your message to N45 from noreply@n45tech.com.
+              For urgent assistance, call{" "}
               <a
                 href="tel:+18285151530"
                 className="text-foreground hover:text-primary"
