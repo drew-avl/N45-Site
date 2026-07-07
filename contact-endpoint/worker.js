@@ -29,6 +29,14 @@ export default {
       });
     }
 
+    if (request.method === "GET") {
+      return jsonResponse(request, env, 200, {
+        success: true,
+        message: "N45 contact endpoint is running.",
+        requestId,
+      });
+    }
+
     if (request.method !== "POST") {
       return jsonResponse(request, env, 405, {
         success: false,
@@ -321,9 +329,10 @@ function isAllowedOrigin(request, env) {
 }
 
 function selectAllowedOrigin(origin, env) {
+  const normalizedOrigin = normalizeOrigin(origin);
   const allowedOrigins = getAllowedOrigins(env);
-  if (origin && allowedOrigins.includes(origin)) {
-    return origin;
+  if (normalizedOrigin && allowedOrigins.includes(normalizedOrigin)) {
+    return normalizedOrigin;
   }
 
   return "";
@@ -333,10 +342,23 @@ function getAllowedOrigins(env) {
   const configured = env.ALLOWED_ORIGINS || env.ALLOWED_ORIGIN || "";
   const origins = configured
     .split(",")
-    .map((origin) => origin.trim())
+    .map((origin) => normalizeOrigin(origin))
     .filter(Boolean);
 
   return origins.length > 0 ? origins : DEFAULT_ALLOWED_ORIGINS;
+}
+
+function normalizeOrigin(value) {
+  if (!value) {
+    return "";
+  }
+
+  try {
+    const url = new URL(value.trim());
+    return url.origin;
+  } catch {
+    return value.trim().replace(/\/+$/, "");
+  }
 }
 
 function escapeHtml(value) {
