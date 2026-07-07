@@ -1,72 +1,13 @@
-import {
-  useEffect,
-  useState,
-  type FormEvent,
-  type ReactNode,
-} from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { useState, type FormEvent, type ReactNode } from "react";
 
 import heroImg from "@/assets/hero-mountains.jpg";
 import n45Mark from "@/assets/n45-mark.svg";
-
-const TURNSTILE_SITE_KEY = "0x4AAAAAADoOMOxAN9omRK2_";
-
-declare global {
-  interface Window {
-    turnstile?: {
-      reset: () => void;
-    };
-  }
-}
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      {
-        title:
-          "N45 Tech — Secure. Documented. Managed IT for Western NC.",
-      },
-      {
-        name: "description",
-        content:
-          "N45 Technology Solutions delivers managed IT for modern operations across Western North Carolina — clinics, law and accounting firms, hospitality, and small manufacturers.",
-      },
-      {
-        property: "og:title",
-        content: "N45 Tech — Managed IT for Modern Operations",
-      },
-      {
-        property: "og:description",
-        content:
-          "Secure. Documented. Managed. HIPAA-aware healthcare IT, firm-grade support for legal & accounting, POS/Wi-Fi for hospitality, and uptime for small manufacturers. Leicester, NC.",
-      },
-      { property: "og:type", content: "website" },
-    ],
-    links: [
-      {
-        rel: "preconnect",
-        href: "https://fonts.googleapis.com",
-      },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
-      },
-    ],
-  }),
-  component: Index,
-});
 
 const verticals = [
   {
     tag: "01 — Healthcare",
     title: "Clinics, dental & specialty practices",
-    body:
-      "HIPAA-aware Microsoft 365 hardening, encrypted devices, audit-ready access logs, and reliable PMS/EHR connectivity. Built for independent practices across Asheville, Hendersonville and the I-26 corridor.",
+    body: "HIPAA-aware Microsoft 365 hardening, encrypted devices, audit-ready access logs, and reliable PMS/EHR connectivity. Built for independent practices across Asheville, Hendersonville and the I-26 corridor.",
     points: [
       "HIPAA-aligned M365 baseline",
       "Device encryption & MDM",
@@ -76,8 +17,7 @@ const verticals = [
   {
     tag: "02 — Legal & Accounting",
     title: "Firms that move on confidentiality and deadlines",
-    body:
-      "Tight identity controls, conflict-aware file access, and dependable backups for the weeks that decide the year — tax season, closings, trial prep.",
+    body: "Tight identity controls, conflict-aware file access, and dependable backups for the weeks that decide the year — tax season, closings, trial prep.",
     points: [
       "MFA & admin cleanup",
       "Backup validation",
@@ -87,8 +27,7 @@ const verticals = [
   {
     tag: "03 — Hospitality & Breweries",
     title: "Hotels, restaurants, taprooms & venues",
-    body:
-      "Guest and back-of-house Wi-Fi that stays up on a Saturday night. POS networks, kiosks, and inn management systems documented so staff turnover never breaks operations.",
+    body: "Guest and back-of-house Wi-Fi that stays up on a Saturday night. POS networks, kiosks, and inn management systems documented so staff turnover never breaks operations.",
     points: [
       "Segmented guest Wi-Fi",
       "POS & kiosk uptime",
@@ -98,8 +37,7 @@ const verticals = [
   {
     tag: "04 — Manufacturing & Trades",
     title: "Shop floors, fabricators & field crews",
-    body:
-      "Quiet, monitored infrastructure for small manufacturers, contractors and outdoor outfitters. Office, shop, and remote crews on one accountable plan.",
+    body: "Quiet, monitored infrastructure for small manufacturers, contractors and outdoor outfitters. Office, shop, and remote crews on one accountable plan.",
     points: [
       "Site-to-site networking",
       "Rugged endpoint management",
@@ -112,70 +50,59 @@ const services = [
   {
     code: "ID",
     title: "Microsoft 365 & Identity",
-    body:
-      "Entra, MFA, admin cleanup, account lifecycle, shared mailboxes, safer sign-in.",
+    body: "Entra, MFA, admin cleanup, account lifecycle, shared mailboxes, safer sign-in.",
   },
   {
     code: "IT",
     title: "Managed IT Support",
-    body:
-      "Endpoints, patching, device standards, onboarding/offboarding, recurring issue reduction.",
+    body: "Endpoints, patching, device standards, onboarding/offboarding, recurring issue reduction.",
   },
   {
     code: "SEC",
     title: "Cybersecurity Baselines",
-    body:
-      "Endpoint protection, least-privilege, security reviews, backup validation, alert routing.",
+    body: "Endpoint protection, least-privilege, security reviews, backup validation, alert routing.",
   },
   {
     code: "NET",
     title: "Network & Infrastructure",
-    body:
-      "Switching, Wi-Fi, firewall review, DNS, servers, and the physical path between users and services.",
+    body: "Switching, Wi-Fi, firewall review, DNS, servers, and the physical path between users and services.",
   },
   {
     code: "DOC",
     title: "Documentation",
-    body:
-      "Assets, accounts, vendors, network details, recovery steps — written down, not remembered.",
+    body: "Assets, accounts, vendors, network details, recovery steps — written down, not remembered.",
   },
   {
     code: "AUTO",
     title: "Automation & Operations",
-    body:
-      "Alerts, tickets, onboarding, and repeated tasks turned into clean, trackable workflows.",
+    body: "Alerts, tickets, onboarding, and repeated tasks turned into clean, trackable workflows.",
   },
 ];
 
 const method = [
   {
     step: "Assess",
-    body:
-      "Identify accounts, assets, vendors, risks, ownership, and failure points.",
+    body: "Identify accounts, assets, vendors, risks, ownership, and failure points.",
   },
   {
     step: "Stabilize",
-    body:
-      "Fix urgent issues, reduce recurring pain, and establish basic control.",
+    body: "Fix urgent issues, reduce recurring pain, and establish basic control.",
   },
   {
     step: "Harden",
-    body:
-      "Implement MFA, safer admin access, endpoint protection, and backups.",
+    body: "Implement MFA, safer admin access, endpoint protection, and backups.",
   },
   {
     step: "Automate",
-    body:
-      "Turn repeated work and alerts into documented, trackable workflows.",
+    body: "Turn repeated work and alerts into documented, trackable workflows.",
   },
   {
     step: "Manage",
-    body:
-      "Operate the environment with monitoring, tickets, reviews, and accountability.",
+    body: "Operate the environment with monitoring, tickets, reviews, and accountability.",
   },
 ];
 
-function Index() {
+export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
@@ -261,8 +188,8 @@ function Hero() {
 
         <h1 className="mt-8 max-w-5xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
           Managed IT for{" "}
-          <span className="brand-gradient-text">modern operations</span>{" "}
-          across Western North Carolina.
+          <span className="brand-gradient-text">modern operations</span> across
+          Western North Carolina.
         </h1>
 
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
@@ -306,9 +233,7 @@ function Hero() {
               <dt className="font-mono text-xs uppercase tracking-wider text-primary">
                 {item.k}
               </dt>
-              <dd className="mt-2 text-sm text-muted-foreground">
-                {item.v}
-              </dd>
+              <dd className="mt-2 text-sm text-muted-foreground">{item.v}</dd>
             </div>
           ))}
         </dl>
@@ -349,9 +274,7 @@ function Verticals() {
                 {vertical.title}
               </h3>
 
-              <p className="mt-4 text-muted-foreground">
-                {vertical.body}
-              </p>
+              <p className="mt-4 text-muted-foreground">{vertical.body}</p>
 
               <ul className="mt-6 space-y-2 border-t border-border pt-6">
                 {vertical.points.map((point) => (
@@ -394,9 +317,7 @@ function Services() {
                 <div className="font-mono text-xs text-primary">
                   {service.code}
                 </div>
-                <h3 className="mt-3 font-display text-xl">
-                  {service.title}
-                </h3>
+                <h3 className="mt-3 font-display text-xl">{service.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {service.body}
                 </p>
@@ -493,9 +414,7 @@ function Contrast() {
             <div
               key={before}
               className={`grid grid-cols-2 ${
-                index < rows.length - 1
-                  ? "border-b border-border"
-                  : ""
+                index < rows.length - 1 ? "border-b border-border" : ""
               }`}
             >
               <div className="p-6 text-muted-foreground">{before}</div>
@@ -516,22 +435,7 @@ function CTA() {
   >("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
-  useEffect(() => {
-    if (document.getElementById("cloudflare-turnstile")) {
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.id = "cloudflare-turnstile";
-    script.src =
-      "https://challenges.cloudflare.com/turnstile/v0/api.js";
-    script.async = true;
-    script.defer = true;
-
-    document.head.appendChild(script);
-  }, []);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -541,66 +445,45 @@ function CTA() {
     }
 
     const formData = new FormData(form);
-    const turnstileToken = String(
-      formData.get("cf-turnstile-response") ?? "",
-    );
+    const honeypot = String(formData.get("website") ?? "").trim();
 
-    if (!turnstileToken) {
-      setSubmitState("error");
-      setStatusMessage(
-        "Complete the verification before submitting.",
-      );
+    if (honeypot) {
+      setSubmitState("success");
+      setStatusMessage("Thanks. N45 will follow up shortly.");
       return;
     }
 
+    const businessName = String(formData.get("businessName") ?? "").trim();
+    const contactName = String(formData.get("contactName") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const topic = String(formData.get("topic") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
+    const subject = `IT review request from ${
+      businessName || contactName || "N45 website"
+    }`;
+    const body = [
+      `Business name: ${businessName}`,
+      `Contact name: ${contactName}`,
+      `Email: ${email}`,
+      `Topic: ${topic}`,
+      "",
+      "Situation:",
+      message,
+    ].join("\n");
+    const mailto = `mailto:hello@n45tech.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+
     setSubmitState("sending");
-    setStatusMessage("");
+    setStatusMessage("Opening your email app...");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(
-          Object.fromEntries(formData.entries()),
-        ),
-      });
+    window.location.href = mailto;
 
-      const result = (await response.json().catch(() => ({
-        success: false,
-        message: "An unexpected response was received.",
-      }))) as {
-        success?: boolean;
-        message?: string;
-      };
-
-      if (!response.ok || !result.success) {
-        throw new Error(
-          result.message ||
-            "The message could not be submitted.",
-        );
-      }
-
-      form.reset();
-      window.turnstile?.reset();
-
-      setSubmitState("success");
-      setStatusMessage(
-        result.message ||
-          "Your message has been received. N45 will follow up shortly.",
-      );
-    } catch (error) {
-      setSubmitState("error");
-      setStatusMessage(
-        error instanceof Error
-          ? error.message
-          : "The message could not be submitted. Call N45 at (828) 515-1530.",
-      );
-
-      window.turnstile?.reset();
-    }
+    setSubmitState("success");
+    setStatusMessage(
+      "Your email app should open with the message ready to send.",
+    );
   }
 
   return (
@@ -617,9 +500,9 @@ function CTA() {
           </h2>
 
           <p className="mt-6 max-w-md text-muted-foreground">
-            N45 will review your current systems, identify the
-            highest-risk gaps, and give you a practical next-step plan.
-            No oversized proposal.
+            N45 will review your current systems, identify the highest-risk
+            gaps, and give you a practical next-step plan. No oversized
+            proposal.
           </p>
 
           <dl className="mt-12 space-y-6 text-sm">
@@ -717,9 +600,7 @@ function CTA() {
                 <option value="Microsoft 365 / account security">
                   Microsoft 365 / account security
                 </option>
-                <option value="Managed IT support">
-                  Managed IT support
-                </option>
+                <option value="Managed IT support">Managed IT support</option>
                 <option value="Cybersecurity / endpoint protection">
                   Cybersecurity / endpoint protection
                 </option>
@@ -764,20 +645,12 @@ function CTA() {
               />
             </div>
 
-            <div
-              className="cf-turnstile"
-              data-sitekey={TURNSTILE_SITE_KEY}
-              data-theme="dark"
-            />
-
             <button
               type="submit"
               disabled={submitState === "sending"}
               className="mt-2 rounded-md brand-gradient px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {submitState === "sending"
-                ? "Sending…"
-                : "Send message →"}
+              {submitState === "sending" ? "Sending…" : "Send message →"}
             </button>
 
             <p
@@ -795,8 +668,7 @@ function CTA() {
             </p>
 
             <p className="text-xs leading-relaxed text-muted-foreground">
-              Your message is submitted securely to N45. For urgent
-              assistance, call{" "}
+              This opens a prepared email to N45. For urgent assistance, call{" "}
               <a
                 href="tel:+18285151530"
                 className="text-foreground hover:text-primary"
@@ -875,8 +747,8 @@ function Footer() {
         </div>
 
         <div>
-          © {new Date().getFullYear()} N45 Tech · Leicester, NC ·
-          Managed IT for Western North Carolina
+          © {new Date().getFullYear()} N45 Tech · Leicester, NC · Managed IT for
+          Western North Carolina
         </div>
       </div>
     </footer>

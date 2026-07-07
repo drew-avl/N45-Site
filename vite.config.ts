@@ -1,18 +1,13 @@
-// @lovable.dev/vite-tanstack-config already includes the TanStack,
-// React, Tailwind, path alias, dedupe, and development plugins.
-// Do not add those plugins again manually.
-
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  tanstackStart: {
-    server: {
-      entry: "server",
-    },
+  css: {
+    transformer: "lightningcss",
   },
-
-  // Force a standalone Node.js server build for edge01.
-  nitro: {
-    preset: "node_server",
+  plugins: [tailwindcss(), react()],
+  resolve: {
+    tsconfigPaths: true,
   },
 });
