@@ -1,7 +1,26 @@
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import {
+  ArrowRight,
+  Building2,
+  Check,
+  ChevronRight,
+  FileCheck2,
+  Hammer,
+  HeartPulse,
+  KeyRound,
+  Laptop,
+  Mail,
+  MapPin,
+  Network,
+  Phone,
+  Scale,
+  ShieldCheck,
+  UtensilsCrossed,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 
 import heroImg from "@/assets/hero-mountains.jpg";
-import n45Mark from "@/assets/n45-mark.svg";
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as
   string | undefined;
@@ -12,115 +31,173 @@ type ContactResponse = {
   message?: string;
 };
 
-const verticals = [
+type Service = {
+  icon: LucideIcon;
+  number: string;
+  title: string;
+  body: string;
+  outcome: string;
+};
+
+const services: Service[] = [
   {
-    tag: "01 — Healthcare",
+    icon: Laptop,
+    number: "01",
+    title: "Managed IT support",
+    body: "Day-to-day support, patching, device standards, and thoughtful onboarding that keeps your team moving.",
+    outcome: "Fewer repeat problems. Faster, calmer workdays.",
+  },
+  {
+    icon: KeyRound,
+    number: "02",
+    title: "Microsoft 365 & identity",
+    body: "MFA, account lifecycle, shared mailboxes, admin cleanup, and safer sign-in built around how your people work.",
+    outcome: "The right access for the right people.",
+  },
+  {
+    icon: ShieldCheck,
+    number: "03",
+    title: "Practical cybersecurity",
+    body: "Endpoint protection, least-privilege access, security reviews, alert routing, and validated backups.",
+    outcome: "Real controls, clearly prioritized—no scare tactics.",
+  },
+  {
+    icon: Network,
+    number: "04",
+    title: "Networks & infrastructure",
+    body: "Wi-Fi, switching, firewalls, DNS, servers, and the physical path connecting your people to their work.",
+    outcome: "A stable foundation from the front desk to the field.",
+  },
+  {
+    icon: FileCheck2,
+    number: "05",
+    title: "Continuity & documentation",
+    body: "Assets, vendors, accounts, recovery steps, and ownership captured in one dependable operating record.",
+    outcome: "Critical knowledge that never lives in one person’s head.",
+  },
+  {
+    icon: Workflow,
+    number: "06",
+    title: "Automation & operations",
+    body: "Repeated tasks, tickets, alerts, and onboarding steps turned into clean, trackable workflows.",
+    outcome: "Less busywork. More consistency.",
+  },
+];
+
+const industries = [
+  {
+    icon: HeartPulse,
+    label: "Healthcare",
     title: "Clinics, dental & specialty practices",
-    body: "HIPAA-aware Microsoft 365 hardening, encrypted devices, audit-ready access logs, and reliable PMS/EHR connectivity. Built for independent practices across Asheville, Hendersonville and the I-26 corridor.",
-    points: [
-      "HIPAA-aligned M365 baseline",
-      "Device encryption & MDM",
-      "Vendor & PHI documentation",
-    ],
+    body: "HIPAA-aware Microsoft 365, encrypted devices, reliable EHR and practice-management connectivity, and clear access records.",
+    points: ["Identity & device controls", "Vendor and PHI documentation"],
   },
   {
-    tag: "02 — Legal & Accounting",
-    title: "Firms that move on confidentiality and deadlines",
-    body: "Tight identity controls, conflict-aware file access, and dependable backups for the weeks that decide the year — tax season, closings, trial prep.",
-    points: [
-      "MFA & admin cleanup",
-      "Backup validation",
-      "Secure client file workflows",
-    ],
+    icon: Scale,
+    label: "Professional firms",
+    title: "Legal, accounting & advisory teams",
+    body: "Confidential file access, dependable backups, and steady support through tax season, closings, and trial preparation.",
+    points: ["MFA and admin cleanup", "Secure client workflows"],
   },
   {
-    tag: "03 — Hospitality & Breweries",
+    icon: UtensilsCrossed,
+    label: "Hospitality",
     title: "Hotels, restaurants, taprooms & venues",
-    body: "Guest and back-of-house Wi-Fi that stays up on a Saturday night. POS networks, kiosks, and inn management systems documented so staff turnover never breaks operations.",
-    points: [
-      "Segmented guest Wi-Fi",
-      "POS & kiosk uptime",
-      "On-call after-hours response",
-    ],
+    body: "Guest and back-of-house Wi-Fi, segmented POS networks, and documented systems built for your busiest nights.",
+    points: ["Guest and operations separation", "POS and kiosk reliability"],
   },
   {
-    tag: "04 — Manufacturing & Trades",
-    title: "Shop floors, fabricators & field crews",
-    body: "Quiet, monitored infrastructure for small manufacturers, contractors and outdoor outfitters. Office, shop, and remote crews on one accountable plan.",
-    points: [
-      "Site-to-site networking",
-      "Rugged endpoint management",
-      "Workflow automation",
-    ],
+    icon: Hammer,
+    label: "Industry & trades",
+    title: "Manufacturers, contractors & field crews",
+    body: "Quiet infrastructure for office, shop, and remote teams—with rugged device management and accountable support.",
+    points: ["Site-to-site connectivity", "Field-ready device standards"],
   },
 ];
 
-const services = [
+const process = [
   {
-    code: "ID",
-    title: "Microsoft 365 & Identity",
-    body: "Entra, MFA, admin cleanup, account lifecycle, shared mailboxes, safer sign-in.",
+    number: "01",
+    title: "Listen & assess",
+    body: "We learn how the business works, then map accounts, assets, vendors, ownership, risks, and recurring friction.",
   },
   {
-    code: "IT",
-    title: "Managed IT Support",
-    body: "Endpoints, patching, device standards, onboarding/offboarding, recurring issue reduction.",
+    number: "02",
+    title: "Stabilize the essentials",
+    body: "Urgent issues get handled first. We reduce repeat problems and establish a dependable baseline.",
   },
   {
-    code: "SEC",
-    title: "Cybersecurity Baselines",
-    body: "Endpoint protection, least-privilege, security reviews, backup validation, alert routing.",
+    number: "03",
+    title: "Secure & document",
+    body: "Access, devices, protection, backups, and recovery details become safer, clearer, and easier to manage.",
   },
   {
-    code: "NET",
-    title: "Network & Infrastructure",
-    body: "Switching, Wi-Fi, firewall review, DNS, servers, and the physical path between users and services.",
-  },
-  {
-    code: "DOC",
-    title: "Documentation",
-    body: "Assets, accounts, vendors, network details, recovery steps — written down, not remembered.",
-  },
-  {
-    code: "AUTO",
-    title: "Automation & Operations",
-    body: "Alerts, tickets, onboarding, and repeated tasks turned into clean, trackable workflows.",
+    number: "04",
+    title: "Manage & improve",
+    body: "Monitoring, support, reviews, and automation keep the environment useful as your business changes.",
   },
 ];
 
-const method = [
+const faqs = [
   {
-    step: "Assess",
-    body: "Identify accounts, assets, vendors, risks, ownership, and failure points.",
+    question: "Do you replace our current IT provider?",
+    answer:
+      "N45 can become your managed IT partner or work through a scoped transition. The first step is understanding what is working, what is not, and what your team actually needs.",
   },
   {
-    step: "Stabilize",
-    body: "Fix urgent issues, reduce recurring pain, and establish basic control.",
+    question: "Is N45 only for Asheville businesses?",
+    answer:
+      "N45 is based in Leicester and serves organizations across Asheville and Western North Carolina, including Hendersonville, Black Mountain, and the I-26 corridor.",
   },
   {
-    step: "Harden",
-    body: "Implement MFA, safer admin access, endpoint protection, and backups.",
+    question: "Can you help with one specific project?",
+    answer:
+      "Yes. Microsoft 365 cleanup, security reviews, network improvements, documentation, and automation can all begin as focused projects when that is the right fit.",
   },
   {
-    step: "Automate",
-    body: "Turn repeated work and alerts into documented, trackable workflows.",
-  },
-  {
-    step: "Manage",
-    body: "Operate the environment with monitoring, tickets, reviews, and accountability.",
+    question: "What happens during an IT review?",
+    answer:
+      "We start with a practical conversation about your team, systems, risks, and recurring problems. From there, N45 identifies the highest-value next steps without forcing an oversized package.",
   },
 ];
 
 export default function Index() {
+  useEffect(() => {
+    const targetId = window.location.hash.slice(1);
+
+    if (!targetId) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      const target = document.getElementById(targetId);
+
+      if (!target) return;
+
+      const root = document.documentElement;
+      const originalScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      target.scrollIntoView();
+      root.style.scrollBehavior = originalScrollBehavior;
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen overflow-x-clip bg-paper text-ink">
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <Nav />
-      <Hero />
-      <Verticals />
-      <Services />
-      <Method />
-      <Contrast />
-      <CTA />
+      <main id="main-content">
+        <Hero />
+        <Outcomes />
+        <Services />
+        <Industries />
+        <Process />
+        <LocalPromise />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
@@ -128,46 +205,44 @@ export default function Index() {
 
 function Nav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a
-          href="#top"
-          className="flex items-center gap-3"
-          aria-label="N45 Technology Solutions"
-        >
-          <div className="flex items-center gap-3">
-            <img src={n45Mark} alt="" className="h-8 w-8" />
-            <div className="leading-tight">
-              <div className="font-semibold text-foreground">
-                N45 Technology Solutions
-              </div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.10em] text-muted-foreground">
-                Secure · Documented · Managed
-              </div>
-            </div>
-          </div>
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-[88rem] items-center justify-between gap-6 px-5 md:px-8">
+        <a href="#top" aria-label="N45 Technology Solutions home">
+          <img
+            src="/assets/n45-lockup-dark.svg"
+            alt="N45 Technology Solutions"
+            className="h-11 w-auto sm:h-12"
+          />
         </a>
 
-        <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#verticals" className="hover:text-primary">
-            Industries
-          </a>
-          <a href="#services" className="hover:text-primary">
+        <nav
+          aria-label="Primary navigation"
+          className="hidden items-center gap-8 text-sm font-semibold text-ridge lg:flex"
+        >
+          <a className="nav-link" href="#services">
             Services
           </a>
-          <a href="#method" className="hover:text-primary">
-            Method
+          <a className="nav-link" href="#industries">
+            Industries
           </a>
-          <a href="#contact" className="hover:text-primary">
-            Contact
+          <a className="nav-link" href="#approach">
+            Approach
+          </a>
+          <a className="nav-link" href="#about">
+            Why N45
           </a>
         </nav>
 
         <a
           href="#contact"
-          className="rounded-md border border-primary/50 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground"
+          className="group inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:px-5"
         >
-          Request IT review
+          <span className="hidden sm:inline">Plan an IT review</span>
+          <span className="sm:hidden">Let’s talk</span>
+          <ArrowRight
+            aria-hidden="true"
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+          />
         </a>
       </div>
     </header>
@@ -176,123 +251,162 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
+    <section
+      id="top"
+      className="relative isolate min-h-[44rem] bg-ink text-paper"
+    >
+      <div className="absolute inset-0 -z-20">
         <img
           src={heroImg}
-          alt="Blue Ridge mountains at dawn"
+          alt="Layered Blue Ridge Mountains at sunrise"
           width={1920}
-          height={1280}
-          className="h-full w-full object-cover opacity-60"
+          height={1080}
+          fetchPriority="high"
+          className="h-full w-full object-cover object-[58%_center]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background" />
-        <div className="absolute inset-0 grain opacity-40" />
       </div>
+      <div className="hero-overlay absolute inset-0 -z-10" />
+      <div className="absolute inset-0 -z-10 bg-[url('/assets/ridge-pattern.svg')] bg-bottom bg-no-repeat opacity-30 mix-blend-screen" />
 
-      <div className="mx-auto max-w-7xl px-6 pb-28 pt-24 md:pb-40 md:pt-32">
-        <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.3em] text-primary">
-          <span className="h-px w-8 bg-primary" />
-          Secure · Documented · Managed
+      <div className="mx-auto grid min-h-[44rem] max-w-[88rem] items-center gap-16 px-5 py-16 md:px-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(22rem,.6fr)] lg:py-20">
+        <div className="max-w-4xl">
+          <Eyebrow theme="dark">Asheville-based · Western NC focused</Eyebrow>
+          <h1 className="mt-7 max-w-4xl font-display text-[clamp(3.25rem,6.4vw,6.25rem)] leading-[0.93] tracking-[-0.045em] text-balance">
+            Steady IT for the people building{" "}
+            <em className="font-display font-normal text-mint">
+              Western North Carolina.
+            </em>
+          </h1>
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl">
+            N45 brings secure, responsive, plainspoken IT support to independent
+            businesses across Asheville and the mountains—without jargon, scare
+            tactics, or mystery.
+          </p>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a href="#contact" className="button-primary group">
+              Start with an IT review
+              <ArrowRight
+                aria-hidden="true"
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              />
+            </a>
+            <a href="tel:+18285151530" className="button-ghost-light group">
+              <Phone aria-hidden="true" className="h-4 w-4" />
+              (828) 515-1530
+            </a>
+          </div>
+
+          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-paper/70">
+            {[
+              "Local, accountable support",
+              "Security without fear-selling",
+              "Systems documented clearly",
+            ].map((item) => (
+              <span key={item} className="flex items-center gap-2">
+                <Check aria-hidden="true" className="h-4 w-4 text-mint" />
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <h1 className="mt-8 max-w-5xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
-          Managed IT for{" "}
-          <span className="brand-gradient-text">modern operations</span> across
-          Western North Carolina.
-        </h1>
-
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-          From clinics in Asheville to taprooms in Black Mountain and shops in
-          Hendersonville — N45 secures Microsoft 365, manages devices, and
-          documents the systems your staff has been holding together by memory.
-        </p>
-
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href="#contact"
-            className="rounded-md brand-gradient px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
-          >
-            Request an IT review →
-          </a>
-
-          <a
-            href="tel:+18285151530"
-            className="rounded-md border border-border px-6 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary"
-          >
-            Call (828) 515-1530
-          </a>
-        </div>
-
-        <dl className="mt-20 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3">
-          {[
-            {
-              k: "Identity-first",
-              v: "MFA, admin access & sign-in cleanup",
-            },
-            {
-              k: "Documented",
-              v: "Assets, accounts, vendors, recovery",
-            },
-            {
-              k: "Operational",
-              v: "Monitoring, tickets, workflows",
-            },
-          ].map((item) => (
-            <div key={item.k} className="bg-surface p-6">
-              <dt className="font-mono text-xs uppercase tracking-wider text-primary">
-                {item.k}
-              </dt>
-              <dd className="mt-2 text-sm text-muted-foreground">{item.v}</dd>
-            </div>
-          ))}
-        </dl>
+        <aside className="hero-card self-end rounded-[2rem] border border-white/18 bg-ink/70 p-7 backdrop-blur-md md:p-8 lg:self-center">
+          <div className="font-mono text-[0.67rem] font-semibold uppercase tracking-[0.24em] text-sunrise">
+            The N45 standard
+          </div>
+          <h2 className="mt-4 font-display text-4xl leading-none">
+            Secure.
+            <br />
+            Documented.
+            <br />
+            Managed.
+          </h2>
+          <div className="mt-7 divide-y divide-white/12 border-y border-white/12">
+            {[
+              ["01", "Protect the essentials"],
+              ["02", "Write down what matters"],
+              ["03", "Own the follow-through"],
+            ].map(([number, label]) => (
+              <div key={number} className="flex items-center gap-4 py-4">
+                <span className="font-mono text-xs text-mint">{number}</span>
+                <span className="text-sm font-bold text-paper/90">{label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 flex items-start gap-3 text-sm leading-6 text-paper/65">
+            <MapPin
+              aria-hidden="true"
+              className="mt-0.5 h-4 w-4 shrink-0 text-sunrise"
+            />
+            <span>
+              Local to Leicester. Serving greater Asheville and Western North
+              Carolina.
+            </span>
+          </div>
+        </aside>
       </div>
     </section>
   );
 }
 
-function Verticals() {
+function Outcomes() {
+  const outcomes = [
+    {
+      number: "01",
+      title: "Less firefighting",
+      body: "Recurring issues become fixes, standards, and a better day-to-day experience.",
+    },
+    {
+      number: "02",
+      title: "Less uncertainty",
+      body: "Accounts, devices, vendors, and recovery details have a clear owner and record.",
+    },
+    {
+      number: "03",
+      title: "A clearer next step",
+      body: "Security and technology decisions are prioritized by business risk—not a sales quota.",
+    },
+  ];
+
   return (
-    <section
-      id="verticals"
-      className="border-t border-border bg-surface/40 py-24 md:py-32"
-    >
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionLabel>Industries we serve</SectionLabel>
-
-        <h2 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-balance md:text-6xl">
-          Built around four kinds of WNC business.
-        </h2>
-
-        <p className="mt-6 max-w-2xl text-muted-foreground">
-          N45 stays narrow on purpose. These are the operations we know, the
-          regulators we read, and the failure modes we have already seen.
-        </p>
-
-        <div className="mt-16 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
-          {verticals.map((vertical) => (
-            <article
-              key={vertical.tag}
-              className="group bg-background p-8 transition hover:bg-surface md:p-10"
+    <section className="relative bg-paper py-24 md:py-32">
+      <div className="mx-auto max-w-[88rem] px-5 md:px-8">
+        <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
+          <div>
+            <Eyebrow>The work behind the work</Eyebrow>
+            <h2 className="mt-6 max-w-3xl font-display text-4xl leading-[1.02] tracking-tight text-balance sm:text-5xl md:text-6xl">
+              Your business should not depend on the one person who remembers
+              how everything works.
+            </h2>
+          </div>
+          <div className="max-w-2xl lg:justify-self-end">
+            <p className="text-lg leading-8 text-ridge">
+              When technology is reactive, everyone feels it. N45 turns the
+              hidden systems behind your business into a stable, protected, and
+              understandable operation—so your team can focus on the work
+              customers actually hired you to do.
+            </p>
+            <a
+              href="#approach"
+              className="text-link mt-7 inline-flex items-center gap-2"
             >
-              <div className="font-mono text-xs uppercase tracking-wider text-primary">
-                {vertical.tag}
+              See how N45 works
+              <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-16 grid overflow-hidden rounded-[2rem] border border-ink/10 bg-ink/10 md:grid-cols-3 md:gap-px">
+          {outcomes.map((outcome) => (
+            <article key={outcome.number} className="bg-mist p-7 md:p-9">
+              <div className="font-mono text-xs font-semibold text-teal">
+                {outcome.number}
               </div>
-
-              <h3 className="mt-4 font-display text-2xl text-balance md:text-3xl">
-                {vertical.title}
+              <h3 className="mt-8 font-display text-3xl tracking-tight">
+                {outcome.title}
               </h3>
-
-              <p className="mt-4 text-muted-foreground">{vertical.body}</p>
-
-              <ul className="mt-6 space-y-2 border-t border-border pt-6">
-                {vertical.points.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm">
-                    <span className="mt-1.5 h-1 w-4 bg-primary" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-3 leading-7 text-ridge">{outcome.body}</p>
             </article>
           ))}
         </div>
@@ -303,134 +417,256 @@ function Verticals() {
 
 function Services() {
   return (
-    <section id="services" className="border-t border-border py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-20">
-          <div className="md:sticky md:top-28 md:self-start">
-            <SectionLabel>Core services</SectionLabel>
-
-            <h2 className="mt-6 font-display text-4xl leading-tight text-balance md:text-5xl">
-              Managed IT with a security and operations bias.
+    <section id="services" className="bg-ink py-24 text-paper md:py-32">
+      <div className="mx-auto max-w-[88rem] px-5 md:px-8">
+        <div className="grid gap-12 lg:grid-cols-[.68fr_1.32fr] lg:gap-20">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <Eyebrow theme="dark">What we manage</Eyebrow>
+            <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-6xl">
+              Your whole environment, with no black box.
             </h2>
+            <p className="mt-6 max-w-md text-lg leading-8 text-paper/68">
+              Good IT should feel almost invisible: fewer interruptions, safer
+              decisions, and clear answers when something changes.
+            </p>
+            <a href="#contact" className="button-outline-mint mt-9">
+              Talk through your setup
+              <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </a>
+          </div>
 
-            <p className="mt-6 text-muted-foreground">
-              The goal is not more dashboards. The goal is an environment that
-              is easier to manage, easier to secure, and easier to support —
-              month after month.
+          <div className="grid gap-4 md:grid-cols-2">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <article key={service.number} className="service-card group">
+                  <div className="flex items-start justify-between gap-6">
+                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-mint/12 text-mint ring-1 ring-mint/20">
+                      <Icon aria-hidden="true" className="h-5 w-5" />
+                    </span>
+                    <span className="font-mono text-xs text-paper/40">
+                      {service.number}
+                    </span>
+                  </div>
+                  <h3 className="mt-8 font-display text-3xl tracking-tight">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-paper/62">{service.body}</p>
+                  <p className="mt-7 border-t border-white/10 pt-5 text-sm font-bold leading-6 text-mint">
+                    {service.outcome}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Industries() {
+  return (
+    <section id="industries" className="bg-paper py-24 md:py-32">
+      <div className="mx-auto max-w-[88rem] px-5 md:px-8">
+        <div className="max-w-4xl">
+          <Eyebrow>Built for Western North Carolina</Eyebrow>
+          <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
+            Technology shaped around how local business actually runs.
+          </h2>
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-ridge">
+            N45 stays close to the operations we understand—places where trust,
+            uptime, confidentiality, and a real human response matter.
+          </p>
+        </div>
+
+        <div className="mt-16 grid gap-5 md:grid-cols-2">
+          {industries.map((industry) => {
+            const Icon = industry.icon;
+            return (
+              <article key={industry.label} className="industry-card">
+                <div className="flex items-center gap-3 text-teal">
+                  <Icon aria-hidden="true" className="h-5 w-5" />
+                  <span className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.18em]">
+                    {industry.label}
+                  </span>
+                </div>
+                <h3 className="mt-8 max-w-lg font-display text-3xl leading-tight tracking-tight md:text-4xl">
+                  {industry.title}
+                </h3>
+                <p className="mt-5 max-w-xl leading-7 text-ridge">
+                  {industry.body}
+                </p>
+                <ul className="mt-8 grid gap-3 border-t border-ink/10 pt-6 sm:grid-cols-2">
+                  {industry.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-2 text-sm font-bold text-ink/78"
+                    >
+                      <Check
+                        aria-hidden="true"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-teal"
+                      />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Process() {
+  return (
+    <section
+      id="approach"
+      className="relative overflow-hidden bg-mist py-24 md:py-32"
+    >
+      <div className="absolute inset-x-0 bottom-0 h-64 bg-[url('/assets/ridge-pattern.svg')] bg-cover bg-bottom opacity-50" />
+      <div className="relative mx-auto max-w-[88rem] px-5 md:px-8">
+        <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+          <div>
+            <Eyebrow>A practical path forward</Eyebrow>
+            <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
+              From reactive to ready, one clear step at a time.
+            </h2>
+            <p className="mt-7 max-w-lg text-lg leading-8 text-ridge">
+              N45 fixes the foundation before stacking on more tools. The result
+              is easier to manage, easier to support, and more resilient over
+              time.
             </p>
           </div>
 
-          <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
-            {services.map((service) => (
-              <div key={service.code} className="bg-background p-6">
-                <div className="font-mono text-xs text-primary">
-                  {service.code}
+          <ol className="overflow-hidden rounded-[2rem] border border-ink/10 bg-paper shadow-[0_24px_80px_rgba(10,36,35,0.08)]">
+            {process.map((item) => (
+              <li key={item.number} className="process-row">
+                <span className="font-mono text-xs font-semibold text-teal">
+                  {item.number}
+                </span>
+                <div>
+                  <h3 className="font-display text-3xl tracking-tight md:text-4xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-2xl leading-7 text-ridge">
+                    {item.body}
+                  </p>
                 </div>
-                <h3 className="mt-3 font-display text-xl">{service.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {service.body}
-                </p>
-              </div>
+                <ChevronRight
+                  aria-hidden="true"
+                  className="mt-2 hidden h-5 w-5 text-teal/50 sm:block"
+                />
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
     </section>
   );
 }
 
-function Method() {
-  return (
-    <section
-      id="method"
-      className="border-t border-border bg-surface/40 py-24 md:py-32"
-    >
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionLabel>The N45 method</SectionLabel>
-
-        <h2 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-balance md:text-6xl">
-          Assess. Stabilize. Harden. Automate. Manage.
-        </h2>
-
-        <p className="mt-6 max-w-2xl text-muted-foreground">
-          The operating sequence. It prevents the common mistake of stacking
-          more tools on top of an unclear foundation.
-        </p>
-
-        <ol className="mt-16 space-y-px overflow-hidden rounded-xl border border-border bg-border">
-          {method.map((item, index) => (
-            <li
-              key={item.step}
-              className="grid grid-cols-[3rem_1fr] items-start gap-6 bg-background p-6 md:grid-cols-[6rem_10rem_1fr] md:p-8"
-            >
-              <span className="font-mono text-sm text-muted-foreground">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <h3 className="font-display text-2xl text-primary md:text-3xl">
-                {item.step}
-              </h3>
-
-              <p className="col-span-2 text-muted-foreground md:col-span-1">
-                {item.body}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
-function Contrast() {
-  const rows = [
-    [
-      "Support responds, same issues return.",
-      "Recurring issues become documented fixes & standards.",
-    ],
-    [
-      "Tools added without cleaning up access.",
-      "Identity, MFA & admin access come first.",
-    ],
-    [
-      "Documentation lives in someone's head.",
-      "Assets, vendors & recovery details are written down.",
-    ],
-    [
-      "Security sold as an oversized package.",
-      "Practical controls prioritized by actual risk.",
-    ],
+function LocalPromise() {
+  const promises = [
+    "You get a direct answer, not a maze of handoffs.",
+    "Recommendations fit your real risk, team, and budget.",
+    "Documentation belongs to the operation—not one technician.",
+    "Recurring problems are tracked back to their cause.",
   ];
 
   return (
-    <section className="border-t border-border py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionLabel>What should feel different</SectionLabel>
+    <section
+      id="about"
+      className="relative overflow-hidden bg-spruce py-24 text-paper md:py-32"
+    >
+      <div className="absolute inset-0 bg-[url('/assets/ridge-pattern.svg')] bg-cover bg-center opacity-35" />
+      <div className="relative mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-24">
+        <div>
+          <Eyebrow theme="dark">Why N45</Eyebrow>
+          <h2 className="mt-6 max-w-3xl font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
+            Rooted here. Built to show up.
+          </h2>
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-paper/70">
+            Asheville businesses value craft, independence, and relationships
+            that hold up over time. N45 brings that same mentality to IT: do the
+            work carefully, explain it plainly, and stay accountable after the
+            urgent moment has passed.
+          </p>
 
-        <h2 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-balance md:text-5xl">
-          Most IT support gets the ticket closed. N45 cleans the cause.
-        </h2>
-
-        <div className="mt-16 overflow-hidden rounded-xl border border-border">
-          <div className="grid grid-cols-2 border-b border-border bg-surface text-xs uppercase tracking-wider text-muted-foreground">
-            <div className="p-4">Common experience elsewhere</div>
-            <div className="border-l border-border bg-primary/5 p-4 text-primary">
-              With N45
-            </div>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <a href="#contact" className="button-primary group">
+              Meet your local IT partner
+              <ArrowRight
+                aria-hidden="true"
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              />
+            </a>
+            <a href="mailto:hello@n45tech.com" className="button-ghost-light">
+              <Mail aria-hidden="true" className="h-4 w-4" />
+              Email N45
+            </a>
           </div>
+        </div>
 
-          {rows.map(([before, after], index) => (
-            <div
-              key={before}
-              className={`grid grid-cols-2 ${
-                index < rows.length - 1 ? "border-b border-border" : ""
-              }`}
-            >
-              <div className="p-6 text-muted-foreground">{before}</div>
-              <div className="border-l border-border bg-surface/50 p-6">
-                {after}
-              </div>
-            </div>
+        <div className="rounded-[2rem] border border-white/12 bg-ink/45 p-7 backdrop-blur-sm md:p-10">
+          <div className="flex items-center gap-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-sunrise">
+            <Building2 aria-hidden="true" className="h-4 w-4" />
+            What good IT should feel like
+          </div>
+          <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
+            {promises.map((promise) => (
+              <li key={promise} className="flex items-start gap-4 py-5">
+                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-mint text-ink">
+                  <Check
+                    aria-hidden="true"
+                    className="h-3.5 w-3.5 stroke-[3]"
+                  />
+                </span>
+                <span className="leading-7 text-paper/82">{promise}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-7 flex items-start gap-3 text-sm leading-6 text-paper/60">
+            <MapPin
+              aria-hidden="true"
+              className="mt-0.5 h-4 w-4 shrink-0 text-sunrise"
+            />
+            <span>2520 New Leicester Highway, Ste 9 · Leicester, NC 28748</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  return (
+    <section className="bg-paper py-24 md:py-32">
+      <div className="mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-24">
+        <div>
+          <Eyebrow>Common questions</Eyebrow>
+          <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight md:text-6xl">
+            A few things worth knowing.
+          </h2>
+          <p className="mt-6 max-w-md leading-7 text-ridge">
+            No hard sell and no oversized first step. The goal is to understand
+            the situation and recommend a practical way forward.
+          </p>
+        </div>
+
+        <div className="divide-y divide-ink/12 border-y border-ink/12">
+          {faqs.map((faq) => (
+            <details key={faq.question} className="faq group">
+              <summary>
+                <span>{faq.question}</span>
+                <span className="faq-icon" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p>{faq.answer}</p>
+            </details>
           ))}
         </div>
       </div>
@@ -438,7 +674,7 @@ function Contrast() {
   );
 }
 
-function CTA() {
+function Contact() {
   const [submitState, setSubmitState] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -446,12 +682,9 @@ function CTA() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
     const form = event.currentTarget;
 
-    if (!form.reportValidity()) {
-      return;
-    }
+    if (!form.reportValidity()) return;
 
     const formData = new FormData(form);
     const honeypot = String(formData.get("website") ?? "").trim();
@@ -495,9 +728,9 @@ function CTA() {
           to: "hello@n45tech.com",
           from: CONTACT_FROM_EMAIL,
           replyTo: email,
-          subject: `IT review request from ${
-            businessName || contactName || "N45 website"
-          }`,
+          subject:
+            "IT review request from " +
+            (businessName || contactName || "N45 website"),
           source: "n45-site",
           submittedAt: new Date().toISOString(),
         }),
@@ -528,63 +761,33 @@ function CTA() {
   }
 
   return (
-    <section
-      id="contact"
-      className="border-t border-border bg-surface py-24 md:py-32"
-    >
-      <div className="mx-auto grid max-w-7xl gap-16 px-6 md:grid-cols-2">
+    <section id="contact" className="bg-sunrise py-24 md:py-32">
+      <div className="mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[.82fr_1.18fr] lg:gap-24">
         <div>
-          <SectionLabel>Start with an IT review</SectionLabel>
-
-          <h2 className="mt-6 font-display text-4xl leading-tight text-balance md:text-6xl">
-            Tell us what's messy, risky, or unclear.
+          <Eyebrow>Start a conversation</Eyebrow>
+          <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
+            Tell us what feels messy, risky, or unclear.
           </h2>
-
-          <p className="mt-6 max-w-md text-muted-foreground">
-            N45 will review your current systems, identify the highest-risk
-            gaps, and give you a practical next-step plan. No oversized
-            proposal.
+          <p className="mt-7 max-w-lg text-lg leading-8 text-ink/70">
+            We will start with the business problem, look at the systems behind
+            it, and give you a practical next step. No jargon-heavy pitch
+            required.
           </p>
 
-          <dl className="mt-12 space-y-6 text-sm">
-            <div>
-              <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                Phone
-              </dt>
-              <dd className="mt-1">
-                <a
-                  className="text-foreground hover:text-primary"
-                  href="tel:+18285151530"
-                >
-                  (828) 515-1530
-                </a>
-              </dd>
-            </div>
-
-            <div>
-              <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                Email
-              </dt>
-              <dd className="mt-1">
-                <a
-                  className="text-foreground hover:text-primary"
-                  href="mailto:hello@n45tech.com"
-                >
-                  hello@n45tech.com
-                </a>
-              </dd>
-            </div>
-
-            <div>
-              <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                Mailing
-              </dt>
-              <dd className="mt-1 text-foreground">
-                2520 New Leicester Highway, Ste 9
-                <br />
-                Leicester, NC 28748
-              </dd>
-            </div>
+          <dl className="mt-10 space-y-5 text-sm">
+            <ContactDetail icon={Phone} label="Call" href="tel:+18285151530">
+              (828) 515-1530
+            </ContactDetail>
+            <ContactDetail
+              icon={Mail}
+              label="Email"
+              href="mailto:hello@n45tech.com"
+            >
+              hello@n45tech.com
+            </ContactDetail>
+            <ContactDetail icon={MapPin} label="Based in">
+              Leicester, North Carolina
+            </ContactDetail>
           </dl>
         </div>
 
@@ -592,25 +795,23 @@ function CTA() {
           id="contact-form"
           onSubmit={handleSubmit}
           noValidate
-          className="relative rounded-xl border border-border bg-background p-6 md:p-8"
+          className="relative rounded-[2rem] bg-paper p-6 shadow-[0_30px_90px_rgba(10,36,35,0.18)] md:p-10"
         >
-          <div className="grid gap-5">
+          <div className="grid gap-5 sm:grid-cols-2">
             <Field
               label="Business name"
               name="businessName"
               autoComplete="organization"
               maxLength={150}
             />
-
             <Field
               label="Your name"
               name="contactName"
               autoComplete="name"
               maxLength={120}
             />
-
             <Field
-              label="Email"
+              label="Work email"
               name="email"
               type="email"
               autoComplete="email"
@@ -618,25 +819,21 @@ function CTA() {
             />
 
             <div>
-              <label
-                htmlFor="contact-topic"
-                className="font-mono text-xs uppercase tracking-wider text-muted-foreground"
-              >
-                What do you need help with?
+              <label htmlFor="contact-topic" className="field-label">
+                What can we help with?
               </label>
-
               <select
                 id="contact-topic"
                 name="topic"
                 required
                 defaultValue=""
-                className="mt-2 w-full rounded-md border border-border bg-surface px-3 py-3 text-sm text-foreground focus:border-primary focus:outline-none"
+                className="field-control"
               >
                 <option value="" disabled>
                   Select one
                 </option>
                 <option value="IT review / current provider concerns">
-                  IT review / current provider concerns
+                  IT review / current provider
                 </option>
                 <option value="Microsoft 365 / account security">
                   Microsoft 365 / account security
@@ -646,79 +843,79 @@ function CTA() {
                   Cybersecurity / endpoint protection
                 </option>
                 <option value="Network or infrastructure issue">
-                  Network or infrastructure issue
+                  Network or infrastructure
                 </option>
                 <option value="Automation / documentation cleanup">
-                  Automation / documentation cleanup
+                  Automation / documentation
                 </option>
               </select>
             </div>
 
-            <div>
-              <label
-                htmlFor="contact-message"
-                className="font-mono text-xs uppercase tracking-wider text-muted-foreground"
-              >
-                Briefly describe the situation
+            <div className="sm:col-span-2">
+              <label htmlFor="contact-message" className="field-label">
+                What is going on?
               </label>
-
               <textarea
                 id="contact-message"
                 name="message"
                 rows={5}
                 required
                 maxLength={5000}
-                className="mt-2 w-full rounded-md border border-border bg-surface px-3 py-3 text-sm text-foreground focus:border-primary focus:outline-none"
+                placeholder="A few details about your team, systems, or current challenge…"
+                className="field-control resize-y"
               />
             </div>
 
-            <div
-              aria-hidden="true"
-              className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden"
-            >
+            <div aria-hidden="true" className="honeypot">
               <label htmlFor="contact-website">Website</label>
               <input
                 id="contact-website"
-                type="text"
                 name="website"
                 tabIndex={-1}
                 autoComplete="off"
               />
             </div>
 
-            <button
-              type="submit"
-              disabled={submitState === "sending"}
-              className="mt-2 rounded-md brand-gradient px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {submitState === "sending" ? "Sending…" : "Send message →"}
-            </button>
-
-            <p
-              role="status"
-              aria-live="polite"
-              className={
-                submitState === "error"
-                  ? "text-sm text-destructive"
-                  : submitState === "success"
-                    ? "text-sm text-primary"
-                    : "min-h-5 text-sm text-muted-foreground"
-              }
-            >
-              {statusMessage}
-            </p>
-
-            <p className="text-xs leading-relaxed text-muted-foreground">
-              This securely sends your message to N45.
-              For urgent assistance, call{" "}
-              <a
-                href="tel:+18285151530"
-                className="text-foreground hover:text-primary"
+            <div className="sm:col-span-2">
+              <button
+                type="submit"
+                disabled={submitState === "sending"}
+                className="button-dark group w-full justify-center sm:w-auto"
               >
-                (828) 515-1530
-              </a>
-              .
-            </p>
+                {submitState === "sending" ? "Sending…" : "Send my request"}
+                {submitState !== "sending" && (
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                  />
+                )}
+              </button>
+
+              <p
+                role="status"
+                aria-live="polite"
+                className={
+                  "mt-4 min-h-6 text-sm font-semibold " +
+                  (submitState === "error"
+                    ? "text-red-700"
+                    : submitState === "success"
+                      ? "text-teal"
+                      : "text-ridge")
+                }
+              >
+                {statusMessage}
+              </p>
+              <p className="mt-2 text-xs leading-5 text-ridge">
+                Your note goes directly to N45. For urgent assistance, call{" "}
+                <a
+                  href="tel:+18285151530"
+                  className="font-bold text-ink underline underline-offset-2"
+                >
+                  (828) 515-1530
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </form>
       </div>
@@ -739,17 +936,12 @@ function Field({
   autoComplete?: string;
   maxLength?: number;
 }) {
-  const id = `contact-${name}`;
-
+  const id = "contact-" + name;
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="font-mono text-xs uppercase tracking-wider text-muted-foreground"
-      >
+      <label htmlFor={id} className="field-label">
         {label}
       </label>
-
       <input
         id={id}
         name={name}
@@ -757,16 +949,66 @@ function Field({
         required
         autoComplete={autoComplete}
         maxLength={maxLength}
-        className="mt-2 w-full rounded-md border border-border bg-surface px-3 py-3 text-sm text-foreground focus:border-primary focus:outline-none"
+        className="field-control"
       />
     </div>
   );
 }
 
-function SectionLabel({ children }: { children: ReactNode }) {
+function ContactDetail({
+  icon: Icon,
+  label,
+  href,
+  children,
+}: {
+  icon: LucideIcon;
+  label: string;
+  href?: string;
+  children: ReactNode;
+}) {
+  const content = (
+    <span className="text-base font-extrabold text-ink">{children}</span>
+  );
   return (
-    <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-primary">
-      <span className="h-px w-8 bg-primary" />
+    <div className="flex items-center gap-4">
+      <span className="grid h-10 w-10 place-items-center rounded-full border border-ink/15">
+        <Icon aria-hidden="true" className="h-4 w-4" />
+      </span>
+      <div>
+        <dt className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink/55">
+          {label}
+        </dt>
+        <dd className="mt-1">
+          {href ? (
+            <a href={href} className="hover:text-teal">
+              {content}
+            </a>
+          ) : (
+            content
+          )}
+        </dd>
+      </div>
+    </div>
+  );
+}
+
+function Eyebrow({
+  children,
+  theme = "light",
+}: {
+  children: ReactNode;
+  theme?: "light" | "dark";
+}) {
+  return (
+    <div
+      className={
+        "flex items-center gap-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] " +
+        (theme === "dark" ? "text-mint" : "text-teal")
+      }
+    >
+      <span
+        className={"h-px w-8 " + (theme === "dark" ? "bg-mint" : "bg-teal")}
+      />
       {children}
     </div>
   );
@@ -774,23 +1016,28 @@ function SectionLabel({ children }: { children: ReactNode }) {
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-background py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row md:items-center">
-        <div className="flex items-center gap-3">
-          <img src={n45Mark} alt="" className="h-8 w-8" />
-          <div className="leading-tight">
-            <div className="font-semibold text-foreground">
-              N45 Technology Solutions
-            </div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              Secure · Documented · Managed
-            </div>
-          </div>
+    <footer className="bg-ink py-12 text-paper">
+      <div className="mx-auto flex max-w-[88rem] flex-col gap-10 px-5 md:px-8 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <img
+            src="/assets/n45-lockup-light.svg"
+            alt="N45 Technology Solutions"
+            className="h-14 w-auto"
+          />
+          <p className="mt-6 max-w-md text-sm leading-6 text-paper/55">
+            Secure, documented, managed IT for the people building Western North
+            Carolina.
+          </p>
         </div>
 
-        <div>
-          © {new Date().getFullYear()} N45 Tech · Leicester, NC · Managed IT for
-          Western North Carolina
+        <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:items-center sm:gap-8">
+          <a href="tel:+18285151530" className="hover:text-mint">
+            (828) 515-1530
+          </a>
+          <a href="mailto:hello@n45tech.com" className="hover:text-mint">
+            hello@n45tech.com
+          </a>
+          <span>© {new Date().getFullYear()} N45 Tech</span>
         </div>
       </div>
     </footer>

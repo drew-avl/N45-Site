@@ -19,11 +19,48 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "N45 PSA",
+        title: "N45 Technology Solutions | Managed IT for Western NC",
       },
       {
         name: "description",
-        content: "N45 Technology Solutions professional services automation platform",
+        content:
+          "Plainspoken managed IT, Microsoft 365, cybersecurity, networks, and documentation for independent businesses across Asheville and Western North Carolina.",
+      },
+      {
+        name: "theme-color",
+        content: "#0a2423",
+      },
+      {
+        property: "og:title",
+        content: "N45 Technology Solutions | Managed IT for Western NC",
+      },
+      {
+        property: "og:description",
+        content:
+          "Steady, secure, documented IT for the people building Western North Carolina.",
+      },
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:image",
+        content: "https://n45tech.com/assets/hero-mountains.jpg",
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://n45tech.com/",
+      },
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/assets/favicon.svg",
       },
     ],
   }),
