@@ -147,7 +147,7 @@ const faqs = [
   {
     question: "Is N45 only for Asheville businesses?",
     answer:
-      "N45 is based in Leicester and serves organizations across Asheville and Western North Carolina, including Hendersonville, Black Mountain, and the I-26 corridor.",
+      "N45 is based in the Asheville area and serves organizations across Western North Carolina, including Hendersonville, Black Mountain, and the I-26 corridor.",
   },
   {
     question: "Can you help with one specific project?",
@@ -364,10 +364,7 @@ function Hero() {
               aria-hidden="true"
               className="mt-0.5 h-4 w-4 shrink-0 text-sunrise"
             />
-            <span>
-              Local to Leicester. Serving greater Asheville and Western North
-              Carolina.
-            </span>
+            <span>Local to Asheville. Serving Western North Carolina.</span>
           </div>
         </aside>
       </div>
@@ -628,9 +625,9 @@ function LocalPromise() {
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
               />
             </a>
-            <a href="mailto:hello@n45tech.com" className="button-ghost-light">
-              <Mail aria-hidden="true" className="h-4 w-4" />
-              Email N45
+            <a href="tel:+18285151530" className="button-ghost-light">
+              <Phone aria-hidden="true" className="h-4 w-4" />
+              (828) 515-1530
             </a>
           </div>
         </div>
@@ -653,13 +650,6 @@ function LocalPromise() {
               </li>
             ))}
           </ul>
-          <div className="mt-7 flex items-start gap-3 text-sm leading-6 text-paper/60">
-            <MapPin
-              aria-hidden="true"
-              className="mt-0.5 h-4 w-4 shrink-0 text-sunrise"
-            />
-            <span>2520 New Leicester Highway, Ste 9 · Leicester, NC 28748</span>
-          </div>
         </div>
       </div>
     </section>
@@ -810,8 +800,8 @@ function Contact() {
             >
               hello@n45tech.com
             </ContactDetail>
-            <ContactDetail icon={MapPin} label="Based in">
-              Leicester, North Carolina
+            <ContactDetail icon={MapPin} label="Local to">
+              Asheville, North Carolina
             </ContactDetail>
           </dl>
         </div>
