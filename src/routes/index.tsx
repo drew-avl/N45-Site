@@ -206,14 +206,8 @@ export default function Index() {
 function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-[88rem] items-center justify-between gap-6 px-5 md:px-8">
-        <a href="#top" aria-label="N45 Technology Solutions home">
-          <img
-            src="/assets/n45-lockup-dark.svg"
-            alt="N45 Technology Solutions"
-            className="h-11 w-auto sm:h-12"
-          />
-        </a>
+      <div className="mx-auto flex h-20 max-w-[88rem] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-5 md:px-8">
+        <HeaderLogo />
 
         <nav
           aria-label="Primary navigation"
@@ -235,7 +229,7 @@ function Nav() {
 
         <a
           href="#contact"
-          className="group inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:px-5"
+          className="group inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
         >
           <span className="hidden sm:inline">Plan an IT review</span>
           <span className="sm:hidden">Let’s talk</span>
@@ -246,6 +240,39 @@ function Nav() {
         </a>
       </div>
     </header>
+  );
+}
+
+function HeaderLogo() {
+  return (
+    <a
+      href="#top"
+      aria-label="N45 Technology Solutions home"
+      className="flex shrink-0 items-center gap-2.5"
+    >
+      <img
+        src="/assets/n45-mark.svg"
+        alt=""
+        aria-hidden="true"
+        className="h-10 w-10 shrink-0 sm:h-12 sm:w-12 lg:h-14 lg:w-14"
+      />
+      <span className="w-[9.25rem] sm:w-[11.25rem] lg:w-[13.5rem]">
+        <span className="flex items-baseline justify-between gap-1.5 whitespace-nowrap leading-none text-ink">
+          <span className="text-[1.35rem] font-extrabold tracking-[-0.06em] sm:text-2xl lg:text-[1.7rem]">
+            N45
+          </span>
+          <span className="text-[0.62rem] font-extrabold tracking-[-0.025em] sm:text-xs lg:text-sm">
+            Technology Solutions
+          </span>
+        </span>
+        <span className="mt-1 block h-px w-full bg-ink/15" />
+        <span className="mt-1 hidden w-full items-center justify-between font-mono text-[0.5rem] font-semibold uppercase tracking-[0.12em] text-ridge sm:flex lg:text-[0.56rem]">
+          <span>Secure</span>
+          <span>Documented</span>
+          <span className="-mr-1">Managed</span>
+        </span>
+      </span>
+    </a>
   );
 }
 
@@ -1022,7 +1049,7 @@ function Footer() {
           <img
             src="/assets/n45-lockup-light.svg"
             alt="N45 Technology Solutions"
-            className="h-14 w-auto"
+            className="h-16 w-auto"
           />
           <p className="mt-6 max-w-md text-sm leading-6 text-paper/55">
             Secure, documented, managed IT for the people building Western North
