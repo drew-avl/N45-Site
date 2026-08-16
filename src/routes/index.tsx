@@ -232,7 +232,7 @@ function Nav() {
           className="group inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
         >
           <span className="hidden sm:inline">Plan an IT review</span>
-          <span className="sm:hidden">Let’s talk</span>
+          <span className="sm:hidden">Talk</span>
           <ArrowRight
             aria-hidden="true"
             className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
@@ -248,28 +248,26 @@ function HeaderLogo() {
     <a
       href="#top"
       aria-label="N45 Technology Solutions home"
-      className="flex shrink-0 items-center gap-2.5"
+      className="flex shrink-0 items-center gap-2.5 sm:gap-3"
     >
       <img
         src="/assets/n45-mark.svg"
         alt=""
         aria-hidden="true"
-        className="h-10 w-10 shrink-0 sm:h-12 sm:w-12 lg:h-14 lg:w-14"
+        className="h-12 w-12 shrink-0 lg:h-14 lg:w-14"
       />
-      <span className="w-[9.25rem] sm:w-[11.25rem] lg:w-[13.5rem]">
-        <span className="flex items-baseline justify-between gap-1.5 whitespace-nowrap leading-none text-ink">
-          <span className="text-[1.35rem] font-extrabold tracking-[-0.06em] sm:text-2xl lg:text-[1.7rem]">
+      <span>
+        <span className="flex items-baseline gap-2 whitespace-nowrap leading-none text-ink sm:gap-2.5 lg:gap-3">
+          <span className="text-2xl font-extrabold tracking-[-0.06em] lg:text-[1.7rem]">
             N45
           </span>
-          <span className="text-[0.62rem] font-extrabold tracking-[-0.025em] sm:text-xs lg:text-sm">
+          <span className="text-[0.67rem] font-extrabold tracking-[-0.025em] sm:text-xs lg:text-sm">
             Technology Solutions
           </span>
         </span>
         <span className="mt-1 block h-px w-full bg-ink/15" />
-        <span className="mt-1 hidden w-full items-center justify-between font-mono text-[0.5rem] font-semibold uppercase tracking-[0.12em] text-ridge sm:flex lg:text-[0.56rem]">
-          <span>Secure</span>
-          <span>Documented</span>
-          <span className="-mr-1">Managed</span>
+        <span className="mt-1 hidden whitespace-nowrap font-mono text-[0.5rem] font-semibold uppercase tracking-[0.1em] text-ridge sm:block lg:text-[0.56rem]">
+          Asheville Area · Western North Carolina
         </span>
       </span>
     </a>
