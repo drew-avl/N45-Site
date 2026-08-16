@@ -4,7 +4,7 @@
 
 N45 should feel like Western North Carolina at its best: capable, independent, grounded, and quietly modern. The identity combines a precise 45-degree line with the steady profile of an `N`. The warm point is a sunrise and a directional marker—a small signal that N45 helps clients find the next practical step.
 
-The regional signature is `Asheville Area · Western North Carolina`. Use it beneath the primary wordmark when space allows; omit it in compact placements rather than compressing or artificially stretching the text.
+The regional signature is `Serving Western North Carolina`. Use it beneath the primary wordmark when space allows; omit it in compact placements rather than compressing or artificially stretching the text.
 
 ## Logo files
 
