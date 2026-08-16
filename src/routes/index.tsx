@@ -267,7 +267,7 @@ function HeaderLogo() {
         </span>
         <span className="mt-1 block h-px w-full bg-ink/15" />
         <span className="mt-1 hidden whitespace-nowrap font-mono text-[0.5rem] font-semibold uppercase tracking-[0.1em] text-ridge sm:block lg:text-[0.56rem]">
-          Asheville Area · Western North Carolina
+          Serving Western North Carolina
         </span>
       </span>
     </a>
