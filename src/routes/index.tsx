@@ -256,12 +256,12 @@ function HeaderLogo() {
         aria-hidden="true"
         className="h-12 w-12 shrink-0 lg:h-14 lg:w-14"
       />
-      <span>
+      <span className="relative block sm:-top-[3px]">
         <span className="flex items-baseline gap-2 whitespace-nowrap leading-none text-ink sm:gap-2.5 lg:gap-3">
           <span className="text-2xl font-extrabold tracking-[-0.06em] lg:text-[1.7rem]">
             N45
           </span>
-          <span className="text-[0.67rem] font-extrabold tracking-[-0.025em] sm:text-xs lg:text-sm">
+          <span className="relative -top-px text-[0.67rem] font-extrabold tracking-[-0.025em] sm:text-xs lg:text-sm">
             Technology Solutions
           </span>
         </span>
