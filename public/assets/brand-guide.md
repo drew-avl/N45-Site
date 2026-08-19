@@ -11,6 +11,7 @@ The regional signature is `Serving Western North Carolina`. Use it beneath the p
 - `n45-mark.svg`: standalone mark for avatars, app icons, and compact placements
 - `n45-lockup-dark.svg`: primary lockup for light and warm backgrounds
 - `n45-lockup-light.svg`: reversed lockup for dark green or photographic backgrounds
+- `n45-syncro-logo.png`: high-resolution raster lockup for portals, email clients, and other systems that cannot reliably display SVG
 - `favicon.svg`: simplified small-format mark
 - `ridge-pattern.svg`: supporting topographic/ridgeline texture
 
