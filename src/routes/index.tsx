@@ -248,28 +248,14 @@ function HeaderLogo() {
     <a
       href="#top"
       aria-label="N45 Technology Solutions home"
-      className="flex shrink-0 items-center gap-2.5 sm:gap-3"
+      className="block shrink-0"
     >
       <img
-        src="/assets/n45-mark.svg"
+        src="/assets/n45-lockup-dark.svg"
         alt=""
         aria-hidden="true"
-        className="h-12 w-12 shrink-0 lg:h-14 lg:w-14"
+        className="h-12 w-auto sm:h-14 lg:h-16"
       />
-      <span className="relative block sm:-top-[3px]">
-        <span className="flex items-center gap-2 whitespace-nowrap leading-none text-ink sm:gap-2.5 lg:gap-3">
-          <span className="text-2xl font-extrabold tracking-[-0.06em] lg:text-[1.7rem]">
-            N45
-          </span>
-          <span className="text-[0.67rem] font-extrabold tracking-[-0.025em] sm:text-xs lg:text-sm">
-            Technology Solutions
-          </span>
-        </span>
-        <span className="mt-1 block h-px w-full bg-ink/15" />
-        <span className="mt-1 hidden whitespace-nowrap font-mono text-[0.5rem] font-semibold uppercase tracking-[0.1em] text-ridge sm:block lg:text-[0.56rem]">
-          Serving Western North Carolina
-        </span>
-      </span>
     </a>
   );
 }
