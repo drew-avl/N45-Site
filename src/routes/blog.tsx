@@ -1,5 +1,23 @@
-import { useEffect } from "react";
-import { ArrowRight, Clock3, Link2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  Check,
+  Clock3,
+  Copy,
+  Facebook,
+  Linkedin,
+  Share2,
+  Twitter,
+} from "lucide-react";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 type BlogPost = {
   category: string;
@@ -104,14 +122,7 @@ export default function Blog() {
                       <Clock3 aria-hidden="true" className="h-3.5 w-3.5" />
                       {post.readTime}
                     </div>
-                    <a
-                      href={`/blog/#post-${post.datetime}`}
-                      aria-label={`Permanent link to ${post.title}`}
-                      className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-teal transition-colors hover:text-ink"
-                    >
-                      <Link2 aria-hidden="true" className="h-3.5 w-3.5" />
-                      Permalink
-                    </a>
+                    <SharePost post={post} />
                     <div className="mt-8 font-mono text-xs text-ink/30">
                       {String(blogPosts.length - index).padStart(2, "0")}
                     </div>
@@ -159,6 +170,168 @@ export default function Blog() {
 
       <BlogFooter />
     </div>
+  );
+}
+
+function SharePost({ post }: { post: BlogPost }) {
+  const [copied, setCopied] = useState(false);
+  const [canUseShareSheet, setCanUseShareSheet] = useState(false);
+  const postUrl = `${window.location.origin}/blog/#post-${post.datetime}`;
+  const encodedUrl = encodeURIComponent(postUrl);
+  const encodedTitle = encodeURIComponent(post.title);
+
+  useEffect(() => {
+    setCanUseShareSheet(typeof navigator.share === "function");
+  }, []);
+
+  async function copyPostUrl() {
+    try {
+      await navigator.clipboard.writeText(postUrl);
+    } catch {
+      const textArea = document.createElement("textarea");
+      textArea.value = postUrl;
+      textArea.setAttribute("readonly", "");
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      textArea.remove();
+    }
+
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2500);
+  }
+
+  async function openShareSheet() {
+    try {
+      await navigator.share({
+        title: post.title,
+        text: post.summary,
+        url: postUrl,
+      });
+    } catch (error) {
+      if (!(error instanceof DOMException) || error.name !== "AbortError") {
+        await copyPostUrl();
+      }
+    }
+  }
+
+  const shareOptions = [
+    {
+      label: "LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+      icon: Linkedin,
+    },
+    {
+      label: "Facebook",
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+      icon: Facebook,
+    },
+    {
+      label: "X",
+      href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+      icon: Twitter,
+    },
+  ];
+
+  return (
+    <Dialog onOpenChange={(open) => !open && setCopied(false)}>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          className="mt-5 inline-flex cursor-pointer items-center gap-2 text-xs font-bold text-teal transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
+          aria-label={`Share ${post.title}`}
+        >
+          <Share2 aria-hidden="true" className="h-3.5 w-3.5" />
+          Share
+        </button>
+      </DialogTrigger>
+
+      <DialogContent className="w-[calc(100%_-_2rem)] max-w-xl gap-0 border border-ink/12 bg-paper p-0 text-ink shadow-2xl sm:rounded-none [&>button]:right-5 [&>button]:top-5 [&>button]:rounded-full [&>button]:p-2 [&>button]:text-ink [&>button]:opacity-60 [&>button]:hover:bg-mist [&>button]:hover:opacity-100">
+        <DialogHeader className="border-b border-ink/10 px-6 py-7 pr-16 text-left sm:px-8">
+          <div className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-teal">
+            N45 Field Notes
+          </div>
+          <DialogTitle className="mt-3 font-display text-3xl leading-tight tracking-tight sm:text-4xl">
+            Share this note.
+          </DialogTitle>
+          <DialogDescription className="mt-2 line-clamp-2 text-sm leading-6 text-ridge">
+            {post.title}
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="px-6 py-7 sm:px-8">
+          <div className="grid grid-cols-3 gap-3">
+            {shareOptions.map((option) => {
+              const Icon = option.icon;
+
+              return (
+                <a
+                  key={option.label}
+                  href={option.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex min-h-24 flex-col items-center justify-center gap-3 border border-ink/12 bg-white px-2 text-xs font-bold text-ridge transition hover:border-teal hover:bg-mist hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+                  aria-label={`Share on ${option.label}`}
+                >
+                  <Icon
+                    aria-hidden="true"
+                    className="h-5 w-5 text-teal transition-transform group-hover:-translate-y-0.5"
+                  />
+                  {option.label}
+                </a>
+              );
+            })}
+          </div>
+
+          {canUseShareSheet && (
+            <button
+              type="button"
+              onClick={openShareSheet}
+              className="mt-3 inline-flex w-full cursor-pointer items-center justify-center gap-2 border border-ink/12 bg-white px-4 py-3.5 text-sm font-bold text-ridge transition hover:border-teal hover:bg-mist hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+            >
+              <Share2 aria-hidden="true" className="h-4 w-4 text-teal" />
+              More sharing options
+            </button>
+          )}
+
+          <div className="mt-6">
+            <label
+              htmlFor={`share-url-${post.datetime}`}
+              className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ridge"
+            >
+              Direct link
+            </label>
+            <div className="mt-2 flex border border-ink/12 bg-white focus-within:border-teal">
+              <input
+                id={`share-url-${post.datetime}`}
+                type="text"
+                readOnly
+                value={postUrl}
+                onFocus={(event) => event.currentTarget.select()}
+                className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm text-ridge outline-none"
+              />
+              <button
+                type="button"
+                onClick={copyPostUrl}
+                className="inline-flex min-w-28 cursor-pointer items-center justify-center gap-2 border-l border-ink/12 bg-ink px-4 py-3 text-sm font-bold text-paper transition hover:bg-spruce focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-mint"
+              >
+                {copied ? (
+                  <Check aria-hidden="true" className="h-4 w-4 text-mint" />
+                ) : (
+                  <Copy aria-hidden="true" className="h-4 w-4 text-mint" />
+                )}
+                {copied ? "Copied" : "Copy link"}
+              </button>
+            </div>
+            <div className="sr-only" role="status" aria-live="polite">
+              {copied ? "Link copied to clipboard." : ""}
+            </div>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
