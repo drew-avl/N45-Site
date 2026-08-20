@@ -100,6 +100,7 @@ test("blog publisher authentication and publishing flow", async (t) => {
       assert.equal(body.success, true);
       assert.equal(body.post.datetime, "2026-08-21");
       assert.equal(body.post.readTime, "1 min read");
+      assert.equal(body.postUrl, "https://n45tech.com/blog/#post-2026-08-21");
       assert.equal(writtenFile.title, post.title);
       assert.equal(writtenFile.date, "August 21, 2026");
     } finally {

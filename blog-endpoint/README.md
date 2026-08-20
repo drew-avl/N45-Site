@@ -58,8 +58,10 @@ Content-Type: application/json
 The display date and reading time are calculated by the Worker. Only one post
 may be created for a given date; a duplicate returns `409 Conflict`.
 
-A successful response returns `201 Created`, the GitHub commit URL, and the
-public blog URL. The Pages deployment begins after the commit is created.
+A successful response returns `201 Created`, the GitHub commit URL, the public
+blog URL, and a stable `postUrl` in the form
+`https://n45tech.com/blog/#post-YYYY-MM-DD`. The Pages deployment begins after
+the commit is created.
 
 ## Expected responses
 
