@@ -1,0 +1,16 @@
+name = "n45-blog-publisher"
+main = "worker.js"
+compatibility_date = "2026-08-20"
+
+[vars]
+ALLOWED_ORIGINS = "https://n45tech.com,https://www.n45tech.com"
+PUBLISH_PATH = "/posts"
+GITHUB_OWNER = "drew-avl"
+GITHUB_REPO = "N45-Site"
+GITHUB_BRANCH = "main"
+BLOG_POSTS_DIRECTORY = "src/content/blog-posts"
+BLOG_URL = "https://n45tech.com/blog/"
+
+# Set these as Worker secrets, never plain variables:
+# wrangler secret put BLOG_PUBLISH_TOKEN
+# wrangler secret put GITHUB_TOKEN
