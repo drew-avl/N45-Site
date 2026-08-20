@@ -1,4 +1,5 @@
-import { ArrowRight, Clock3 } from "lucide-react";
+import { useEffect } from "react";
+import { ArrowRight, Clock3, Link2 } from "lucide-react";
 
 type BlogPost = {
   category: string;
@@ -19,6 +20,19 @@ const blogPosts = Object.values(postFiles).sort((left, right) =>
 );
 
 export default function Blog() {
+  useEffect(() => {
+    const postId = window.location.hash.slice(1);
+    if (!postId) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(postId)?.scrollIntoView();
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
       <a className="skip-link" href="#main-content">
@@ -73,7 +87,8 @@ export default function Blog() {
               {blogPosts.map((post, index) => (
                 <article
                   key={post.datetime + post.title}
-                  className="grid gap-10 py-14 md:py-20 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20"
+                  id={`post-${post.datetime}`}
+                  className="scroll-mt-28 grid gap-10 py-14 md:py-20 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20"
                 >
                   <div>
                     <div className="font-mono text-[0.67rem] font-semibold uppercase tracking-[0.2em] text-teal">
@@ -89,8 +104,16 @@ export default function Blog() {
                       <Clock3 aria-hidden="true" className="h-3.5 w-3.5" />
                       {post.readTime}
                     </div>
+                    <a
+                      href={`/blog/#post-${post.datetime}`}
+                      aria-label={`Permanent link to ${post.title}`}
+                      className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-teal transition-colors hover:text-ink"
+                    >
+                      <Link2 aria-hidden="true" className="h-3.5 w-3.5" />
+                      Permalink
+                    </a>
                     <div className="mt-8 font-mono text-xs text-ink/30">
-                      {String(index + 1).padStart(2, "0")}
+                      {String(blogPosts.length - index).padStart(2, "0")}
                     </div>
                   </div>
 

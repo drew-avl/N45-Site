@@ -83,6 +83,7 @@ export default {
       const payload = await readJsonBody(request);
       const post = normalizePost(payload);
       const result = await publishPost(env, post);
+      const blogUrl = env.BLOG_URL || DEFAULT_BLOG_URL;
 
       return jsonResponse(request, env, 201, {
         success: true,
@@ -95,7 +96,8 @@ export default {
           readTime: post.readTime,
         },
         commitUrl: result.commitUrl,
-        blogUrl: env.BLOG_URL || DEFAULT_BLOG_URL,
+        blogUrl,
+        postUrl: buildPostUrl(blogUrl, post.datetime),
       });
     } catch (error) {
       const status = error instanceof HttpError ? error.status : 500;
@@ -571,4 +573,9 @@ function normalizePath(value) {
     return DEFAULT_PUBLISH_PATH;
   }
   return `/${path.replace(/^\/+|\/+$/g, "")}`;
+}
+
+function buildPostUrl(blogUrl, datetime) {
+  const baseUrl = String(blogUrl).split("#", 1)[0];
+  return `${baseUrl}${baseUrl.endsWith("/") ? "" : "/"}#post-${datetime}`;
 }
