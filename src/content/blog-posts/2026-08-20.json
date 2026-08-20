@@ -1,0 +1,17 @@
+{
+  "category": "Managed Devices",
+  "date": "August 20, 2026",
+  "datetime": "2026-08-20",
+  "readTime": "2 min read",
+  "title": "Apple’s August Security Updates Are a Device-Inventory Check",
+  "summary": "Apple’s latest iPhone, iPad, Mac, and Safari fixes are a useful reminder that business security starts with knowing which devices still handle company data.",
+  "body": [
+    "Apple’s security release list now shows iOS 26.6.1 and iPadOS 26.6.1, iOS 18.7.10 and iPadOS 18.7.10, and macOS Tahoe 26.6.2 released August 17, followed by Safari 26.6.1 on August 18. Apple’s accompanying advisories describe fixes for issues involving malicious web content, images, apps, kernel memory, and network traffic. The affected combinations vary by device and operating-system branch, which is precisely why a simple ‘we use Apple’ inventory is not enough.",
+    "For a small business, the operational concern is not whether an iPhone is company-owned. It is whether that device can open company email, approve multifactor sign-ins, reach cloud files, hold customer messages, or access a password manager. A phone or tablet used for any of those jobs is part of the working environment, even when an employee bought it personally.",
+    "Today’s useful action is a 15-minute device check. List every iPhone, iPad, and Mac that regularly handles business data, along with its owner, model, and current operating-system version. On iPhone or iPad, check Settings, General, Software Update. On a Mac, check System Settings, General, Software Update. Install the appropriate available update after confirming there is a recent backup and enough time for a restart.",
+    "If devices are managed through a mobile-device management platform, run an operating-system version report instead of relying on a group email asking whether everyone updated. Set a reasonable deadline, follow up on devices that miss it, and document any exception. A minimum-version rule can be useful, but turning it on without first checking compatibility can lock out a legitimate user at the wrong moment.",
+    "Older hardware deserves a separate decision. Apple released an iOS 18.7.10 track for several older models while newer devices received iOS 26.6.1. That does not mean every device missing the newest number is unsupported. Match the model to Apple’s listed release, verify what it can actually install, and plan a replacement when it can no longer receive security fixes.",
+    "This does not call for panic or an assumption that every unpatched device has been compromised. Apple’s notices reviewed here describe corrected vulnerabilities but do not identify these issues as actively exploited. The proportionate response is to update supported equipment, identify anything that cannot update, and avoid leaving business access on forgotten devices.",
+    "The larger lesson will still matter after this week’s releases: patching works only when the device list is accurate. A short inventory today turns the next security update from a scavenger hunt into routine maintenance."
+  ]
+}
