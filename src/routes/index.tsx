@@ -286,7 +286,7 @@ function Hero() {
         <div className="max-w-4xl">
           <Eyebrow theme="dark">Asheville-based · Western NC focused</Eyebrow>
           <h1 className="mt-7 max-w-4xl font-display text-[clamp(3.25rem,6.4vw,6.25rem)] leading-[0.93] tracking-[-0.045em] text-balance">
-            Steady IT for the people building{" "}
+            Managed IT services for businesses across{" "}
             <em className="font-display font-normal text-mint">
               Western North Carolina.
             </em>
@@ -440,6 +440,17 @@ function Services() {
               Good IT should feel almost invisible: fewer interruptions, safer
               decisions, and clear answers when something changes.
             </p>
+            <div className="mt-7 space-y-3 text-sm font-bold text-mint">
+              <a className="text-link block text-mint" href="/managed-it-services-asheville/">
+                Managed IT services in Asheville →
+              </a>
+              <a className="text-link block text-mint" href="/business-it-support-western-nc/">
+                Business IT support across Western NC →
+              </a>
+              <a className="text-link block text-mint" href="/cybersecurity-services-asheville/">
+                Cybersecurity services in Asheville →
+              </a>
+            </div>
             <a href="#contact" className="button-outline-mint mt-9">
               Talk through your setup
               <ArrowRight aria-hidden="true" className="h-4 w-4" />

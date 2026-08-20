@@ -8,6 +8,9 @@ export default defineConfig({
       input: {
         main: "./index.html",
         blog: "./blog/index.html",
+        managedIt: "./managed-it-services-asheville/index.html",
+        businessIt: "./business-it-support-western-nc/index.html",
+        cybersecurity: "./cybersecurity-services-asheville/index.html",
       },
     },
   },
