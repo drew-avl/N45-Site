@@ -119,17 +119,17 @@ Publish two strong Field Notes per month. Each post needs an author, a real poin
 
 First six pieces:
 
-1. **What managed IT services cost in Asheville—and what should be included**  
+1. **What managed IT services cost in Asheville—and what should be included**
    Search intent: pricing and provider comparison. Include honest price drivers, contract questions, exclusions, and a comparison checklist. Do not invent competitor pricing.
-2. **Break-fix IT vs. managed IT for a 10–50 person WNC business**  
+2. **Break-fix IT vs. managed IT for a 10–50 person WNC business**
    Search intent: solution comparison. Use operational thresholds and scenarios, not a sales pitch.
-3. **Western North Carolina business IT continuity checklist for storms and outages**  
+3. **Western North Carolina business IT continuity checklist for storms and outages**
    Search intent: regional risk and downloadable utility. This is the best initial outreach asset.
-4. **Microsoft 365 offboarding checklist for Asheville small businesses**  
+4. **Microsoft 365 offboarding checklist for Asheville small businesses**
    Search intent: practical security. Cover accounts, sessions, MFA, mailbox, files, groups, devices, vendors, and documentation.
-5. **Technology checklist before signing an Asheville office lease**  
+5. **Technology checklist before signing an Asheville office lease**
    Search intent: office move/project. Include fiber availability, demarcation, cabling, Wi-Fi, power, access, lead times, and vendor ownership.
-6. **How to separate guest Wi-Fi, POS, and business systems in a restaurant or hotel**  
+6. **How to separate guest Wi-Fi, POS, and business systems in a restaurant or hotel**
    Search intent: hospitality network security. Add a simple original diagram and a non-sensitive field example.
 
 Do not publish daily generic notes merely to create volume. Consolidate overlapping posts, especially the existing internet-speed series, into one authoritative guide and redirect or remove duplicates only after reviewing their URLs and index status.
