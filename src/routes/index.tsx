@@ -225,6 +225,9 @@ function Nav() {
           <a className="nav-link" href="#about">
             Why N45
           </a>
+          <a className="nav-link" href="/blog/">
+            Field Notes
+          </a>
         </nav>
 
         <a
@@ -1037,6 +1040,9 @@ function Footer() {
           </a>
           <a href="mailto:hello@n45tech.com" className="hover:text-mint">
             hello@n45tech.com
+          </a>
+          <a href="/blog/" className="hover:text-mint">
+            Field Notes
           </a>
           <span>© {new Date().getFullYear()} N45 Tech</span>
         </div>

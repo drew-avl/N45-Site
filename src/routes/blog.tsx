@@ -1,0 +1,232 @@
+import { ArrowRight, Clock3 } from "lucide-react";
+
+type BlogPost = {
+  category: string;
+  date: string;
+  datetime: string;
+  readTime: string;
+  title: string;
+  summary: string;
+  body: string[];
+};
+
+const posts: BlogPost[] = [
+  {
+    category: "From N45",
+    date: "August 20, 2026",
+    datetime: "2026-08-20",
+    readTime: "2 min read",
+    title: "Welcome to Field Notes",
+    summary:
+      "A daily, plainspoken look at the small technology decisions that make local businesses steadier, safer, and easier to run.",
+    body: [
+      "Most useful IT work is not dramatic. It is a shared account replaced with named access, a recovery step written down before it is needed, or a recurring annoyance finally traced to its source.",
+      "Field Notes is where N45 will share one practical idea at a time—drawn from managed IT, Microsoft 365, cybersecurity, networks, documentation, and the day-to-day work of supporting Western North Carolina businesses.",
+      "No scare tactics and no unexplained jargon. Just a clear observation, why it matters, and a next step you can use.",
+    ],
+  },
+];
+
+export default function Blog() {
+  return (
+    <div className="min-h-screen overflow-x-clip bg-paper text-ink">
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
+      <BlogNav />
+
+      <main id="main-content">
+        <section className="relative isolate overflow-hidden bg-ink py-24 text-paper md:py-32">
+          <div className="absolute inset-0 -z-20 bg-[url('/assets/hero-mountains.jpg')] bg-cover bg-[center_62%] opacity-25" />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,22,22,.98),rgba(5,22,22,.82)_58%,rgba(5,22,22,.7))]" />
+          <div className="absolute inset-x-0 bottom-0 -z-10 h-52 bg-[url('/assets/ridge-pattern.svg')] bg-bottom bg-no-repeat opacity-25 mix-blend-screen" />
+
+          <div className="mx-auto max-w-[88rem] px-5 md:px-8">
+            <div className="flex items-center gap-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-mint">
+              <span className="h-px w-8 bg-mint" />
+              N45 Field Notes
+            </div>
+            <h1 className="mt-7 max-w-5xl font-display text-[clamp(3.75rem,8vw,7.5rem)] leading-[0.9] tracking-[-0.05em] text-balance">
+              Practical IT guidance,
+              <br />
+              <em className="font-normal text-mint">from the mountains.</em>
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-paper/72 md:text-xl">
+              Daily, plainspoken notes on the systems, habits, and decisions
+              that keep Western North Carolina businesses moving.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="latest-notes" className="py-20 md:py-28">
+          <div className="mx-auto max-w-[88rem] px-5 md:px-8">
+            <div className="grid gap-10 border-b border-ink/12 pb-8 md:grid-cols-[1fr_auto] md:items-end">
+              <div>
+                <div className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-teal">
+                  The latest
+                </div>
+                <h2
+                  id="latest-notes"
+                  className="mt-4 font-display text-5xl tracking-tight md:text-6xl"
+                >
+                  Notes from the field.
+                </h2>
+              </div>
+              <p className="max-w-md text-sm leading-6 text-ridge md:text-right">
+                One useful idea at a time. Written for the people running the
+                business—not just the people running the technology.
+              </p>
+            </div>
+
+            <div className="divide-y divide-ink/12">
+              {posts.map((post, index) => (
+                <article
+                  key={post.datetime + post.title}
+                  className="grid gap-10 py-14 md:py-20 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20"
+                >
+                  <div>
+                    <div className="font-mono text-[0.67rem] font-semibold uppercase tracking-[0.2em] text-teal">
+                      {post.category}
+                    </div>
+                    <time
+                      dateTime={post.datetime}
+                      className="mt-4 block text-sm font-bold text-ridge"
+                    >
+                      {post.date}
+                    </time>
+                    <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-ridge/80">
+                      <Clock3 aria-hidden="true" className="h-3.5 w-3.5" />
+                      {post.readTime}
+                    </div>
+                    <div className="mt-8 font-mono text-xs text-ink/30">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                  </div>
+
+                  <div className="max-w-3xl">
+                    <h3 className="font-display text-4xl leading-[1.02] tracking-tight text-balance md:text-6xl">
+                      {post.title}
+                    </h3>
+                    <p className="mt-6 border-l-2 border-mint pl-5 text-lg font-semibold leading-8 text-ridge md:text-xl">
+                      {post.summary}
+                    </p>
+                    <div className="mt-9 space-y-5 text-[1.05rem] leading-8 text-ridge">
+                      {post.body.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-mist py-20 md:py-24">
+          <div className="mx-auto flex max-w-[88rem] flex-col gap-9 px-5 md:px-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <div className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-teal">
+                Need a hand?
+              </div>
+              <h2 className="mt-5 font-display text-4xl leading-tight tracking-tight md:text-6xl">
+                Turn today&apos;s IT question into a clear next step.
+              </h2>
+            </div>
+            <a href="/#contact" className="button-dark group shrink-0">
+              Plan an IT review
+              <ArrowRight
+                aria-hidden="true"
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              />
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <BlogFooter />
+    </div>
+  );
+}
+
+function BlogNav() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-[88rem] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-5 md:px-8">
+        <a
+          href="/"
+          aria-label="N45 Technology Solutions home"
+          className="block shrink-0"
+        >
+          <img
+            src="/assets/n45-lockup-dark.svg"
+            alt=""
+            aria-hidden="true"
+            className="h-12 w-auto sm:h-14 lg:h-16"
+          />
+        </a>
+
+        <nav
+          aria-label="Primary navigation"
+          className="hidden items-center gap-8 text-sm font-semibold text-ridge lg:flex"
+        >
+          <a className="nav-link" href="/#services">
+            Services
+          </a>
+          <a className="nav-link" href="/#approach">
+            Approach
+          </a>
+          <a className="nav-link text-ink" href="/blog/" aria-current="page">
+            Field Notes
+          </a>
+        </nav>
+
+        <a
+          href="/#contact"
+          className="group inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
+        >
+          <span className="hidden sm:inline">Plan an IT review</span>
+          <span className="sm:hidden">Talk</span>
+          <ArrowRight
+            aria-hidden="true"
+            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+          />
+        </a>
+      </div>
+    </header>
+  );
+}
+
+function BlogFooter() {
+  return (
+    <footer className="bg-ink py-12 text-paper">
+      <div className="mx-auto flex max-w-[88rem] flex-col gap-10 px-5 md:px-8 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <a href="/" aria-label="N45 Technology Solutions home">
+            <img
+              src="/assets/n45-lockup-light.svg"
+              alt="N45 Technology Solutions"
+              className="h-16 w-auto"
+            />
+          </a>
+          <p className="mt-6 max-w-md text-sm leading-6 text-paper/55">
+            Secure, documented, managed IT for the people building Western North
+            Carolina.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:items-center sm:gap-8">
+          <a href="tel:+18285151530" className="hover:text-mint">
+            (828) 515-1530
+          </a>
+          <a href="mailto:hello@n45tech.com" className="hover:text-mint">
+            hello@n45tech.com
+          </a>
+          <a href="/blog/" className="text-mint" aria-current="page">
+            Field Notes
+          </a>
+          <span>© {new Date().getFullYear()} N45 Tech</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
