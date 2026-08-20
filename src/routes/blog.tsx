@@ -10,22 +10,13 @@ type BlogPost = {
   body: string[];
 };
 
-const posts: BlogPost[] = [
-  {
-    category: "From N45",
-    date: "August 20, 2026",
-    datetime: "2026-08-20",
-    readTime: "2 min read",
-    title: "Welcome to Field Notes",
-    summary:
-      "A daily, plainspoken look at the small technology decisions that make local businesses steadier, safer, and easier to run.",
-    body: [
-      "Most useful IT work is not dramatic. It is a shared account replaced with named access, a recovery step written down before it is needed, or a recurring annoyance finally traced to its source.",
-      "Field Notes is where N45 will share one practical idea at a time—drawn from managed IT, Microsoft 365, cybersecurity, networks, documentation, and the day-to-day work of supporting Western North Carolina businesses.",
-      "No scare tactics and no unexplained jargon. Just a clear observation, why it matters, and a next step you can use.",
-    ],
-  },
-];
+const postFiles = import.meta.glob<BlogPost>("/src/content/blog-posts/*.json", {
+  eager: true,
+  import: "default",
+});
+const blogPosts = Object.values(postFiles).sort((left, right) =>
+  right.datetime.localeCompare(left.datetime),
+);
 
 export default function Blog() {
   return (
@@ -79,7 +70,7 @@ export default function Blog() {
             </div>
 
             <div className="divide-y divide-ink/12">
-              {posts.map((post, index) => (
+              {blogPosts.map((post, index) => (
                 <article
                   key={post.datetime + post.title}
                   className="grid gap-10 py-14 md:py-20 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20"
