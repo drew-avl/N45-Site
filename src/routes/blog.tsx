@@ -359,8 +359,14 @@ function BlogNav() {
           <a className="nav-link" href="/#services">
             Services
           </a>
+          <a className="nav-link" href="/#industries">
+            Industries
+          </a>
           <a className="nav-link" href="/#approach">
             Approach
+          </a>
+          <a className="nav-link" href="/#about">
+            Why N45
           </a>
           <a className="nav-link text-ink" href="/blog/" aria-current="page">
             Field Notes
