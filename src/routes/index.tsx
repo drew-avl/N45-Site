@@ -206,6 +206,17 @@ export default function Index() {
 function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur-xl">
+      <div className="bg-ink text-paper">
+        <div className="mx-auto flex h-9 max-w-[88rem] items-center justify-center px-4 sm:justify-end sm:px-5 md:px-8">
+          <a
+            href="tel:+18285151530"
+            aria-label="Call N45 Technology Solutions at (828) 515-1530"
+            className="font-mono text-xs font-semibold tracking-[0.06em] text-paper transition hover:text-mint focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint"
+          >
+            Call N45: (828) 515-1530
+          </a>
+        </div>
+      </div>
       <div className="mx-auto flex h-20 max-w-[88rem] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-5 md:px-8">
         <HeaderLogo />
 
