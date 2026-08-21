@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 
 import heroImg from "@/assets/hero-mountains.jpg";
+import SecurityTriageCta from "@/components/SecurityTriageCta";
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as
   string | undefined;
@@ -190,6 +191,7 @@ export default function Index() {
       <Nav />
       <main id="main-content">
         <Hero />
+        <SecurityTriageCta contactHref="#contact" />
         <Outcomes />
         <Services />
         <Industries />
@@ -452,13 +454,22 @@ function Services() {
               decisions, and clear answers when something changes.
             </p>
             <div className="mt-7 space-y-3 text-sm font-bold text-mint">
-              <a className="text-link block text-mint" href="/managed-it-services-asheville/">
+              <a
+                className="text-link block text-mint"
+                href="/managed-it-services-asheville/"
+              >
                 Managed IT services in Asheville →
               </a>
-              <a className="text-link block text-mint" href="/business-it-support-western-nc/">
+              <a
+                className="text-link block text-mint"
+                href="/business-it-support-western-nc/"
+              >
                 Business IT support across Western NC →
               </a>
-              <a className="text-link block text-mint" href="/cybersecurity-services-asheville/">
+              <a
+                className="text-link block text-mint"
+                href="/cybersecurity-services-asheville/"
+              >
                 Cybersecurity services in Asheville →
               </a>
             </div>
@@ -857,6 +868,9 @@ function Contact() {
               >
                 <option value="" disabled>
                   Select one
+                </option>
+                <option value="N45 Microsoft Security Triage ($495)">
+                  N45 Microsoft Security Triage ($495)
                 </option>
                 <option value="IT review / current provider concerns">
                   IT review / current provider
