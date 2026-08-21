@@ -1,0 +1,16 @@
+{
+  "category": "Cybersecurity",
+  "date": "August 21, 2026",
+  "datetime": "2026-08-21",
+  "readTime": "2 min read",
+  "title": "Move Two CISA-Listed Microsoft Flaws Up the Patch Queue",
+  "summary": "CISA’s August 18 additions make applicable SharePoint Server and Windows IKE systems a priority, while unaffected businesses can verify and move on.",
+  "body": [
+    "On August 18, the Cybersecurity and Infrastructure Security Agency added two Microsoft issues to its Known Exploited Vulnerabilities catalog: CVE-2026-33824 in Windows Internet Key Exchange Service Extensions and CVE-2026-55040 in Microsoft SharePoint Server. Microsoft originally published the advisories on April 14 and July 14, respectively. These are not newly discovered flaws. The useful change is that CISA now has evidence of active exploitation, which should move applicable systems ahead of routine patch work.",
+    "CISA says the Windows issue can allow an unauthorized attacker to run code over a network. The SharePoint issue can let an unauthorized attacker bypass a security feature over a network. For a Western North Carolina business, the practical question is not whether the names sound severe; it is whether the organization runs an affected system, whether it is reachable from outside, and whether Microsoft’s fix is installed.",
+    "Start today with two yes-or-no checks. Do you operate an on-premises SharePoint Server? Do any Windows servers or workstations use the Internet Key Exchange service? Hosted SharePoint in Microsoft 365 is not the same as running SharePoint Server yourself, so do not assume every Microsoft 365 tenant is in scope. If the answer to both checks is no, record that conclusion and continue with normal operations.",
+    "If either answer is yes—or uncertain—have your IT administrator or provider compare the installed product and build against Microsoft’s advisory for the matching CVE. Give priority to systems reachable from the internet or untrusted networks, apply the supported update, and document the time and result. Before changing a server, confirm a current backup and a tested rollback plan; that is steady maintenance, not a reason to postpone an exposed fix.",
+    "Ask for evidence instead of a general ‘we patch automatically.’ A useful response includes the system name, whether the affected feature is present, current build or update level, exposure, and who verified it. After patching an applicable system, review authentication and security logs for unusual activity during the period it was vulnerable. If a provider cannot yet confirm applicability, temporarily reducing external exposure may be reasonable while they check the vendor guidance.",
+    "This does not call for shutting down Microsoft 365, resetting every password, or interrupting unrelated devices. CISA’s catalog is a prioritization signal, not proof that a particular business was compromised. The calm lesson is to connect reliable threat evidence to an accurate system inventory: confirm applicability, patch what is exposed, review what matters, and document why the rest can wait."
+  ]
+}
