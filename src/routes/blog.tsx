@@ -18,6 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import SecurityTriageCta from "@/components/SecurityTriageCta";
 
 type BlogPost = {
   category: string;
@@ -80,6 +81,8 @@ export default function Blog() {
             </p>
           </div>
         </section>
+
+        <SecurityTriageCta />
 
         <section aria-labelledby="latest-notes" className="py-20 md:py-28">
           <div className="mx-auto max-w-[88rem] px-5 md:px-8">
