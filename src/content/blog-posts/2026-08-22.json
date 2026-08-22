@@ -1,0 +1,16 @@
+{
+  "category": "Websites",
+  "date": "August 22, 2026",
+  "datetime": "2026-08-22",
+  "readTime": "2 min read",
+  "title": "Keep AI Crawler Preferences and Enforcement in Sync",
+  "summary": "Cloudflare’s new sync feature can align published AI crawler preferences with edge rules, but businesses still need to decide what should be found, blocked, or protected.",
+  "body": [
+    "On August 21, Cloudflare announced Bot Preference Sync, a feature it expects to make available across all plans during the coming week. It will reflect a site’s Cloudflare settings for search, agent, and training crawlers in the site’s robots.txt file. Cloudflare says its generated entries will be placed before an existing file while preserving current disallow rules. The useful change is consistency, not a new guarantee that every crawler will cooperate.",
+    "That distinction matters for a local business website. Service pages, product information, staff biographies, articles, and public documents may help customers find the business through traditional search or newer answer tools. The same organization may be comfortable with discovery but uncomfortable with its material being used for model training. There is no universal right setting; the right answer depends on what the website is meant to accomplish.",
+    "A concrete action for today is to open your domain followed by /robots.txt and review what it currently says. Record who controls the website, the Cloudflare account if one is used, and any custom crawler rules. Then make an explicit decision for three uses: search discovery, automated agents, and model training. A business that depends on local search may choose differently from a publisher or an organization hosting substantial original research.",
+    "If Bot Preference Sync becomes available in your Cloudflare dashboard, compare the proposed settings with the existing file before accepting them. Cloudflare notes that the feature applies category-wide choices and does not interpret individual custom rules with more complex exceptions. After any change, verify that the robots.txt file still contains the directives you expect and that important public pages remain reachable. Document the decision and who approved it.",
+    "The important limitation is that robots.txt publishes a preference; compliance is voluntary. It does not protect confidential material, authenticate a visitor, or reliably remove a page from search results. Cloudflare’s AI Crawl Control and web application firewall can enforce blocks for selected crawlers. Information that is genuinely private should sit behind authentication, and pages that should not appear in search need the appropriate indexing controls rather than reliance on a crawl request alone.",
+    "This is not a reason to block every automated visitor or make a useful website harder to discover. It is a reason to stop treating crawler policy as an unexplained text file left behind by a past website project. Decide what the business wants, publish a matching preference, enforce what truly requires enforcement, and review the result when the site or its goals change."
+  ]
+}
