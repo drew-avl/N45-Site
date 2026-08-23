@@ -1,0 +1,16 @@
+{
+  "category": "Cloud Data",
+  "date": "August 23, 2026",
+  "datetime": "2026-08-23",
+  "readTime": "2 min read",
+  "title": "External Sharing Needs an Owner, Not Just a Setting",
+  "summary": "Google’s new Drive reporting fields reinforce a simple cloud-data practice: every external share should have a purpose, an owner, and a review date.",
+  "body": [
+    "On August 17, Google announced more detailed external-sharing fields for Drive Inventory Reporting. Eligible Google Workspace administrators can now use the export to distinguish direct permissions, group-based access, public links, service accounts, and files published to the web. The update does not change anyone’s access by itself. It gives administrators a clearer inventory of how content is already being shared.",
+    "That distinction matters because shared externally covers very different situations. A client proposal shared with one named customer is not the same as a folder open to anyone with the link. Likewise, an accounting file shared with a current bookkeeper is different from access left behind for a former vendor. A single yes-or-no report can put all of those cases in one bucket.",
+    "For a small or midsize business, the operational lesson is simple: every important external share should have a purpose, an internal owner, and a review date. External collaboration is normal, especially with accountants, attorneys, contractors, and customers. The problem is usually not that sharing exists. It is that nobody can explain why an old link is still open, who approved it, or when it should be checked again.",
+    "Today, review ten to twenty of the most sensitive or broadly shared folders and files. Record the internal owner, outside recipient or domain, permission level, business reason, and the date access should be reviewed. Remove links that are no longer needed, revoke access for former vendors, and replace broad link sharing with named recipients where practical. Start with payroll, finance, personnel, contracts, and customer records rather than trying to inventory the entire drive at once.",
+    "Organizations on supported Google Workspace editions can enable external-sharing calculations in Drive Inventory Reporting and analyze the resulting metadata in BigQuery, Google’s cloud data warehouse. Google notes that billing setup is required and the first export can take one to two weeks. Businesses without that edition or reporting setup can still apply the same discipline manually by reviewing their highest-value shared folders and maintaining a short access register.",
+    "There is no reason to treat every outside collaborator as a security incident or shut down useful sharing. The better response is to make access understandable and intentional. A short, recurring review of ownership, audience, and expiration will usually reduce more risk than a blanket rule that people work around. Good sharing controls support the work while keeping old access from accumulating."
+  ]
+}
