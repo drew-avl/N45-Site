@@ -39,6 +39,9 @@ jobs:
         run: npm run build
         env:
           VITE_CONTACT_ENDPOINT: ${{ vars.CONTACT_ENDPOINT }}
+          VITE_BOOKING_URL: ${{ vars.BOOKING_URL }}
+          VITE_SECURITY_TRIAGE_BOOKING_URL: ${{ vars.SECURITY_TRIAGE_BOOKING_URL }}
+          VITE_IT_REVIEW_BOOKING_URL: ${{ vars.IT_REVIEW_BOOKING_URL }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

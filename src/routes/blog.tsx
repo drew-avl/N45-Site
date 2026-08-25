@@ -160,8 +160,8 @@ export default function Blog() {
                 Turn today&apos;s IT question into a clear next step.
               </h2>
             </div>
-            <a href="/#contact" className="button-dark group shrink-0">
-              Plan an IT review
+            <a href="/book/" className="button-dark group shrink-0">
+              Book a conversation
               <ArrowRight
                 aria-hidden="true"
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -388,11 +388,11 @@ function BlogNav() {
         </nav>
 
         <a
-          href="/#contact"
+          href="/book/"
           className="group inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
         >
-          <span className="hidden sm:inline">Plan an IT review</span>
-          <span className="sm:hidden">Talk</span>
+          <span className="hidden sm:inline">Book a conversation</span>
+          <span className="sm:hidden">Book</span>
           <ArrowRight
             aria-hidden="true"
             className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
