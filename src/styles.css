@@ -441,8 +441,8 @@ textarea.field-control {
 }
 
 @media (max-width: 520px) {
-  header img {
-    max-width: 10.75rem;
+  .header-logo {
+    max-width: 12rem;
   }
 }
 

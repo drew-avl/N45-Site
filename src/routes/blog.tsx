@@ -359,10 +359,10 @@ function BlogNav() {
           className="block shrink-0"
         >
           <img
-            src="/assets/n45-lockup-dark.svg"
+            src="/assets/n45-lockup-header-dark.svg"
             alt=""
             aria-hidden="true"
-            className="h-12 w-auto sm:h-14 lg:h-16"
+            className="header-logo h-12 w-auto sm:h-14 lg:h-16"
           />
         </a>
 
