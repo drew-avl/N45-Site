@@ -7,6 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "./index.html",
+        book: "./book/index.html",
+        refer: "./refer/index.html",
         blog: "./blog/index.html",
         managedIt: "./managed-it-services-asheville/index.html",
         businessIt: "./business-it-support-western-nc/index.html",

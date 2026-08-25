@@ -11,7 +11,7 @@ const reviewAreas = [
 ];
 
 export default function SecurityTriageCta({
-  contactHref = "/#contact",
+  contactHref = "/book/",
 }: SecurityTriageCtaProps) {
   return (
     <section

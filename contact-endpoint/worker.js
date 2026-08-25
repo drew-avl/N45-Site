@@ -8,6 +8,8 @@ const MAX_BODY_BYTES = 16000;
 const MAX_MESSAGE_LENGTH = 5000;
 
 const allowedTopics = new Set([
+  "N45 Microsoft Security Triage ($495)",
+  "Referral introduction",
   "IT review / current provider concerns",
   "Microsoft 365 / account security",
   "Managed IT support",

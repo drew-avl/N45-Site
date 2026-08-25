@@ -191,7 +191,7 @@ export default function Index() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <SecurityTriageCta contactHref="#contact" />
+        <SecurityTriageCta contactHref="/book/" />
         <Outcomes />
         <Services />
         <Industries />
@@ -244,11 +244,11 @@ function Nav() {
         </nav>
 
         <a
-          href="#contact"
+          href="/book/"
           className="group inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
         >
-          <span className="hidden sm:inline">Plan an IT review</span>
-          <span className="sm:hidden">Talk</span>
+          <span className="hidden sm:inline">Book a conversation</span>
+          <span className="sm:hidden">Book</span>
           <ArrowRight
             aria-hidden="true"
             className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
@@ -311,8 +311,8 @@ function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a href="#contact" className="button-primary group">
-              Start with an IT review
+            <a href="/book/" className="button-primary group">
+              Book a conversation
               <ArrowRight
                 aria-hidden="true"
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -473,7 +473,7 @@ function Services() {
                 Cybersecurity services in Asheville →
               </a>
             </div>
-            <a href="#contact" className="button-outline-mint mt-9">
+            <a href="/book/" className="button-outline-mint mt-9">
               Talk through your setup
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </a>
@@ -640,7 +640,7 @@ function LocalPromise() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href="#contact" className="button-primary group">
+            <a href="/book/" className="button-primary group">
               Meet your local IT partner
               <ArrowRight
                 aria-hidden="true"
@@ -869,7 +869,7 @@ function Contact() {
                 <option value="" disabled>
                   Select one
                 </option>
-                <option value="N45 Microsoft Security Triage ($495)">
+                <option value="Microsoft 365 / account security">
                   N45 Microsoft Security Triage ($495)
                 </option>
                 <option value="IT review / current provider concerns">
@@ -1079,6 +1079,12 @@ function Footer() {
           </a>
           <a href="/blog/" className="hover:text-mint">
             Field Notes
+          </a>
+          <a href="/book/" className="hover:text-mint">
+            Book
+          </a>
+          <a href="/refer/" className="hover:text-mint">
+            Refer a business
           </a>
           <span>© {new Date().getFullYear()} N45 Tech</span>
         </div>
