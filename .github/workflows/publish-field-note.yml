@@ -1,13 +1,14 @@
 name: Publish Field Note Request
 
 on:
-  issues:
-    types: [opened]
+  push:
+    branches: [main]
+    paths:
+      - ".field-note-requests/*.json"
   workflow_dispatch:
 
 permissions:
   contents: read
-  issues: write
 
 concurrency:
   group: field-note-publisher
@@ -15,15 +16,10 @@ concurrency:
 
 jobs:
   publish:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.issue.user.login == github.repository_owner &&
-       startsWith(github.event.issue.title, 'Publish Field Note: '))
     runs-on: ubuntu-latest
     env:
       BLOG_PUBLISH_ENDPOINT: ${{ vars.BLOG_PUBLISH_ENDPOINT }}
       BLOG_PUBLISH_TOKEN: ${{ secrets.BLOG_PUBLISH_TOKEN }}
-      GH_TOKEN: ${{ github.token }}
 
     steps:
       - name: Validate configuration and publisher health
@@ -36,7 +32,7 @@ jobs:
           fi
 
           HEALTH_ENDPOINT="${BLOG_PUBLISH_ENDPOINT%/posts}/health"
-          HEALTH_STATUS="$(curl --silent --show-error --output health-response.txt             --write-out '%{http_code}' --max-time 20 "${HEALTH_ENDPOINT}")"
+          HEALTH_STATUS="$(curl --silent --show-error --output health-response.txt --write-out '%{http_code}' --max-time 20 "${HEALTH_ENDPOINT}")"
 
           if [[ "${HEALTH_STATUS}" != "200" ]]; then
             echo "Publisher health check failed with HTTP ${HEALTH_STATUS}."
@@ -49,15 +45,26 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         run: echo "Dry run complete; no publication request was sent."
 
+      - name: Check out publication request
+        if: github.event_name == 'push'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
       - name: Validate publication request
-        if: github.event_name == 'issues'
+        if: github.event_name == 'push'
+        id: request
         shell: bash
-        env:
-          REQUEST_BODY: ${{ github.event.issue.body }}
-          REQUEST_TITLE: ${{ github.event.issue.title }}
         run: |
           set -euo pipefail
-          printf '%s' "${REQUEST_BODY}" > payload.json
+          REQUEST_PATH="$(git diff-tree --no-commit-id --name-only -r "${GITHUB_SHA}" | grep -E '^\.field-note-requests/[0-9]{4}-[0-9]{2}-[0-9]{2}\.json$' | head -n 1)"
+          if [[ -z "${REQUEST_PATH}" || ! -f "${REQUEST_PATH}" ]]; then
+            echo "No valid Field Note request file was added by this commit."
+            exit 1
+          fi
+
+          cp "${REQUEST_PATH}" payload.json
+          echo "path=${REQUEST_PATH}" >> "${GITHUB_OUTPUT}"
 
           jq -e '
             type == "object" and
@@ -70,22 +77,22 @@ jobs:
             all(.body[]; type == "string" and length > 0)
           ' payload.json >/dev/null
 
-          EXPECTED_DATE="${REQUEST_TITLE#Publish Field Note: }"
+          EXPECTED_DATE="$(basename "${REQUEST_PATH}" .json)"
           PAYLOAD_DATE="$(jq -r '.datetime' payload.json)"
           if [[ "${PAYLOAD_DATE}" != "${EXPECTED_DATE}" ]]; then
-            echo "Issue title date does not match payload date."
+            echo "Request filename date does not match payload date."
             exit 1
           fi
 
       - name: Check for an existing dated post
-        if: github.event_name == 'issues'
+        if: github.event_name == 'push'
         id: duplicate
         shell: bash
         run: |
           set -euo pipefail
           POST_DATE="$(jq -r '.datetime' payload.json)"
           EXISTING_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/src/content/blog-posts/${POST_DATE}.json"
-          STATUS="$(curl --silent --output existing-post.json --write-out '%{http_code}'             --max-time 20 "${EXISTING_URL}")"
+          STATUS="$(curl --silent --output existing-post.json --write-out '%{http_code}' --max-time 20 "${EXISTING_URL}")"
 
           if [[ "${STATUS}" == "200" ]]; then
             echo "exists=true" >> "${GITHUB_OUTPUT}"
@@ -95,20 +102,19 @@ jobs:
           fi
 
       - name: Publish Field Note
-        if: github.event_name == 'issues' && steps.duplicate.outputs.exists != 'true'
-        id: publish
+        if: github.event_name == 'push' && steps.duplicate.outputs.exists != 'true'
         shell: bash
         run: |
           set -euo pipefail
-          STATUS="$(curl --silent --show-error --output publish-response.json             --write-out '%{http_code}' --max-time 45             --request POST             --header "Authorization: Bearer ${BLOG_PUBLISH_TOKEN}"             --header "Content-Type: application/json"             --data-binary @payload.json             "${BLOG_PUBLISH_ENDPOINT}")"
-
-          echo "status=${STATUS}" >> "${GITHUB_OUTPUT}"
+          STATUS="$(curl --silent --show-error --output publish-response.json --write-out '%{http_code}' --max-time 45 --request POST --header "Authorization: Bearer ${BLOG_PUBLISH_TOKEN}" --header "Content-Type: application/json" --data-binary @payload.json "${BLOG_PUBLISH_ENDPOINT}")"
 
           case "${STATUS}" in
             201)
               COMMIT_URL="$(jq -r '.commitUrl // empty' publish-response.json)"
-              echo "commit_url=${COMMIT_URL}" >> "${GITHUB_OUTPUT}"
               echo "Publication succeeded and deployment was queued."
+              if [[ -n "${COMMIT_URL}" ]]; then
+                echo "Commit: ${COMMIT_URL}"
+              fi
               ;;
             409)
               echo "Publisher reported an existing dated post; no retry will be attempted."
@@ -118,31 +124,3 @@ jobs:
               exit 1
               ;;
           esac
-
-      - name: Record successful outcome
-        if: >-
-          github.event_name == 'issues' &&
-          (steps.duplicate.outputs.exists == 'true' ||
-           steps.publish.outputs.status == '201' ||
-           steps.publish.outputs.status == '409')
-        shell: bash
-        env:
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-          DUPLICATE: ${{ steps.duplicate.outputs.exists }}
-          STATUS: ${{ steps.publish.outputs.status }}
-          COMMIT_URL: ${{ steps.publish.outputs.commit_url }}
-        run: |
-          set -euo pipefail
-          if [[ "${DUPLICATE}" == "true" ]]; then
-            MESSAGE="Skipped safely: a dated post already exists in the repository."
-          elif [[ "${STATUS}" == "201" ]]; then
-            MESSAGE="Published successfully; deployment was queued."
-            if [[ -n "${COMMIT_URL}" ]]; then
-              MESSAGE="${MESSAGE} ${COMMIT_URL}"
-            fi
-          else
-            MESSAGE="Skipped safely: the publisher returned HTTP 409."
-          fi
-
-          gh issue comment "${ISSUE_URL}" --body "${MESSAGE}"
-          gh issue close "${ISSUE_URL}"
