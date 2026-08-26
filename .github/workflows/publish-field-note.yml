@@ -29,14 +29,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
-            echo "eligible=false" >> "${GITHUB_OUTPUT}"
-            echo "Manual health-only validation requested."
-            exit 0
-          fi
-
           LOCAL_HOUR="$(TZ=America/New_York date +%H)"
-          if [[ "${LOCAL_HOUR}" != "09" ]]; then
+          if [[ "${GITHUB_EVENT_NAME}" == "schedule" && "${LOCAL_HOUR}" != "09" ]]; then
             echo "eligible=false" >> "${GITHUB_OUTPUT}"
             echo "Outside the 9:00 AM Eastern publication window."
             exit 0
@@ -54,7 +48,7 @@ jobs:
           echo "path=${REQUEST_PATH}" >> "${GITHUB_OUTPUT}"
 
       - name: Validate configuration and publisher health
-        if: github.event_name == 'workflow_dispatch' || steps.request.outputs.eligible == 'true'
+        if: steps.request.outputs.eligible == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -72,10 +66,6 @@ jobs:
           fi
 
           echo "Publisher configuration and health check passed."
-
-      - name: Complete health-only validation
-        if: github.event_name == 'workflow_dispatch'
-        run: echo "Dry run complete; no publication request was sent."
 
       - name: Validate publication request
         if: steps.request.outputs.eligible == 'true'
