@@ -1,6 +1,11 @@
 name: Publish Field Note Request
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".field-note-requests/*.json"
   schedule:
     - cron: "0,20,40 13-14 * * *"
   workflow_dispatch:
