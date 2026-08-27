@@ -22,7 +22,7 @@ export function SiteHeader() {
           className="block shrink-0"
         >
           <img
-            src="/assets/n45-lockup-header-dark.svg"
+            src="/assets/n45-lockup-dark.svg"
             alt=""
             aria-hidden="true"
             className="header-logo h-12 w-auto sm:h-14 lg:h-16"
