@@ -299,15 +299,15 @@ function Hero() {
         <div className="max-w-4xl">
           <Eyebrow theme="dark">Asheville-based · Western NC focused</Eyebrow>
           <h1 className="mt-7 max-w-4xl font-display text-[clamp(3.25rem,6.4vw,6.25rem)] leading-[0.93] tracking-[-0.045em] text-balance">
-            Managed IT services for businesses across{" "}
+            Business IT solutions for organizations across{" "}
             <em className="font-display font-normal text-mint">
               Western North Carolina.
             </em>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl">
-            N45 brings secure, responsive, plainspoken IT support to independent
-            businesses across Asheville and the mountains—without jargon, scare
-            tactics, or mystery.
+            N45 provides managed IT and Microsoft 365 security for small
+            organizations across Western North Carolina—backed by responsive,
+            plainspoken support in Asheville and the mountains.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -458,7 +458,7 @@ function Services() {
                 className="text-link block text-mint"
                 href="/managed-it-services-asheville/"
               >
-                Managed IT services in Asheville →
+                IT support and managed IT services in Asheville →
               </a>
               <a
                 className="text-link block text-mint"
@@ -633,10 +633,10 @@ function LocalPromise() {
             Rooted here. Built to show up.
           </h2>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-paper/70">
-            Asheville businesses value craft, independence, and relationships
-            that hold up over time. N45 brings that same mentality to IT: do the
-            work carefully, explain it plainly, and stay accountable after the
-            urgent moment has passed.
+            N45 is an Asheville-area technology company built around craft,
+            independence, and relationships that hold up over time. We bring
+            that same mentality to IT: do the work carefully, explain it
+            plainly, and stay accountable after the urgent moment has passed.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -1070,7 +1070,22 @@ function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:items-center sm:gap-8">
+        <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 lg:justify-end">
+          <a href="/managed-it-services-asheville/" className="hover:text-mint">
+            Managed IT in Asheville
+          </a>
+          <a
+            href="/business-it-support-western-nc/"
+            className="hover:text-mint"
+          >
+            Business IT Support
+          </a>
+          <a
+            href="/cybersecurity-services-asheville/"
+            className="hover:text-mint"
+          >
+            Cybersecurity
+          </a>
           <a href="tel:+18285151530" className="hover:text-mint">
             (828) 515-1530
           </a>

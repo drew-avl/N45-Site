@@ -83,6 +83,21 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 lg:justify-end">
+          <a href="/managed-it-services-asheville/" className="hover:text-mint">
+            Managed IT in Asheville
+          </a>
+          <a
+            href="/business-it-support-western-nc/"
+            className="hover:text-mint"
+          >
+            Business IT Support
+          </a>
+          <a
+            href="/cybersecurity-services-asheville/"
+            className="hover:text-mint"
+          >
+            Cybersecurity
+          </a>
           <a href="/book/" className="hover:text-mint">
             Book a conversation
           </a>
