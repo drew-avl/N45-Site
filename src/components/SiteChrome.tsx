@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import type { ReactNode } from "react";
 
 export function SiteHeader() {
@@ -82,41 +82,66 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 lg:justify-end">
-          <a href="/managed-it-services-asheville/" className="hover:text-mint">
-            Managed IT in Asheville
-          </a>
-          <a
-            href="/business-it-support-western-nc/"
-            className="hover:text-mint"
-          >
-            Business IT Support
-          </a>
-          <a
-            href="/cybersecurity-services-asheville/"
-            className="hover:text-mint"
-          >
-            Cybersecurity
-          </a>
-          <a href="/book/" className="hover:text-mint">
-            Book a conversation
-          </a>
-          <a href="/refer/" className="hover:text-mint">
-            Refer a business
-          </a>
-          <a href="tel:+18285151530" className="hover:text-mint">
-            (828) 515-1530
-          </a>
-          <a href="mailto:hello@n45tech.com" className="hover:text-mint">
-            hello@n45tech.com
-          </a>
-          <a href="/blog/" className="hover:text-mint">
-            Field Notes
-          </a>
-          <span>© {new Date().getFullYear()} N45 Tech</span>
+        <div className="flex flex-col items-start gap-7 lg:items-end">
+          <RemoteSupportButton />
+
+          <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 lg:justify-end">
+            <a
+              href="/managed-it-services-asheville/"
+              className="hover:text-mint"
+            >
+              Managed IT in Asheville
+            </a>
+            <a
+              href="/business-it-support-western-nc/"
+              className="hover:text-mint"
+            >
+              Business IT Support
+            </a>
+            <a
+              href="/cybersecurity-services-asheville/"
+              className="hover:text-mint"
+            >
+              Cybersecurity
+            </a>
+            <a href="/book/" className="hover:text-mint">
+              Book a conversation
+            </a>
+            <a href="/refer/" className="hover:text-mint">
+              Refer a business
+            </a>
+            <a href="tel:+18285151530" className="hover:text-mint">
+              (828) 515-1530
+            </a>
+            <a href="mailto:hello@n45tech.com" className="hover:text-mint">
+              hello@n45tech.com
+            </a>
+            <a href="/blog/" className="hover:text-mint">
+              Field Notes
+            </a>
+            <span>© {new Date().getFullYear()} N45 Tech</span>
+          </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+export function RemoteSupportButton() {
+  return (
+    <a
+      href="https://support.n45tech.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="button-primary group"
+    >
+      Start Remote Support
+      <ExternalLink
+        aria-hidden="true"
+        className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+      />
+      <span className="sr-only"> (opens in a new tab)</span>
+    </a>
   );
 }
 

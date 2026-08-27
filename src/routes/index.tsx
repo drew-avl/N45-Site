@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 
 import heroImg from "@/assets/hero-mountains.jpg";
+import { RemoteSupportButton } from "@/components/SiteChrome";
 import SecurityTriageCta from "@/components/SecurityTriageCta";
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as
@@ -1088,23 +1089,7 @@ function Footer() {
         </div>
 
         <div className="flex flex-col items-start gap-7 lg:items-end">
-          <div className="flex flex-col items-start gap-2 lg:items-end">
-            <a
-              href="https://support.n45tech.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="button-primary group"
-            >
-              Start Remote Support
-              <ArrowRight
-                aria-hidden="true"
-                className="h-4 w-4 transition-transform group-hover:translate-x-1"
-              />
-            </a>
-            <span className="text-xs text-paper/50">
-              Attended, one-time support sessions
-            </span>
-          </div>
+          <RemoteSupportButton />
 
           <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 lg:justify-end">
             <a
