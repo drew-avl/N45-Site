@@ -1,0 +1,16 @@
+{
+  "category": "Collaboration",
+  "date": "August 26, 2026",
+  "datetime": "2026-08-26",
+  "readTime": "2 min read",
+  "title": "A Chat Space Roster Can Be Sensitive Too",
+  "summary": "Review who can see the full member list in customer, vendor, and sensitive Google Chat spaces, then document the owner and purpose.",
+  "body": [
+    "Google Workspace announced on August 25 that owners and managers of Google Chat spaces can now choose who is allowed to view the full member list. The options range from owners only to everyone in the organization, while the default remains all members. Google says the feature is rolling out gradually to all Workspace customers and does not include a separate administrator control.",
+    "This sounds like a small privacy setting, but it exposes a useful operational question: who needs to know everyone involved in a conversation? In a normal internal team room, an open roster is usually helpful. In a space that includes customers, vendors, contractors, or people discussing a sensitive project, the roster itself may reveal relationships or participation that the business did not intend to advertise.",
+    "The setting does not make a Chat space confidential by itself. People can still see the name and profile of anyone who actively posts, and access to messages and shared files depends on other permissions. Treat member visibility as one layer of workspace design, not as a substitute for controlling who may join, what may be posted, or how linked Drive files are shared.",
+    "Today, ask the owner of each important Google Chat space to review three things: who belongs there, who can add members, and who should see the complete roster. Start with customer-facing spaces, vendor coordination rooms, and projects involving personnel, financial, or acquisition discussions. If the existing default fits the purpose, leave it alone and document that choice. If it does not, the owner or manager can open Space settings, go to Membership, and adjust View members.",
+    "This review is also a chance to remove stale guests and assign a current owner. A privacy option is only useful when somebody is responsible for checking it. Put a simple review date on externally shared or sensitive spaces, just as you would for a shared folder or distribution list, so temporary collaboration does not quietly become permanent access.",
+    "There is no reason to lock down every roster or treat the update as evidence of a new attack. Most small businesses will need only a focused review of higher-sensitivity spaces. The practical lesson is to match visibility to the purpose of the room, keep ownership clear, and revisit the decision when the people or project change."
+  ]
+}

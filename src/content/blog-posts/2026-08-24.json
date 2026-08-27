@@ -1,0 +1,16 @@
+{
+  "category": "Identity & Access",
+  "date": "August 24, 2026",
+  "datetime": "2026-08-24",
+  "readTime": "2 min read",
+  "title": "Connected Apps Should Earn Every Permission",
+  "summary": "Cloudflare’s new task-based consent option reinforces a practical rule: integrations should receive only the access their current job requires.",
+  "body": [
+    "A connected app can be useful without needing the keys to everything. On August 20, Cloudflare introduced optional scopes for its third-party OAuth applications. OAuth is the system behind many “connect your account” screens: it lets an application act on your behalf without receiving your password. A scope is simply a defined permission, such as reading account details or changing a configuration.",
+    "Cloudflare’s change allows an app developer to mark some requested permissions as optional. During authorization, the person connecting the app can deselect those optional permissions and grant a narrower set. The important limitation is that developers must configure the option, existing applications keep their current behavior by default, and the consent screen still selects the full requested set unless the user narrows it.",
+    "The larger lesson applies beyond Cloudflare. Small organizations routinely connect customer-management tools, accounting platforms, backup products, marketing services, ticketing systems, and AI assistants. Each connection creates an access path that can outlive the employee who set it up or the project it supported. The issue is not whether integrations are good or bad; it is whether anyone still knows why each one exists and what it can reach.",
+    "A useful action today is to review the connected or enterprise applications in one important platform. Microsoft documents this in the Entra admin center under Enterprise apps, where an administrator can inspect permissions granted by users or across the organization. For each unfamiliar or important app, record its business purpose, internal owner, access level, and last known use. Remove an abandoned connection only after confirming it is not supporting an active workflow.",
+    "For new integrations, ask for the smallest practical permission set. A reporting tool may need to read data but not change it. A workflow tool may legitimately need write access, but perhaps only to one service or account. If a consent screen requests more than the task seems to require, pause and ask the vendor to explain the dependency before approving organization-wide access.",
+    "This is ordinary access management, not a reason to disconnect every tool. NIST calls the underlying idea least privilege: give a user or process only the authorization needed for its assigned task. A short, documented review turns that principle into something manageable and makes the next integration decision easier to defend."
+  ]
+}

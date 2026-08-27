@@ -1,0 +1,16 @@
+{
+  "category": "Cybersecurity",
+  "date": "August 27, 2026",
+  "datetime": "2026-08-27",
+  "readTime": "2 min read",
+  "title": "Start a One-Page Internet Exposure Register",
+  "summary": "CISA’s new vulnerability review points to a practical first step: document every service your organization exposes to the internet and who owns it.",
+  "body": [
+    "On August 26, the Cybersecurity and Infrastructure Security Agency published its Vulnerability Review covering fiscal years 2024 and 2025. CISA’s plainspoken conclusion is useful: attackers routinely scan the internet for exposed software with known weaknesses, and basic security failures still enable many compromises. The report is not a warning about one product. It is a reminder that vulnerability management starts with knowing what outsiders can reach.",
+    "For a small organization in Western North Carolina, the public-facing list may be short, but it is rarely limited to the website. It can include a firewall or virtual private network portal, remote-access service, cloud application, phone system, security-camera interface, or vendor support tool. Some may be managed by an outside provider. Outsourcing the service does not automatically answer who tracks its exposure, updates, and retirement.",
+    "Today, create a one-page internet exposure register. For each public service, record its address or hostname, business purpose, product or provider, internal owner, support contact, authentication method, last verified update, and intended retirement date. Start by comparing your domain records, firewall rules, cloud services, and vendor documentation. If those sources disagree, treat the mismatch as a question to resolve rather than proof of a breach.",
+    "Then prioritize the list by real exposure and consequence. A management interface open to the internet deserves attention before an internal-only device with the same theoretical severity. Confirm that public services are still needed, restrict administrative access where practical, require multifactor authentication when the product supports it, and compare applicable software against the vendor’s current advisories and CISA’s Known Exploited Vulnerabilities catalog. Remove or isolate anything nobody can clearly own.",
+    "Do not turn this into a demand to patch every device immediately or purchase an expensive scanning platform. A spreadsheet reviewed with whoever manages the network is a legitimate starting point. The goal is to make the outside-facing environment explainable: what is present, why it is reachable, who maintains it, and how quickly the organization can act when a relevant advisory appears.",
+    "CISA’s review is national, and it does not establish that any particular local business has been targeted or compromised. The proportionate response is better visibility, not panic. A short register today gives future patching decisions context and makes forgotten services easier to retire before they become tomorrow’s emergency."
+  ]
+}

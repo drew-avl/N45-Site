@@ -1,0 +1,141 @@
+name: Publish Field Note Request
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".field-note-requests/*.json"
+  schedule:
+    - cron: "0,20,40 13-14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: field-note-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      BLOG_PUBLISH_ENDPOINT: ${{ vars.BLOG_PUBLISH_ENDPOINT }}
+      BLOG_PUBLISH_TOKEN: ${{ secrets.BLOG_PUBLISH_TOKEN }}
+
+    steps:
+      - name: Check out Field Note queue
+        uses: actions/checkout@v4
+
+      - name: Select today's request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          LOCAL_HOUR="$(TZ=America/New_York date +%H)"
+          if [[ "${GITHUB_EVENT_NAME}" == "schedule" && "${LOCAL_HOUR}" != "09" ]]; then
+            echo "eligible=false" >> "${GITHUB_OUTPUT}"
+            echo "Outside the 9:00 AM Eastern publication window."
+            exit 0
+          fi
+
+          LOCAL_DATE="$(TZ=America/New_York date +%F)"
+          REQUEST_PATH=".field-note-requests/${LOCAL_DATE}.json"
+          if [[ ! -f "${REQUEST_PATH}" ]]; then
+            echo "eligible=false" >> "${GITHUB_OUTPUT}"
+            echo "No request exists for ${LOCAL_DATE}."
+            exit 0
+          fi
+
+          echo "eligible=true" >> "${GITHUB_OUTPUT}"
+          echo "path=${REQUEST_PATH}" >> "${GITHUB_OUTPUT}"
+
+      - name: Validate configuration and publisher health
+        if: steps.request.outputs.eligible == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${BLOG_PUBLISH_ENDPOINT}" || -z "${BLOG_PUBLISH_TOKEN}" ]]; then
+            echo "Required publisher configuration is unavailable."
+            exit 1
+          fi
+
+          HEALTH_ENDPOINT="${BLOG_PUBLISH_ENDPOINT%/posts}/health"
+          HEALTH_STATUS="$(curl --silent --show-error --output health-response.txt --write-out '%{http_code}' --max-time 20 "${HEALTH_ENDPOINT}")"
+
+          if [[ "${HEALTH_STATUS}" != "200" ]]; then
+            echo "Publisher health check failed with HTTP ${HEALTH_STATUS}."
+            exit 1
+          fi
+
+          echo "Publisher configuration and health check passed."
+
+      - name: Validate publication request
+        if: steps.request.outputs.eligible == 'true'
+        shell: bash
+        env:
+          REQUEST_PATH: ${{ steps.request.outputs.path }}
+        run: |
+          set -euo pipefail
+          cp "${REQUEST_PATH}" payload.json
+
+          jq -e '
+            type == "object" and
+            keys == ["body", "category", "datetime", "summary", "title"] and
+            (.title | type == "string" and length > 0) and
+            (.summary | type == "string" and length >= 20 and length <= 320) and
+            (.category | type == "string" and length > 0) and
+            (.datetime | type == "string" and test("^[0-9]{4}-[0-9]{2}-[0-9]{2}$")) and
+            (.body | type == "array" and length >= 5 and length <= 8) and
+            all(.body[]; type == "string" and length > 0)
+          ' payload.json >/dev/null
+
+          EXPECTED_DATE="$(basename "${REQUEST_PATH}" .json)"
+          PAYLOAD_DATE="$(jq -r '.datetime' payload.json)"
+          if [[ "${PAYLOAD_DATE}" != "${EXPECTED_DATE}" ]]; then
+            echo "Request filename date does not match payload date."
+            exit 1
+          fi
+
+      - name: Check for an existing dated post
+        if: steps.request.outputs.eligible == 'true'
+        id: duplicate
+        shell: bash
+        run: |
+          set -euo pipefail
+          POST_DATE="$(jq -r '.datetime' payload.json)"
+          EXISTING_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/src/content/blog-posts/${POST_DATE}.json"
+          STATUS="$(curl --silent --output existing-post.json --write-out '%{http_code}' --max-time 20 "${EXISTING_URL}")"
+
+          if [[ "${STATUS}" == "200" ]]; then
+            echo "exists=true" >> "${GITHUB_OUTPUT}"
+            echo "A dated post already exists; publication will be skipped."
+          else
+            echo "exists=false" >> "${GITHUB_OUTPUT}"
+          fi
+
+      - name: Publish Field Note
+        if: steps.request.outputs.eligible == 'true' && steps.duplicate.outputs.exists != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          STATUS="$(curl --silent --show-error --output publish-response.json --write-out '%{http_code}' --max-time 45 --request POST --header "Authorization: Bearer ${BLOG_PUBLISH_TOKEN}" --header "Content-Type: application/json" --data-binary @payload.json "${BLOG_PUBLISH_ENDPOINT}")"
+
+          case "${STATUS}" in
+            201)
+              COMMIT_URL="$(jq -r '.commitUrl // empty' publish-response.json)"
+              echo "Publication succeeded and deployment was queued."
+              if [[ -n "${COMMIT_URL}" ]]; then
+                echo "Commit: ${COMMIT_URL}"
+              fi
+              ;;
+            409)
+              echo "Publisher reported an existing dated post; no retry will be attempted."
+              ;;
+            *)
+              echo "Publisher returned HTTP ${STATUS}; no retry will be attempted."
+              exit 1
+              ;;
+          esac
