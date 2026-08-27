@@ -302,10 +302,31 @@
   gap: 1.25rem;
   align-items: start;
   padding: clamp(1.5rem, 4vw, 2.5rem);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
-.process-row + .process-row {
+.process-list > li + li {
   border-top: 1px solid rgba(10, 36, 35, 0.1);
+}
+
+.process-row:hover {
+  background: color-mix(in srgb, var(--mint) 10%, var(--paper));
+}
+
+.process-row:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-row,
+  .process-row svg {
+    transition: none;
+  }
 }
 
 .faq > summary {
