@@ -40,6 +40,13 @@ type Service = {
   outcome: string;
 };
 
+type ProcessStep = {
+  number: string;
+  title: string;
+  body: string;
+  href: string;
+};
+
 const services: Service[] = [
   {
     icon: Laptop,
@@ -116,26 +123,30 @@ const industries = [
   },
 ];
 
-const process = [
+const process: ProcessStep[] = [
   {
     number: "01",
     title: "Listen & assess",
     body: "We learn how the business works, then map accounts, assets, vendors, ownership, risks, and recurring friction.",
+    href: "/approach/listen-and-assess/",
   },
   {
     number: "02",
     title: "Stabilize the essentials",
     body: "Urgent issues get handled first. We reduce repeat problems and establish a dependable baseline.",
+    href: "/approach/stabilize-the-essentials/",
   },
   {
     number: "03",
     title: "Secure & document",
     body: "Access, devices, protection, backups, and recovery details become safer, clearer, and easier to manage.",
+    href: "/approach/secure-and-document/",
   },
   {
     number: "04",
     title: "Manage & improve",
     body: "Monitoring, support, reviews, and automation keep the environment useful as your business changes.",
+    href: "/approach/manage-and-improve/",
   },
 ];
 
@@ -148,7 +159,7 @@ const faqs = [
   {
     question: "Is N45 only for Asheville businesses?",
     answer:
-      "N45 is based in the Asheville area and serves organizations across Western North Carolina, including Hendersonville, Black Mountain, and the I-26 corridor.",
+      "N45 primarily serves businesses in the Asheville area. If your organization is outside the area, we are still open to a conversation and will consider the fit, service needs, and practical logistics on a case-by-case basis.",
   },
   {
     question: "Can you help with one specific project?",
@@ -585,24 +596,30 @@ function Process() {
             </p>
           </div>
 
-          <ol className="overflow-hidden rounded-[2rem] border border-ink/10 bg-paper shadow-[0_24px_80px_rgba(10,36,35,0.08)]">
+          <ol className="process-list overflow-hidden rounded-[2rem] border border-ink/10 bg-paper shadow-[0_24px_80px_rgba(10,36,35,0.08)]">
             {process.map((item) => (
-              <li key={item.number} className="process-row">
-                <span className="font-mono text-xs font-semibold text-teal">
-                  {item.number}
-                </span>
-                <div>
-                  <h3 className="font-display text-3xl tracking-tight md:text-4xl">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 max-w-2xl leading-7 text-ridge">
-                    {item.body}
-                  </p>
-                </div>
-                <ChevronRight
-                  aria-hidden="true"
-                  className="mt-2 hidden h-5 w-5 text-teal/50 sm:block"
-                />
+              <li key={item.number}>
+                <a href={item.href} className="process-row group">
+                  <span className="font-mono text-xs font-semibold text-teal">
+                    {item.number}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-3xl tracking-tight md:text-4xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 max-w-2xl leading-7 text-ridge">
+                      {item.body}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-teal sm:hidden">
+                      See how this works
+                      <ChevronRight aria-hidden="true" className="h-4 w-4" />
+                    </span>
+                  </div>
+                  <ChevronRight
+                    aria-hidden="true"
+                    className="mt-2 hidden h-5 w-5 text-teal/50 transition-transform group-hover:translate-x-1 group-hover:text-teal sm:block"
+                  />
+                </a>
               </li>
             ))}
           </ol>
@@ -1070,38 +1087,61 @@ function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 lg:justify-end">
-          <a href="/managed-it-services-asheville/" className="hover:text-mint">
-            Managed IT in Asheville
-          </a>
-          <a
-            href="/business-it-support-western-nc/"
-            className="hover:text-mint"
-          >
-            Business IT Support
-          </a>
-          <a
-            href="/cybersecurity-services-asheville/"
-            className="hover:text-mint"
-          >
-            Cybersecurity
-          </a>
-          <a href="tel:+18285151530" className="hover:text-mint">
-            (828) 515-1530
-          </a>
-          <a href="mailto:hello@n45tech.com" className="hover:text-mint">
-            hello@n45tech.com
-          </a>
-          <a href="/blog/" className="hover:text-mint">
-            Field Notes
-          </a>
-          <a href="/book/" className="hover:text-mint">
-            Book
-          </a>
-          <a href="/refer/" className="hover:text-mint">
-            Refer a business
-          </a>
-          <span>© {new Date().getFullYear()} N45 Tech</span>
+        <div className="flex flex-col items-start gap-7 lg:items-end">
+          <div className="flex flex-col items-start gap-2 lg:items-end">
+            <a
+              href="https://support.n45tech.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="button-primary group"
+            >
+              Start Remote Support
+              <ArrowRight
+                aria-hidden="true"
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              />
+            </a>
+            <span className="text-xs text-paper/50">
+              Attended, one-time support sessions
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 lg:justify-end">
+            <a
+              href="/managed-it-services-asheville/"
+              className="hover:text-mint"
+            >
+              Managed IT in Asheville
+            </a>
+            <a
+              href="/business-it-support-western-nc/"
+              className="hover:text-mint"
+            >
+              Business IT Support
+            </a>
+            <a
+              href="/cybersecurity-services-asheville/"
+              className="hover:text-mint"
+            >
+              Cybersecurity
+            </a>
+            <a href="tel:+18285151530" className="hover:text-mint">
+              (828) 515-1530
+            </a>
+            <a href="mailto:hello@n45tech.com" className="hover:text-mint">
+              hello@n45tech.com
+            </a>
+            <a href="/blog/" className="hover:text-mint">
+              Field Notes
+            </a>
+            <a href="/book/" className="hover:text-mint">
+              Book
+            </a>
+            <a href="/refer/" className="hover:text-mint">
+              Refer a business
+            </a>
+            <span>© {new Date().getFullYear()} N45 Tech</span>
+          </div>
         </div>
       </div>
     </footer>
