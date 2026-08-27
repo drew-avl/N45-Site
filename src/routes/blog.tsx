@@ -19,6 +19,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import SecurityTriageCta from "@/components/SecurityTriageCta";
+import { RemoteSupportButton } from "@/components/SiteChrome";
 
 type BlogPost = {
   category: string;
@@ -421,17 +422,21 @@ function BlogFooter() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:items-center sm:gap-8">
-          <a href="tel:+18285151530" className="hover:text-mint">
-            (828) 515-1530
-          </a>
-          <a href="mailto:hello@n45tech.com" className="hover:text-mint">
-            hello@n45tech.com
-          </a>
-          <a href="/blog/" className="text-mint" aria-current="page">
-            Field Notes
-          </a>
-          <span>© {new Date().getFullYear()} N45 Tech</span>
+        <div className="flex flex-col items-start gap-7 lg:items-end">
+          <RemoteSupportButton />
+
+          <div className="flex flex-col gap-4 text-sm text-paper/60 sm:flex-row sm:items-center sm:gap-8">
+            <a href="tel:+18285151530" className="hover:text-mint">
+              (828) 515-1530
+            </a>
+            <a href="mailto:hello@n45tech.com" className="hover:text-mint">
+              hello@n45tech.com
+            </a>
+            <a href="/blog/" className="text-mint" aria-current="page">
+              Field Notes
+            </a>
+            <span>© {new Date().getFullYear()} N45 Tech</span>
+          </div>
         </div>
       </div>
     </footer>
