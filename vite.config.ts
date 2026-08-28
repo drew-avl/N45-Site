@@ -6,14 +6,16 @@ const googleTagId = "G-KYVW88Y1TY";
 
 const googleTagPlugin = {
   name: "n45-google-tag",
-  transformIndexHtml(html: string) {
-    if (html.includes(`googletagmanager.com/gtag/js?id=${googleTagId}`)) {
-      return html;
-    }
+  transformIndexHtml: {
+    order: "pre" as const,
+    handler(html: string) {
+      if (html.includes(`googletagmanager.com/gtag/js?id=${googleTagId}`)) {
+        return html;
+      }
 
-    return html.replace(
-      "<head>",
-      `<head>
+      return html.replace(
+        "<head>",
+        `<head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=${googleTagId}"></script>
     <script>
@@ -22,8 +24,10 @@ const googleTagPlugin = {
       gtag('js', new Date());
 
       gtag('config', '${googleTagId}');
-    </script>`,
-    );
+    </script>
+    <script type="module" src="/src/analytics.ts"></script>`,
+      );
+    },
   },
 };
 
@@ -34,6 +38,7 @@ export default defineConfig({
         main: "./index.html",
         book: "./book/index.html",
         refer: "./refer/index.html",
+        privacy: "./privacy/index.html",
         blog: "./blog/index.html",
         managedIt: "./managed-it-services-asheville/index.html",
         businessIt: "./business-it-support-western-nc/index.html",

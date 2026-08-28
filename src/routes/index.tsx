@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 
 import heroImg from "@/assets/hero-mountains.jpg";
+import { trackEvent } from "@/analytics";
 import { RemoteSupportButton } from "@/components/SiteChrome";
 import SecurityTriageCta from "@/components/SecurityTriageCta";
 
@@ -800,6 +801,11 @@ function Contact() {
       }
 
       form.reset();
+      trackEvent("generate_lead", {
+        form_name: "contact_form",
+        lead_type: "website_inquiry",
+        lead_topic: topic,
+      });
       setSubmitState("success");
       setStatusMessage(
         result.message ||
@@ -1124,6 +1130,9 @@ function Footer() {
             </a>
             <a href="/refer/" className="hover:text-mint">
               Refer a business
+            </a>
+            <a href="/privacy/" className="hover:text-mint">
+              Privacy
             </a>
             <span>© {new Date().getFullYear()} N45 Tech</span>
           </div>

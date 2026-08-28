@@ -21,6 +21,8 @@ const IT_REVIEW_BOOKING_URL =
 
 const appointmentTypes = [
   {
+    analyticsEvent: "security_triage_booking_started",
+    appointmentType: "m365_security_triage",
     icon: ShieldCheck,
     duration: "15 minutes",
     title: "Microsoft 365 Security Fit Check",
@@ -34,6 +36,8 @@ const appointmentTypes = [
     href: TRIAGE_BOOKING_URL,
   },
   {
+    analyticsEvent: "managed_it_booking_started",
+    appointmentType: "managed_it_introduction",
     icon: MessageSquareText,
     duration: "20 minutes",
     title: "Managed IT Introduction",
@@ -169,6 +173,13 @@ export default function Book() {
                         href={destination}
                         target={appointment.href ? "_blank" : undefined}
                         rel={appointment.href ? "noreferrer" : undefined}
+                        data-analytics-event={
+                          appointment.href
+                            ? appointment.analyticsEvent
+                            : undefined
+                        }
+                        data-appointment-type={appointment.appointmentType}
+                        data-analytics-location="booking_options"
                         className="button-dark group w-full whitespace-nowrap lg:w-auto"
                       >
                         {appointment.href

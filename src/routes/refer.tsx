@@ -10,6 +10,7 @@ import {
   UserRoundCheck,
 } from "lucide-react";
 
+import { trackEvent } from "@/analytics";
 import { PageEyebrow, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as
@@ -154,6 +155,10 @@ export default function Refer() {
       }
 
       form.reset();
+      trackEvent("referral_submitted", {
+        form_name: "referral_form",
+        lead_type: "business_referral",
+      });
       setSubmitState("success");
       setStatusMessage(
         "Thank you. N45 will handle the introduction carefully and keep the conversation low-pressure.",

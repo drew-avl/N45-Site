@@ -119,6 +119,9 @@ export function SiteFooter() {
             <a href="/blog/" className="hover:text-mint">
               Field Notes
             </a>
+            <a href="/privacy/" className="hover:text-mint">
+              Privacy
+            </a>
             <span>© {new Date().getFullYear()} N45 Tech</span>
           </div>
         </div>
