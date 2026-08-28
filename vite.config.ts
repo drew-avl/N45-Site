@@ -2,6 +2,31 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
+const googleTagId = "G-KYVW88Y1TY";
+
+const googleTagPlugin = {
+  name: "n45-google-tag",
+  transformIndexHtml(html: string) {
+    if (html.includes(`googletagmanager.com/gtag/js?id=${googleTagId}`)) {
+      return html;
+    }
+
+    return html.replace(
+      "<head>",
+      `<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${googleTagId}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '${googleTagId}');
+    </script>`,
+    );
+  },
+};
+
 export default defineConfig({
   build: {
     rollupOptions: {
@@ -23,7 +48,7 @@ export default defineConfig({
   css: {
     transformer: "lightningcss",
   },
-  plugins: [tailwindcss(), react()],
+  plugins: [googleTagPlugin, tailwindcss(), react()],
   resolve: {
     tsconfigPaths: true,
   },
