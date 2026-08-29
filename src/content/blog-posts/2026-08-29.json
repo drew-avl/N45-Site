@@ -1,0 +1,17 @@
+{
+  "category": "Endpoint Security",
+  "date": "August 29, 2026",
+  "datetime": "2026-08-29",
+  "readTime": "3 min read",
+  "title": "A CAPTCHA Should Never Need PowerShell",
+  "summary": "Teach one clear rule: if a website asks someone to paste a command into PowerShell, Windows Terminal, Command Prompt, or Run, stop and call IT.",
+  "body": [
+    "Microsoft Security Research reported on August 28 that a campaign it calls TerminalFix is using compromised websites to display fake Cloudflare-style verification screens. Instead of completing a normal browser check, the page instructs the visitor to copy a command, open Windows Terminal or PowerShell, paste it, and run it. Microsoft observed the command starting a multistage intrusion that ultimately provided persistent access through the affected computer.",
+    "The important lesson does not require understanding every stage of that attack. A legitimate human-verification prompt should not need someone to open PowerShell, Windows Terminal, Command Prompt, or the Windows Run box. Those tools can execute instructions directly on the computer. A convincing logo, progress message, or statement that the command is required for verification does not make the instruction safe.",
+    "For a small organization in Western North Carolina, this is a useful training point because it is precise. Employees do not need to decide whether a website looks polished or whether a command seems technical. Give them one rule today: if a site asks you to paste or type a command outside the browser, close the page and contact the person who handles IT. Do not continue just because the page claims the check failed.",
+    "Send that rule to staff in plain language and include the four places attackers may mention: PowerShell, Windows Terminal, Command Prompt, and Run. Ask employees to report the website address and what they saw, but not to revisit the page for a screenshot. If anyone already followed such instructions, disconnect that computer from the network and have it investigated rather than assuming that closing the window removed the problem.",
+    "Administrators can add practical layers behind the training. Keep endpoint protection and browsers current, use cloud-delivered protection where available, and review whether standard users genuinely need unrestricted scripting tools. Microsoft recommends considering application-control policies, auditing or restricting PowerShell and the Run dialog where appropriate, and enabling PowerShell script-block logging. These controls should be tested before broad deployment so normal administration is not disrupted.",
+    "This report is not a reason to block Cloudflare, distrust every CAPTCHA, or assume that visiting a compromised page alone infected the computer. In the chain Microsoft analyzed, the user had to paste and execute the supplied command. The proportionate response is to make that boundary unmistakable, maintain normal endpoint defenses, and investigate promptly when someone crosses it.",
+    "The calm takeaway is easy to keep after this campaign changes: websites may ask you to click, select images, or sign in, but they should not ask you to run code on your computer to prove you are human. That single rule can turn a technically elaborate attack into a straightforward stop."
+  ]
+}
