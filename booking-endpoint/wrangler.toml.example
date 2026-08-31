@@ -1,4 +1,4 @@
-name = "n45-booking-endpoint"
+name = "n45-booking-api"
 main = "worker.js"
 compatibility_date = "2026-08-31"
 

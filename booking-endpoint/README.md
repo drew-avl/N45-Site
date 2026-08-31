@@ -4,9 +4,10 @@ This Cloudflare Worker lets visitors complete Microsoft Bookings appointments
 inside the N45 website. The browser only talks to this endpoint; the Microsoft
 client secret stays in the Worker.
 
-The existing Microsoft Bookings iframe remains the production fallback until
-this Worker is deployed and the `BOOKING_API_ENDPOINT` repository variable is
-set.
+The Worker is deployed at `https://booking-api.n45tech.com`. The existing
+Microsoft Bookings iframe remains the production fallback until the Microsoft
+credentials are configured and the `BOOKING_API_ENDPOINT` repository variable
+is set.
 
 ## Microsoft Entra setup
 
@@ -51,7 +52,7 @@ wrangler deploy
 Test the deployed endpoint before activating the native form:
 
 ```powershell
-Invoke-RestMethod https://YOUR-WORKER.workers.dev/services
+Invoke-RestMethod https://booking-api.n45tech.com/services
 ```
 
 When service data returns successfully, set the GitHub repository variable
@@ -65,8 +66,10 @@ rebuilding restores the Microsoft-hosted fallback.
 - `GET /availability?serviceId=...&days=21` returns deduplicated UTC slots.
 - `POST /appointments` rechecks the chosen slot and creates the appointment.
 
-These routes also work below `/booking-endpoint`, allowing the Worker to use
-the `n45tech.com/booking-endpoint*` Cloudflare route without a separate host.
+These routes also work below `/booking-endpoint` if the Worker is moved to a
+path-based route later. Production currently uses the isolated
+`booking-api.n45tech.com` custom domain so the GitHub Pages apex records can
+remain DNS-only.
 
 The native flow exposes one-customer services. Group services stay on the
 Microsoft-hosted fallback because Graph requires pre-created customer IDs for
