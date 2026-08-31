@@ -4,10 +4,10 @@ This Cloudflare Worker lets visitors complete Microsoft Bookings appointments
 inside the N45 website. The browser only talks to this endpoint; the Microsoft
 client secret stays in the Worker.
 
-The Worker is deployed at `https://booking-api.n45tech.com`. The existing
-Microsoft Bookings iframe remains the production fallback until the Microsoft
-credentials are configured and the `BOOKING_API_ENDPOINT` repository variable
-is set.
+The Worker is deployed at `https://booking-api.n45tech.com`. That production
+endpoint is the site default; `VITE_BOOKING_API_ENDPOINT` can override it for
+preview or staging builds. The Microsoft-hosted scheduler remains available as
+the component fallback if the native API cannot load.
 
 ## Microsoft Entra setup
 
@@ -55,10 +55,9 @@ Test the deployed endpoint before activating the native form:
 Invoke-RestMethod https://booking-api.n45tech.com/services
 ```
 
-When service data returns successfully, set the GitHub repository variable
-`BOOKING_API_ENDPOINT` to the Worker base URL. The Pages workflow maps it to
-`VITE_BOOKING_API_ENDPOINT` during the next build. Removing that variable and
-rebuilding restores the Microsoft-hosted fallback.
+When service and availability data both return successfully, deploy the site.
+The production build uses `https://booking-api.n45tech.com` unless
+`VITE_BOOKING_API_ENDPOINT` supplies a different base URL.
 
 ## Public API
 

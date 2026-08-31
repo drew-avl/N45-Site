@@ -3,8 +3,9 @@ import { CalendarCheck2, Clock3, ExternalLink, Phone } from "lucide-react";
 import { NativeBooking } from "@/components/NativeBooking";
 import { PageEyebrow, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 
-const BOOKING_API_ENDPOINT = import.meta.env.VITE_BOOKING_API_ENDPOINT as
-  string | undefined;
+const BOOKING_API_ENDPOINT =
+  (import.meta.env.VITE_BOOKING_API_ENDPOINT as string | undefined) ||
+  "https://booking-api.n45tech.com";
 const BOOKING_URL =
   (import.meta.env.VITE_BOOKING_URL as string | undefined) ||
   "https://outlook.office.com/book/SceduleaConversationwithN45@n45tech.com/?ismsaljsauthenabled";
