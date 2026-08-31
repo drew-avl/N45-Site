@@ -152,6 +152,10 @@ test("native booking API lists services, finds slots, and creates an appointment
     const availabilityBody = await availabilityResponse.json();
     assert.equal(availabilityResponse.status, 200);
     assert.equal(availabilityBody.slots.length, 2);
+    assert.ok(
+      new Date(availabilityBody.slots[0].startDateTime).getTime() >=
+        Date.now() + 24 * 60 * 60 * 1000,
+    );
 
     const appointmentResponse = await worker.fetch(
       request("/appointments", {
@@ -180,6 +184,73 @@ test("native booking API lists services, finds slots, and creates an appointment
       "ada@example.com",
     );
     assert.match(createdAppointment.customerNotes, /Example Clinic/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("native booking API curates five stable weekday slots", async () => {
+  const originalFetch = globalThis.fetch;
+  let requestedRangeDays = 0;
+
+  globalThis.fetch = async (url, init = {}) => {
+    const target = String(url);
+
+    if (target.includes("login.microsoftonline.com")) {
+      return Response.json({ access_token: "test-token", expires_in: 3600 });
+    }
+
+    if (target.endsWith("/services/service-1")) {
+      return Response.json(service);
+    }
+
+    if (target.endsWith("/getStaffAvailability")) {
+      const body = JSON.parse(init.body);
+      const queryStart = utcValue(body.startDateTime);
+      const queryEnd = utcValue(body.endDateTime);
+      requestedRangeDays =
+        (queryEnd.getTime() - queryStart.getTime()) / 86400000;
+
+      const availableStart = nextWeekday(Date.now() + 3 * 86400000);
+      availableStart.setUTCHours(12, 0, 0, 0);
+      const availableEnd = new Date(availableStart);
+      availableEnd.setUTCHours(21, 0, 0, 0);
+
+      return Response.json({
+        value: [
+          {
+            staffId: "staff-1",
+            availabilityItems: [
+              {
+                status: "Available",
+                startDateTime: graphTestDate(availableStart),
+                endDateTime: graphTestDate(availableEnd),
+              },
+            ],
+          },
+        ],
+      });
+    }
+
+    throw new Error(`Unexpected Graph request: ${target}`);
+  };
+
+  try {
+    const firstResponse = await worker.fetch(
+      request("/availability?serviceId=service-1&days=31"),
+      env,
+    );
+    const firstBody = await firstResponse.json();
+    const secondResponse = await worker.fetch(
+      request("/availability?serviceId=service-1&days=31"),
+      env,
+    );
+    const secondBody = await secondResponse.json();
+
+    assert.equal(firstResponse.status, 200);
+    assert.equal(firstBody.slots.length, 5);
+    assert.deepEqual(secondBody.slots, firstBody.slots);
+    assert.ok(requestedRangeDays <= 14.01);
   } finally {
     globalThis.fetch = originalFetch;
   }
@@ -329,4 +400,12 @@ function graphTestDate(date) {
     dateTime: date.toISOString().replace(/Z$/, ""),
     timeZone: "UTC",
   };
+}
+
+function nextWeekday(timestamp) {
+  const date = new Date(timestamp);
+  while ([0, 6].includes(date.getUTCDay())) {
+    date.setUTCDate(date.getUTCDate() + 1);
+  }
+  return date;
 }

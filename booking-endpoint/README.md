@@ -62,7 +62,7 @@ The production build uses `https://booking-api.n45tech.com` unless
 ## Public API
 
 - `GET /services` lists Bookings services that are visible to customers.
-- `GET /availability?serviceId=...&days=21` returns deduplicated UTC slots.
+- `GET /availability?serviceId=...&days=14` returns curated UTC slots.
 - `POST /appointments` rechecks the chosen slot and creates the appointment.
 
 These routes also work below `/booking-endpoint` if the Worker is moved to a
@@ -73,6 +73,12 @@ remain DNS-only.
 The native flow exposes every customer-visible service. For multi-attendee
 services, the Worker creates the required Bookings customer record first and
 passes its ID when creating the appointment.
+
+Public availability is intentionally limited to five stable, well-spaced
+weekday starts per day across a two-week window. The endpoint enforces a
+24-hour minimum lead time even when the underlying service policy is shorter.
+Only times that Microsoft reports as genuinely available are considered; the
+Worker does not create synthetic calendar events.
 
 Appointment payload:
 

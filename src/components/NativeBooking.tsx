@@ -206,7 +206,7 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
       try {
         const params = new URLSearchParams({
           serviceId: selectedServiceId,
-          days: "21",
+          days: "14",
         });
         const response = await fetch(
           apiUrl(endpoint, `/availability?${params.toString()}`),
@@ -567,7 +567,7 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
           ) : (
             <div className="mt-5 rounded-lg border border-sunrise bg-paper px-5 py-5">
               <p className="font-bold">
-                No open times found in the next three weeks.
+                No open times found in the next two weeks.
               </p>
               <p className="mt-1 text-sm leading-6 text-ridge">
                 Call (828) 515-1530 and we will find a time that works.

@@ -5,7 +5,19 @@ const DEFAULT_ALLOWED_ORIGINS = [
 const DEFAULT_BUSINESS_TIME_ZONE = "Eastern Standard Time";
 const MAX_BODY_BYTES = 12000;
 const MAX_NOTES_LENGTH = 1000;
-const MAX_AVAILABILITY_DAYS = 31;
+const MAX_AVAILABILITY_DAYS = 14;
+const PUBLIC_MINIMUM_LEAD_HOURS = 24;
+const PUBLIC_SLOTS_PER_DAY = 5;
+const PUBLIC_BOOKING_TIME_ZONE = "America/New_York";
+const PUBLIC_SLOT_TARGETS = [
+  [],
+  [555, 645, 750, 855, 945],
+  [525, 615, 705, 810, 915],
+  [570, 660, 765, 870, 960],
+  [510, 600, 690, 825, 930],
+  [540, 630, 720, 840, 930],
+  [],
+];
 
 let cachedGraphToken;
 
@@ -64,7 +76,7 @@ export default {
           url.searchParams.get("days"),
           1,
           MAX_AVAILABILITY_DAYS,
-          21,
+          MAX_AVAILABILITY_DAYS,
         );
         if (!serviceId) throw new HttpError(400, "Select a valid service.");
 
@@ -192,6 +204,7 @@ function buildSlots(service, staffAvailability, rangeStart, rangeEnd) {
   const preBufferMs = durationMilliseconds(service.preBuffer, 0);
   const postBufferMs = durationMilliseconds(service.postBuffer, 0);
   const minimumLeadMs = durationMilliseconds(policy.minimumLeadTime, 0);
+  const publicMinimumLeadMs = PUBLIC_MINIMUM_LEAD_HOURS * 60 * 60 * 1000;
   const maximumAdvanceMs = durationMilliseconds(
     policy.maximumAdvance,
     365 * 24 * 60,
@@ -199,6 +212,7 @@ function buildSlots(service, staffAvailability, rangeStart, rangeEnd) {
   const earliestStart = Math.max(
     rangeStart.getTime(),
     Date.now() + minimumLeadMs,
+    Date.now() + publicMinimumLeadMs,
   );
   const latestEnd = Math.min(rangeEnd.getTime(), Date.now() + maximumAdvanceMs);
   const starts = new Set();
@@ -224,15 +238,97 @@ function buildSlots(service, staffAvailability, rangeStart, rangeEnd) {
     }
   }
 
-  return [...starts]
-    .sort()
-    .slice(0, 400)
-    .map((startDateTime) => ({
-      startDateTime,
-      endDateTime: new Date(
-        new Date(startDateTime).getTime() + durationMs,
-      ).toISOString(),
-    }));
+  const publicStarts = selectPublicStarts([...starts].sort());
+
+  return publicStarts.map((startDateTime) => ({
+    startDateTime,
+    endDateTime: new Date(
+      new Date(startDateTime).getTime() + durationMs,
+    ).toISOString(),
+  }));
+}
+
+function selectPublicStarts(starts) {
+  const days = new Map();
+
+  for (const startDateTime of starts) {
+    const parts = publicSlotParts(startDateTime);
+    if (!parts || parts.weekday === 0 || parts.weekday === 6) continue;
+
+    const day = days.get(parts.dateKey) || {
+      weekday: parts.weekday,
+      starts: [],
+    };
+    day.starts.push({ startDateTime, minuteOfDay: parts.minuteOfDay });
+    days.set(parts.dateKey, day);
+  }
+
+  const selected = [];
+  for (const [dateKey, day] of days) {
+    const dailyTargets = PUBLIC_SLOT_TARGETS[day.weekday] || [];
+    const shift = ((stableHash(dateKey) % 3) - 1) * 15;
+    const available = [...day.starts];
+
+    for (const target of dailyTargets.slice(0, PUBLIC_SLOTS_PER_DAY)) {
+      if (!available.length) break;
+
+      let bestIndex = 0;
+      let bestDistance = Number.POSITIVE_INFINITY;
+      for (let index = 0; index < available.length; index += 1) {
+        const distance = Math.abs(
+          available[index].minuteOfDay - (target + shift),
+        );
+        if (distance < bestDistance) {
+          bestIndex = index;
+          bestDistance = distance;
+        }
+      }
+
+      selected.push(available.splice(bestIndex, 1)[0].startDateTime);
+    }
+  }
+
+  return selected.sort();
+}
+
+function publicSlotParts(startDateTime) {
+  const date = new Date(startDateTime);
+  if (!Number.isFinite(date.getTime())) return null;
+
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: PUBLIC_BOOKING_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(date);
+  const value = (type) => parts.find((part) => part.type === type)?.value || "";
+  const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(
+    value("weekday"),
+  );
+  const hour = Number(value("hour"));
+  const minute = Number(value("minute"));
+
+  if (weekday < 0 || !Number.isFinite(hour) || !Number.isFinite(minute)) {
+    return null;
+  }
+
+  return {
+    dateKey: `${value("year")}-${value("month")}-${value("day")}`,
+    weekday,
+    minuteOfDay: hour * 60 + minute,
+  };
+}
+
+function stableHash(value) {
+  let hash = 0;
+  for (const character of value) {
+    hash = (hash * 31 + character.charCodeAt(0)) >>> 0;
+  }
+  return hash;
 }
 
 async function readSubmission(request) {
