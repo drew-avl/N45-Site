@@ -128,7 +128,10 @@ test("native booking API lists services, finds slots, and creates an appointment
   };
 
   try {
-    const servicesResponse = await worker.fetch(request("/services"), env);
+    const servicesResponse = await worker.fetch(
+      request("/booking-endpoint/services"),
+      env,
+    );
     const servicesBody = await servicesResponse.json();
     assert.equal(servicesResponse.status, 200);
     assert.equal(servicesBody.services.length, 1);

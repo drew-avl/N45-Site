@@ -65,6 +65,9 @@ rebuilding restores the Microsoft-hosted fallback.
 - `GET /availability?serviceId=...&days=21` returns deduplicated UTC slots.
 - `POST /appointments` rechecks the chosen slot and creates the appointment.
 
+These routes also work below `/booking-endpoint`, allowing the Worker to use
+the `n45tech.com/booking-endpoint*` Cloudflare route without a separate host.
+
 The native flow exposes one-customer services. Group services stay on the
 Microsoft-hosted fallback because Graph requires pre-created customer IDs for
 multi-attendee appointments.

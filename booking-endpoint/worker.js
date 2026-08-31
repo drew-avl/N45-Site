@@ -37,7 +37,7 @@ export default {
 
     try {
       const url = new URL(request.url);
-      const path = url.pathname.replace(/\/+$/, "") || "/";
+      const path = normalizePath(url.pathname);
 
       if (request.method === "GET" && path === "/") {
         return jsonResponse(request, env, 200, {
@@ -127,6 +127,17 @@ export default {
     }
   },
 };
+
+function normalizePath(pathname) {
+  const path = pathname.replace(/\/+$/, "") || "/";
+
+  if (path === "/booking-endpoint") return "/";
+  if (path.startsWith("/booking-endpoint/")) {
+    return path.slice("/booking-endpoint".length) || "/";
+  }
+
+  return path;
+}
 
 async function listPublicServices(env) {
   const businessId = requiredEnv(env, "BOOKINGS_BUSINESS_ID");
