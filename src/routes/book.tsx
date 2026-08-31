@@ -1,11 +1,12 @@
 import { CalendarCheck2, Clock3, ExternalLink, Phone } from "lucide-react";
 
+import { NativeBooking } from "@/components/NativeBooking";
 import { PageEyebrow, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 
+const BOOKING_API_ENDPOINT = import.meta.env.VITE_BOOKING_API_ENDPOINT as
+  string | undefined;
 const BOOKING_URL =
   (import.meta.env.VITE_BOOKING_URL as string | undefined) ||
-  (import.meta.env.VITE_SECURITY_TRIAGE_BOOKING_URL as string | undefined) ||
-  (import.meta.env.VITE_IT_REVIEW_BOOKING_URL as string | undefined) ||
   "https://outlook.office.com/book/SceduleaConversationwithN45@n45tech.com/?ismsaljsauthenabled";
 
 export default function Book() {
@@ -61,30 +62,39 @@ export default function Book() {
               Choose a service and appointment time
             </h2>
             <div className="overflow-hidden rounded-2xl bg-white">
-              <iframe
-                src={BOOKING_URL}
-                title="N45 appointment scheduler"
-                loading="eager"
-                referrerPolicy="strict-origin-when-cross-origin"
-                className="block h-[78rem] w-full sm:h-[72rem] lg:h-[66rem]"
-              />
+              {BOOKING_API_ENDPOINT ? (
+                <NativeBooking
+                  endpoint={BOOKING_API_ENDPOINT}
+                  fallbackUrl={BOOKING_URL}
+                />
+              ) : (
+                <iframe
+                  src={BOOKING_URL}
+                  title="N45 appointment scheduler"
+                  loading="eager"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  className="block h-[78rem] w-full sm:h-[72rem] lg:h-[66rem]"
+                />
+              )}
             </div>
-            <p className="mt-4 text-center text-sm leading-6 text-ridge">
-              If the scheduler does not appear,{" "}
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noreferrer"
-                data-analytics-event="booking_started"
-                data-appointment-type="microsoft_bookings"
-                data-analytics-location="booking_embed_fallback"
-                className="inline-flex items-center gap-1 font-bold text-teal underline decoration-teal/35 underline-offset-4 hover:decoration-teal"
-              >
-                open it in a new tab
-                <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
-              </a>
-              .
-            </p>
+            {!BOOKING_API_ENDPOINT && (
+              <p className="mt-4 text-center text-sm leading-6 text-ridge">
+                If the scheduler does not appear,{" "}
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-analytics-event="booking_started"
+                  data-appointment-type="microsoft_bookings"
+                  data-analytics-location="booking_embed_fallback"
+                  className="inline-flex items-center gap-1 font-bold text-teal underline decoration-teal/35 underline-offset-4 hover:decoration-teal"
+                >
+                  open it in a new tab
+                  <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
+                </a>
+                .
+              </p>
+            )}
           </div>
         </section>
 
