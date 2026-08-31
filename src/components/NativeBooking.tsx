@@ -427,7 +427,7 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
             What can we help with?
           </h2>
           <div
-            className="mt-5 space-y-2"
+            className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-1"
             role="radiogroup"
             aria-label="Service"
           >
@@ -440,22 +440,27 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
                   role="radio"
                   aria-checked={selected}
                   onClick={() => chooseService(service.id)}
-                  className={`w-full cursor-pointer rounded-lg border px-4 py-3 text-left transition ${
+                  className={`w-full cursor-pointer rounded-lg border px-4 py-3 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal ${
                     selected
                       ? "border-teal bg-mist/65"
                       : "border-transparent hover:border-ink/18 hover:bg-paper/70"
                   }`}
                 >
-                  <span className="flex items-start justify-between gap-4">
-                    <span>
+                  <span className="flex items-center justify-between gap-4">
+                    <span className="flex min-w-0 items-center gap-3">
+                      <span
+                        aria-hidden="true"
+                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
+                          selected
+                            ? "border-teal bg-teal text-white"
+                            : "border-ink/25 bg-white text-transparent"
+                        }`}
+                      >
+                        <Check className="h-3 w-3" />
+                      </span>
                       <span className="block font-extrabold text-ink">
                         {service.name}
                       </span>
-                      {service.description && (
-                        <span className="mt-1 block text-sm leading-5 text-ridge">
-                          {service.description}
-                        </span>
-                      )}
                     </span>
                     <span className="flex shrink-0 items-center gap-1 text-xs font-bold text-ridge">
                       <Clock3 aria-hidden="true" className="h-3.5 w-3.5" />
@@ -466,6 +471,14 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
               );
             })}
           </div>
+          {selectedService?.description && (
+            <p
+              className="mt-4 border-t border-ink/10 pt-4 text-sm leading-6 text-ridge"
+              aria-live="polite"
+            >
+              {selectedService.description}
+            </p>
+          )}
         </section>
 
         <section

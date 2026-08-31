@@ -147,11 +147,7 @@ async function listPublicServices(env) {
   );
 
   return (payload.value || [])
-    .filter(
-      (service) =>
-        !service.isHiddenFromCustomers &&
-        Number(service.maximumAttendeesCount || 1) === 1,
-    )
+    .filter((service) => !service.isHiddenFromCustomers)
     .map(publicService)
     .sort((a, b) => a.name.localeCompare(b.name));
 }
@@ -173,13 +169,6 @@ async function listAvailableSlots(env, serviceId, days) {
       "That service is not available for online booking.",
     );
   }
-  if (Number(service.maximumAttendeesCount || 1) !== 1) {
-    throw new HttpError(
-      400,
-      "Group appointments must be booked through the Microsoft scheduler.",
-    );
-  }
-
   const staffIds = await serviceStaffIds(env, service);
   if (!staffIds.length) return [];
 
@@ -307,13 +296,6 @@ async function createAppointment(env, submission) {
       "That service is not available for online booking.",
     );
   }
-  if (Number(service.maximumAttendeesCount || 1) !== 1) {
-    throw new HttpError(
-      400,
-      "Group appointments must be booked through the Microsoft scheduler.",
-    );
-  }
-
   const start = new Date(submission.startDateTime);
   const durationMs = durationMilliseconds(service.defaultDuration, 30);
   const end = new Date(start.getTime() + durationMs);
@@ -336,31 +318,40 @@ async function createAppointment(env, submission) {
   const businessTimeZone = env.BOOKING_TIME_ZONE || DEFAULT_BUSINESS_TIME_ZONE;
   const customerNotes = buildAppointmentNotes(submission);
   const policy = service.schedulingPolicy || {};
+  const maximumAttendeesCount = Math.max(
+    1,
+    Number(service.maximumAttendeesCount || 1),
+  );
+  const customerId =
+    maximumAttendeesCount > 1
+      ? await createBookingCustomer(env, submission)
+      : "";
+  const customer = {
+    "@odata.type": "#microsoft.graph.bookingCustomerInformation",
+    name: submission.customerName,
+    emailAddress: submission.email,
+    phone: submission.phone,
+    notes: customerId ? null : customerNotes,
+    timeZone: businessTimeZone,
+    customQuestionAnswers: [],
+  };
+  if (customerId) customer.customerId = customerId;
+
   const payload = {
     "@odata.type": "#microsoft.graph.bookingAppointment",
     customerTimeZone: businessTimeZone,
     customerName: submission.customerName,
     customerEmailAddress: submission.email,
     customerPhone: submission.phone,
-    customerNotes,
+    customerNotes: customerId ? null : customerNotes,
     serviceId: service.id,
     serviceName: service.displayName,
     duration: service.defaultDuration,
     start: graphUtcDate(start),
     end: graphUtcDate(end),
-    customers: [
-      {
-        "@odata.type": "#microsoft.graph.bookingCustomerInformation",
-        name: submission.customerName,
-        emailAddress: submission.email,
-        phone: submission.phone,
-        notes: customerNotes,
-        timeZone: businessTimeZone,
-        customQuestionAnswers: [],
-      },
-    ],
+    customers: [customer],
     filledAttendeesCount: 1,
-    maximumAttendeesCount: 1,
+    maximumAttendeesCount,
     isCustomerAllowedToManageBooking: Boolean(
       service.isCustomerAllowedToManageBooking,
     ),
@@ -381,6 +372,7 @@ async function createAppointment(env, submission) {
   if (service.defaultReminders) payload.reminders = service.defaultReminders;
   if (service.defaultLocation)
     payload.serviceLocation = service.defaultLocation;
+  if (customerNotes) payload.serviceNotes = customerNotes;
 
   let appointment;
   try {
@@ -412,6 +404,31 @@ async function createAppointment(env, submission) {
     ).toISOString(),
     endDateTime: graphDate(appointment.end || graphUtcDate(end)).toISOString(),
   };
+}
+
+async function createBookingCustomer(env, submission) {
+  const businessId = requiredEnv(env, "BOOKINGS_BUSINESS_ID");
+  const customer = await graphRequest(
+    env,
+    `/solutions/bookingBusinesses/${encodeURIComponent(businessId)}/customers`,
+    {
+      method: "POST",
+      body: {
+        "@odata.type": "#microsoft.graph.bookingCustomer",
+        displayName: submission.customerName,
+        emailAddress: submission.email,
+        addresses: [],
+        phones: submission.phone
+          ? [{ number: submission.phone, type: "mobile" }]
+          : [],
+      },
+    },
+  );
+
+  if (!customer.id) {
+    throw new Error("Microsoft Graph did not return a customer ID.");
+  }
+  return customer.id;
 }
 
 async function findAvailableStaff(env, service, staffIds, start, end) {

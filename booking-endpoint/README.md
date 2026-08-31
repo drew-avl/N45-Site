@@ -70,9 +70,9 @@ path-based route later. Production currently uses the isolated
 `booking-api.n45tech.com` custom domain so the GitHub Pages apex records can
 remain DNS-only.
 
-The native flow exposes one-customer services. Group services stay on the
-Microsoft-hosted fallback because Graph requires pre-created customer IDs for
-multi-attendee appointments.
+The native flow exposes every customer-visible service. For multi-attendee
+services, the Worker creates the required Bookings customer record first and
+passes its ID when creating the appointment.
 
 Appointment payload:
 
