@@ -1,0 +1,595 @@
+# N45 Plain-Language Copy Review
+
+Field Notes, legal pages, SEO titles, URLs, canonical links, and structured-data markup were intentionally left unchanged. Entries below group related copy edits by customer-facing section.
+
+- File: `approach/manage-and-improve/index.html` — Meta description
+- Original: “See how N45 combines responsive support, maintenance, lifecycle planning, reviews, and automation to improve business IT over time.”
+- Issue: “Lifecycle planning” assumes IT-service knowledge and the description leads with service mechanics instead of the business outcome.
+- Rewrite: “See how N45 keeps technology reliable through responsive support, routine maintenance, planning, reviews, and practical automation.”
+
+- File: `approach/stabilize-the-essentials/index.html` — Meta description
+- Original: “See how N45 handles urgent IT issues, reduces repeat failures, clarifies ownership, and creates a dependable technology baseline for your business.”
+- Issue: “Technology baseline” is unexplained MSP jargon.
+- Rewrite: “See how N45 handles urgent IT problems, prevents repeat disruptions, clarifies ownership, and makes everyday technology more dependable.”
+
+- File: `book/index.html` — Page and social descriptions
+- Original:
+  - “Schedule a Microsoft 365 security fit check or managed IT introduction with N45 Technology Solutions in Western North Carolina.”
+  - “Choose a focused Microsoft 365 security or managed IT conversation and schedule a time that works for you.”
+- Issue: Both descriptions make service-category names the reader’s starting point instead of the problem they want to solve.
+- Rewrite:
+  - “Schedule a low-pressure conversation about unreliable technology, account security, or ongoing IT support with N45 in Western North Carolina.”
+  - “Choose the business problem you want to solve and schedule a short conversation with N45.”
+
+- File: `business-it-support-western-nc/index.html` — Meta description
+- Original: “Responsive business IT support across Western NC for Microsoft 365, computers, networks, users, vendors, onboarding, troubleshooting, and on-site needs.”
+- Issue: A dense technical inventory obscures the practical outcome.
+- Rewrite: “Keep employees working with responsive remote and on-site IT support across Western NC, including help with Microsoft 365, computers, networks, and vendors.”
+
+- File: `business-it-support-western-nc/index.html` — Hero introduction and proof point
+- Original:
+  - “A direct place to turn for everyday user support, Microsoft 365, networks, vendors, new employees, and the repeat issues no one has had time to solve properly.”
+  - “Root-cause follow-through”
+- Issue: The introduction reads like a service list, and “root-cause” is specialist shorthand.
+- Rewrite:
+  - “A direct place to turn when employees cannot sign in, software will not cooperate, or the same problem keeps returning. N45 supports Microsoft 365, office networks, vendors, new employees, and the technology behind the workday.”
+  - “Fixes that address the cause”
+
+- File: `business-it-support-western-nc/index.html` — Emergency-support card
+- Original: “Urgent support expectations and escalation are documented before service begins.”
+- Issue: “Escalation” does not tell a business owner what will actually be agreed.
+- Rewrite: “Before service begins, we document what counts as urgent, how quickly N45 responds, and whom to contact.”
+
+- File: `business-it-support-western-nc/index.html` — Microsoft Security Triage callout
+- Original:
+  - “Fixed-price Microsoft 365 review”
+  - “N45 Microsoft Security Triage”
+  - “A read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized actions—without N45 changing your environment.”
+  - “Admin access, MFA & former users”
+  - “Forwarding, sharing & email authentication”
+  - “Backup & disaster recovery”
+  - “Request the $495 review”
+- Issue: The service and product names lead the section, while MFA, email authentication, disaster recovery, and “environment” are unexplained.
+- Rewrite:
+  - “A clear account-security check”
+  - “Know where your account security stands.”
+  - “The fixed-price N45 Microsoft Security Triage is a read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized next steps, without N45 changing any settings.”
+  - “Account owners, former users & extra sign-in checks (multifactor authentication, or MFA)”
+  - “Email forwarding, outside sharing & checks that help prove who sent a message (email authentication)”
+  - “Backups that help the business recover after a major failure (disaster recovery)”
+  - “Request the $495 account review”
+
+- File: `business-it-support-western-nc/index.html` — Support overview and service cards
+- Original:
+  - “Responsive troubleshooting paired with the standards and documentation that keep a growing operation manageable.”
+  - “User help desk” / “Sign-ins, email, Microsoft 365, applications, printing, connectivity, and devices.”
+  - “02 · JOINERS + LEAVERS” / “Onboarding & offboarding” / “Repeatable account, access, device, mailbox, license, and security steps.”
+  - “03 · CONNECTIVITY” / “Wi-Fi & network support” / “Internet, firewalls, switching, wireless, printers, POS, and facilities coordination.”
+  - “A technical owner who works with your software, telecom, copier, security, and business vendors.”
+- Issue: Troubleshooting, help desk, joiners/leavers, connectivity, switching, POS, and “technical owner” are presented without enough everyday context.
+- Rewrite:
+  - “Fast help when something breaks, paired with consistent standards and clear documentation that make a growing business easier to manage.”
+  - “Help when employees get stuck” / “A responsive user help desk for sign-ins, email, Microsoft 365, software, printers, internet access, and work computers.”
+  - “02 · NEW + FORMER STAFF” / “Set up new staff and remove former staff” / “Consistent onboarding and offboarding steps that give new employees the right accounts, computers, mailboxes, licenses, and security—and remove former employees promptly.”
+  - “03 · INTERNET + WI-FI” / “Reliable internet and Wi-Fi” / “Support for business networks, firewalls, switches, printers, and point-of-sale (POS) systems, with facilities coordination when needed.”
+  - “One person who works with your software, phone, copier, security, and other business vendors on your behalf.”
+
+- File: `business-it-support-western-nc/index.html` — Local-service context
+- Original:
+  - “Remote support is usually fastest. Hardware, cabling, network, office, and facilities problems sometimes need hands in the room.”
+  - “Looking for an ongoing outsourced IT relationship?”
+  - “Microsoft 365, networks, devices, business support, and managed service.”
+- Issue: “Network,” “outsourced IT relationship,” “devices,” and “managed service” are abstract when presented without the intended result.
+- Rewrite:
+  - “Remote support is usually fastest. Equipment, cabling, Wi-Fi, office, and facilities problems sometimes need hands in the room.”
+  - “Looking for ongoing support, often called outsourced or managed IT?”
+  - “Employee support, safer Microsoft 365 accounts, reliable networks and computers, and ongoing managed IT service.”
+
+- File: `business-it-support-western-nc/index.html` — Support FAQs
+- Original:
+  - “Yes. Support can begin with a focused project, assessment, Microsoft 365 cleanup, network improvement, or a defined co-managed role.”
+  - “24/7 emergency services are available. Response expectations, escalation, and covered situations are documented as part of your service agreement.”
+- Issue: “Co-managed role” and “escalation” are not self-explanatory.
+- Rewrite:
+  - “Yes. Support can begin with a focused project, assessment, Microsoft 365 cleanup, network improvement, or a clearly defined role alongside your existing IT team, often called co-managed IT.”
+  - “24/7 emergency services are available. Response expectations, covered situations, and the way to request urgent help are documented in your service agreement.”
+
+- File: `business-it-support-western-nc/index.html` — Footer
+- Original:
+  - “Secure, documented, managed IT for the people building Western North Carolina.”
+  - “Managed IT in Asheville”
+  - “Cybersecurity”
+- Issue: The tagline and link labels rely on service-category language instead of outcomes.
+- Rewrite:
+  - “Reliable support, safer systems, and clear documentation for Western North Carolina businesses.”
+  - “Ongoing IT Support”
+  - “Business Security”
+
+- File: `cybersecurity-services-asheville/index.html` — Page and social descriptions
+- Original:
+  - “Practical cybersecurity services for Asheville businesses: Microsoft 365 security, MFA, endpoint protection, backups, access reviews, and security assessments.”
+  - “Practical cybersecurity controls for Asheville businesses—prioritized by risk, explained without fear-selling.”
+- Issue: The descriptions open with a list of technical categories and unexplained terms rather than the risks being reduced.
+- Rewrite:
+  - “Reduce the risk of stolen accounts, infected computers, and lost data with Asheville cybersecurity services for sign-ins, work computers, email, and backups.”
+  - “Protect business accounts, computers, and data with safeguards prioritized by real risk and explained without fear-selling.”
+
+- File: `cybersecurity-services-asheville/index.html` — Hero
+- Original:
+  - “Asheville business cybersecurity · No fear-selling”
+  - “Practical cybersecurity services for Asheville businesses.”
+  - “Secure identities, Microsoft 365, computers, networks, backups, and administrative access with controls that fit the actual risk.”
+  - “Identity-first protection” / “Clear priorities” / “Documented safeguards”
+- Issue: “Cybersecurity,” “identities,” “controls,” and “identity-first” require knowledge the reader may not have before the benefit is clear.
+- Rewrite:
+  - “Business protection for Asheville · No fear-selling”
+  - “Protect your accounts, computers, and business data.”
+  - “N45 provides practical cybersecurity services for Asheville businesses. We reduce risk around Microsoft 365 accounts, work computers, networks, backups, and powerful administrator access with safeguards that fit the business.”
+  - “Safer sign-ins” / “Clear priorities” / “Safeguards you can verify”
+
+- File: `cybersecurity-services-asheville/index.html` — Emergency-support card
+- Original: “Urgent support expectations and escalation are documented before service begins.”
+- Issue: “Escalation” does not explain the promised process.
+- Rewrite: “Before service begins, we document what counts as urgent, how quickly N45 responds, and whom to contact.”
+
+- File: `cybersecurity-services-asheville/index.html` — Microsoft Security Triage callout
+- Original:
+  - “Fixed-price Microsoft 365 review”
+  - “N45 Microsoft Security Triage”
+  - “A read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized actions—without N45 changing your environment.”
+  - “Admin access, MFA & former users”
+  - “Forwarding, sharing & email authentication”
+  - “Backup & disaster recovery”
+  - “Request the $495 review”
+- Issue: The service and product names lead the section, while MFA, email authentication, disaster recovery, and “environment” are unexplained.
+- Rewrite:
+  - “A clear account-security check”
+  - “Know where your account security stands.”
+  - “The fixed-price N45 Microsoft Security Triage is a read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized next steps, without N45 changing any settings.”
+  - “Account owners, former users & extra sign-in checks (multifactor authentication, or MFA)”
+  - “Email forwarding, outside sharing & checks that help prove who sent a message (email authentication)”
+  - “Backups that help the business recover after a major failure (disaster recovery)”
+  - “Request the $495 account review”
+
+- File: `cybersecurity-services-asheville/index.html` — Security priorities and service cards
+- Original:
+  - “Build the baseline first”
+  - “Security starts with the controls attackers count on businesses skipping.”
+  - “A product list is not a strategy. Start with sign-in, administrative power, maintained devices, reliable recovery, and clean offboarding.”
+  - “01 · IDENTITY” / “MFA & safer sign-in” / “Multifactor authentication, sign-in policies, account lifecycle, and stale-user cleanup.”
+  - “02 · PRIVILEGE” / “Administrative access” / “Separate admin roles, least privilege, and emergency account planning.”
+  - “03 · ENDPOINTS” / “Device protection” / “Patch visibility, endpoint security, encryption, supported systems, and response.”
+  - “Coverage, alert ownership, retention, recovery expectations, and validation.”
+- Issue: Baseline, controls, identity, MFA, account lifecycle, privilege, endpoints, patch visibility, retention, and validation are presented as if the reader already knows them.
+- Rewrite:
+  - “Start with the gaps that matter most”
+  - “Close the gaps most likely to disrupt your business.”
+  - “Strong cybersecurity starts with safer sign-ins, limited administrator access, updated work computers, reliable recovery, and prompt removal of former employees.”
+  - “01 · SIGN-INS” / “Make stolen passwords less useful” / “Multifactor authentication (MFA) adds an extra sign-in check. Consistent onboarding and offboarding—also called account lifecycle management—removes access when an employee leaves.”
+  - “02 · ADMIN ACCESS” / “Limit powerful access” / “Separate administrator accounts, a least-privilege approach that allows only necessary access, and an emergency access plan.”
+  - “03 · COMPUTERS” / “Keep work computers protected” / “Clear security-update tracking provides patch visibility, endpoint protection blocks threats, encryption protects stored data, and a response plan explains what happens when something goes wrong.”
+  - “Know what is backed up, who receives failure alerts, how long copies are kept, and whether recovery has been tested.”
+
+- File: `cybersecurity-services-asheville/index.html` — Security-review section and process
+- Original:
+  - “Need ongoing support to maintain the baseline?”
+  - “Map accounts, devices, cloud services, networks, vendors, data, and backups.”
+  - “Confirm what is enforced instead of assuming a purchased license equals protection.”
+  - “Rank by likelihood and impact, then assign owners and evidence.”
+- Issue: Baseline, map, devices, cloud services, enforced, and evidence are abstract or specialist terms in a customer-facing explanation.
+- Rewrite:
+  - “Need ongoing support to keep those protections working?”
+  - “List accounts, computers, online services, networks, vendors, important business data, and backups.”
+  - “Check whether purchased safeguards actually work instead of assuming a software license equals protection.”
+  - “Rank gaps by likelihood and business impact, then assign an owner and record how completion will be verified.”
+
+- File: `cybersecurity-services-asheville/index.html` — Security FAQs
+- Original:
+  - “Start with what materially reduces risk.”
+  - “Most should begin with MFA, safer administrative access, patched devices, endpoint protection, email safeguards, tested backups, and reliable offboarding.”
+  - “Yes. The assessment reviews access, devices, Microsoft 365 controls, backups, vendors, documentation, and other safeguards, then produces prioritized next steps.”
+  - “N45 can implement and document technical safeguards supporting a healthcare organization’s HIPAA security program. Technology services do not alone guarantee legal compliance.”
+  - “24/7 emergency services are available. Response expectations, escalation, and covered situations are documented as part of your service agreement.”
+- Issue: The answers depend on MFA, patched devices, endpoint protection, controls, and escalation without explaining what those terms mean or do.
+- Rewrite:
+  - “Start with what reduces the most risk.”
+  - “Most should begin with extra sign-in verification (multifactor authentication, or MFA), limited administrator access, updated computers, endpoint protection that blocks threats, safer email, tested backups, and prompt removal of former employees.”
+  - “Yes. The assessment reviews who can access what, work computers, Microsoft 365 safeguards, backups, vendors, documentation, and other protections, then produces prioritized next steps.”
+  - “N45 can put technical safeguards in place and document how they support a healthcare organization’s HIPAA security program. Technology services do not alone guarantee legal compliance.”
+  - “24/7 emergency services are available. Response expectations, covered situations, and the way to request urgent help are documented in your service agreement.”
+
+- File: `cybersecurity-services-asheville/index.html` — Final call to action
+- Original: “Find the gaps that matter and the next control worth implementing.”
+- Issue: “Control” and “implementing” describe the technical work instead of the buyer’s next step.
+- Rewrite: “Find the gaps that matter and fix the most important one first.”
+
+- File: `cybersecurity-services-asheville/index.html` — Footer
+- Original:
+  - “Secure, documented, managed IT for the people building Western North Carolina.”
+  - “Managed IT in Asheville”
+  - “Cybersecurity”
+- Issue: The tagline and link labels rely on service-category language instead of outcomes.
+- Rewrite:
+  - “Reliable support, safer systems, and clear documentation for Western North Carolina businesses.”
+  - “Ongoing IT Support”
+  - “Business Security”
+
+- File: `index.html` — Default page and social descriptions
+- Original:
+  - “N45 is an Asheville-area IT company providing managed IT, Microsoft 365 security, cybersecurity, networks, and support across Western North Carolina.”
+  - “Managed IT and Microsoft 365 security for organizations across Western North Carolina.”
+- Issue: Both descriptions lead with technical service categories rather than reliability, safety, and ownership.
+- Rewrite:
+  - “Reliable IT support, safer Microsoft 365 accounts, cybersecurity, and clear technology management for businesses across Asheville and Western North Carolina.”
+  - “Reliable support, safer systems, and clear ownership for Western North Carolina businesses.”
+
+- File: `managed-it-services-asheville/index.html` — Meta description
+- Original: “Local IT support and managed IT services for Asheville small businesses, with help desk, Microsoft 365, cybersecurity, networks, backups, and documentation.”
+- Issue: The description begins with service labels and a technical inventory instead of the benefit of one accountable partner.
+- Rewrite: “Give your Asheville business one accountable partner for everyday IT help, safer Microsoft 365 accounts, reliable computers and networks, backups, and documentation.”
+
+- File: `managed-it-services-asheville/index.html` — Hero
+- Original:
+  - “IT support and managed IT services for Asheville businesses.”
+  - “N45 provides local IT support and outsourced IT services for Asheville organizations that need a dependable technology function without building a full internal IT department. Help desk, Microsoft 365, cybersecurity, networks, backups, and documentation stay under one accountable partner.”
+- Issue: The headline is entirely service-category language, while “technology function” and “help desk” assume familiarity with outsourcing terminology.
+- Rewrite:
+  - “One accountable partner for the technology your Asheville business depends on.”
+  - “Managed IT services from N45 keep employees supported, accounts safer, computers and networks reliable, backups ready, and essential details documented. Your Asheville organization gets dependable local help without building a full internal IT department.”
+
+- File: `managed-it-services-asheville/index.html` — Emergency-support card
+- Original: “Urgent support expectations and escalation are documented before service begins.”
+- Issue: “Escalation” does not explain the promised process.
+- Rewrite: “Before service begins, we document what counts as urgent, how quickly N45 responds, and whom to contact.”
+
+- File: `managed-it-services-asheville/index.html` — Microsoft Security Triage callout
+- Original:
+  - “Fixed-price Microsoft 365 review”
+  - “N45 Microsoft Security Triage”
+  - “A read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized actions—without N45 changing your environment.”
+  - “Admin access, MFA & former users”
+  - “Forwarding, sharing & email authentication”
+  - “Backup & disaster recovery”
+  - “Request the $495 review”
+- Issue: The service and product names lead the section, while MFA, email authentication, disaster recovery, and “environment” are unexplained.
+- Rewrite:
+  - “A clear account-security check”
+  - “Know where your account security stands.”
+  - “The fixed-price N45 Microsoft Security Triage is a read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized next steps, without N45 changing any settings.”
+  - “Account owners, former users & extra sign-in checks (multifactor authentication, or MFA)”
+  - “Email forwarding, outside sharing & checks that help prove who sent a message (email authentication)”
+  - “Backups that help the business recover after a major failure (disaster recovery)”
+  - “Request the $495 account review”
+
+- File: `managed-it-services-asheville/index.html` — Managed-service overview and service cards
+- Original:
+  - “Outsourced IT, locally accountable”
+  - “A complete technology function without building it all in-house.”
+  - “Managed IT services give Asheville businesses user support, proactive maintenance, security oversight, Microsoft 365 administration, vendor coordination, and documented ownership through one local provider.”
+  - “Help desk & user support” / “Direct, plainspoken help for sign-ins, software, printers, devices, and everyday friction.”
+  - “Monitoring & maintenance” / “Inventory, patching, endpoint standards, alerts, and lifecycle planning.”
+  - “Microsoft 365 & identity” / “MFA, account lifecycle, safer admin access, licenses, onboarding, and offboarding.”
+  - “04 · CONTINUITY” / “Security, backups & documentation” / “Practical controls, validated recovery, and records that do not depend on one person.”
+- Issue: Technology function, proactive maintenance, help desk, devices, endpoint standards, lifecycle planning, identity, MFA, account lifecycle, continuity, controls, and validated recovery are presented without plain-language context.
+- Rewrite:
+  - “One partner for everyday technology”
+  - “Give your team dependable help without building an IT department.”
+  - “Managed IT services give Asheville businesses everyday user support, routine upkeep, cybersecurity oversight, Microsoft 365 administration, vendor coordination, and clear ownership through one local provider.”
+  - “Help when employees get stuck” / “A responsive user help desk for sign-ins, software, printers, computers, and everyday problems.”
+  - “Computers kept current” / “Monitoring that catches issues early, security updates (patching), consistent protection for work computers, useful alerts, and replacement planning.”
+  - “Safer accounts and email” / “Microsoft 365 administration, extra sign-in verification (multifactor authentication, or MFA), safer administrator access, licenses, onboarding, and offboarding.”
+  - “04 · RECOVERY” / “Protection and recovery you can rely on” / “Cybersecurity safeguards, backups checked for recovery, and documentation that does not depend on one person.”
+
+- File: `managed-it-services-asheville/index.html` — Service process
+- Original:
+  - “Map accounts, devices, networks, vendors, recovery paths, and responsibilities.”
+  - “Document the operation and turn support history into root-cause fixes.”
+- Issue: Map, devices, recovery paths, operation, and root-cause fixes are abstract technical or operational shorthand.
+- Rewrite:
+  - “List accounts, computers, networks, vendors, backup and recovery steps, and who is responsible for each one.”
+  - “Document how everything is managed and use support history to make fixes that address the underlying cause.”
+
+- File: `managed-it-services-asheville/index.html` — Managed IT FAQs
+- Original:
+  - “Day-to-day support, devices, patching, Microsoft 365, identity, endpoint security, networks, backup validation, vendor coordination, documentation, onboarding, and offboarding. The exact scope is documented before service begins.”
+  - “The terms often describe the same arrangement. Outsourced IT means an outside partner handles some or all of the technology function. Managed IT usually adds an ongoing, documented scope covering support, maintenance, security, Microsoft 365, vendors, and planning.”
+  - “Yes. N45 provides ongoing managed IT and can serve as the outsourced IT function for small organizations without internal IT or supplement an existing team. The exact responsibilities and service expectations are documented before work begins.”
+  - “Yes. A documented transition collects administrative access, inventories systems and vendors, confirms backup and security status, and prioritizes urgent gaps.”
+- Issue: The answers rely on devices, patching, identity, endpoint security, validation, scope, technology function, and inventories without saying what the work means for the customer.
+- Rewrite:
+  - “N45 can give employees day-to-day help; manage computers and security updates, also called patching; administer Microsoft 365 accounts and access; provide endpoint security that protects work computers; keep networks and backups reliable; coordinate vendors; document important details; and handle onboarding and offboarding. The exact responsibilities are documented before service begins.”
+  - “The terms often describe the same arrangement. Outsourced IT means an outside partner handles some or all of a business’s technology needs. Managed IT usually adds an ongoing service agreement that clearly covers support, maintenance, security, Microsoft 365, vendors, and planning.”
+  - “Yes. N45 provides ongoing managed IT and can act as the day-to-day IT team for a small organization without internal IT, or work alongside an existing team. Responsibilities and service expectations are documented before work begins.”
+  - “Yes. During a planned transition, N45 gathers the administrator access your business controls, lists systems and vendors, checks backup and security status, and starts with the most urgent gaps.”
+
+- File: `managed-it-services-asheville/index.html` — Footer
+- Original:
+  - “Secure, documented, managed IT for the people building Western North Carolina.”
+  - “Managed IT in Asheville”
+  - “Cybersecurity”
+- Issue: The tagline and link labels rely on service-category language instead of outcomes.
+- Rewrite:
+  - “Reliable support, safer systems, and clear documentation for Western North Carolina businesses.”
+  - “Ongoing IT Support”
+  - “Business Security”
+
+- File: `refer/index.html` — Meta description
+- Original: “Introduce a Western North Carolina business to N45 Technology Solutions for managed IT, Microsoft 365 security, cybersecurity, and technology support.”
+- Issue: A referral partner must interpret multiple technical service categories before understanding who needs help.
+- Rewrite: “Introduce a Western North Carolina business that needs more reliable technology, safer accounts, or responsive local IT help to N45 Technology Solutions.”
+
+- File: `src/components/NativeBooking.tsx` — Booking confirmation
+- Original:
+  - “A Microsoft Bookings confirmation and meeting details are on the way to your email. If you do not see them shortly, check your spam folder or call N45.”
+  - “Your appointment is stored in N45’s Microsoft 365 booking calendar.”
+- Issue: The platform names lead both messages, while “stored” describes the system rather than reassuring the customer that the booking succeeded.
+- Rewrite:
+  - “A confirmation and meeting details are on the way to your email through Microsoft Bookings. If you do not see them shortly, check your spam folder or call N45.”
+  - “N45 has added your appointment to its booking calendar.”
+
+- File: `src/components/SecurityTriageCta.tsx` — Reusable Microsoft Security Triage callout
+- Original:
+  - “Fixed-price Microsoft 365 review”
+  - “N45 Microsoft Security Triage”
+  - “A read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized actions—without N45 changing your environment.”
+  - “Admin access, MFA & former users”
+  - “Forwarding, sharing & email authentication”
+  - “Backup & disaster recovery”
+  - “Request the $495 review”
+- Issue: The reusable callout leads with product and service names, while MFA, email authentication, disaster recovery, and “environment” are unexplained.
+- Rewrite:
+  - “A clear account-security check”
+  - “Know where your account security stands.”
+  - “The fixed-price N45 Microsoft Security Triage is a read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized next steps, without N45 changing any settings.”
+  - “Account owners, former users & extra sign-in checks (multifactor authentication, or MFA)”
+  - “Email forwarding, outside sharing & checks that help prove who sent a message (email authentication)”
+  - “Backups that help the business recover after a major failure (disaster recovery)”
+  - “Request the $495 account review”
+
+- File: `src/components/SiteChrome.tsx` — Shared footer
+- Original:
+  - “Secure, documented, managed IT for the people building Western North Carolina.”
+  - “Managed IT in Asheville”
+  - “Cybersecurity”
+- Issue: The tagline and link labels rely on service-category language instead of outcomes.
+- Rewrite:
+  - “Reliable support, safer systems, and clear documentation for Western North Carolina businesses.”
+  - “Ongoing IT Support”
+  - “Business Security”
+
+- File: `src/routes/__root.tsx` — Default page and social descriptions
+- Original:
+  - “Plainspoken managed IT, Microsoft 365, cybersecurity, networks, and documentation for independent businesses across Asheville and Western North Carolina.”
+  - “Steady, secure, documented IT for the people building Western North Carolina.”
+- Issue: The default descriptions emphasize service categories and internal qualities before customer outcomes.
+- Rewrite:
+  - “Reliable IT support, safer Microsoft 365 accounts, cybersecurity, and clear technology management for independent businesses across Asheville and Western North Carolina.”
+  - “Reliable support, safer systems, and clear ownership for Western North Carolina businesses.”
+
+- File: `src/routes/approach.tsx` — Listen & assess step
+- Original:
+  - “Technology problems rarely live in isolation. A recurring login issue may point to unclear account ownership. A slow application may involve the network, a vendor, or an aging device. We start by understanding the work around the technology so the plan reflects the business—not a generic checklist.”
+  - “Accounts and access” / “Microsoft 365, administrative roles, shared accounts, onboarding, offboarding, and the places where ownership is unclear.”
+  - “Assets, vendors, and dependencies” / “Computers, networks, line-of-business systems, service providers, renewals, and the connections the operation depends on.”
+  - “Risk and recurring friction” / “Known security gaps, fragile workarounds, repeat support issues, and single points of failure that deserve a practical response.”
+  - “Build a usable operating map” / “We organize the systems, access, vendors, owners, and open questions into a record that can guide real decisions.”
+  - “Findings are separated into urgent risks, operational friction, and longer-term improvements so the next step stays proportionate.”
+  - “A shared understanding of the current environment”
+  - “Clear ownership and fewer hidden dependencies”
+  - “A sensible starting point for stabilization, security, or support”
+- Issue: Account ownership, administrative roles, assets, dependencies, line-of-business systems, operational friction, single points of failure, operating map, and environment are used as assumed knowledge.
+- Rewrite:
+  - “Technology problems rarely live in isolation. A recurring login issue may mean nobody is sure who owns an account. A slow application may be caused by the office network, an outside vendor, or an aging computer. We start by understanding the work around the technology so the plan reflects the business—not a generic checklist.”
+  - “Who can access what” / “Microsoft 365 accounts, administrator access, shared sign-ins, onboarding, offboarding, and the places where ownership is unclear.”
+  - “The tools and providers you depend on” / “Computers, office networks, essential business software, service providers, renewals, and the connections your operation depends on.”
+  - “Risks and repeat frustrations” / “Known security gaps, fragile workarounds, repeat support issues, and systems, vendors, or people the business cannot operate without.”
+  - “Create one useful record” / “We organize systems, account access, vendors, owners, and open questions into a record that can guide real decisions.”
+  - “Findings are separated into urgent risks, day-to-day problems, and longer-term improvements so the next step stays proportionate.”
+  - “A shared understanding of the current technology setup”
+  - “Clear ownership and fewer hidden surprises”
+  - “A sensible starting point for dependable systems, better security, or ongoing support”
+
+- File: `src/routes/approach.tsx` — Stabilize the essentials step
+- Original:
+  - “We handle urgent issues, reduce repeat failures, and establish a dependable baseline.”
+  - “Fewer disruptions, clearer ownership, and an environment your team can rely on day to day.”
+  - “Before adding tools or pursuing ambitious projects, the basics need to work consistently. Stabilization focuses on the problems that interrupt employees, create avoidable risk, or make every future change harder than it should be.”
+  - “Urgent operational issues” / “Active outages, unreliable systems, access problems, exposed administrative accounts, and other issues that cannot wait.”
+  - “Recurring support problems” / “Patterns behind repeated tickets, unreliable devices, inconsistent configuration, and workarounds that have quietly become permanent.”
+  - “A consistent baseline” / “Core expectations for patching, devices, Microsoft 365, endpoint protection, backups, and network health.”
+  - “Ownership and escalation” / “Who handles each system, which vendor owns which problem, and how employees get help when something breaks.”
+  - “Triage by business impact” / “We address issues that stop work or create immediate exposure before moving to lower-impact cleanup.”
+  - “Repeated failures are traced to configuration, lifecycle, access, network, or vendor issues so the same problem is less likely to return.”
+  - “Set and verify the baseline” / “Standards are applied deliberately, tested, and recorded so the environment becomes easier to support consistently.”
+- Issue: Baseline, environment, stabilization, operational issues, tickets, devices, configuration, patching, endpoint protection, escalation, triage, exposure, and lifecycle are not explained in business terms.
+- Rewrite:
+  - “We handle urgent issues, stop repeat failures, and make the essentials dependable.”
+  - “Fewer disruptions, clearer ownership, and a technology setup your team can rely on day to day.”
+  - “Before adding tools or pursuing ambitious projects, the basics need to work consistently. This step focuses on problems that interrupt employees, create avoidable risk, or make every future change harder than it should be.”
+  - “Problems that cannot wait” / “Active outages, unreliable systems, sign-in problems, administrator accounts that are too exposed, and other issues stopping safe, productive work.”
+  - “Problems that keep coming back” / “Patterns behind repeated support requests, unreliable computers, mismatched settings, and workarounds that have quietly become permanent.”
+  - “One dependable standard” / “A clear minimum for security updates (patching), consistent computers, Microsoft 365, protection that blocks threats on work computers (endpoint protection), backups, and network reliability.”
+  - “Clear ownership and help” / “Who handles each system, which vendor owns each problem, and how employees get help when something breaks.”
+  - “Start with what stops work” / “We address issues that stop work or create immediate risk before moving to lower-impact cleanup.”
+  - “Repeated failures are traced to settings, aging equipment, account access, network, or vendor issues so the same problem is less likely to return.”
+  - “Set the standard and check the work” / “Standards are applied deliberately, tested, and recorded so the technology becomes easier to support consistently.”
+
+- File: `src/routes/approach.tsx` — Secure & document step
+- Original:
+  - “Security and documentation work best together. A control is harder to trust when no one knows who owns it, how it is configured, or what happens during recovery. We strengthen the systems that matter and record the information needed to operate them responsibly.”
+  - “Identity and administrative access” / “MFA, least-privilege roles, shared-account cleanup, joiner and leaver processes, and accountable administrative access.”
+  - “Devices and protection” / “Patching, encryption, endpoint protection, device standards, and visibility into the computers that reach business data.”
+  - “Backups and recovery” / “What is protected, where copies live, who receives alerts, and whether a recovery path has been checked rather than assumed.”
+  - “The operating record” / “Assets, vendors, accounts, owners, network details, renewal information, and recovery steps organized for authorized use.”
+  - “Prioritize controls that reduce real risk”
+  - “Validate the important paths” / “We check that protections report correctly, access works as intended, and recovery information is sufficient to take action.”
+  - “Reduced exposure from unclear or excessive access”
+- Issue: Control, configured, identity, MFA, least privilege, joiners/leavers, devices, patching, endpoint protection, visibility, recovery path, operating record, assets, authorized use, validate, and exposure assume technical knowledge.
+- Rewrite:
+  - “Security and documentation work best together. A safeguard is harder to trust when no one knows who owns it, how it is set up, or what happens during recovery. We strengthen the systems that matter and record the information needed to operate them responsibly.”
+  - “Safer sign-ins and administrator access” / “Multifactor authentication (MFA) adds an extra sign-in check. The least-privilege approach limits employees and administrators to the access they need, while shared-account cleanup and consistent onboarding and offboarding keep ownership clear.”
+  - “Protected work computers” / “Security updates (patching), encryption that protects stored data, protection that blocks threats on work computers (endpoint protection), consistent computer setup, and a clear list of devices that can reach business data.”
+  - “Backups that can support recovery” / “What data is backed up, where copies live, who receives alerts, and whether the recovery steps have been tested rather than assumed.”
+  - “One clear business record” / “Useful IT documentation that organizes equipment, vendors, accounts, owners, network details, renewals, and recovery steps for the people authorized to use it.”
+  - “Reduce the risks that matter”
+  - “Check that protections work” / “We confirm that security tools report correctly, account access works as intended, and recovery information is sufficient to take action.”
+  - “Less risk from unclear or excessive access”
+
+- File: `src/routes/approach.tsx` — Manage & improve step
+- Original:
+  - “We support the environment, review what is changing, and improve it over time.”
+  - “A stable environment still needs attention. Employees join and leave, software changes, devices age, vendors shift, and yesterday’s workaround becomes tomorrow’s bottleneck. Ongoing management keeps the baseline healthy while creating room for deliberate improvement.”
+  - “Monitoring and maintenance” / “Patching, endpoint health, backups, alerts, account administration, and routine checks handled on a defined cadence.”
+  - “Lifecycle and change” / “Onboarding, offboarding, device replacement, vendor coordination, office changes, and projects managed with less disruption.”
+  - “Review and automation” / “Support patterns, risks, upcoming needs, and repeatable tasks reviewed for practical improvements and cleaner workflows.”
+  - “Operate from a documented scope” / “Responsibilities, systems, service expectations, and escalation paths are made clear before ongoing work begins.”
+  - “We look across support, alerts, lifecycle events, and business changes to identify what should be fixed or simplified next.”
+  - “Better planning for changes, renewals, and device lifecycle”
+- Issue: Environment, baseline, endpoint health, cadence, lifecycle, workflows, scope, and escalation paths describe an MSP’s process rather than what the customer can expect.
+- Rewrite:
+  - “We support your technology, review what is changing, and improve it over time.”
+  - “Even a stable setup needs attention. Employees join and leave, software changes, computers age, vendors shift, and yesterday’s workaround becomes tomorrow’s bottleneck. Ongoing management keeps the essentials dependable while creating room for deliberate improvement.”
+  - “Routine checks and upkeep” / “Security updates (patching), checks on work computers, backups, alerts, account administration, and routine upkeep handled on a clear schedule.”
+  - “People, computers, and changes” / “Onboarding, offboarding, computer replacement, vendor coordination, office changes, and projects managed with less disruption.”
+  - “Review and simplify repeated work” / “Support patterns, risks, upcoming needs, and repeated tasks reviewed for practical improvements, automation, and cleaner workflows.”
+  - “Set clear responsibilities” / “Systems, service expectations, responsibilities, and the path for urgent help are made clear before ongoing work begins.”
+  - “We look across support requests, alerts, new hires, departures, and business changes to identify what should be fixed or simplified next.”
+  - “Better planning for changes, renewals, and computer replacement”
+
+- File: `src/routes/approach.tsx` — Shared approach copy and calls to action
+- Original:
+  - “The exact scope changes with the business, but these are the areas that shape the work.”
+  - “Talk through your environment”
+  - “Explore managed IT services”
+- Issue: Scope, environment, and the managed-service label make the shared guidance sound like an IT contract rather than a clear next step.
+- Rewrite:
+  - “What we review changes with the business, but these are the areas that shape the work.”
+  - “Talk through your setup”
+  - “Explore ongoing IT support”
+
+- File: `src/routes/index.tsx` — Service cards
+- Original:
+  - “Managed IT support” / “Day-to-day support, patching, device standards, and thoughtful onboarding that keeps your team moving.”
+  - “Microsoft 365 & identity” / “MFA, account lifecycle, shared mailboxes, admin cleanup, and safer sign-in built around how your people work.”
+  - “Practical cybersecurity” / “Endpoint protection, least-privilege access, security reviews, alert routing, and validated backups.” / “Real controls, clearly prioritized—no scare tactics.”
+  - “Networks & infrastructure” / “Wi-Fi, switching, firewalls, DNS, servers, and the physical path connecting your people to their work.”
+  - “Continuity & documentation” / “Assets, vendors, accounts, recovery steps, and ownership captured in one dependable operating record.”
+  - “Automation & operations” / “Repeated tasks, tickets, alerts, and onboarding steps turned into clean, trackable workflows.”
+- Issue: Every headline is a service category, and the bodies depend on patching, device standards, identity, MFA, account lifecycle, endpoint protection, least privilege, alert routing, infrastructure, switching, DNS, assets, operating records, tickets, and workflows.
+- Rewrite:
+  - “Everyday IT help” / “Managed IT support, timely security updates (patching), a consistent setup for every computer, and thoughtful onboarding—all designed to keep your team moving.”
+  - “Safer accounts and email” / “Microsoft 365 administration, extra sign-in verification (multifactor authentication, or MFA), shared mailboxes, administrator cleanup, and safer access built around how your people work.”
+  - “Protection that fits the risk” / “Practical cybersecurity reviews, protection that blocks threats on work computers (endpoint protection), limited access based on each person’s job (least privilege), useful alerts, and checked backups.” / “Practical safeguards, clearly prioritized—no scare tactics.”
+  - “Reliable internet and connections” / “We manage the technology behind your internet and Wi-Fi, including firewalls, switches, servers, and DNS, which directs online services.”
+  - “A plan when something breaks” / “Business continuity planning for keeping the company running, plus IT documentation that records backups, recovery steps, equipment, vendors, accounts, and ownership.”
+  - “Less repetitive work” / “Automation turns repeated tasks, support requests, alerts, and onboarding work into clean, trackable steps.”
+
+- File: `src/routes/index.tsx` — Industry cards
+- Original:
+  - “HIPAA-aware Microsoft 365, encrypted devices, reliable EHR and practice-management connectivity, and clear access records.” / “Identity & device controls” / “Vendor and PHI documentation”
+  - “MFA and admin cleanup” / “Secure client workflows”
+  - “Guest and back-of-house Wi-Fi, segmented POS networks, and documented systems built for your busiest nights.” / “Guest and operations separation” / “POS and kiosk reliability”
+  - “Quiet infrastructure for office, shop, and remote teams—with rugged device management and accountable support.” / “Site-to-site connectivity” / “Field-ready device standards”
+- Issue: HIPAA-aware, EHR, identity controls, PHI, MFA, workflows, segmented POS networks, infrastructure, device management, site-to-site connectivity, and device standards are not explained.
+- Rewrite:
+  - “Microsoft 365 and device safeguards that support HIPAA responsibilities, secure electronic health record (EHR) access, and clear records of who can reach sensitive information.” / “Safer account and device access” / “Vendor and protected health information (PHI) records”
+  - “Extra sign-in protection (multifactor authentication, or MFA) and administrator cleanup” / “Secure ways to work with clients”
+  - “Separate Wi-Fi for guests and business operations, reliable checkout and point-of-sale (POS) systems, and clear documentation built for your busiest nights.” / “Guest and business traffic kept separate” / “Reliable POS and kiosk systems”
+  - “Reliable technology for office, shop, and remote teams—with consistent, work-ready computers and accountable support.” / “Connections between offices and job sites” / “Consistent computers ready for the job”
+
+- File: `src/routes/index.tsx` — Four-step process
+- Original:
+  - “We learn how the business works, then map accounts, assets, vendors, ownership, risks, and recurring friction.”
+  - “Urgent issues get handled first. We reduce repeat problems and establish a dependable baseline.”
+  - “Access, devices, protection, backups, and recovery details become safer, clearer, and easier to manage.”
+  - “Monitoring, support, reviews, and automation keep the environment useful as your business changes.”
+- Issue: Map, assets, friction, baseline, devices, monitoring, and environment describe an internal IT process without translating it for the buyer.
+- Rewrite:
+  - “We learn how the business works, then list the accounts, equipment, vendors, owners, risks, and repeat problems that shape the plan.”
+  - “Urgent issues get handled first. We reduce repeat problems and set a dependable minimum standard for computers, accounts, and support.”
+  - “Account access, computers, security tools, backups, and recovery details become safer, clearer, and easier to manage.”
+  - “Ongoing checks, support, reviews, and automation keep your technology useful as the business changes.”
+
+- File: `src/routes/index.tsx` — Current-provider FAQ
+- Original: “N45 can become your managed IT partner or work through a scoped transition. The first step is understanding what is working, what is not, and what your team actually needs.”
+- Issue: “Scoped transition” is contract language that does not explain how a provider change is handled.
+- Rewrite: “N45 can become your managed IT partner or guide a planned transition with clear responsibilities. The first step is understanding what is working, what is not, and what your team actually needs.”
+
+- File: `src/routes/index.tsx` — Hero and standard card
+- Original:
+  - “N45 provides managed IT and Microsoft 365 security for small organizations across Western North Carolina—backed by responsive, plainspoken support in Asheville and the mountains.”
+  - “Secure. Documented. Managed.”
+- Issue: The opening paragraph and proof card lead with service categories and internal delivery qualities instead of reliability, protection, and help.
+- Rewrite:
+  - “N45 keeps everyday technology reliable, protects business accounts and data, and gives your team a responsive local place to get help. Services include managed IT and Microsoft 365 security throughout Western North Carolina.”
+  - “Reliable. Protected. Documented.”
+
+- File: `src/routes/index.tsx` — Services introduction and links
+- Original:
+  - “Your whole environment, with no black box.”
+  - “IT support and managed IT services in Asheville →”
+  - “Cybersecurity services in Asheville →”
+- Issue: “Environment” and “black box” are technical metaphors, while the links are provider-category labels rather than customer goals.
+- Rewrite:
+  - “One clear view of the technology behind your business.”
+  - “Get ongoing IT support in Asheville →”
+  - “Protect your Asheville business →”
+
+- File: `src/routes/index.tsx` — Industries introduction
+- Original: “N45 stays close to the operations we understand—places where trust, uptime, confidentiality, and a real human response matter.”
+- Issue: “Uptime” is technical shorthand for reliable access.
+- Rewrite: “N45 stays close to the operations we understand—places where trust, reliable access, confidentiality, and a real human response matter.”
+
+- File: `src/routes/index.tsx` — Process introduction
+- Original: “N45 fixes the foundation before stacking on more tools. The result is easier to manage, easier to support, and more resilient over time.”
+- Issue: “Foundation,” “stacking,” and “resilient” are abstract technical metaphors.
+- Rewrite: “N45 makes the essentials dependable before adding more tools. The result is easier to manage, easier to support, and better prepared for problems over time.”
+
+- File: `src/routes/index.tsx` — Contact-form availability message
+- Original: “The contact form is not configured yet. Call N45 at (828) 515-1530.”
+- Issue: “Not configured” exposes an implementation detail rather than telling the visitor what to do.
+- Rewrite: “Online messages are temporarily unavailable. Call N45 at (828) 515-1530.”
+
+- File: `src/routes/index.tsx` — Contact-topic choices
+- Original:
+  - “N45 Microsoft Security Triage ($495)”
+  - “IT review / current provider”
+  - “Microsoft 365 / account security”
+  - “Managed IT support”
+  - “Cybersecurity / endpoint protection”
+  - “Network or infrastructure”
+  - “Automation / documentation”
+- Issue: The choices require visitors to diagnose their need using N45’s technical service categories.
+- Rewrite:
+  - “Check our business email security ($495)”
+  - “Review our IT or current provider”
+  - “Protect our Microsoft 365 accounts”
+  - “Get ongoing IT support”
+  - “Protect our computers and business”
+  - “Fix internet, Wi-Fi, or our office network”
+  - “Simplify repeated work or organize documentation”
+
+- File: `src/routes/index.tsx` — Homepage footer
+- Original:
+  - “Secure, documented, managed IT for the people building Western North Carolina.”
+  - “Managed IT in Asheville”
+  - “Cybersecurity”
+- Issue: The tagline and link labels rely on service-category language instead of outcomes.
+- Rewrite:
+  - “Reliable support, safer systems, and clear documentation for Western North Carolina businesses.”
+  - “Ongoing IT Support”
+  - “Business Security”
+
+- File: `src/routes/refer.tsx` — Referral fit signal
+- Original:
+  - “Microsoft 365 feels uncertain”
+  - “They are unsure about administrator access, MFA, former employee accounts, forwarding, external sharing, email authentication, or backup ownership.”
+- Issue: A product name is the headline, and the body assumes the referral partner understands MFA and email-authentication concerns.
+- Rewrite:
+  - “Their accounts and email feel uncertain”
+  - “They are unsure who has administrator access, whether extra sign-in verification (multifactor authentication, or MFA) is required, whether former employees still have access, or who reviews forwarding, outside sharing, the authentication settings that help recipients trust their email, and backups.”
+
+- File: `src/routes/refer.tsx` — Referral call to action
+- Original: “Choose a short Microsoft 365 security or managed IT conversation.”
+- Issue: The call to action asks the reader to choose between technical service categories.
+- Rewrite: “Choose a short conversation about safer business accounts or ongoing IT support.”

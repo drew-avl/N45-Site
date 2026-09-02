@@ -24,7 +24,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Plainspoken managed IT, Microsoft 365, cybersecurity, networks, and documentation for independent businesses across Asheville and Western North Carolina.",
+          "Reliable IT support, safer Microsoft 365 accounts, cybersecurity, and clear technology management for independent businesses across Asheville and Western North Carolina.",
       },
       {
         name: "theme-color",
@@ -37,7 +37,7 @@ export const Route = createRootRoute({
       {
         property: "og:description",
         content:
-          "Steady, secure, documented IT for the people building Western North Carolina.",
+          "Reliable support, safer systems, and clear ownership for Western North Carolina businesses.",
       },
       {
         property: "og:type",
