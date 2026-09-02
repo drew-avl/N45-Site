@@ -25,7 +25,8 @@ const googleTagPlugin = {
 
       gtag('config', '${googleTagId}');
     </script>
-    <script type="module" src="/src/analytics.ts"></script>`,
+    <script type="module" src="/src/analytics.ts"></script>
+    <script type="module" src="/src/site-ui.ts"></script>`,
       );
     },
   },
@@ -36,6 +37,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "./index.html",
+        notFound: "./404.html",
         book: "./book/index.html",
         refer: "./refer/index.html",
         privacy: "./privacy/index.html",

@@ -8,7 +8,7 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
-    "test:booking": "node --test booking-endpoint/worker.test.mjs",
+    "test:booking": "node --test booking-endpoint/worker.test.mjs src/lib/booking-services.test.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

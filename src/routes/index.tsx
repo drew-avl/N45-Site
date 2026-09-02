@@ -22,7 +22,7 @@ import {
 
 import heroImg from "@/assets/hero-mountains.jpg";
 import { trackEvent } from "@/analytics";
-import { RemoteSupportButton } from "@/components/SiteChrome";
+import { MobileNavigation, RemoteSupportButton } from "@/components/SiteChrome";
 import SecurityTriageCta from "@/components/SecurityTriageCta";
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as
@@ -216,7 +216,7 @@ export default function Index() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <SecurityTriageCta contactHref="/book/" />
+        <SecurityTriageCta contactHref="/book/?service=security-review" />
         <Outcomes />
         <Services />
         <Industries />
@@ -268,17 +268,29 @@ function Nav() {
           </a>
         </nav>
 
-        <a
-          href="/book/"
-          className="group inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
-        >
-          <span className="hidden sm:inline">Book a conversation</span>
-          <span className="sm:hidden">Book</span>
-          <ArrowRight
-            aria-hidden="true"
-            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+        <div className="flex items-center gap-2">
+          <a
+            href="/book/"
+            className="group inline-flex min-h-11 items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
+          >
+            <span className="hidden sm:inline">Book a conversation</span>
+            <span className="sm:hidden">Book</span>
+            <ArrowRight
+              aria-hidden="true"
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            />
+          </a>
+          <MobileNavigation
+            links={[
+              { href: "#services", label: "Services" },
+              { href: "#industries", label: "Industries" },
+              { href: "#approach", label: "Approach" },
+              { href: "#about", label: "Why N45" },
+              { href: "/blog/", label: "Field Notes" },
+              { href: "/refer/", label: "Refer a business" },
+            ]}
           />
-        </a>
+        </div>
       </div>
     </header>
   );
@@ -838,11 +850,11 @@ function Contact() {
     <section id="contact" className="bg-sunrise py-24 md:py-32">
       <div className="mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[.82fr_1.18fr] lg:gap-24">
         <div>
-          <Eyebrow>Start a conversation</Eyebrow>
+          <Eyebrow theme="warm">Start a conversation</Eyebrow>
           <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
             Tell us what feels messy, risky, or unclear.
           </h2>
-          <p className="mt-7 max-w-lg text-lg leading-8 text-ink/70">
+          <p className="mt-7 max-w-lg text-lg leading-8 text-ink/80">
             We will start with the business problem, look at the systems behind
             it, and give you a practical next step. No jargon-heavy pitch
             required.
@@ -906,13 +918,13 @@ function Contact() {
                 <option value="" disabled>
                   Select one
                 </option>
-                <option value="Microsoft 365 / account security">
+                <option value="Microsoft 365 Security Triage">
                   Check our business email security ($495)
                 </option>
                 <option value="IT review / current provider concerns">
                   Review our IT or current provider
                 </option>
-                <option value="Microsoft 365 / account security">
+                <option value="Microsoft 365 account protection">
                   Protect our Microsoft 365 accounts
                 </option>
                 <option value="Managed IT support">
@@ -1054,7 +1066,7 @@ function ContactDetail({
         <Icon aria-hidden="true" className="h-4 w-4" />
       </span>
       <div>
-        <dt className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink/55">
+        <dt className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink/75">
           {label}
         </dt>
         <dd className="mt-1">
@@ -1076,18 +1088,25 @@ function Eyebrow({
   theme = "light",
 }: {
   children: ReactNode;
-  theme?: "light" | "dark";
+  theme?: "light" | "dark" | "warm";
 }) {
+  const accentClass =
+    theme === "dark"
+      ? "text-mint"
+      : theme === "warm"
+        ? "text-ink"
+        : "text-teal";
+  const lineClass =
+    theme === "dark" ? "bg-mint" : theme === "warm" ? "bg-ink" : "bg-teal";
+
   return (
     <div
       className={
         "flex items-center gap-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] " +
-        (theme === "dark" ? "text-mint" : "text-teal")
+        accentClass
       }
     >
-      <span
-        className={"h-px w-8 " + (theme === "dark" ? "bg-mint" : "bg-teal")}
-      />
+      <span className={"h-px w-8 " + lineClass} />
       {children}
     </div>
   );
