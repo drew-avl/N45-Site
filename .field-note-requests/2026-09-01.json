@@ -1,0 +1,15 @@
+{
+  "title": "A Vendor Advance Notice Is a Planning Trigger",
+  "summary": "Use advance security notices to verify inventory, backups, support access, and change windows before the detailed advisories arrive.",
+  "category": "Patch Management",
+  "datetime": "2026-09-01",
+  "body": [
+    "On August 26, Cisco published an advance notice for security advisories it plans to release on September 2. The notice names several product families: selected Cisco desk phones, IOS XR software, Nexus 9000 switches using Silicon One, and Cisco Secure Email. Cisco says the forthcoming advisories will include vulnerability information and fixed software releases.",
+    "An advance notice is not the same as a vulnerability advisory. It does not yet establish which versions are affected, how severe each issue is, or whether a particular organization is exposed. Owning a product in the named family is therefore a reason to prepare for review, not a reason to assume compromise or begin an emergency upgrade.",
+    "That distinction matters for small organizations because network switches, phone systems, and email-security systems often have limited maintenance windows. A rushed change can interrupt calls, internet access, or mail flow. Waiting until every prerequisite is gathered, however, can also turn a routine patch into an avoidable delay.",
+    "A useful action for today is to identify whether the business uses any of the named Cisco products. Record the exact model, installed software version, serial number, business owner, support contact, and where the current configuration backup is stored. Confirm that someone can access the vendor portal and reserve time to review the actual advisories after publication.",
+    "When the detailed advisories arrive, compare the documented affected and fixed versions against that inventory. Then set priority based on the product's exposure, business role, available workaround, and the consequences of downtime. Back up the configuration, read the release notes, and test the change where practical before scheduling production work.",
+    "Do not upgrade hardware merely because an advance notice exists, and do not shut down a working service without evidence that the risk warrants it. Cisco's notice itself lists no workaround and warns that its publication schedule can change. The appropriate response today is readiness, followed by a decision based on the final advisory.",
+    "Good patch management includes the quiet work before a patch is available. A current inventory, verified backups, access to support, and a planned change window make it possible to act quickly without guessing. That is the useful part of an advance notice: it creates preparation time, not panic."
+  ]
+}

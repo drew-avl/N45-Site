@@ -8,15 +8,15 @@
 
 ### Events
 
-| Event                             | Trigger                                                                  | Recommended as a GA4 key event |
-| --------------------------------- | ------------------------------------------------------------------------ | ------------------------------ |
-| `security_triage_booking_started` | Visitor leaves the booking page for the Microsoft 365 Security Fit Check | Yes                            |
-| `managed_it_booking_started`      | Visitor leaves the booking page for the Managed IT Introduction          | Yes                            |
-| `generate_lead`                   | Main contact form is accepted by the contact endpoint                    | Yes                            |
-| `referral_submitted`              | Referral form is accepted by the contact endpoint                        | Yes                            |
-| `phone_click`                     | Visitor selects a telephone link                                         | Yes                            |
-| `email_click`                     | Visitor selects an email link                                            | No                             |
-| `remote_support_started`          | Visitor opens the remote-support site                                    | No                             |
+| Event                    | Trigger                                                                              | Recommended as a GA4 key event |
+| ------------------------ | ------------------------------------------------------------------------------------ | ------------------------------ |
+| `booking_started`        | Visitor selects a service or time in the native form, or uses the fallback scheduler | No                             |
+| `booking_completed`      | Microsoft Bookings confirms an appointment through the native form                   | Yes                            |
+| `generate_lead`          | Main contact form is accepted by the contact endpoint                                | Yes                            |
+| `referral_submitted`     | Referral form is accepted by the contact endpoint                                    | Yes                            |
+| `phone_click`            | Visitor selects a telephone link                                                     | Yes                            |
+| `email_click`            | Visitor selects an email link                                                        | No                             |
+| `remote_support_started` | Visitor opens the remote-support site                                                | No                             |
 
 In GA4, go to **Admin → Data display → Events** and mark the recommended events as key events. Event names can be added before their first occurrence. Also confirm **Enhanced measurement → Outbound clicks** is enabled for the web data stream.
 
@@ -32,11 +32,10 @@ Use a new `utm_content` value for a materially different ad creative, such as `l
 
 ## Confirmed appointment attribution
 
-The final scheduling flow runs on Microsoft Bookings, outside the N45 analytics tag. Add this required custom question to each public Bookings service:
-
-> How did you hear about N45? (For example: Nextdoor, Google, referral, LinkedIn, Facebook, Yelp, or another source.)
-
-The GA4 booking-start event measures the handoff. The Bookings answer confirms the source of the completed appointment.
+The native form keeps the visitor on N45, so GA4 can attribute `booking_completed`
+to the active campaign without collecting the visitor's contact details. The
+Microsoft-hosted scheduler remains a fallback; activity completed there cannot
+be inspected by the N45 analytics tag because it is cross-origin.
 
 ## Privacy
 

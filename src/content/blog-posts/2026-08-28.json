@@ -1,0 +1,17 @@
+{
+  "category": "Business Continuity",
+  "date": "August 28, 2026",
+  "datetime": "2026-08-28",
+  "readTime": "3 min read",
+  "title": "Keep Your Recovery Contact Sheet Outside the System",
+  "summary": "A recovery plan stored only in email or cloud files may be unavailable when it is needed most; keep a current, safe offline contact sheet.",
+  "body": [
+    "A recovery plan is only useful if the people running the business can reach it during the disruption. The National Institute of Standards and Technology’s small-business guide recommends a basic incident-response plan that names the business leader, technical contact, bank, insurer, and other responders, along with their responsibilities and authority. CISA’s Business Continuity in a Box guidance similarly focuses on restoring critical functions after a cyber incident.",
+    "The practical gap is where that information lives. If the only copy is in Microsoft 365, Google Workspace, a password manager, or a shared drive, an identity problem or internet outage may block the same instructions needed to recover. That is especially relevant in Western North Carolina, where a technology failure can overlap with a power, connectivity, or weather disruption.",
+    "Today, make a one-page recovery contact sheet. Include the owner or manager authorized to make decisions, the primary and backup technical contacts, internet and phone providers, key software vendors, bank fraud number, cyber-insurance contact, and any building or equipment support that affects operations. Add customer or employee communication owners and list the first three business functions that must return.",
+    "For each provider, record the organization name, normal and after-hours phone numbers, customer or account identifier, and the service it supports. Do not place passwords, multifactor recovery codes, private keys, or full payment information on the sheet. Those belong in a separately controlled recovery process. The contact sheet should tell an authorized person whom to call and what to ask for without becoming a convenient collection of credentials.",
+    "Keep at least two controlled copies in places that do not depend on the same systems. One might be a printed copy in a locked office file and another with the business owner or designated backup. An encrypted offline copy can also be appropriate if someone is responsible for keeping it accessible and current. Put a review date on every copy so old phone numbers and former vendors do not quietly remain in the plan.",
+    "Finish with a ten-minute test: assume email, cloud storage, and the normal office internet are unavailable. Can the designated person locate the sheet, reach the right providers, explain which systems matter first, and notify employees through another channel? This does not require a large disaster exercise. A short walkthrough will expose missing names and numbers while they are still easy to fix.",
+    "There is no need to treat ordinary outages as cyberattacks or build an elaborate binder for every possible event. The calm goal is simpler: keep the first recovery decisions and contacts available when normal tools are not. One accurate page can prevent the first hour of a disruption from becoming a search for information."
+  ]
+}

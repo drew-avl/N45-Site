@@ -1,0 +1,13 @@
+name = "n45-booking-api"
+main = "worker.js"
+compatibility_date = "2026-08-31"
+
+[vars]
+ALLOWED_ORIGINS = "https://n45tech.com,https://www.n45tech.com"
+BOOKINGS_BUSINESS_ID = ""
+BOOKING_TIME_ZONE = "Eastern Standard Time"
+MS_TENANT_ID = ""
+MS_CLIENT_ID = ""
+
+# Set this as a secret, not a plain var:
+# wrangler secret put MS_CLIENT_SECRET

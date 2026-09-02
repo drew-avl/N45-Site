@@ -1,0 +1,17 @@
+{
+  "category": "Data Governance",
+  "date": "August 30, 2026",
+  "datetime": "2026-08-30",
+  "readTime": "2 min read",
+  "title": "Automated Labels Still Need a Review Loop",
+  "summary": "Before automated file classification drives sharing, retention, or blocking rules, test it on a small sample and record where people correct the result.",
+  "body": [
+    "On August 28, Google announced an open beta for Gemini-based data classification in Google Drive. An administrator can define instructions, choose a label, and set the files to evaluate. Google says eligible file owners and editors can then accept or change an automatically applied label, while audit logs record the original action and the user's response.",
+    "That review step matters more than the artificial intelligence branding. A label such as Internal, Customer Confidential, or Public can eventually influence sharing controls, retention rules, and investigations. If the label is wrong, the organization may expose information too broadly or make routine work harder than it needs to be. Faster classification is useful only when mistakes are visible and correctable.",
+    "Google's beta is limited to certain Workspace editions, but the operating lesson applies to any tool that classifies, routes, or restricts business records automatically: begin with a review loop. Do not let a first-pass result quietly become a final business decision. The person who understands the document should have a practical way to confirm or correct the result.",
+    "A useful action for today is to select 20 to 30 representative files from one low-risk shared folder. Define no more than three labels in plain language, then write down the label you expect for each file before testing any automation. Include a few awkward examples, such as a blank form, an old proposal, and a document that mixes public and customer information.",
+    "Compare the expected labels with the automated results and record three things: incorrect labels, files the tool could not classify confidently, and labels that staff changed. Those corrections are not clutter; they are the evidence needed to improve the instructions. Assign one owner to review the results, preserve the audit trail, and decide when another test is warranted.",
+    "Keep the first trial separate from high-impact enforcement. A pilot should not automatically block broad groups of users, change retention treatment, or trigger irreversible actions. Test each downstream rule independently, document the exception process, and confirm that the people doing the work know how to request a correction.",
+    "There is no need to reject automated classification or trust it blindly. Treat it as a new staff procedure: start with clear definitions, sample the work, review the exceptions, and expand only when the results are dependable. That measured approach turns a promising feature into a control the business can actually operate."
+  ]
+}

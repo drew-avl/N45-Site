@@ -1,0 +1,15 @@
+{
+  "title": "Verify Defender Status Before Rebuilding a PC",
+  "summary": "Microsoft is investigating false Defender-off notifications; verify actual protection status before taking disruptive corrective action.",
+  "category": "Endpoint Management",
+  "datetime": "2026-08-31",
+  "body": [
+    "On August 28, Microsoft confirmed a Windows issue that can display notifications saying Microsoft Defender Antivirus is turned off even when the antivirus remains active and its settings show protection is enabled. Microsoft says the messages may appear at startup or intermittently after recent Defender updates, and it is working on a future update to resolve them.",
+    "The notice covers listed versions of Windows 10, Windows 11, and Windows Server. That broad reach makes the issue relevant to small businesses with ordinary office computers as well as organizations running on-premises servers. It does not mean every device will show the message, and the warning by itself is not proof that protection failed or that an attack occurred.",
+    "The operational lesson is simple: distinguish a user-facing notification from the actual security state. A pop-up is one signal. The Windows Security screen, the device's protection status, recent definition updates, and the organization's endpoint-management console provide the evidence needed to decide whether the machine is protected.",
+    "A useful action for today is to write a short verification checklist for whoever receives endpoint alerts. Record the device name and time, capture the message, confirm that real-time protection is active, check when security intelligence last updated, and verify that the device reports healthy in the management console. Keep the result with the support ticket so the next person does not repeat the same investigation.",
+    "If those checks show Defender is active and current, acknowledge the known Microsoft issue, update the device normally, and monitor for Microsoft's fix. Do not disable protection, remove the antivirus, or rebuild the computer merely to clear the notification. Repeated alerts can be inconvenient, but a cosmetic warning does not justify a disruptive response.",
+    "If the protection service is actually stopped, updates are stale, the device is missing from management, or other security alerts appear, handle that as a real endpoint issue. Isolate the decision from the known notification bug and follow the normal incident process. The purpose of verification is not to dismiss warnings; it is to give each warning the right response.",
+    "Security tools occasionally report their own condition imperfectly. A calm checklist turns that ambiguity into a routine support task: verify the state, preserve the evidence, correct genuine failures, and wait for the vendor fix when protection is already working."
+  ]
+}
