@@ -1,0 +1,17 @@
+{
+  "category": "Device Deployment",
+  "date": "September 2, 2026",
+  "datetime": "2026-09-02",
+  "readTime": "2 min read",
+  "title": "Update Store Apps Before Handing Off ARM PCs",
+  "summary": "Microsoft's ARM-device issue is a reminder to update Store-delivered components and test essential applications before a new Windows PC reaches its user.",
+  "body": [
+    "On September 1, Microsoft opened a release-health issue for ARM-based Windows 11 devices after security updates released on or after August 11. Microsoft Teams and the new Outlook for Windows may fail to open or may close unexpectedly. Microsoft says the problem is most likely on new or freshly imaged computers that have not yet received Microsoft Store updates.",
+    "The affected platforms listed by Microsoft are Windows 11 versions 24H2, 25H2, and 26H1 on ARM-based devices, including examples such as Surface Pro 11 and Surface Laptop 7. Classic Outlook, Word, Excel, other applications, and Windows Server are not known to be affected. That scope is important: this is not a general Teams or Outlook outage.",
+    "Microsoft's workaround is to open Microsoft Store, select Downloads, check for updates, and install Auto Super Resolution Package version 1.0.19.0 or later. The company marks the issue as mitigated and is also working on a resolution in a future Windows update.",
+    "The broader operational lesson is that a Windows deployment is not finished when the operating-system updates complete. Store-delivered components and business applications have their own update paths. If those steps are omitted from a new-device checklist, a fully patched laptop can still be handed to an employee with essential software that will not launch.",
+    "A useful action for today is to add an application-update stage to the device build process. After Windows Update and before delivery, run Microsoft Store updates, restart if requested, and confirm that Teams and the organization's supported Outlook client both open and sign in. Record the completed checks with the device name and deployment date.",
+    "For an affected computer, use Microsoft's documented Store update first. Do not remove the August security update, reimage the device again, replace the laptop, or treat the failure as evidence of account compromise unless other facts point that way. If the required package is current and the applications still fail, preserve the error details and escalate through the normal support path.",
+    "This particular fault is limited, but the checklist improvement will outlast it. Updating every delivery channel and testing the applications people need is a small final step that prevents a new computer from becoming a first-day support call."
+  ]
+}
