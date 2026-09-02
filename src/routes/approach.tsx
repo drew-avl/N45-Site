@@ -24,23 +24,23 @@ const pages: ApproachPage[] = [
     promise:
       "A clear picture of what you have, what is getting in the way, and what deserves attention first.",
     intro:
-      "Technology problems rarely live in isolation. A recurring login issue may point to unclear account ownership. A slow application may involve the network, a vendor, or an aging device. We start by understanding the work around the technology so the plan reflects the business—not a generic checklist.",
+      "Technology problems rarely live in isolation. A recurring login issue may mean nobody is sure who owns an account. A slow application may be caused by the office network, an outside vendor, or an aging computer. We start by understanding the work around the technology so the plan reflects the business—not a generic checklist.",
     focus: [
       {
         title: "People and daily work",
         body: "Who uses each system, where work slows down, how support happens now, and which interruptions cost the team the most time.",
       },
       {
-        title: "Accounts and access",
-        body: "Microsoft 365, administrative roles, shared accounts, onboarding, offboarding, and the places where ownership is unclear.",
+        title: "Who can access what",
+        body: "Microsoft 365 accounts, administrator access, shared sign-ins, onboarding, offboarding, and the places where ownership is unclear.",
       },
       {
-        title: "Assets, vendors, and dependencies",
-        body: "Computers, networks, line-of-business systems, service providers, renewals, and the connections the operation depends on.",
+        title: "The tools and providers you depend on",
+        body: "Computers, office networks, essential business software, service providers, renewals, and the connections your operation depends on.",
       },
       {
-        title: "Risk and recurring friction",
-        body: "Known security gaps, fragile workarounds, repeat support issues, and single points of failure that deserve a practical response.",
+        title: "Risks and repeat frustrations",
+        body: "Known security gaps, fragile workarounds, repeat support issues, and systems, vendors, or people the business cannot operate without.",
       },
     ],
     method: [
@@ -49,19 +49,19 @@ const pages: ApproachPage[] = [
         body: "We speak with the people responsible for the business and, when useful, the employees closest to recurring problems.",
       },
       {
-        title: "Build a usable operating map",
-        body: "We organize the systems, access, vendors, owners, and open questions into a record that can guide real decisions.",
+        title: "Create one useful record",
+        body: "We organize systems, account access, vendors, owners, and open questions into a record that can guide real decisions.",
       },
       {
         title: "Prioritize by impact",
-        body: "Findings are separated into urgent risks, operational friction, and longer-term improvements so the next step stays proportionate.",
+        body: "Findings are separated into urgent risks, day-to-day problems, and longer-term improvements so the next step stays proportionate.",
       },
     ],
     outcomes: [
-      "A shared understanding of the current environment",
-      "Clear ownership and fewer hidden dependencies",
+      "A shared understanding of the current technology setup",
+      "Clear ownership and fewer hidden surprises",
       "A prioritized plan instead of an oversized package",
-      "A sensible starting point for stabilization, security, or support",
+      "A sensible starting point for dependable systems, better security, or ongoing support",
     ],
   },
   {
@@ -69,41 +69,41 @@ const pages: ApproachPage[] = [
     slug: "stabilize-the-essentials",
     title: "Stabilize the essentials",
     summary:
-      "We handle urgent issues, reduce repeat failures, and establish a dependable baseline.",
+      "We handle urgent issues, stop repeat failures, and make the essentials dependable.",
     promise:
-      "Fewer disruptions, clearer ownership, and an environment your team can rely on day to day.",
+      "Fewer disruptions, clearer ownership, and a technology setup your team can rely on day to day.",
     intro:
-      "Before adding tools or pursuing ambitious projects, the basics need to work consistently. Stabilization focuses on the problems that interrupt employees, create avoidable risk, or make every future change harder than it should be.",
+      "Before adding tools or pursuing ambitious projects, the basics need to work consistently. This step focuses on problems that interrupt employees, create avoidable risk, or make every future change harder than it should be.",
     focus: [
       {
-        title: "Urgent operational issues",
-        body: "Active outages, unreliable systems, access problems, exposed administrative accounts, and other issues that cannot wait.",
+        title: "Problems that cannot wait",
+        body: "Active outages, unreliable systems, sign-in problems, administrator accounts that are too exposed, and other issues stopping safe, productive work.",
       },
       {
-        title: "Recurring support problems",
-        body: "Patterns behind repeated tickets, unreliable devices, inconsistent configuration, and workarounds that have quietly become permanent.",
+        title: "Problems that keep coming back",
+        body: "Patterns behind repeated support requests, unreliable computers, mismatched settings, and workarounds that have quietly become permanent.",
       },
       {
-        title: "A consistent baseline",
-        body: "Core expectations for patching, devices, Microsoft 365, endpoint protection, backups, and network health.",
+        title: "One dependable standard",
+        body: "A clear minimum for security updates (patching), consistent computers, Microsoft 365, protection that blocks threats on work computers (endpoint protection), backups, and network reliability.",
       },
       {
-        title: "Ownership and escalation",
-        body: "Who handles each system, which vendor owns which problem, and how employees get help when something breaks.",
+        title: "Clear ownership and help",
+        body: "Who handles each system, which vendor owns each problem, and how employees get help when something breaks.",
       },
     ],
     method: [
       {
-        title: "Triage by business impact",
-        body: "We address issues that stop work or create immediate exposure before moving to lower-impact cleanup.",
+        title: "Start with what stops work",
+        body: "We address issues that stop work or create immediate risk before moving to lower-impact cleanup.",
       },
       {
         title: "Fix causes, not symptoms",
-        body: "Repeated failures are traced to configuration, lifecycle, access, network, or vendor issues so the same problem is less likely to return.",
+        body: "Repeated failures are traced to settings, aging equipment, account access, network, or vendor issues so the same problem is less likely to return.",
       },
       {
-        title: "Set and verify the baseline",
-        body: "Standards are applied deliberately, tested, and recorded so the environment becomes easier to support consistently.",
+        title: "Set the standard and check the work",
+        body: "Standards are applied deliberately, tested, and recorded so the technology becomes easier to support consistently.",
       },
     ],
     outcomes: [
@@ -122,33 +122,33 @@ const pages: ApproachPage[] = [
     promise:
       "Safer access, clearer recovery options, and documentation that belongs to your business.",
     intro:
-      "Security and documentation work best together. A control is harder to trust when no one knows who owns it, how it is configured, or what happens during recovery. We strengthen the systems that matter and record the information needed to operate them responsibly.",
+      "Security and documentation work best together. A safeguard is harder to trust when no one knows who owns it, how it is set up, or what happens during recovery. We strengthen the systems that matter and record the information needed to operate them responsibly.",
     focus: [
       {
-        title: "Identity and administrative access",
-        body: "MFA, least-privilege roles, shared-account cleanup, joiner and leaver processes, and accountable administrative access.",
+        title: "Safer sign-ins and administrator access",
+        body: "Multifactor authentication (MFA) adds an extra sign-in check. The least-privilege approach limits employees and administrators to the access they need, while shared-account cleanup and consistent onboarding and offboarding keep ownership clear.",
       },
       {
-        title: "Devices and protection",
-        body: "Patching, encryption, endpoint protection, device standards, and visibility into the computers that reach business data.",
+        title: "Protected work computers",
+        body: "Security updates (patching), encryption that protects stored data, protection that blocks threats on work computers (endpoint protection), consistent computer setup, and a clear list of devices that can reach business data.",
       },
       {
-        title: "Backups and recovery",
-        body: "What is protected, where copies live, who receives alerts, and whether a recovery path has been checked rather than assumed.",
+        title: "Backups that can support recovery",
+        body: "What data is backed up, where copies live, who receives alerts, and whether the recovery steps have been tested rather than assumed.",
       },
       {
-        title: "The operating record",
-        body: "Assets, vendors, accounts, owners, network details, renewal information, and recovery steps organized for authorized use.",
+        title: "One clear business record",
+        body: "Useful IT documentation that organizes equipment, vendors, accounts, owners, network details, renewals, and recovery steps for the people authorized to use it.",
       },
     ],
     method: [
       {
-        title: "Prioritize controls that reduce real risk",
+        title: "Reduce the risks that matter",
         body: "Recommendations reflect the data, systems, team, and obligations of the business rather than a fear-driven list of products.",
       },
       {
-        title: "Validate the important paths",
-        body: "We check that protections report correctly, access works as intended, and recovery information is sufficient to take action.",
+        title: "Check that protections work",
+        body: "We confirm that security tools report correctly, account access works as intended, and recovery information is sufficient to take action.",
       },
       {
         title: "Create documentation people can maintain",
@@ -156,7 +156,7 @@ const pages: ApproachPage[] = [
       },
     ],
     outcomes: [
-      "Reduced exposure from unclear or excessive access",
+      "Less risk from unclear or excessive access",
       "Better visibility into devices, protection, and recovery",
       "Faster, calmer response when an issue occurs",
       "Critical knowledge that does not live in one person’s head",
@@ -167,37 +167,37 @@ const pages: ApproachPage[] = [
     slug: "manage-and-improve",
     title: "Manage & improve",
     summary:
-      "We support the environment, review what is changing, and improve it over time.",
+      "We support your technology, review what is changing, and improve it over time.",
     promise:
       "Technology that stays useful as your people, priorities, vendors, and risks change.",
     intro:
-      "A stable environment still needs attention. Employees join and leave, software changes, devices age, vendors shift, and yesterday’s workaround becomes tomorrow’s bottleneck. Ongoing management keeps the baseline healthy while creating room for deliberate improvement.",
+      "Even a stable setup needs attention. Employees join and leave, software changes, computers age, vendors shift, and yesterday’s workaround becomes tomorrow’s bottleneck. Ongoing management keeps the essentials dependable while creating room for deliberate improvement.",
     focus: [
       {
         title: "Responsive support",
         body: "A clear place for employees to get help, with recurring issues tracked beyond the individual ticket.",
       },
       {
-        title: "Monitoring and maintenance",
-        body: "Patching, endpoint health, backups, alerts, account administration, and routine checks handled on a defined cadence.",
+        title: "Routine checks and upkeep",
+        body: "Security updates (patching), checks on work computers, backups, alerts, account administration, and routine upkeep handled on a clear schedule.",
       },
       {
-        title: "Lifecycle and change",
-        body: "Onboarding, offboarding, device replacement, vendor coordination, office changes, and projects managed with less disruption.",
+        title: "People, computers, and changes",
+        body: "Onboarding, offboarding, computer replacement, vendor coordination, office changes, and projects managed with less disruption.",
       },
       {
-        title: "Review and automation",
-        body: "Support patterns, risks, upcoming needs, and repeatable tasks reviewed for practical improvements and cleaner workflows.",
+        title: "Review and simplify repeated work",
+        body: "Support patterns, risks, upcoming needs, and repeated tasks reviewed for practical improvements, automation, and cleaner workflows.",
       },
     ],
     method: [
       {
-        title: "Operate from a documented scope",
-        body: "Responsibilities, systems, service expectations, and escalation paths are made clear before ongoing work begins.",
+        title: "Set clear responsibilities",
+        body: "Systems, service expectations, responsibilities, and the path for urgent help are made clear before ongoing work begins.",
       },
       {
         title: "Review patterns, not just tickets",
-        body: "We look across support, alerts, lifecycle events, and business changes to identify what should be fixed or simplified next.",
+        body: "We look across support requests, alerts, new hires, departures, and business changes to identify what should be fixed or simplified next.",
       },
       {
         title: "Improve in proportion to the business",
@@ -207,7 +207,7 @@ const pages: ApproachPage[] = [
     outcomes: [
       "A dependable place for employees to get support",
       "Routine maintenance completed consistently",
-      "Better planning for changes, renewals, and device lifecycle",
+      "Better planning for changes, renewals, and computer replacement",
       "Steady improvement without unnecessary complexity",
     ],
   },
@@ -287,7 +287,7 @@ export default function Approach() {
                 What we look at
               </h2>
               <p className="mt-6 text-lg leading-8 text-ridge">
-                The exact scope changes with the business, but these are the
+                What we review changes with the business, but these are the
                 areas that shape the work.
               </p>
             </div>
@@ -365,7 +365,7 @@ export default function Approach() {
               </ul>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a href="/book/" className="button-dark group">
-                  Talk through your environment
+                  Talk through your setup
                   <ArrowRight
                     aria-hidden="true"
                     className="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -375,7 +375,7 @@ export default function Approach() {
                   href="/managed-it-services-asheville/"
                   className="inline-flex min-h-13 items-center justify-center gap-2 px-3 text-sm font-bold text-teal hover:text-ink"
                 >
-                  Explore managed IT services
+                  Explore ongoing IT support
                   <ChevronRight aria-hidden="true" className="h-4 w-4" />
                 </a>
               </div>

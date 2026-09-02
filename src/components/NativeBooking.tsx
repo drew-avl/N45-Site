@@ -365,16 +365,16 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
             {formatConfirmation(confirmation.startDateTime, timeZone)}
           </p>
           <p className="mt-5 max-w-xl leading-7 text-ridge">
-            A Microsoft Bookings confirmation and meeting details are on the way
-            to your email. If you do not see them shortly, check your spam
-            folder or call N45.
+            A confirmation and meeting details are on the way to your email
+            through Microsoft Bookings. If you do not see them shortly, check
+            your spam folder or call N45.
           </p>
           <div className="mt-8 flex items-start gap-3 border-t border-ink/12 pt-6 text-sm leading-6 text-ridge">
             <ShieldCheck
               aria-hidden="true"
               className="mt-0.5 h-5 w-5 shrink-0 text-teal"
             />
-            Your appointment is stored in N45’s Microsoft 365 booking calendar.
+            N45 has added your appointment to its booking calendar.
           </div>
         </div>
       </div>

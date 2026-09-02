@@ -53,43 +53,43 @@ const services: Service[] = [
   {
     icon: Laptop,
     number: "01",
-    title: "Managed IT support",
-    body: "Day-to-day support, patching, device standards, and thoughtful onboarding that keeps your team moving.",
+    title: "Everyday IT help",
+    body: "Managed IT support, timely security updates (patching), a consistent setup for every computer, and thoughtful onboarding—all designed to keep your team moving.",
     outcome: "Fewer repeat problems. Faster, calmer workdays.",
   },
   {
     icon: KeyRound,
     number: "02",
-    title: "Microsoft 365 & identity",
-    body: "MFA, account lifecycle, shared mailboxes, admin cleanup, and safer sign-in built around how your people work.",
+    title: "Safer accounts and email",
+    body: "Microsoft 365 administration, extra sign-in verification (multifactor authentication, or MFA), shared mailboxes, administrator cleanup, and safer access built around how your people work.",
     outcome: "The right access for the right people.",
   },
   {
     icon: ShieldCheck,
     number: "03",
-    title: "Practical cybersecurity",
-    body: "Endpoint protection, least-privilege access, security reviews, alert routing, and validated backups.",
-    outcome: "Real controls, clearly prioritized—no scare tactics.",
+    title: "Protection that fits the risk",
+    body: "Practical cybersecurity reviews, protection that blocks threats on work computers (endpoint protection), limited access based on each person’s job (least privilege), useful alerts, and checked backups.",
+    outcome: "Practical safeguards, clearly prioritized—no scare tactics.",
   },
   {
     icon: Network,
     number: "04",
-    title: "Networks & infrastructure",
-    body: "Wi-Fi, switching, firewalls, DNS, servers, and the physical path connecting your people to their work.",
+    title: "Reliable internet and connections",
+    body: "We manage the technology behind your internet and Wi-Fi, including firewalls, switches, servers, and DNS, which directs online services.",
     outcome: "A stable foundation from the front desk to the field.",
   },
   {
     icon: FileCheck2,
     number: "05",
-    title: "Continuity & documentation",
-    body: "Assets, vendors, accounts, recovery steps, and ownership captured in one dependable operating record.",
+    title: "A plan when something breaks",
+    body: "Business continuity planning for keeping the company running, plus IT documentation that records backups, recovery steps, equipment, vendors, accounts, and ownership.",
     outcome: "Critical knowledge that never lives in one person’s head.",
   },
   {
     icon: Workflow,
     number: "06",
-    title: "Automation & operations",
-    body: "Repeated tasks, tickets, alerts, and onboarding steps turned into clean, trackable workflows.",
+    title: "Less repetitive work",
+    body: "Automation turns repeated tasks, support requests, alerts, and onboarding work into clean, trackable steps.",
     outcome: "Less busywork. More consistency.",
   },
 ];
@@ -99,29 +99,41 @@ const industries = [
     icon: HeartPulse,
     label: "Healthcare",
     title: "Clinics, dental & specialty practices",
-    body: "HIPAA-aware Microsoft 365, encrypted devices, reliable EHR and practice-management connectivity, and clear access records.",
-    points: ["Identity & device controls", "Vendor and PHI documentation"],
+    body: "Microsoft 365 and device safeguards that support HIPAA responsibilities, secure electronic health record (EHR) access, and clear records of who can reach sensitive information.",
+    points: [
+      "Safer account and device access",
+      "Vendor and protected health information (PHI) records",
+    ],
   },
   {
     icon: Scale,
     label: "Professional firms",
     title: "Legal, accounting & advisory teams",
     body: "Confidential file access, dependable backups, and steady support through tax season, closings, and trial preparation.",
-    points: ["MFA and admin cleanup", "Secure client workflows"],
+    points: [
+      "Extra sign-in protection (multifactor authentication, or MFA) and administrator cleanup",
+      "Secure ways to work with clients",
+    ],
   },
   {
     icon: UtensilsCrossed,
     label: "Hospitality",
     title: "Hotels, restaurants, taprooms & venues",
-    body: "Guest and back-of-house Wi-Fi, segmented POS networks, and documented systems built for your busiest nights.",
-    points: ["Guest and operations separation", "POS and kiosk reliability"],
+    body: "Separate Wi-Fi for guests and business operations, reliable checkout and point-of-sale (POS) systems, and clear documentation built for your busiest nights.",
+    points: [
+      "Guest and business traffic kept separate",
+      "Reliable POS and kiosk systems",
+    ],
   },
   {
     icon: Hammer,
     label: "Industry & trades",
     title: "Manufacturers, contractors & field crews",
-    body: "Quiet infrastructure for office, shop, and remote teams—with rugged device management and accountable support.",
-    points: ["Site-to-site connectivity", "Field-ready device standards"],
+    body: "Reliable technology for office, shop, and remote teams—with consistent, work-ready computers and accountable support.",
+    points: [
+      "Connections between offices and job sites",
+      "Consistent computers ready for the job",
+    ],
   },
 ];
 
@@ -129,25 +141,25 @@ const process: ProcessStep[] = [
   {
     number: "01",
     title: "Listen & assess",
-    body: "We learn how the business works, then map accounts, assets, vendors, ownership, risks, and recurring friction.",
+    body: "We learn how the business works, then list the accounts, equipment, vendors, owners, risks, and repeat problems that shape the plan.",
     href: "/approach/listen-and-assess/",
   },
   {
     number: "02",
     title: "Stabilize the essentials",
-    body: "Urgent issues get handled first. We reduce repeat problems and establish a dependable baseline.",
+    body: "Urgent issues get handled first. We reduce repeat problems and set a dependable minimum standard for computers, accounts, and support.",
     href: "/approach/stabilize-the-essentials/",
   },
   {
     number: "03",
     title: "Secure & document",
-    body: "Access, devices, protection, backups, and recovery details become safer, clearer, and easier to manage.",
+    body: "Account access, computers, security tools, backups, and recovery details become safer, clearer, and easier to manage.",
     href: "/approach/secure-and-document/",
   },
   {
     number: "04",
     title: "Manage & improve",
-    body: "Monitoring, support, reviews, and automation keep the environment useful as your business changes.",
+    body: "Ongoing checks, support, reviews, and automation keep your technology useful as the business changes.",
     href: "/approach/manage-and-improve/",
   },
 ];
@@ -156,7 +168,7 @@ const faqs = [
   {
     question: "Do you replace our current IT provider?",
     answer:
-      "N45 can become your managed IT partner or work through a scoped transition. The first step is understanding what is working, what is not, and what your team actually needs.",
+      "N45 can become your managed IT partner or guide a planned transition with clear responsibilities. The first step is understanding what is working, what is not, and what your team actually needs.",
   },
   {
     question: "Is N45 only for Asheville businesses?",
@@ -318,9 +330,10 @@ function Hero() {
             </em>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl">
-            N45 provides managed IT and Microsoft 365 security for small
-            organizations across Western North Carolina—backed by responsive,
-            plainspoken support in Asheville and the mountains.
+            N45 keeps everyday technology reliable, protects business accounts
+            and data, and gives your team a responsive local place to get help.
+            Services include managed IT and Microsoft 365 security throughout
+            Western North Carolina.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -356,11 +369,11 @@ function Hero() {
             The N45 standard
           </div>
           <h2 className="mt-4 font-display text-4xl leading-none">
-            Secure.
+            Reliable.
+            <br />
+            Protected.
             <br />
             Documented.
-            <br />
-            Managed.
           </h2>
           <div className="mt-7 divide-y divide-white/12 border-y border-white/12">
             {[
@@ -460,7 +473,7 @@ function Services() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Eyebrow theme="dark">What we manage</Eyebrow>
             <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-6xl">
-              Your whole environment, with no black box.
+              One clear view of the technology behind your business.
             </h2>
             <p className="mt-6 max-w-md text-lg leading-8 text-paper/68">
               Good IT should feel almost invisible: fewer interruptions, safer
@@ -471,7 +484,7 @@ function Services() {
                 className="text-link block text-mint"
                 href="/managed-it-services-asheville/"
               >
-                IT support and managed IT services in Asheville →
+                Get ongoing IT support in Asheville →
               </a>
               <a
                 className="text-link block text-mint"
@@ -483,7 +496,7 @@ function Services() {
                 className="text-link block text-mint"
                 href="/cybersecurity-services-asheville/"
               >
-                Cybersecurity services in Asheville →
+                Protect your Asheville business →
               </a>
             </div>
             <a href="/book/" className="button-outline-mint mt-9">
@@ -533,7 +546,7 @@ function Industries() {
           </h2>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-ridge">
             N45 stays close to the operations we understand—places where trust,
-            uptime, confidentiality, and a real human response matter.
+            reliable access, confidentiality, and a real human response matter.
           </p>
         </div>
 
@@ -592,9 +605,9 @@ function Process() {
               From reactive to ready, one clear step at a time.
             </h2>
             <p className="mt-7 max-w-lg text-lg leading-8 text-ridge">
-              N45 fixes the foundation before stacking on more tools. The result
-              is easier to manage, easier to support, and more resilient over
-              time.
+              N45 makes the essentials dependable before adding more tools. The
+              result is easier to manage, easier to support, and better prepared
+              for problems over time.
             </p>
           </div>
 
@@ -760,7 +773,7 @@ function Contact() {
     if (!CONTACT_ENDPOINT) {
       setSubmitState("error");
       setStatusMessage(
-        "The contact form is not configured yet. Call N45 at (828) 515-1530.",
+        "Online messages are temporarily unavailable. Call N45 at (828) 515-1530.",
       );
       return;
     }
@@ -894,23 +907,25 @@ function Contact() {
                   Select one
                 </option>
                 <option value="Microsoft 365 / account security">
-                  N45 Microsoft Security Triage ($495)
+                  Check our business email security ($495)
                 </option>
                 <option value="IT review / current provider concerns">
-                  IT review / current provider
+                  Review our IT or current provider
                 </option>
                 <option value="Microsoft 365 / account security">
-                  Microsoft 365 / account security
+                  Protect our Microsoft 365 accounts
                 </option>
-                <option value="Managed IT support">Managed IT support</option>
+                <option value="Managed IT support">
+                  Get ongoing IT support
+                </option>
                 <option value="Cybersecurity / endpoint protection">
-                  Cybersecurity / endpoint protection
+                  Protect our computers and business
                 </option>
                 <option value="Network or infrastructure issue">
-                  Network or infrastructure
+                  Fix internet, Wi-Fi, or our office network
                 </option>
                 <option value="Automation / documentation cleanup">
-                  Automation / documentation
+                  Simplify repeated work or organize documentation
                 </option>
               </select>
             </div>
@@ -1089,8 +1104,8 @@ function Footer() {
             className="h-16 w-auto"
           />
           <p className="mt-6 max-w-md text-sm leading-6 text-paper/55">
-            Secure, documented, managed IT for the people building Western North
-            Carolina.
+            Reliable support, safer systems, and clear documentation for Western
+            North Carolina businesses.
           </p>
         </div>
 
@@ -1102,7 +1117,7 @@ function Footer() {
               href="/managed-it-services-asheville/"
               className="hover:text-mint"
             >
-              Managed IT in Asheville
+              Ongoing IT Support
             </a>
             <a
               href="/business-it-support-western-nc/"
@@ -1114,7 +1129,7 @@ function Footer() {
               href="/cybersecurity-services-asheville/"
               className="hover:text-mint"
             >
-              Cybersecurity
+              Business Security
             </a>
             <a href="tel:+18285151530" className="hover:text-mint">
               (828) 515-1530
