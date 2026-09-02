@@ -77,8 +77,8 @@ export function SiteFooter() {
             className="h-16 w-auto"
           />
           <p className="mt-6 max-w-md text-sm leading-6 text-paper/55">
-            Secure, documented, managed IT for the people building Western North
-            Carolina.
+            Reliable support, safer systems, and clear documentation for Western
+            North Carolina businesses.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export function SiteFooter() {
               href="/managed-it-services-asheville/"
               className="hover:text-mint"
             >
-              Managed IT in Asheville
+              Ongoing IT Support
             </a>
             <a
               href="/business-it-support-western-nc/"
@@ -102,7 +102,7 @@ export function SiteFooter() {
               href="/cybersecurity-services-asheville/"
               className="hover:text-mint"
             >
-              Cybersecurity
+              Business Security
             </a>
             <a href="/book/" className="hover:text-mint">
               Book a conversation

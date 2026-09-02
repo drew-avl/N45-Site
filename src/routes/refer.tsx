@@ -30,8 +30,8 @@ const goodFitSignals = [
   },
   {
     icon: ShieldCheck,
-    title: "Microsoft 365 feels uncertain",
-    body: "They are unsure about administrator access, MFA, former employee accounts, forwarding, external sharing, email authentication, or backup ownership.",
+    title: "Their accounts and email feel uncertain",
+    body: "They are unsure who has administrator access, whether extra sign-in verification (multifactor authentication, or MFA) is required, whether former employees still have access, or who reviews forwarding, outside sharing, the authentication settings that help recipients trust their email, and backups.",
   },
   {
     icon: UserRoundCheck,
@@ -418,8 +418,8 @@ export default function Refer() {
                 Looking for help yourself?
               </h2>
               <p className="mt-4 leading-7 text-ridge">
-                Choose a short Microsoft 365 security or managed IT
-                conversation.
+                Choose a short conversation about safer business accounts or
+                ongoing IT support.
               </p>
             </div>
             <a href="/book/" className="button-dark group shrink-0">
