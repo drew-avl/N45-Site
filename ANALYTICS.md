@@ -25,7 +25,7 @@ In GA4, go to **Admin → Data display → Events** and mark the recommended eve
 Use this destination without changing the source, medium, or campaign values:
 
 ```text
-https://n45tech.com/book/?utm_source=nextdoor&utm_medium=paid_social&utm_campaign=m365_security_triage&utm_content=local_business_v1
+https://n45tech.com/book/?service=security-review&utm_source=nextdoor&utm_medium=paid_social&utm_campaign=m365_security_triage&utm_content=local_business_v1
 ```
 
 Use a new `utm_content` value for a materially different ad creative, such as `local_business_v2`.

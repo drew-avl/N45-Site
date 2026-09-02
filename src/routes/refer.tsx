@@ -272,11 +272,11 @@ export default function Refer() {
         <section id="introduction" className="bg-sunrise py-20 md:py-28">
           <div className="mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-20">
             <div>
-              <PageEyebrow>Make an introduction</PageEyebrow>
+              <PageEyebrow theme="warm">Make an introduction</PageEyebrow>
               <h2 className="mt-6 font-display text-5xl leading-[1] tracking-[-0.03em] text-balance md:text-6xl">
                 Give us just enough context to take it from here.
               </h2>
-              <p className="mt-6 max-w-lg text-lg leading-8 text-ink/72">
+              <p className="mt-6 max-w-lg text-lg leading-8 text-ink/80">
                 Please make sure the person knows you are introducing them. N45
                 will use these details only to follow up about this referral.
               </p>

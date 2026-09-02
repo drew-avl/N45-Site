@@ -1,5 +1,63 @@
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Menu, X } from "lucide-react";
 import type { ReactNode } from "react";
+
+export type MobileNavigationLink = {
+  href: string;
+  label: string;
+  current?: boolean;
+};
+
+const defaultMobileNavigationLinks: MobileNavigationLink[] = [
+  { href: "/#services", label: "Services" },
+  { href: "/#industries", label: "Industries" },
+  { href: "/#approach", label: "Approach" },
+  { href: "/#about", label: "Why N45" },
+  { href: "/blog/", label: "Field Notes" },
+  { href: "/refer/", label: "Refer a business" },
+];
+
+export function MobileNavigation({
+  links = defaultMobileNavigationLinks,
+}: {
+  links?: MobileNavigationLink[];
+}) {
+  return (
+    <details className="mobile-nav" data-mobile-nav>
+      <summary>
+        <span className="sr-only">Site menu</span>
+        <Menu aria-hidden="true" className="mobile-nav-menu-icon h-5 w-5" />
+        <X aria-hidden="true" className="mobile-nav-close-icon h-5 w-5" />
+      </summary>
+      <div className="mobile-nav-panel">
+        <nav aria-label="Mobile navigation">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              aria-current={link.current ? "page" : undefined}
+              className="mobile-nav-link"
+              data-mobile-nav-link
+            >
+              {link.label}
+              <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </a>
+          ))}
+        </nav>
+        <a
+          href="https://support.n45tech.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mobile-nav-support"
+          data-mobile-nav-link
+        >
+          Start Remote Support
+          <ExternalLink aria-hidden="true" className="h-4 w-4" />
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
+      </div>
+    </details>
+  );
+}
 
 export function SiteHeader() {
   return (
@@ -50,17 +108,20 @@ export function SiteHeader() {
           </a>
         </nav>
 
-        <a
-          href="/book/"
-          className="group inline-flex min-h-11 items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
-        >
-          <span className="hidden sm:inline">Book a conversation</span>
-          <span className="sm:hidden">Book</span>
-          <ArrowRight
-            aria-hidden="true"
-            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-          />
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="/book/"
+            className="group inline-flex min-h-11 items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
+          >
+            <span className="hidden sm:inline">Book a conversation</span>
+            <span className="sm:hidden">Book</span>
+            <ArrowRight
+              aria-hidden="true"
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            />
+          </a>
+          <MobileNavigation />
+        </div>
       </div>
     </header>
   );
@@ -153,18 +214,25 @@ export function PageEyebrow({
   theme = "light",
 }: {
   children: ReactNode;
-  theme?: "light" | "dark";
+  theme?: "light" | "dark" | "warm";
 }) {
+  const accentClass =
+    theme === "dark"
+      ? "text-mint"
+      : theme === "warm"
+        ? "text-ink"
+        : "text-teal";
+  const lineClass =
+    theme === "dark" ? "bg-mint" : theme === "warm" ? "bg-ink" : "bg-teal";
+
   return (
     <div
       className={
         "flex items-center gap-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] " +
-        (theme === "dark" ? "text-mint" : "text-teal")
+        accentClass
       }
     >
-      <span
-        className={"h-px w-8 " + (theme === "dark" ? "bg-mint" : "bg-teal")}
-      />
+      <span className={"h-px w-8 " + lineClass} />
       {children}
     </div>
   );

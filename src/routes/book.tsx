@@ -11,6 +11,12 @@ const BOOKING_URL =
   "https://outlook.office.com/book/SceduleaConversationwithN45@n45tech.com/?ismsaljsauthenabled";
 
 export default function Book() {
+  const preferredServiceIntent =
+    new URLSearchParams(window.location.search).get("service") ===
+    "security-review"
+      ? "security-review"
+      : undefined;
+
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
       <a className="skip-link" href="#main-content">
@@ -67,6 +73,7 @@ export default function Book() {
                 <NativeBooking
                   endpoint={BOOKING_API_ENDPOINT}
                   fallbackUrl={BOOKING_URL}
+                  preferredServiceIntent={preferredServiceIntent}
                 />
               ) : (
                 <iframe
@@ -105,7 +112,7 @@ export default function Book() {
               <h2 className="font-display text-4xl leading-tight tracking-[-0.025em] text-balance md:text-5xl">
                 Need help choosing?
               </h2>
-              <p className="mt-4 max-w-2xl leading-7 text-ink/72">
+              <p className="mt-4 max-w-2xl leading-7 text-ink/80">
                 Call N45 and briefly describe what is going on. We will point
                 you toward the right conversation.
               </p>
