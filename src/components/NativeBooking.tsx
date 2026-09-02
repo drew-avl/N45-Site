@@ -11,6 +11,11 @@ import {
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 
 import { trackEvent } from "@/analytics";
+import {
+  bookingServiceDisplayName,
+  initialBookingServiceId,
+  type BookingServiceIntent,
+} from "@/lib/booking-services";
 
 type BookingService = {
   id: string;
@@ -43,6 +48,7 @@ type ApiResponse = {
 type NativeBookingProps = {
   endpoint: string;
   fallbackUrl: string;
+  preferredServiceIntent?: BookingServiceIntent;
 };
 
 const inputClassName =
@@ -111,7 +117,11 @@ async function readApiResponse(response: Response) {
   return result;
 }
 
-export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
+export function NativeBooking({
+  endpoint,
+  fallbackUrl,
+  preferredServiceIntent,
+}: NativeBookingProps) {
   const timeZone = useMemo(
     () =>
       Intl.DateTimeFormat().resolvedOptions().timeZone || "America/New_York",
@@ -168,7 +178,9 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
         }
         if (!cancelled) {
           setServices(availableServices);
-          setSelectedServiceId(availableServices[0].id);
+          setSelectedServiceId(
+            initialBookingServiceId(availableServices, preferredServiceIntent),
+          );
         }
       } catch (error) {
         if (!cancelled) {
@@ -187,7 +199,7 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
     return () => {
       cancelled = true;
     };
-  }, [endpoint]);
+  }, [endpoint, preferredServiceIntent]);
 
   useEffect(() => {
     if (!selectedServiceId) return;
@@ -359,7 +371,7 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
         </div>
         <div className="px-6 py-10 md:px-12 md:py-14">
           <p className="text-sm font-bold text-teal">
-            {confirmation.serviceName}
+            {bookingServiceDisplayName(confirmation.serviceName)}
           </p>
           <p className="mt-2 font-display text-3xl leading-tight">
             {formatConfirmation(confirmation.startDateTime, timeZone)}
@@ -459,7 +471,7 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
                         <Check className="h-3 w-3" />
                       </span>
                       <span className="block font-extrabold text-ink">
-                        {service.name}
+                        {bookingServiceDisplayName(service.name)}
                       </span>
                     </span>
                     <span className="flex shrink-0 items-center gap-1 text-xs font-bold text-ridge">
@@ -594,7 +606,9 @@ export function NativeBooking({ endpoint, fallbackUrl }: NativeBookingProps) {
                 Tell us who’s coming.
               </h2>
               <div className="mt-5 rounded-lg border border-teal/35 bg-white px-4 py-4">
-                <p className="font-extrabold">{selectedService.name}</p>
+                <p className="font-extrabold">
+                  {bookingServiceDisplayName(selectedService.name)}
+                </p>
                 <p className="mt-1 text-sm leading-6 text-ridge">
                   {formatConfirmation(selectedSlot.startDateTime, timeZone)}
                 </p>

@@ -19,7 +19,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import SecurityTriageCta from "@/components/SecurityTriageCta";
-import { RemoteSupportButton } from "@/components/SiteChrome";
+import { MobileNavigation, RemoteSupportButton } from "@/components/SiteChrome";
 
 type BlogPost = {
   category: string;
@@ -388,17 +388,29 @@ function BlogNav() {
           </a>
         </nav>
 
-        <a
-          href="/book/"
-          className="group inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
-        >
-          <span className="hidden sm:inline">Book a conversation</span>
-          <span className="sm:hidden">Book</span>
-          <ArrowRight
-            aria-hidden="true"
-            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+        <div className="flex items-center gap-2">
+          <a
+            href="/book/"
+            className="group inline-flex min-h-11 items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
+          >
+            <span className="hidden sm:inline">Book a conversation</span>
+            <span className="sm:hidden">Book</span>
+            <ArrowRight
+              aria-hidden="true"
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+            />
+          </a>
+          <MobileNavigation
+            links={[
+              { href: "/#services", label: "Services" },
+              { href: "/#industries", label: "Industries" },
+              { href: "/#approach", label: "Approach" },
+              { href: "/#about", label: "Why N45" },
+              { href: "/blog/", label: "Field Notes", current: true },
+              { href: "/refer/", label: "Refer a business" },
+            ]}
           />
-        </a>
+        </div>
       </div>
     </header>
   );
