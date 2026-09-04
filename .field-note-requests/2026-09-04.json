@@ -1,0 +1,15 @@
+{
+  "title": "Ask Who Owns Your Remote Access Appliance",
+  "summary": "SonicWall’s active-exploitation notice is a prompt to identify who owns your remote-access gateway, confirm its exact version, and document the update.",
+  "category": "Remote Access",
+  "datetime": "2026-09-04",
+  "body": [
+    "On September 1, SonicWall said two newly disclosed flaws in its SMA 1000 remote-access appliances are being actively exploited. These appliances can provide the doorway employees and vendors use to reach company systems from outside the office. The issues are CVE-2026-83548 and CVE-2026-83549, and SonicWall has released corrected software.",
+    "The notice is specific, not a warning about every SonicWall product. It affects SMA 1000 models 6210, 7210, and 8200v on the listed platform-hotfix versions. SonicWall identifies 12.4.3-03453 and 12.5.0-02835 as impacted and lists 12.4.3-03526 and 12.5.0-02952 as the fixed versions.",
+    "For a business owner, the larger lesson is ownership. A remote-access gateway may have been installed years ago by a contractor, former employee, or previous IT company. If nobody can quickly name the model, software version, and person responsible for updates, even a clear vendor advisory becomes hard to act on.",
+    "A useful action for today is to ask the current IT provider for a written answer to four questions: Do we use an SMA 1000 appliance? If so, what model and exact platform-hotfix version is installed? Has the fixed release been applied? Who is responsible for monitoring vendor notices and reviewing this system for unusual activity?",
+    "Keep that answer with the company’s technology records, along with the appliance serial number, support account, renewal date, configuration-backup location, and emergency contact. The business does not need to administer the device itself, but it should know who can act when the vendor identifies an urgent problem.",
+    "If an affected SMA 1000 is present, this is not a routine update to postpone indefinitely. SonicWall directs affected organizations to install the latest hotfix and contact its technical support for help reviewing the system for signs of compromise. Have the responsible provider follow that guidance and document completion. If the business uses another SonicWall product or no SonicWall equipment, this notice does not establish exposure.",
+    "There is no reason to shut down every remote connection or assume the network has been breached without evidence. The practical response is to identify the exact gateway, verify its software, apply the vendor’s correction where required, and preserve a clear owner for the next advisory. That turns urgent security news into controlled business work."
+  ]
+}
