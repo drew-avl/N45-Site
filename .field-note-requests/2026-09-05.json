@@ -1,0 +1,15 @@
+{
+  "title": "Test the Conference Room Before the Client Call",
+  "summary": "Google’s new cross-platform meeting preview is a good reason to test every conference room and document a simple backup before an important call.",
+  "category": "Meetings",
+  "datetime": "2026-09-05",
+  "body": [
+    "Google announced on September 2 that certain Android-based conference-room systems can begin joining meetings across Google Meet and Microsoft Teams. Compatible Google Meet hardware can join Teams meetings, and compatible Microsoft Teams Rooms equipment can join Google Meet meetings. Google describes this as an Early Preview, extending a capability that was already available on some ChromeOS and Windows room systems.",
+    "The scope matters. Google says end-user access is rolling out to Android-based Meet hardware enrolled in its Early Preview program on the Rapid Release track. An administrator setting is on by default but can be disabled for selected groups of devices. That means a new join button may appear in one organization or room before it appears in another.",
+    "For a business owner, the real question is not whether two platforms can connect in theory. It is whether the conference room works when a customer, lender, vendor, or job candidate sends an invitation from a different meeting service. A failed join at the start of an important call wastes time and makes a routine technology gap visible to everyone.",
+    "A useful action for today is to run two short practice meetings outside normal business hours. Send one Microsoft Teams invitation and one Google Meet invitation to the room calendar. Confirm that each invitation appears, then test joining, the camera, microphone, speakers, screen sharing, guest admission, leaving, and joining again. Use an outside account when possible so the test resembles a real guest meeting.",
+    "Record the result for each room on a one-page conference-room sheet. Include the room-system model, the meeting services tested, the date, who supports the equipment, and a simple fallback. That fallback might be a company laptop with the approved meeting applications, a tested USB camera and speaker, or a second room that staff already know how to use.",
+    "If cross-platform joining does not work, do not enable preview features across every room or replace otherwise useful equipment based on this announcement alone. Ask the responsible provider to confirm hardware eligibility, preview enrollment, the administrator setting, software status, and the supported setup. Until those items are verified, keep using the tested fallback.",
+    "Conference-room compatibility is improving, but a new feature does not replace a rehearsal. Ten quiet minutes spent testing the room can prevent an awkward start to a high-value conversation. Confirm what works, write down the backup plan, and let the meeting begin without making the technology the main event."
+  ]
+}
