@@ -60,8 +60,8 @@ const services: Service[] = [
   {
     icon: KeyRound,
     number: "02",
-    title: "Safer accounts and email",
-    body: "Protect business email, remove access people no longer need, and keep company files in the right hands.",
+    title: "Safer access to business data",
+    body: "Protect company accounts and files, control who can access sensitive information, and remove access people no longer need.",
     outcome: "The right access for the right people.",
   },
   {
@@ -178,7 +178,7 @@ const faqs = [
   {
     question: "What do we receive from the security review?",
     answer:
-      "A plain-English scorecard and your five highest-priority next steps. We review account access, former users, sign-in protection, email forwarding, outside sharing, email authenticity checks, and backup coverage. The review is read-only: N45 does not change your settings.",
+      "A plain-English scorecard and your five highest-priority next steps for protecting your Microsoft 365 accounts, files, and business data. We review sign-in protection, current and former users' access, outside sharing, email forwarding and sender verification, and backup coverage. The review is read-only: N45 does not change your settings.",
   },
   {
     question: "Do you replace our current IT provider?",
@@ -188,7 +188,7 @@ const faqs = [
   {
     question: "Can you help with one specific project?",
     answer:
-      "Yes. Email and account cleanup, security reviews, network improvements, documentation, and repetitive-work improvements can all begin as focused projects when that is the right fit.",
+      "Yes. Account cleanup, safer file sharing, security reviews, network improvements, documentation, and repetitive-work improvements can all begin as focused projects when that is the right fit.",
   },
   {
     question: "Is N45 only for Asheville businesses?",
@@ -219,7 +219,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-paper text-ink">
+    <div className="home-page min-h-screen overflow-x-clip bg-paper text-ink">
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
@@ -329,10 +329,7 @@ function HeaderLogo() {
 
 function Hero() {
   return (
-    <section
-      id="top"
-      className="relative isolate min-h-[44rem] bg-ink text-paper"
-    >
+    <section id="top" className="relative isolate bg-ink text-paper">
       <div className="absolute inset-0 -z-20">
         <img
           src={heroImg}
@@ -346,22 +343,22 @@ function Hero() {
       <div className="hero-overlay absolute inset-0 -z-10" />
       <div className="absolute inset-0 -z-10 bg-[url('/assets/ridge-pattern.svg')] bg-bottom bg-no-repeat opacity-30 mix-blend-screen" />
 
-      <div className="mx-auto grid min-h-[44rem] max-w-[88rem] items-center gap-16 px-5 py-16 md:px-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(22rem,.6fr)] lg:py-20">
+      <div className="mx-auto grid max-w-[88rem] items-center gap-10 px-5 py-12 md:px-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(22rem,.6fr)] lg:gap-12 lg:py-16">
         <div className="max-w-4xl">
           <Eyebrow theme="dark">Asheville-based · Western NC focused</Eyebrow>
-          <h1 className="mt-7 max-w-4xl font-display text-[clamp(3.25rem,6.4vw,6.25rem)] leading-[0.93] tracking-[-0.045em] text-balance">
+          <h1 className="mt-6 max-w-4xl font-display text-[clamp(3rem,5.4vw,5.5rem)] leading-[0.98] tracking-[-0.04em] text-balance">
             Reliable IT support for businesses across{" "}
             <em className="font-display font-normal text-mint">
               Western North Carolina.
             </em>
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl">
-            Keep your team working and your business email protected. N45
-            handles the technology, with local support and clear answers when
-            you need them.
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl">
+            Keep your team working and protect what your business depends on.
+            N45 brings local support, safer accounts and systems, and clear
+            answers when you need them.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
             <a
               href="/book/?service=it-call"
               className="button-primary group"
@@ -388,7 +385,7 @@ function Hero() {
             call does not purchase the review.
           </p>
 
-          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-paper/70">
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-paper/70">
             {[
               "Local, accountable support",
               "Security without fear-selling",
@@ -458,9 +455,9 @@ function Outcomes() {
   ];
 
   return (
-    <section className="relative bg-paper py-24 md:py-32">
+    <section className="relative bg-paper py-16 md:py-20">
       <div className="mx-auto max-w-[88rem] px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-12">
           <div>
             <Eyebrow>The work behind the work</Eyebrow>
             <h2 className="mt-6 max-w-3xl font-display text-4xl leading-[1.02] tracking-tight text-balance sm:text-5xl md:text-6xl">
@@ -485,13 +482,13 @@ function Outcomes() {
           </div>
         </div>
 
-        <div className="mt-16 grid overflow-hidden rounded-[2rem] border border-ink/10 bg-ink/10 md:grid-cols-3 md:gap-px">
+        <div className="mt-10 grid overflow-hidden rounded-[2rem] border border-ink/10 bg-ink/10 md:grid-cols-3 md:gap-px">
           {outcomes.map((outcome) => (
-            <article key={outcome.number} className="bg-mist p-7 md:p-9">
+            <article key={outcome.number} className="bg-mist p-6 md:p-8">
               <div className="font-mono text-xs font-semibold text-teal">
                 {outcome.number}
               </div>
-              <h3 className="mt-8 font-display text-3xl tracking-tight">
+              <h3 className="mt-5 font-display text-3xl tracking-tight">
                 {outcome.title}
               </h3>
               <p className="mt-3 leading-7 text-ridge">{outcome.body}</p>
@@ -505,10 +502,10 @@ function Outcomes() {
 
 function Services() {
   return (
-    <section id="services" className="bg-ink py-24 text-paper md:py-32">
+    <section id="services" className="bg-ink py-16 text-paper md:py-20">
       <div className="mx-auto max-w-[88rem] px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[.68fr_1.32fr] lg:gap-20">
-          <div className="lg:sticky lg:top-28 lg:self-start">
+        <div className="grid gap-8 xl:grid-cols-[.68fr_1.32fr] xl:gap-12">
+          <div className="xl:sticky xl:top-32 xl:self-start">
             <Eyebrow theme="dark">What we manage</Eyebrow>
             <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-6xl">
               One clear view of the technology behind your business.
@@ -559,11 +556,13 @@ function Services() {
                       {service.number}
                     </span>
                   </div>
-                  <h3 className="mt-8 font-display text-3xl tracking-tight">
+                  <h3 className="mt-6 font-display text-3xl tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="mt-4 leading-7 text-paper/62">{service.body}</p>
-                  <p className="mt-7 border-t border-white/10 pt-5 text-sm font-bold leading-6 text-mint">
+                  <p className="mt-4 pb-6 leading-7 text-paper/62">
+                    {service.body}
+                  </p>
+                  <p className="mt-auto border-t border-white/10 pt-4 text-sm font-bold leading-6 text-mint">
                     {service.outcome}
                   </p>
                 </article>
@@ -578,7 +577,7 @@ function Services() {
 
 function Industries() {
   return (
-    <section id="industries" className="bg-paper py-24 md:py-32">
+    <section id="industries" className="bg-paper py-16 md:py-20">
       <div className="mx-auto max-w-[88rem] px-5 md:px-8">
         <div className="max-w-4xl">
           <Eyebrow>Built for Western North Carolina</Eyebrow>
@@ -591,7 +590,7 @@ function Industries() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {industries.map((industry) => {
             const Icon = industry.icon;
             return (
@@ -602,13 +601,13 @@ function Industries() {
                     {industry.label}
                   </span>
                 </div>
-                <h3 className="mt-8 max-w-lg font-display text-3xl leading-tight tracking-tight md:text-4xl">
+                <h3 className="mt-6 max-w-lg font-display text-3xl leading-tight tracking-tight md:text-4xl">
                   {industry.title}
                 </h3>
-                <p className="mt-5 max-w-xl leading-7 text-ridge">
+                <p className="mt-4 max-w-xl pb-6 leading-7 text-ridge">
                   {industry.body}
                 </p>
-                <ul className="mt-8 grid gap-3 border-t border-ink/10 pt-6 sm:grid-cols-2">
+                <ul className="mt-auto grid gap-3 border-t border-ink/10 pt-5 sm:grid-cols-2">
                   {industry.points.map((point) => (
                     <li
                       key={point}
@@ -635,11 +634,11 @@ function Process() {
   return (
     <section
       id="approach"
-      className="relative overflow-hidden bg-mist py-24 md:py-32"
+      className="relative overflow-hidden bg-mist py-16 md:py-20"
     >
       <div className="absolute inset-x-0 bottom-0 h-64 bg-[url('/assets/ridge-pattern.svg')] bg-cover bg-bottom opacity-50" />
       <div className="relative mx-auto max-w-[88rem] px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-12">
           <div>
             <Eyebrow>A practical path forward</Eyebrow>
             <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
@@ -696,10 +695,10 @@ function LocalPromise() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-spruce py-24 text-paper md:py-32"
+      className="relative overflow-hidden bg-spruce py-16 text-paper md:py-20"
     >
       <div className="absolute inset-0 bg-[url('/assets/ridge-pattern.svg')] bg-cover bg-center opacity-35" />
-      <div className="relative mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-24">
+      <div className="relative mx-auto grid max-w-[88rem] gap-8 px-5 md:px-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-12">
         <div>
           <Eyebrow theme="dark">Why N45</Eyebrow>
           <h2 className="mt-6 max-w-3xl font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
@@ -757,8 +756,8 @@ function LocalPromise() {
 
 function FAQ() {
   return (
-    <section className="bg-paper py-24 md:py-32">
-      <div className="mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-24">
+    <section className="bg-paper py-16 md:py-20">
+      <div className="mx-auto grid max-w-[88rem] gap-8 px-5 md:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-12">
         <div>
           <Eyebrow>Common questions</Eyebrow>
           <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight md:text-6xl">
@@ -880,8 +879,8 @@ function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-sunrise py-24 md:py-32">
-      <div className="mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[.82fr_1.18fr] lg:gap-24">
+    <section id="contact" className="bg-sunrise py-16 md:py-20">
+      <div className="mx-auto grid max-w-[88rem] gap-8 px-5 md:px-8 lg:grid-cols-[.82fr_1.18fr] lg:items-start lg:gap-12">
         <div>
           <Eyebrow theme="warm">Start a conversation</Eyebrow>
           <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
@@ -960,13 +959,13 @@ function Contact() {
                   Select one
                 </option>
                 <option value="Microsoft 365 Security Triage">
-                  Check our business email security ($495)
+                  Review our Microsoft 365 security ($495)
                 </option>
                 <option value="IT review / current provider concerns">
                   Review our IT or current provider
                 </option>
                 <option value="Microsoft 365 account protection">
-                  Protect our Microsoft 365 accounts
+                  Protect our accounts and business data
                 </option>
                 <option value="Managed IT support">
                   Get ongoing IT support

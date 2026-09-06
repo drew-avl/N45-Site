@@ -14,6 +14,15 @@ coverage, approach pages, contact methods, and remote support remain intact.
 The updated security-offer copy is opt-in for the homepage; Field Notes retain
 their existing presentation and content.
 
+Messaging leads with business safety: accounts, files, access, and recovery
+coverage. Email safeguards remain part of the review, rather than defining the
+offer. The $495 review's scope stays explicitly Microsoft 365.
+
+Homepage spacing uses 64px section padding on smaller screens and 80px from
+the medium breakpoint. The hero and cards grow with their content; card
+outcomes align at the bottom. Narrower column gaps and a later Services
+sidebar breakpoint keep the original layout balanced at laptop widths.
+
 The review offer states the price, approximate team size, read-only scope,
 scorecard, and five prioritized next steps. The scheduler and confirmation
 explain that the initial appointment is a fit call, not a purchased review.

@@ -52,7 +52,7 @@ export function bookingServiceDisplayName(serviceName: string) {
 export function bookingServiceDescription(service: BookingServiceSummary) {
   const intent = bookingServiceIntent(service);
   if (intent === "security-review")
-    return "A 15-minute conversation to confirm the $495 Microsoft 365 review fits your organization. No technical preparation needed. Booking this call does not purchase the review.";
+    return "A 15-minute conversation about your Microsoft 365 accounts, files, access, and backup coverage. Confirm whether the $495 review fits your team. Booking this call does not purchase the review.";
   if (intent === "it-call")
     return "Tell us what is getting in the way. We will talk through your current setup and priorities, then explain how N45 can help. No technical preparation needed.";
   return service.description;
