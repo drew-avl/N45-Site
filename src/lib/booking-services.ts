@@ -4,7 +4,10 @@ export type BookingServiceSummary = {
   description: string;
 };
 
-export type BookingServiceIntent = "security-review" | "it-call";
+export type BookingServiceIntent =
+  "security-review" | "it-call" | "ai-automation";
+
+const aiServicePattern = /^AI\s*(?:&|and)\s*Automation Consultation$/i;
 
 const securityServicePattern =
   /\$495|security fit (?:check|call)|security triage|(?:account|microsoft(?: 365)?)[ -]security review/i;
@@ -12,6 +15,7 @@ const securityServicePattern =
 export function bookingServiceIntent(
   service: BookingServiceSummary,
 ): BookingServiceIntent | undefined {
+  if (aiServicePattern.test(service.name)) return "ai-automation";
   if (securityServicePattern.test(`${service.name} ${service.description}`))
     return "security-review";
   if (
@@ -36,7 +40,14 @@ export function initialBookingServiceId(
     );
   }
 
-  return services[0]?.id || "";
+  // Keep the general booking link focused on IT when Microsoft changes order
+  // or a new specialist conversation is added.
+  return (
+    services.find((service) => bookingServiceIntent(service) === "it-call")
+      ?.id ||
+    services[0]?.id ||
+    ""
+  );
 }
 
 export function bookingServiceDisplayName(serviceName: string) {
@@ -51,6 +62,8 @@ export function bookingServiceDisplayName(serviceName: string) {
 
 export function bookingServiceDescription(service: BookingServiceSummary) {
   const intent = bookingServiceIntent(service);
+  if (intent === "ai-automation")
+    return "A 30-minute conversation about the repeated tasks slowing your team down, where AI or automation could help, and a practical first project. No technical preparation needed.";
   if (intent === "security-review")
     return "A 15-minute conversation about your Microsoft 365 accounts, files, access, and backup coverage. Confirm whether the $495 review fits your team. Booking this call does not purchase the review.";
   if (intent === "it-call")

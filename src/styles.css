@@ -1,5 +1,6 @@
 @import "tailwindcss" source(none);
 @source "../src";
+@source "../ai-automation/index.html";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -334,6 +335,16 @@
 
 .text-link:hover {
   gap: 0.8rem;
+}
+
+/* Keep the intended mint service links legible on the dark homepage section. */
+.home-page #services .text-link {
+  color: var(--mint);
+}
+
+/* The normal sunrise focus ring needs a dark counterpart on a sunrise panel. */
+.ai-page .bg-sunrise a:focus-visible {
+  outline-color: var(--ink);
 }
 
 .service-card {

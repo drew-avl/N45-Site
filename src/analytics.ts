@@ -72,7 +72,9 @@ function handleLinkClick(event: MouseEvent) {
       const intent = destination.searchParams.get("service");
       trackEvent("booking_cta_clicked", {
         service_intent:
-          intent === "security-review" || intent === "it-call"
+          intent === "security-review" ||
+          intent === "it-call" ||
+          intent === "ai-automation"
             ? intent
             : "unspecified",
         link_location: location,

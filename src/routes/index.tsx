@@ -40,6 +40,7 @@ type Service = {
   title: string;
   body: string;
   outcome: string;
+  href?: string;
 };
 
 type ProcessStep = {
@@ -88,9 +89,10 @@ const services: Service[] = [
   {
     icon: Workflow,
     number: "06",
-    title: "Less repetitive work",
-    body: "Make onboarding, support requests, and routine tasks easier to follow and harder to miss.",
+    title: "AI & Automation",
+    body: "Choose useful AI tools, simplify repeated tasks, and build AI assistants with clear oversight and ongoing support.",
     outcome: "Less busywork. More consistency.",
+    href: "/ai-automation/",
   },
 ];
 
@@ -188,7 +190,7 @@ const faqs = [
   {
     question: "Can you help with one specific project?",
     answer:
-      "Yes. Account cleanup, safer file sharing, security reviews, network improvements, documentation, and repetitive-work improvements can all begin as focused projects when that is the right fit.",
+      "Yes. Account cleanup, safer file sharing, security reviews, network improvements, documentation, and AI or automation can all begin as focused projects when that is the right fit.",
   },
   {
     question: "Is N45 only for Asheville businesses?",
@@ -533,6 +535,9 @@ function Services() {
               >
                 Protect your Asheville business →
               </a>
+              <a className="text-link block text-mint" href="/ai-automation/">
+                Explore AI &amp; Automation →
+              </a>
             </div>
             <a
               href="/book/?service=it-call"
@@ -557,7 +562,20 @@ function Services() {
                     </span>
                   </div>
                   <h3 className="mt-6 font-display text-3xl tracking-tight">
-                    {service.title}
+                    {service.href ? (
+                      <a
+                        href={service.href}
+                        className="inline-flex items-center gap-3 hover:text-mint"
+                      >
+                        {service.title}
+                        <ArrowRight
+                          aria-hidden="true"
+                          className="h-5 w-5 shrink-0"
+                        />
+                      </a>
+                    ) : (
+                      service.title
+                    )}
                   </h3>
                   <p className="mt-4 pb-6 leading-7 text-paper/62">
                     {service.body}
@@ -788,6 +806,10 @@ function FAQ() {
 }
 
 function Contact() {
+  const initialTopic =
+    new URLSearchParams(window.location.search).get("topic") === "ai-automation"
+      ? "Automation / documentation cleanup"
+      : "";
   const [submitState, setSubmitState] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -952,19 +974,19 @@ function Contact() {
                 id="contact-topic"
                 name="topic"
                 required
-                defaultValue=""
+                defaultValue={initialTopic}
                 className="field-control"
               >
                 <option value="" disabled>
                   Select one
                 </option>
-                <option value="Microsoft 365 Security Triage">
+                <option value="N45 Microsoft Security Triage ($495)">
                   Review our Microsoft 365 security ($495)
                 </option>
                 <option value="IT review / current provider concerns">
                   Review our IT or current provider
                 </option>
-                <option value="Microsoft 365 account protection">
+                <option value="Microsoft 365 / account security">
                   Protect our accounts and business data
                 </option>
                 <option value="Managed IT support">
@@ -977,7 +999,7 @@ function Contact() {
                   Fix internet, Wi-Fi, or our office network
                 </option>
                 <option value="Automation / documentation cleanup">
-                  Simplify repeated work or organize documentation
+                  AI, automation, or documentation help
                 </option>
               </select>
             </div>
@@ -1189,6 +1211,9 @@ function Footer() {
               className="hover:text-mint"
             >
               Business Security
+            </a>
+            <a href="/ai-automation/" className="hover:text-mint">
+              AI &amp; Automation
             </a>
             <a href="tel:+18285151530" className="hover:text-mint">
               (828) 515-1530
