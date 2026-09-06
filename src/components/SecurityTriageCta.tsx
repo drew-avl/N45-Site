@@ -2,6 +2,7 @@ import { ArrowRight, Check } from "lucide-react";
 
 type SecurityTriageCtaProps = {
   contactHref?: string;
+  conversionDetails?: boolean;
 };
 
 const reviewAreas = [
@@ -12,9 +13,19 @@ const reviewAreas = [
 
 export default function SecurityTriageCta({
   contactHref = "/book/?service=security-review",
+  conversionDetails = false,
 }: SecurityTriageCtaProps) {
+  const areas = conversionDetails
+    ? [
+        "Account access, former users & sign-in protection",
+        "Email forwarding, outside sharing & sender verification",
+        "Backup coverage & recovery gaps",
+      ]
+    : reviewAreas;
+
   return (
     <section
+      id={conversionDetails ? "security-review" : undefined}
       aria-labelledby="security-triage-heading"
       className="bg-sunrise py-10 md:py-12"
     >
@@ -30,20 +41,21 @@ export default function SecurityTriageCta({
                   id="security-triage-heading"
                   className="font-display text-4xl leading-none tracking-tight md:text-5xl"
                 >
-                  Know where your account security stands.
+                  {conversionDetails
+                    ? "How safe is your business email?"
+                    : "Know where your account security stands."}
                 </h2>
                 <span className="rounded-full bg-sunrise px-4 py-2 font-mono text-sm font-bold text-ink">
-                  $495
+                  {conversionDetails ? "$495 · one-time" : "$495"}
                 </span>
               </div>
               <p className="mt-5 max-w-4xl text-base leading-7 text-paper/72 md:text-lg">
-                The fixed-price N45 Microsoft Security Triage is a read-only
-                review for organizations with approximately 5–25 users. You
-                receive a plain-English scorecard and prioritized next steps,
-                without N45 changing any settings.
+                {conversionDetails
+                  ? "The N45 Microsoft 365 security review is for teams with approximately 5–25 users. Get a plain-English scorecard and your five highest-priority next steps. The review is read-only, with no settings changed and no long-term contract."
+                  : "The fixed-price N45 Microsoft Security Triage is a read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized next steps, without N45 changing any settings."}
               </p>
               <ul className="mt-6 grid gap-3 text-sm font-semibold text-paper/80 md:grid-cols-3">
-                {reviewAreas.map((area) => (
+                {areas.map((area) => (
                   <li key={area} className="flex items-start gap-2.5">
                     <Check
                       aria-hidden="true"
@@ -56,15 +68,31 @@ export default function SecurityTriageCta({
             </div>
 
             <div className="lg:text-right">
-              <a href={contactHref} className="button-primary group">
-                Request the $495 account review
+              <a
+                href={contactHref}
+                className="button-primary group"
+                data-analytics-location={
+                  conversionDetails ? "security_offer" : undefined
+                }
+              >
+                {conversionDetails
+                  ? "Start my $495 security review"
+                  : "Request the $495 account review"}
                 <ArrowRight
                   aria-hidden="true"
                   className="h-4 w-4 transition-transform group-hover:translate-x-1"
                 />
               </a>
-              <p className="mt-3 text-xs font-semibold text-paper/55">
-                Read-only. Clear priorities. No scare tactics.
+              <p
+                className={
+                  conversionDetails
+                    ? "mt-3 max-w-xs text-sm font-semibold leading-6 text-paper/75 lg:ml-auto"
+                    : "mt-3 text-xs font-semibold text-paper/55"
+                }
+              >
+                {conversionDetails
+                  ? "Start with a 15-minute fit call. Booking the call does not purchase the review."
+                  : "Read-only. Clear priorities. No scare tactics."}
               </p>
             </div>
           </div>

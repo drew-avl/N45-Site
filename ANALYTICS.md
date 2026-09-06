@@ -47,8 +47,7 @@ The sitewide footer links to `/privacy/`, which discloses the use of Google Anal
 `booking_cta_clicked` is an interest signal, not a completed appointment. Compare it
 with `booking_started` and `booking_completed`, using `service_intent` (`it-call`,
 `security-review`, or `unspecified`). Homepage CTA locations include `header`,
-`hero`, `hero_security`, `hero_mobile_security`, `local`, `closing_call`, and
-`closing_security`. Neither the new click event nor the intent values include
+`hero`, `hero_security`, `security_offer`, `local`, and `closing_call`. Neither the new click event nor the intent values include
 contact information or query-string contents.
 
 A `security-review` booking is a 15-minute fit call. It must not be counted as a
