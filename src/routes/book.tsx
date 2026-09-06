@@ -1,7 +1,8 @@
-import { CalendarCheck2, Clock3, ExternalLink, Phone } from "lucide-react";
-
+import { Clock3, Video } from "lucide-react";
+import { useState } from "react";
 import { NativeBooking } from "@/components/NativeBooking";
-import { PageEyebrow, SiteFooter, SiteHeader } from "@/components/SiteChrome";
+import type { BookingServiceIntent } from "@/lib/booking-services";
+import "@/conversion.css";
 
 const BOOKING_API_ENDPOINT =
   (import.meta.env.VITE_BOOKING_API_ENDPOINT as string | undefined) ||
@@ -11,121 +12,89 @@ const BOOKING_URL =
   "https://outlook.office.com/book/SceduleaConversationwithN45@n45tech.com/?ismsaljsauthenabled";
 
 export default function Book() {
-  const preferredServiceIntent =
-    new URLSearchParams(window.location.search).get("service") ===
-    "security-review"
-      ? "security-review"
+  const requestedService = new URLSearchParams(window.location.search).get(
+    "service",
+  );
+  const preferredServiceIntent: BookingServiceIntent | undefined =
+    requestedService === "security-review" || requestedService === "it-call"
+      ? requestedService
       : undefined;
+  const [activeIntent, setActiveIntent] = useState(preferredServiceIntent);
+  const securityReview = activeIntent === "security-review";
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-paper text-ink">
+    <div className="booking-page min-h-screen bg-paper text-ink">
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
-      <SiteHeader />
-
+      <header className="booking-header">
+        <div className="conversion-container booking-header-inner">
+          <a href="/" aria-label="N45 Technology Solutions home">
+            <img
+              src="/assets/n45-lockup-dark.svg"
+              alt=""
+              width="224"
+              height="64"
+            />
+          </a>
+          <a href="tel:+18285151530">(828) 515-1530</a>
+        </div>
+      </header>
       <main id="main-content">
-        <section className="relative isolate overflow-hidden bg-ink py-10 text-paper md:py-12">
-          <div className="absolute inset-0 -z-20 bg-[url('/assets/hero-mountains.jpg')] bg-cover bg-[center_58%] opacity-20" />
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,22,22,.98),rgba(5,22,22,.82)_62%,rgba(5,22,22,.72))]" />
-          <div className="absolute inset-x-0 bottom-0 -z-10 h-52 bg-[url('/assets/ridge-pattern.svg')] bg-bottom bg-no-repeat opacity-25 mix-blend-screen" />
-
-          <div className="mx-auto flex max-w-[88rem] flex-col gap-6 px-4 sm:px-6 md:px-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
-            <div className="max-w-4xl">
-              <PageEyebrow theme="dark">A clear first conversation</PageEyebrow>
-              <h1 className="mt-3 font-display text-[clamp(2.8rem,5vw,5.25rem)] leading-[0.96] tracking-[-0.04em] text-balance">
-                Book a conversation.
-              </h1>
-              <p className="mt-3 max-w-2xl text-base leading-7 text-paper/76 md:text-lg">
-                Choose the service that best matches what you need, then select
-                a time below. You can complete the entire booking without
-                leaving this page.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-x-6 gap-y-3 border-y border-white/16 py-4 text-sm font-semibold text-paper/76 lg:max-w-md lg:justify-end">
-              <div className="flex items-center gap-2">
-                <Clock3 aria-hidden="true" className="h-4 w-4 text-mint" />
-                15–20 minutes
-              </div>
-              <div className="flex items-center gap-2">
-                <CalendarCheck2
-                  aria-hidden="true"
-                  className="h-4 w-4 text-mint"
-                />
-                Microsoft Teams
-              </div>
-              <span className="text-paper/58">Focused and low-pressure</span>
-            </div>
+        <section className="conversion-container booking-intro">
+          <h1>
+            {securityReview
+              ? "Start your Microsoft security review."
+              : "Let’s talk about your IT."}
+          </h1>
+          <p>
+            {securityReview
+              ? "First, book a 15-minute fit call. We will confirm the $495 review is right for your team and explain how to get started. You are booking a conversation today; payment for the review comes separately."
+              : "Choose a time that works for you. We will talk through what is getting in the way and help you find a practical next step."}
+          </p>
+          <div className="booking-facts">
+            <span>
+              <Clock3 size={16} aria-hidden="true" />
+              {securityReview
+                ? "15-minute fit call"
+                : activeIntent === "it-call"
+                  ? "20-minute IT conversation"
+                  : "15–20 minutes"}
+            </span>
+            <span>
+              <Video size={16} aria-hidden="true" />
+              Microsoft Teams
+            </span>
+            <span>No technical preparation needed</span>
           </div>
         </section>
-
         <section
-          aria-labelledby="booking-scheduler"
-          className="bg-mist py-6 md:py-10"
+          className="conversion-container booking-scheduler-section"
+          aria-label="Schedule your N45 conversation"
         >
-          <div className="mx-auto max-w-[76rem] px-4 sm:px-6 md:px-8">
-            <h2 id="booking-scheduler" className="sr-only">
-              Choose a service and appointment time
-            </h2>
-            <div className="overflow-hidden rounded-2xl bg-white">
-              {BOOKING_API_ENDPOINT ? (
-                <NativeBooking
-                  endpoint={BOOKING_API_ENDPOINT}
-                  fallbackUrl={BOOKING_URL}
-                  preferredServiceIntent={preferredServiceIntent}
-                />
-              ) : (
-                <iframe
-                  src={BOOKING_URL}
-                  title="N45 appointment scheduler"
-                  loading="eager"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  className="block h-[78rem] w-full sm:h-[72rem] lg:h-[66rem]"
-                />
-              )}
-            </div>
-            {!BOOKING_API_ENDPOINT && (
-              <p className="mt-4 text-center text-sm leading-6 text-ridge">
-                If the scheduler does not appear,{" "}
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-analytics-event="booking_started"
-                  data-appointment-type="microsoft_bookings"
-                  data-analytics-location="booking_embed_fallback"
-                  className="inline-flex items-center gap-1 font-bold text-teal underline decoration-teal/35 underline-offset-4 hover:decoration-teal"
-                >
-                  open it in a new tab
-                  <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
-                </a>
-                .
-              </p>
-            )}
+          <div className="booking-scheduler-shell">
+            <NativeBooking
+              endpoint={BOOKING_API_ENDPOINT}
+              fallbackUrl={BOOKING_URL}
+              preferredServiceIntent={preferredServiceIntent}
+              onIntentChange={setActiveIntent}
+            />
           </div>
-        </section>
-
-        <section className="bg-sunrise py-12 md:py-16">
-          <div className="mx-auto flex max-w-[88rem] flex-col gap-6 px-4 sm:px-6 md:px-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-3xl">
-              <h2 className="font-display text-4xl leading-tight tracking-[-0.025em] text-balance md:text-5xl">
-                Need help choosing?
-              </h2>
-              <p className="mt-4 max-w-2xl leading-7 text-ink/80">
-                Call N45 and briefly describe what is going on. We will point
-                you toward the right conversation.
-              </p>
-            </div>
-            <a href="tel:+18285151530" className="button-dark shrink-0">
-              <Phone aria-hidden="true" className="h-4 w-4" />
-              Call (828) 515-1530
-            </a>
+          <div className="booking-help">
+            <span>
+              Can’t find a time? <a href="tel:+18285151530">Call N45</a> and we
+              will help.
+            </span>
+            <a href="/">Back to N45</a>
           </div>
         </section>
       </main>
-
-      <SiteFooter />
+      <footer className="booking-footer">
+        <div className="conversion-container">
+          <span>N45 Technology Solutions · Serving Western North Carolina</span>
+          <a href="/privacy/">Privacy</a>
+        </div>
+      </footer>
     </div>
   );
 }
