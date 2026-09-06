@@ -54,42 +54,42 @@ const services: Service[] = [
     icon: Laptop,
     number: "01",
     title: "Everyday IT help",
-    body: "Managed IT support, timely security updates (patching), a consistent setup for every computer, and thoughtful onboarding—all designed to keep your team moving.",
+    body: "Day-to-day help with computers, email, and software, plus updates and new-employee setup that keep your team working.",
     outcome: "Fewer repeat problems. Faster, calmer workdays.",
   },
   {
     icon: KeyRound,
     number: "02",
-    title: "Safer accounts and email",
-    body: "Microsoft 365 administration, extra sign-in verification (multifactor authentication, or MFA), shared mailboxes, administrator cleanup, and safer access built around how your people work.",
+    title: "Safer access to business data",
+    body: "Protect company accounts and files, control who can access sensitive information, and remove access people no longer need.",
     outcome: "The right access for the right people.",
   },
   {
     icon: ShieldCheck,
     number: "03",
     title: "Protection that fits the risk",
-    body: "Practical cybersecurity reviews, protection that blocks threats on work computers (endpoint protection), limited access based on each person’s job (least privilege), useful alerts, and checked backups.",
+    body: "Protect work computers, review practical risks, and check backups. We prioritize the safeguards that matter to your business.",
     outcome: "Practical safeguards, clearly prioritized—no scare tactics.",
   },
   {
     icon: Network,
     number: "04",
     title: "Reliable internet and connections",
-    body: "We manage the technology behind your internet and Wi-Fi, including firewalls, switches, servers, and DNS, which directs online services.",
+    body: "Keep office internet, Wi-Fi, and connections between your sites reliable, so your team can get on with work.",
     outcome: "A stable foundation from the front desk to the field.",
   },
   {
     icon: FileCheck2,
     number: "05",
     title: "A plan when something breaks",
-    body: "Business continuity planning for keeping the company running, plus IT documentation that records backups, recovery steps, equipment, vendors, accounts, and ownership.",
+    body: "Record backup and recovery steps, equipment, vendors, accounts, and ownership so your business knows how to get working again.",
     outcome: "Critical knowledge that never lives in one person’s head.",
   },
   {
     icon: Workflow,
     number: "06",
     title: "Less repetitive work",
-    body: "Automation turns repeated tasks, support requests, alerts, and onboarding work into clean, trackable steps.",
+    body: "Make onboarding, support requests, and routine tasks easier to follow and harder to miss.",
     outcome: "Less busywork. More consistency.",
   },
 ];
@@ -99,10 +99,10 @@ const industries = [
     icon: HeartPulse,
     label: "Healthcare",
     title: "Clinics, dental & specialty practices",
-    body: "Microsoft 365 and device safeguards that support HIPAA responsibilities, secure electronic health record (EHR) access, and clear records of who can reach sensitive information.",
+    body: "Safer accounts and computers, protected access to patient records, and clear records of who can reach sensitive information.",
     points: [
       "Safer account and device access",
-      "Vendor and protected health information (PHI) records",
+      "Clear records of vendors and access to patient information",
     ],
   },
   {
@@ -111,7 +111,7 @@ const industries = [
     title: "Legal, accounting & advisory teams",
     body: "Confidential file access, dependable backups, and steady support through tax season, closings, and trial preparation.",
     points: [
-      "Extra sign-in protection (multifactor authentication, or MFA) and administrator cleanup",
+      "Stronger sign-in protection and appropriate access",
       "Secure ways to work with clients",
     ],
   },
@@ -119,10 +119,10 @@ const industries = [
     icon: UtensilsCrossed,
     label: "Hospitality",
     title: "Hotels, restaurants, taprooms & venues",
-    body: "Separate Wi-Fi for guests and business operations, reliable checkout and point-of-sale (POS) systems, and clear documentation built for your busiest nights.",
+    body: "Separate Wi-Fi for guests and business operations, reliable checkout systems, and clear documentation built for your busiest nights.",
     points: [
       "Guest and business traffic kept separate",
-      "Reliable POS and kiosk systems",
+      "Reliable checkout and kiosk systems",
     ],
   },
   {
@@ -166,24 +166,34 @@ const process: ProcessStep[] = [
 
 const faqs = [
   {
+    question: "What happens on the first call?",
+    answer:
+      "We spend 20 minutes on your current IT setup, the problems interrupting your team, and what you want to improve. You do not need to prepare a technical inventory. If N45 can help, we will explain the next step.",
+  },
+  {
+    question: "Is the security review $495, or is the call $495?",
+    answer:
+      "The Microsoft 365 security review is $495. The 15-minute fit call comes first, to confirm the review is right for your organization. Booking that call does not purchase the review. The review is prepaid and has no long-term contract.",
+  },
+  {
+    question: "What do we receive from the security review?",
+    answer:
+      "A plain-English scorecard and your five highest-priority next steps for protecting your Microsoft 365 accounts, files, and business data. We review sign-in protection, current and former users' access, outside sharing, email forwarding and sender verification, and backup coverage. The review is read-only: N45 does not change your settings.",
+  },
+  {
     question: "Do you replace our current IT provider?",
     answer:
       "N45 can become your managed IT partner or guide a planned transition with clear responsibilities. The first step is understanding what is working, what is not, and what your team actually needs.",
   },
   {
-    question: "Is N45 only for Asheville businesses?",
-    answer:
-      "N45 primarily serves businesses in the Asheville area. If your organization is outside the area, we are still open to a conversation and will consider the fit, service needs, and practical logistics on a case-by-case basis.",
-  },
-  {
     question: "Can you help with one specific project?",
     answer:
-      "Yes. Microsoft 365 cleanup, security reviews, network improvements, documentation, and automation can all begin as focused projects when that is the right fit.",
+      "Yes. Account cleanup, safer file sharing, security reviews, network improvements, documentation, and repetitive-work improvements can all begin as focused projects when that is the right fit.",
   },
   {
-    question: "What happens during an IT review?",
+    question: "Is N45 only for Asheville businesses?",
     answer:
-      "We start with a practical conversation about your team, systems, risks, and recurring problems. From there, N45 identifies the highest-value next steps without forcing an oversized package.",
+      "N45 serves businesses in Asheville and across Western North Carolina. If your organization is outside the area, we will consider your service needs and practical logistics on a case-by-case basis.",
   },
 ];
 
@@ -209,14 +219,17 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-paper text-ink">
+    <div className="home-page min-h-screen overflow-x-clip bg-paper text-ink">
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
       <Nav />
-      <main id="main-content">
+      <main id="main-content" className="[&_section[id]]:scroll-mt-36">
         <Hero />
-        <SecurityTriageCta contactHref="/book/?service=security-review" />
+        <SecurityTriageCta
+          contactHref="/book/?service=security-review"
+          conversionDetails
+        />
         <Outcomes />
         <Services />
         <Industries />
@@ -270,10 +283,11 @@ function Nav() {
 
         <div className="flex items-center gap-2">
           <a
-            href="/book/"
+            href="/book/?service=it-call"
+            data-analytics-location="header"
             className="group inline-flex min-h-11 items-center gap-1.5 rounded-full bg-ink px-3 py-2.5 text-sm font-bold text-paper transition hover:bg-spruce sm:gap-2 sm:px-5"
           >
-            <span className="hidden sm:inline">Book a conversation</span>
+            <span className="hidden sm:inline">Schedule a call</span>
             <span className="sm:hidden">Book</span>
             <ArrowRight
               aria-hidden="true"
@@ -315,10 +329,7 @@ function HeaderLogo() {
 
 function Hero() {
   return (
-    <section
-      id="top"
-      className="relative isolate min-h-[44rem] bg-ink text-paper"
-    >
+    <section id="top" className="relative isolate bg-ink text-paper">
       <div className="absolute inset-0 -z-20">
         <img
           src={heroImg}
@@ -332,37 +343,49 @@ function Hero() {
       <div className="hero-overlay absolute inset-0 -z-10" />
       <div className="absolute inset-0 -z-10 bg-[url('/assets/ridge-pattern.svg')] bg-bottom bg-no-repeat opacity-30 mix-blend-screen" />
 
-      <div className="mx-auto grid min-h-[44rem] max-w-[88rem] items-center gap-16 px-5 py-16 md:px-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(22rem,.6fr)] lg:py-20">
+      <div className="mx-auto grid max-w-[88rem] items-center gap-10 px-5 py-12 md:px-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(22rem,.6fr)] lg:gap-12 lg:py-16">
         <div className="max-w-4xl">
           <Eyebrow theme="dark">Asheville-based · Western NC focused</Eyebrow>
-          <h1 className="mt-7 max-w-4xl font-display text-[clamp(3.25rem,6.4vw,6.25rem)] leading-[0.93] tracking-[-0.045em] text-balance">
-            Business IT solutions for organizations across{" "}
+          <h1 className="mt-6 max-w-4xl font-display text-[clamp(3rem,5.4vw,5.5rem)] leading-[0.98] tracking-[-0.04em] text-balance">
+            Reliable IT support for businesses across{" "}
             <em className="font-display font-normal text-mint">
               Western North Carolina.
             </em>
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl">
-            N45 keeps everyday technology reliable, protects business accounts
-            and data, and gives your team a responsive local place to get help.
-            Services include managed IT and Microsoft 365 security throughout
-            Western North Carolina.
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl">
+            Keep your team working and protect what your business depends on.
+            N45 brings local support, safer accounts and systems, and clear
+            answers when you need them.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a href="/book/" className="button-primary group">
-              Book a conversation
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            <a
+              href="/book/?service=it-call"
+              className="button-primary group"
+              data-analytics-location="hero"
+            >
+              Schedule a 20-minute call
               <ArrowRight
                 aria-hidden="true"
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
               />
             </a>
-            <a href="tel:+18285151530" className="button-ghost-light group">
-              <Phone aria-hidden="true" className="h-4 w-4" />
-              (828) 515-1530
+            <a
+              href="/book/?service=security-review"
+              className="button-ghost-light group"
+              data-analytics-location="hero_security"
+            >
+              <ShieldCheck aria-hidden="true" className="h-4 w-4" />
+              Start the $495 security review
             </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-paper/70">
+          <p className="mt-4 text-sm leading-6 text-paper/75">
+            The security review starts with a 15-minute fit call. Booking the
+            call does not purchase the review.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-paper/70">
             {[
               "Local, accountable support",
               "Security without fear-selling",
@@ -432,9 +455,9 @@ function Outcomes() {
   ];
 
   return (
-    <section className="relative bg-paper py-24 md:py-32">
+    <section className="relative bg-paper py-16 md:py-20">
       <div className="mx-auto max-w-[88rem] px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-12">
           <div>
             <Eyebrow>The work behind the work</Eyebrow>
             <h2 className="mt-6 max-w-3xl font-display text-4xl leading-[1.02] tracking-tight text-balance sm:text-5xl md:text-6xl">
@@ -459,13 +482,13 @@ function Outcomes() {
           </div>
         </div>
 
-        <div className="mt-16 grid overflow-hidden rounded-[2rem] border border-ink/10 bg-ink/10 md:grid-cols-3 md:gap-px">
+        <div className="mt-10 grid overflow-hidden rounded-[2rem] border border-ink/10 bg-ink/10 md:grid-cols-3 md:gap-px">
           {outcomes.map((outcome) => (
-            <article key={outcome.number} className="bg-mist p-7 md:p-9">
+            <article key={outcome.number} className="bg-mist p-6 md:p-8">
               <div className="font-mono text-xs font-semibold text-teal">
                 {outcome.number}
               </div>
-              <h3 className="mt-8 font-display text-3xl tracking-tight">
+              <h3 className="mt-5 font-display text-3xl tracking-tight">
                 {outcome.title}
               </h3>
               <p className="mt-3 leading-7 text-ridge">{outcome.body}</p>
@@ -479,10 +502,10 @@ function Outcomes() {
 
 function Services() {
   return (
-    <section id="services" className="bg-ink py-24 text-paper md:py-32">
+    <section id="services" className="bg-ink py-16 text-paper md:py-20">
       <div className="mx-auto max-w-[88rem] px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[.68fr_1.32fr] lg:gap-20">
-          <div className="lg:sticky lg:top-28 lg:self-start">
+        <div className="grid gap-8 xl:grid-cols-[.68fr_1.32fr] xl:gap-12">
+          <div className="xl:sticky xl:top-32 xl:self-start">
             <Eyebrow theme="dark">What we manage</Eyebrow>
             <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-6xl">
               One clear view of the technology behind your business.
@@ -511,7 +534,10 @@ function Services() {
                 Protect your Asheville business →
               </a>
             </div>
-            <a href="/book/" className="button-outline-mint mt-9">
+            <a
+              href="/book/?service=it-call"
+              className="button-outline-mint mt-9"
+            >
               Talk through your setup
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </a>
@@ -530,11 +556,13 @@ function Services() {
                       {service.number}
                     </span>
                   </div>
-                  <h3 className="mt-8 font-display text-3xl tracking-tight">
+                  <h3 className="mt-6 font-display text-3xl tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="mt-4 leading-7 text-paper/62">{service.body}</p>
-                  <p className="mt-7 border-t border-white/10 pt-5 text-sm font-bold leading-6 text-mint">
+                  <p className="mt-4 pb-6 leading-7 text-paper/62">
+                    {service.body}
+                  </p>
+                  <p className="mt-auto border-t border-white/10 pt-4 text-sm font-bold leading-6 text-mint">
                     {service.outcome}
                   </p>
                 </article>
@@ -549,7 +577,7 @@ function Services() {
 
 function Industries() {
   return (
-    <section id="industries" className="bg-paper py-24 md:py-32">
+    <section id="industries" className="bg-paper py-16 md:py-20">
       <div className="mx-auto max-w-[88rem] px-5 md:px-8">
         <div className="max-w-4xl">
           <Eyebrow>Built for Western North Carolina</Eyebrow>
@@ -562,7 +590,7 @@ function Industries() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {industries.map((industry) => {
             const Icon = industry.icon;
             return (
@@ -573,13 +601,13 @@ function Industries() {
                     {industry.label}
                   </span>
                 </div>
-                <h3 className="mt-8 max-w-lg font-display text-3xl leading-tight tracking-tight md:text-4xl">
+                <h3 className="mt-6 max-w-lg font-display text-3xl leading-tight tracking-tight md:text-4xl">
                   {industry.title}
                 </h3>
-                <p className="mt-5 max-w-xl leading-7 text-ridge">
+                <p className="mt-4 max-w-xl pb-6 leading-7 text-ridge">
                   {industry.body}
                 </p>
-                <ul className="mt-8 grid gap-3 border-t border-ink/10 pt-6 sm:grid-cols-2">
+                <ul className="mt-auto grid gap-3 border-t border-ink/10 pt-5 sm:grid-cols-2">
                   {industry.points.map((point) => (
                     <li
                       key={point}
@@ -606,11 +634,11 @@ function Process() {
   return (
     <section
       id="approach"
-      className="relative overflow-hidden bg-mist py-24 md:py-32"
+      className="relative overflow-hidden bg-mist py-16 md:py-20"
     >
       <div className="absolute inset-x-0 bottom-0 h-64 bg-[url('/assets/ridge-pattern.svg')] bg-cover bg-bottom opacity-50" />
       <div className="relative mx-auto max-w-[88rem] px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-12">
           <div>
             <Eyebrow>A practical path forward</Eyebrow>
             <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
@@ -667,10 +695,10 @@ function LocalPromise() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-spruce py-24 text-paper md:py-32"
+      className="relative overflow-hidden bg-spruce py-16 text-paper md:py-20"
     >
       <div className="absolute inset-0 bg-[url('/assets/ridge-pattern.svg')] bg-cover bg-center opacity-35" />
-      <div className="relative mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-24">
+      <div className="relative mx-auto grid max-w-[88rem] gap-8 px-5 md:px-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-12">
         <div>
           <Eyebrow theme="dark">Why N45</Eyebrow>
           <h2 className="mt-6 max-w-3xl font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
@@ -684,7 +712,11 @@ function LocalPromise() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href="/book/" className="button-primary group">
+            <a
+              href="/book/?service=it-call"
+              className="button-primary group"
+              data-analytics-location="local"
+            >
               Meet your local IT partner
               <ArrowRight
                 aria-hidden="true"
@@ -724,8 +756,8 @@ function LocalPromise() {
 
 function FAQ() {
   return (
-    <section className="bg-paper py-24 md:py-32">
-      <div className="mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-24">
+    <section className="bg-paper py-16 md:py-20">
+      <div className="mx-auto grid max-w-[88rem] gap-8 px-5 md:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-12">
         <div>
           <Eyebrow>Common questions</Eyebrow>
           <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight md:text-6xl">
@@ -847,18 +879,26 @@ function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-sunrise py-24 md:py-32">
-      <div className="mx-auto grid max-w-[88rem] gap-14 px-5 md:px-8 lg:grid-cols-[.82fr_1.18fr] lg:gap-24">
+    <section id="contact" className="bg-sunrise py-16 md:py-20">
+      <div className="mx-auto grid max-w-[88rem] gap-8 px-5 md:px-8 lg:grid-cols-[.82fr_1.18fr] lg:items-start lg:gap-12">
         <div>
           <Eyebrow theme="warm">Start a conversation</Eyebrow>
           <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
             Tell us what feels messy, risky, or unclear.
           </h2>
           <p className="mt-7 max-w-lg text-lg leading-8 text-ink/80">
-            We will start with the business problem, look at the systems behind
-            it, and give you a practical next step. No jargon-heavy pitch
-            required.
+            Tell us what you need help with. Your message goes directly to N45,
+            and we will help you find a practical next step.
           </p>
+
+          <a
+            href="/book/?service=it-call"
+            className="button-dark mt-7"
+            data-analytics-location="closing_call"
+          >
+            Schedule a 20-minute call
+            <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </a>
 
           <dl className="mt-10 space-y-5 text-sm">
             <ContactDetail icon={Phone} label="Call" href="tel:+18285151530">
@@ -919,13 +959,13 @@ function Contact() {
                   Select one
                 </option>
                 <option value="Microsoft 365 Security Triage">
-                  Check our business email security ($495)
+                  Review our Microsoft 365 security ($495)
                 </option>
                 <option value="IT review / current provider concerns">
                   Review our IT or current provider
                 </option>
                 <option value="Microsoft 365 account protection">
-                  Protect our Microsoft 365 accounts
+                  Protect our accounts and business data
                 </option>
                 <option value="Managed IT support">
                   Get ongoing IT support
@@ -1159,7 +1199,7 @@ function Footer() {
             <a href="/blog/" className="hover:text-mint">
               Field Notes
             </a>
-            <a href="/book/" className="hover:text-mint">
+            <a href="/book/?service=it-call" className="hover:text-mint">
               Book
             </a>
             <a href="/refer/" className="hover:text-mint">

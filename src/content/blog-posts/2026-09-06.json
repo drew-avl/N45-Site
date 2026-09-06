@@ -1,0 +1,17 @@
+{
+  "category": "Backups",
+  "date": "September 6, 2026",
+  "datetime": "2026-09-06",
+  "readTime": "2 min read",
+  "title": "Restore One File Before You Trust the Backup",
+  "summary": "Restore one important file today to confirm that your backup contains usable data and that someone knows how to recover it.",
+  "body": [
+    "NIST’s Cybersecurity Framework 2.0 Small Business Quick-Start Guide recommends regularly backing up business data and testing those backups. The second part is easy to overlook. A green check mark may show that a backup job ran, but it does not prove that the right information can be recovered, that someone knows how to request it, or that the restored copy will open.",
+    "A simple restore test answers practical questions before an emergency does. Are the files you expect actually included? Can the business or its technology provider sign in to the backup service? Are older versions available? Do restored files retain usable names and folders? How long does the process take? These details determine whether a backup supports the business when the original is deleted, damaged, or locked.",
+    "This matters even when most work lives in cloud services. Files may be spread across employee computers, shared storage, email, accounting software, and specialized business applications. Each service may handle deleted items, older versions, and long-term retention differently. A company can have several forms of protection and still be unsure which one should be used first.",
+    "A useful action for today is to choose one important but non-sensitive file and restore a separate copy. Use a document that staff would notice if it disappeared, such as a current procedure, price list, or blank customer form. Restore yesterday’s version or recover a safely deleted test copy into a temporary folder, then open it and confirm that the contents are complete.",
+    "Keep the test small and controlled. Do not overwrite the working file, interrupt a production system, or use payroll, medical, or customer records merely to prove the process. If the backup is managed by an outside provider, ask that provider to perform the restore while someone from the business observes where the request goes and how completion is confirmed.",
+    "Record the system tested, the file restored, the date, the time required, who completed the work, and any missing steps. If a provider says backups are included, also document what is covered, how long copies are retained, who can authorize a restore, and whom to contact after hours. Schedule a different small restore test for the next quarter.",
+    "A failed test is useful information, not a reason to panic. It creates a chance to correct access, coverage, documentation, or retention before the business depends on them. One verified restore cannot prove every recovery scenario, but it is a clear improvement over assuming that a status message means the company is ready."
+  ]
+}

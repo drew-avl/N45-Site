@@ -1,0 +1,15 @@
+{
+  "title": "Check Whether Your Cisco Phones Need Web Access",
+  "summary": "Ask whether web management is enabled on affected Cisco desk phones, why it is needed, and when the supported software update will be installed.",
+  "category": "Phone Systems",
+  "datetime": "2026-09-03",
+  "body": [
+    "Cisco published a security advisory on September 2 for certain Desk Phone 9800, IP Phone 7800 and 8800, and Video Phone 8875 models running its SIP software. The flaw, identified as CVE-2026-20281, could let a remote attacker overwhelm an affected phone until it stops working and requires a manual restart.",
+    "The important detail is scope. Cisco says exploitation requires the phone to be registered to Cisco Unified Communications Manager and to have Web Access enabled. Web Access is disabled by default. Cisco also says it is not aware of public announcements or malicious use of this vulnerability. Seeing a Cisco logo on the office phone does not establish that the business is affected.",
+    "Web Access gives administrators a browser-based view of a phone. Like any management feature, it should be available only when someone has a defined reason to use it. An unused management page creates another path that must be maintained, monitored, and considered when security advisories appear.",
+    "A useful action for today is to ask the phone-system provider four questions: Which phone models and software versions do we have? Are they registered to Cisco Unified Communications Manager? Is Web Access enabled? If it is enabled, what business or support purpose requires it? Keep the response with the phone-system documentation instead of waiting for the next urgent notice.",
+    "If the listed conditions apply, Cisco provides fixed software and recommends upgrading to the appropriate release. Disabling Web Access can mitigate the issue, but Cisco advises customers to evaluate operational impact before changing the setting. The provider should confirm the applicable software, back up the configuration, and schedule the work through the normal change process.",
+    "Do not unplug every phone, replace working equipment, or assume an outage has already occurred. The advisory describes a denial-of-service risk, not access to calls, contacts, or business records, and Cisco reports no known malicious use. The proportionate response is to confirm exposure, remove an unnecessary feature where appropriate, and plan the supported update.",
+    "This is a useful rule beyond one Cisco advisory: management features should have an owner and a purpose. If nobody can explain why a web console, remote-support service, or administrative port is enabled, that is a good reason to review it calmly and reduce what the business must defend."
+  ]
+}

@@ -65,6 +65,20 @@ function handleLinkClick(event: MouseEvent) {
 
   try {
     const destination = new URL(link.href, window.location.href);
+    if (
+      destination.origin === window.location.origin &&
+      /^\/book\/?$/.test(destination.pathname)
+    ) {
+      const intent = destination.searchParams.get("service");
+      trackEvent("booking_cta_clicked", {
+        service_intent:
+          intent === "security-review" || intent === "it-call"
+            ? intent
+            : "unspecified",
+        link_location: location,
+      });
+      return;
+    }
     if (destination.hostname === "support.n45tech.com") {
       trackEvent("remote_support_started", {
         link_url: destination.href,

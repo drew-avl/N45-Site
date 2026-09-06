@@ -1,3 +1,5 @@
+import { useState } from "react";
+import type { BookingServiceIntent } from "@/lib/booking-services";
 import { CalendarCheck2, Clock3, ExternalLink, Phone } from "lucide-react";
 
 import { NativeBooking } from "@/components/NativeBooking";
@@ -11,11 +13,15 @@ const BOOKING_URL =
   "https://outlook.office.com/book/SceduleaConversationwithN45@n45tech.com/?ismsaljsauthenabled";
 
 export default function Book() {
-  const preferredServiceIntent =
-    new URLSearchParams(window.location.search).get("service") ===
-    "security-review"
-      ? "security-review"
+  const requestedService = new URLSearchParams(window.location.search).get(
+    "service",
+  );
+  const preferredServiceIntent: BookingServiceIntent | undefined =
+    requestedService === "security-review" || requestedService === "it-call"
+      ? requestedService
       : undefined;
+  const [activeIntent, setActiveIntent] = useState(preferredServiceIntent);
+  const securityReview = activeIntent === "security-review";
 
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
@@ -24,7 +30,7 @@ export default function Book() {
       </a>
       <SiteHeader />
 
-      <main id="main-content">
+      <main id="main-content" className="[&_h2[id]]:scroll-mt-36">
         <section className="relative isolate overflow-hidden bg-ink py-10 text-paper md:py-12">
           <div className="absolute inset-0 -z-20 bg-[url('/assets/hero-mountains.jpg')] bg-cover bg-[center_58%] opacity-20" />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,22,22,.98),rgba(5,22,22,.82)_62%,rgba(5,22,22,.72))]" />
@@ -34,19 +40,25 @@ export default function Book() {
             <div className="max-w-4xl">
               <PageEyebrow theme="dark">A clear first conversation</PageEyebrow>
               <h1 className="mt-3 font-display text-[clamp(2.8rem,5vw,5.25rem)] leading-[0.96] tracking-[-0.04em] text-balance">
-                Book a conversation.
+                {securityReview
+                  ? "Start your Microsoft security review."
+                  : "Schedule a conversation."}
               </h1>
               <p className="mt-3 max-w-2xl text-base leading-7 text-paper/76 md:text-lg">
-                Choose the service that best matches what you need, then select
-                a time below. You can complete the entire booking without
-                leaving this page.
+                {securityReview
+                  ? "Understand the risks to your business’s Microsoft 365 accounts, files, and data. Start with a 15-minute fit call to confirm the $495 review fits your team. Payment for the review comes separately."
+                  : "Choose a time that works for you. We will talk through what is getting in the way and help you find a practical next step."}
               </p>
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-3 border-y border-white/16 py-4 text-sm font-semibold text-paper/76 lg:max-w-md lg:justify-end">
               <div className="flex items-center gap-2">
                 <Clock3 aria-hidden="true" className="h-4 w-4 text-mint" />
-                15–20 minutes
+                {securityReview
+                  ? "15-minute fit call"
+                  : activeIntent === "it-call"
+                    ? "20-minute IT conversation"
+                    : "15–20 minutes"}
               </div>
               <div className="flex items-center gap-2">
                 <CalendarCheck2
@@ -55,7 +67,9 @@ export default function Book() {
                 />
                 Microsoft Teams
               </div>
-              <span className="text-paper/58">Focused and low-pressure</span>
+              <span className="text-paper/75">
+                No technical preparation needed
+              </span>
             </div>
           </div>
         </section>
@@ -74,6 +88,7 @@ export default function Book() {
                   endpoint={BOOKING_API_ENDPOINT}
                   fallbackUrl={BOOKING_URL}
                   preferredServiceIntent={preferredServiceIntent}
+                  onIntentChange={setActiveIntent}
                 />
               ) : (
                 <iframe
