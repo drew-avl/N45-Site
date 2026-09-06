@@ -17,11 +17,14 @@ export default function Book() {
     "service",
   );
   const preferredServiceIntent: BookingServiceIntent | undefined =
-    requestedService === "security-review" || requestedService === "it-call"
+    requestedService === "security-review" ||
+    requestedService === "it-call" ||
+    requestedService === "ai-automation"
       ? requestedService
       : undefined;
   const [activeIntent, setActiveIntent] = useState(preferredServiceIntent);
   const securityReview = activeIntent === "security-review";
+  const aiConsultation = activeIntent === "ai-automation";
 
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
@@ -42,12 +45,16 @@ export default function Book() {
               <h1 className="mt-3 font-display text-[clamp(2.8rem,5vw,5.25rem)] leading-[0.96] tracking-[-0.04em] text-balance">
                 {securityReview
                   ? "Start your Microsoft security review."
-                  : "Schedule a conversation."}
+                  : aiConsultation
+                    ? "Put AI to work in your business."
+                    : "Schedule a conversation."}
               </h1>
               <p className="mt-3 max-w-2xl text-base leading-7 text-paper/76 md:text-lg">
                 {securityReview
                   ? "Understand the risks to your business’s Microsoft 365 accounts, files, and data. Start with a 15-minute fit call to confirm the $495 review fits your team. Payment for the review comes separately."
-                  : "Choose a time that works for you. We will talk through what is getting in the way and help you find a practical next step."}
+                  : aiConsultation
+                    ? "Tell us which tasks take more time than they should. We will discuss where AI or automation could help, what needs oversight, and a sensible first project."
+                    : "Choose a time that works for you. We will talk through what is getting in the way and help you find a practical next step."}
               </p>
             </div>
 
@@ -56,9 +63,11 @@ export default function Book() {
                 <Clock3 aria-hidden="true" className="h-4 w-4 text-mint" />
                 {securityReview
                   ? "15-minute fit call"
-                  : activeIntent === "it-call"
-                    ? "20-minute IT conversation"
-                    : "15–20 minutes"}
+                  : aiConsultation
+                    ? "30-minute AI consultation"
+                    : activeIntent === "it-call"
+                      ? "20-minute IT conversation"
+                      : "15–30 minutes"}
               </div>
               <div className="flex items-center gap-2">
                 <CalendarCheck2
