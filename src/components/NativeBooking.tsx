@@ -11,8 +11,12 @@ import {
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 
 import { trackEvent } from "@/analytics";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Button } from "@/components/ui/button";
 import {
   bookingServiceDisplayName,
+  bookingServiceDescription,
+  bookingServiceIntent,
   initialBookingServiceId,
   type BookingServiceIntent,
 } from "@/lib/booking-services";
@@ -49,6 +53,7 @@ type NativeBookingProps = {
   endpoint: string;
   fallbackUrl: string;
   preferredServiceIntent?: BookingServiceIntent;
+  onIntentChange?: (intent: BookingServiceIntent | undefined) => void;
 };
 
 const inputClassName =
@@ -121,6 +126,7 @@ export function NativeBooking({
   endpoint,
   fallbackUrl,
   preferredServiceIntent,
+  onIntentChange,
 }: NativeBookingProps) {
   const timeZone = useMemo(
     () =>
@@ -142,10 +148,35 @@ export function NativeBooking({
   const [confirmation, setConfirmation] =
     useState<AppointmentConfirmation | null>(null);
   const trackedStart = useRef(false);
+  const submitLock = useRef(false);
+  const detailsHeading = useRef<HTMLHeadingElement>(null);
+  const confirmationHeading = useRef<HTMLHeadingElement>(null);
+  const [availabilityAttempt, setAvailabilityAttempt] = useState(0);
+
+  useEffect(() => {
+    if (selectedSlot) {
+      detailsHeading.current?.focus({ preventScroll: true });
+      detailsHeading.current?.scrollIntoView({
+        block: "start",
+        behavior: "instant",
+      });
+    }
+  }, [selectedSlot]);
+
+  useEffect(() => {
+    if (confirmation) confirmationHeading.current?.focus();
+  }, [confirmation]);
 
   const selectedService = services.find(
     (service) => service.id === selectedServiceId,
   );
+
+  useEffect(() => {
+    if (!loadingServices)
+      onIntentChange?.(
+        selectedService ? bookingServiceIntent(selectedService) : undefined,
+      );
+  }, [selectedService, loadingServices, onIntentChange]);
 
   const groupedSlots = useMemo(() => {
     const groups = new Map<string, BookingSlot[]>();
@@ -228,6 +259,7 @@ export function NativeBooking({
           },
         );
         const result = await readApiResponse(response);
+        if (controller.signal.aborted) return;
         const availableSlots = result.slots || [];
         setSlots(availableSlots);
         if (availableSlots.length) {
@@ -248,13 +280,18 @@ export function NativeBooking({
 
     void loadAvailability();
     return () => controller.abort();
-  }, [endpoint, selectedServiceId, timeZone]);
+  }, [endpoint, selectedServiceId, timeZone, availabilityAttempt]);
 
-  function trackBookingStart() {
+  function trackBookingStart(
+    intent = selectedService
+      ? bookingServiceIntent(selectedService)
+      : undefined,
+  ) {
     if (!trackedStart.current) {
       trackEvent("booking_started", {
         appointment_type: "native_microsoft_bookings",
         link_location: "booking_form",
+        service_intent: intent || "unspecified",
       });
       trackedStart.current = true;
     }
@@ -262,13 +299,31 @@ export function NativeBooking({
 
   function chooseService(serviceId: string) {
     setSelectedServiceId(serviceId);
-    trackBookingStart();
+    const service = services.find((item) => item.id === serviceId);
+    trackBookingStart(service ? bookingServiceIntent(service) : undefined);
+  }
+
+  function changeTime() {
+    setSelectedSlot(null);
+    setSubmitState("idle");
+    setSubmitMessage("");
+    setAvailabilityAttempt((value) => value + 1);
+    window.requestAnimationFrame(() =>
+      document.getElementById("time-heading")?.focus(),
+    );
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    if (!form.reportValidity() || !selectedService || !selectedSlot) return;
+    if (
+      submitLock.current ||
+      !form.reportValidity() ||
+      !selectedService ||
+      !selectedSlot
+    )
+      return;
+    submitLock.current = true;
 
     const formData = new FormData(form);
     const website = String(formData.get("website") || "").trim();
@@ -303,14 +358,17 @@ export function NativeBooking({
       trackEvent("booking_completed", {
         appointment_type: selectedService.name,
         booking_experience: "native_microsoft_bookings",
+        service_intent: bookingServiceIntent(selectedService) || "unspecified",
       });
     } catch (error) {
       setSubmitState("error");
       setSubmitMessage(
         error instanceof Error
           ? error.message
-          : "The appointment could not be booked.",
+          : "The appointment could not be booked. Please try again or choose another time.",
       );
+    } finally {
+      submitLock.current = false;
     }
   }
 
@@ -322,7 +380,9 @@ export function NativeBooking({
             aria-hidden="true"
             className="mx-auto h-7 w-7 animate-spin text-teal motion-reduce:animate-none"
           />
-          <p className="mt-4 font-bold">Loading appointment options…</p>
+          <p className="mt-4 font-bold" role="status">
+            Loading appointment options…
+          </p>
         </div>
       </div>
     );
@@ -365,7 +425,11 @@ export function NativeBooking({
           <p className="mt-6 font-mono text-xs font-bold tracking-[0.16em] text-mint uppercase">
             Appointment confirmed
           </p>
-          <h2 className="mt-3 font-display text-4xl leading-tight">
+          <h2
+            ref={confirmationHeading}
+            tabIndex={-1}
+            className="mt-3 font-display text-4xl leading-tight"
+          >
             You’re on the calendar.
           </h2>
         </div>
@@ -386,7 +450,10 @@ export function NativeBooking({
               aria-hidden="true"
               className="mt-0.5 h-5 w-5 shrink-0 text-teal"
             />
-            N45 has added your appointment to its booking calendar.
+            {selectedService &&
+            bookingServiceIntent(selectedService) === "security-review"
+              ? "Your fit call is booked. The $495 security review has not been purchased; we will explain the next steps on the call."
+              : "Bring your questions. No technical preparation needed."}
           </div>
         </div>
       </div>
@@ -395,16 +462,19 @@ export function NativeBooking({
 
   return (
     <div className="bg-white">
-      <div className="grid border-b border-ink/10 bg-paper/55 sm:grid-cols-3">
-        {["Choose a service", "Pick a time", "Your details"].map(
+      <div className="grid grid-cols-3 border-b border-ink/10 bg-paper/55">
+        {["Your conversation", "Pick a time", "Your details"].map(
           (label, index) => {
-            const complete = index === 0 || (index === 1 && selectedSlot);
+            const complete =
+              (index === 0 && Boolean(selectedServiceId)) ||
+              (index === 1 && Boolean(selectedSlot));
             const active =
               index === (selectedSlot ? 2 : selectedServiceId ? 1 : 0);
             return (
               <div
                 key={label}
-                className={`flex items-center gap-3 px-5 py-3 text-sm sm:justify-center sm:border-r sm:border-ink/10 sm:last:border-r-0 ${
+                aria-current={active ? "step" : undefined}
+                className={`flex flex-col items-center gap-2 px-2 py-3 text-center text-sm sm:flex-row sm:gap-3 sm:px-5 sm:justify-center sm:border-r sm:border-ink/10 sm:last:border-r-0 ${
                   active ? "font-extrabold text-ink" : "text-ridge"
                 }`}
               >
@@ -430,87 +500,135 @@ export function NativeBooking({
         )}
       </div>
 
-      <div className="grid lg:grid-cols-[minmax(18rem,0.7fr)_minmax(0,1.3fr)]">
+      <div
+        className={
+          selectedSlot
+            ? "hidden"
+            : "grid lg:grid-cols-[minmax(18rem,0.7fr)_minmax(0,1.3fr)]"
+        }
+      >
         <section
           aria-labelledby="service-heading"
           className="border-b border-ink/10 px-5 py-7 md:px-8 lg:border-r lg:border-b-0"
         >
           <h2 id="service-heading" className="font-display text-3xl">
-            What can we help with?
+            Your conversation
           </h2>
-          <div
-            className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-1"
-            role="radiogroup"
-            aria-label="Service"
-          >
-            {services.map((service) => {
-              const selected = service.id === selectedServiceId;
-              return (
-                <button
-                  key={service.id}
-                  type="button"
-                  role="radio"
-                  aria-checked={selected}
-                  onClick={() => chooseService(service.id)}
-                  className={`w-full cursor-pointer rounded-lg border px-4 py-3 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal ${
-                    selected
-                      ? "border-teal bg-mist/65"
-                      : "border-transparent hover:border-ink/18 hover:bg-paper/70"
-                  }`}
-                >
-                  <span className="flex items-center justify-between gap-4">
-                    <span className="flex min-w-0 items-center gap-3">
-                      <span
-                        aria-hidden="true"
-                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
-                          selected
-                            ? "border-teal bg-teal text-white"
-                            : "border-ink/25 bg-white text-transparent"
-                        }`}
-                      >
-                        <Check className="h-3 w-3" />
-                      </span>
-                      <span className="block font-extrabold text-ink">
-                        {bookingServiceDisplayName(service.name)}
-                      </span>
-                    </span>
-                    <span className="flex shrink-0 items-center gap-1 text-xs font-bold text-ridge">
-                      <Clock3 aria-hidden="true" className="h-3.5 w-3.5" />
-                      {service.durationMinutes} min
-                    </span>
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-          {selectedService?.description && (
-            <p
-              className="mt-4 border-t border-ink/10 pt-4 text-sm leading-6 text-ridge"
-              aria-live="polite"
-            >
-              {selectedService.description}
+          {selectedService && (
+            <div className="mt-5">
+              <p className="text-lg font-extrabold">
+                {bookingServiceDisplayName(selectedService.name)}
+              </p>
+              <p className="mt-2 flex items-center gap-2 text-sm font-bold text-teal">
+                <Clock3 size={16} aria-hidden="true" />
+                {selectedService.durationMinutes} minutes · Microsoft Teams
+              </p>
+              <p
+                className="mt-4 text-base leading-7 text-ridge"
+                aria-live="polite"
+              >
+                {bookingServiceDescription(selectedService)}
+              </p>
+            </div>
+          )}
+          {preferredServiceIntent && !selectedServiceId && (
+            <p className="mt-4 text-sm leading-6 text-ridge" role="status">
+              That conversation is not currently listed. Choose an available
+              option below or call N45 at{" "}
+              <a className="text-teal underline" href="tel:+18285151530">
+                (828) 515-1530
+              </a>
+              .
             </p>
           )}
+          <details
+            className="mt-5 border-t border-ink/10 pt-4"
+            open={
+              !selectedServiceId || !preferredServiceIntent ? true : undefined
+            }
+          >
+            <summary className="cursor-pointer py-2 text-sm font-bold text-teal">
+              {selectedService
+                ? "Change conversation type"
+                : "Choose your conversation"}
+            </summary>
+            <RadioGroup
+              value={selectedServiceId}
+              onValueChange={chooseService}
+              aria-label="Conversation type"
+              className="mt-3 gap-2"
+            >
+              {services.map((service) => (
+                <label
+                  key={service.id}
+                  htmlFor={`service-${service.id}`}
+                  className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 ${selectedServiceId === service.id ? "border-teal bg-mist/65" : "border-ink/15 hover:bg-paper"}`}
+                >
+                  <RadioGroupItem
+                    id={`service-${service.id}`}
+                    value={service.id}
+                    className="shrink-0 border-teal shadow-none"
+                  />
+                  <span className="flex-1 text-sm font-bold">
+                    {bookingServiceDisplayName(service.name)}
+                    <span className="mt-1 block font-normal text-ridge">
+                      {service.durationMinutes} minutes
+                    </span>
+                  </span>
+                </label>
+              ))}
+            </RadioGroup>
+          </details>
         </section>
 
         <section
           aria-labelledby="time-heading"
           className="min-w-0 px-5 py-7 md:px-8"
         >
-          <h2 id="time-heading" className="font-display text-3xl">
+          <h2 id="time-heading" tabIndex={-1} className="font-display text-3xl">
             Choose a time.
           </h2>
           <p className="mt-2 text-sm text-ridge">
             Times are shown in {timeZone.replaceAll("_", " ")}.
           </p>
 
-          {loadingSlots ? (
-            <div className="flex min-h-48 items-center justify-center text-ridge">
+          {!selectedServiceId ? (
+            <p className="mt-5 leading-7 text-ridge">
+              Choose a conversation to see available times.
+            </p>
+          ) : loadingSlots ? (
+            <div
+              className="flex min-h-48 items-center justify-center text-ridge"
+              role="status"
+            >
               <LoaderCircle
                 aria-hidden="true"
                 className="mr-3 h-5 w-5 animate-spin text-teal motion-reduce:animate-none"
               />
               Finding open times…
+            </div>
+          ) : loadError ? (
+            <div className="mt-5 rounded-lg border border-sunrise bg-paper p-5">
+              <p className="font-bold" role="alert">
+                We couldn’t load appointment times.
+              </p>
+              <p className="mt-2 text-sm leading-6 text-ridge">
+                Please try again, or{" "}
+                <a
+                  href="tel:+18285151530"
+                  className="font-bold text-teal underline"
+                >
+                  call N45
+                </a>{" "}
+                to arrange a time.
+              </p>
+              <button
+                type="button"
+                onClick={() => setAvailabilityAttempt((value) => value + 1)}
+                className="button-dark mt-4"
+              >
+                Try again
+              </button>
             </div>
           ) : groupedSlots.length ? (
             <>
@@ -522,6 +640,14 @@ export function NativeBooking({
                     <button
                       key={key}
                       type="button"
+                      aria-pressed={selected}
+                      aria-label={new Intl.DateTimeFormat("en-US", {
+                        timeZone,
+                        weekday: "long",
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      }).format(new Date(daySlots[0].startDateTime))}
                       onClick={() => {
                         setSelectedDate(key);
                         setSelectedSlot(null);
@@ -548,32 +674,24 @@ export function NativeBooking({
 
               <div
                 className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4"
-                role="radiogroup"
-                aria-label="Appointment time"
+                role="group"
+                aria-label="Choose a time and continue to your details"
               >
-                {visibleSlots.map((slot) => {
-                  const selected =
-                    slot.startDateTime === selectedSlot?.startDateTime;
-                  return (
-                    <button
-                      key={slot.startDateTime}
-                      type="button"
-                      role="radio"
-                      aria-checked={selected}
-                      onClick={() => {
-                        setSelectedSlot(slot);
-                        trackBookingStart();
-                      }}
-                      className={`min-h-11 cursor-pointer rounded-lg border px-3 py-2 text-sm font-extrabold transition ${
-                        selected
-                          ? "border-ink bg-ink text-paper"
-                          : "border-ink/14 text-ink hover:border-teal hover:bg-mist/45"
-                      }`}
-                    >
-                      {formatTime(slot.startDateTime, timeZone)}
-                    </button>
-                  );
-                })}
+                {visibleSlots.map((slot) => (
+                  <Button
+                    key={slot.startDateTime}
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      setSelectedSlot(slot);
+                      trackBookingStart();
+                    }}
+                    className="h-auto min-h-12 rounded-lg border-ink/20 bg-white px-2 py-2 text-sm font-extrabold text-ink shadow-none hover:border-teal hover:bg-mist/45 focus-visible:ring-teal"
+                  >
+                    {formatTime(slot.startDateTime, timeZone)}
+                    <span className="sr-only">, continue to your details</span>
+                  </Button>
+                ))}
               </div>
             </>
           ) : (
@@ -582,39 +700,47 @@ export function NativeBooking({
                 No open times found in the next two weeks.
               </p>
               <p className="mt-1 text-sm leading-6 text-ridge">
-                Call (828) 515-1530 and we will find a time that works.
+                <a
+                  href="tel:+18285151530"
+                  className="font-bold text-teal underline"
+                >
+                  Call (828) 515-1530
+                </a>{" "}
+                and we will find a time that works.
               </p>
             </div>
-          )}
-
-          {loadError && !loadingSlots && (
-            <p className="mt-4 text-sm font-semibold text-red-700" role="alert">
-              {loadError}
-            </p>
           )}
         </section>
       </div>
 
-      {selectedSlot && selectedService && (
+      {selectedService && (
         <section
           aria-labelledby="details-heading"
-          className="border-t border-ink/10 bg-mist/35 px-5 py-8 md:px-8"
+          className={`${selectedSlot ? "" : "hidden "}border-t border-ink/10 bg-mist/35 px-5 py-8 md:px-8`}
         >
           <div className="grid gap-8 lg:grid-cols-[0.62fr_1.38fr] lg:gap-12">
             <div>
-              <h2 id="details-heading" className="font-display text-3xl">
-                Tell us who’s coming.
+              <h2
+                id="details-heading"
+                ref={detailsHeading}
+                tabIndex={-1}
+                className="font-display text-3xl"
+              >
+                Where should we send your invitation?
               </h2>
               <div className="mt-5 rounded-lg border border-teal/35 bg-white px-4 py-4">
                 <p className="font-extrabold">
                   {bookingServiceDisplayName(selectedService.name)}
                 </p>
                 <p className="mt-1 text-sm leading-6 text-ridge">
-                  {formatConfirmation(selectedSlot.startDateTime, timeZone)}
+                  {selectedSlot
+                    ? formatConfirmation(selectedSlot.startDateTime, timeZone)
+                    : "Choose a time for your conversation."}
                 </p>
                 <button
                   type="button"
-                  onClick={() => setSelectedSlot(null)}
+                  onClick={changeTime}
+                  disabled={submitState === "sending"}
                   className="mt-3 inline-flex cursor-pointer items-center gap-1 text-sm font-bold text-teal underline decoration-teal/30 underline-offset-4"
                 >
                   <ArrowLeft aria-hidden="true" className="h-3.5 w-3.5" />
@@ -623,119 +749,129 @@ export function NativeBooking({
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label htmlFor="customerName" className="text-sm font-bold">
-                  Name
-                </label>
-                <input
-                  id="customerName"
-                  name="customerName"
-                  autoComplete="name"
-                  required
-                  maxLength={120}
-                  className={`${inputClassName} mt-1.5`}
-                />
-              </div>
-              <div>
-                <label htmlFor="businessName" className="text-sm font-bold">
-                  Business{" "}
-                  <span className="font-normal text-ridge">(optional)</span>
-                </label>
-                <input
-                  id="businessName"
-                  name="businessName"
-                  autoComplete="organization"
-                  maxLength={150}
-                  className={`${inputClassName} mt-1.5`}
-                />
-              </div>
-              <div>
-                <label htmlFor="bookingEmail" className="text-sm font-bold">
-                  Email
-                </label>
-                <input
-                  id="bookingEmail"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  maxLength={254}
-                  className={`${inputClassName} mt-1.5`}
-                />
-              </div>
-              <div>
-                <label htmlFor="bookingPhone" className="text-sm font-bold">
-                  Phone{" "}
-                  <span className="font-normal text-ridge">(optional)</span>
-                </label>
-                <input
-                  id="bookingPhone"
-                  name="phone"
-                  type="tel"
-                  autoComplete="tel"
-                  maxLength={40}
-                  className={`${inputClassName} mt-1.5`}
-                />
-              </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="bookingNotes" className="text-sm font-bold">
-                  Anything we should know?{" "}
-                  <span className="font-normal text-ridge">(optional)</span>
-                </label>
-                <textarea
-                  id="bookingNotes"
-                  name="notes"
-                  rows={3}
-                  maxLength={1000}
-                  className={`${inputClassName} mt-1.5 resize-y`}
-                />
-              </div>
-              <div className="absolute -left-[10000px]" aria-hidden="true">
-                <label htmlFor="bookingWebsite">Website</label>
-                <input
-                  id="bookingWebsite"
-                  name="website"
-                  type="text"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-              </div>
+            <form onSubmit={handleSubmit}>
+              <fieldset
+                disabled={submitState === "sending"}
+                className="grid min-w-0 gap-4 sm:grid-cols-2"
+              >
+                <legend className="sr-only">Your contact details</legend>
+                <div>
+                  <label htmlFor="customerName" className="text-sm font-bold">
+                    Name
+                  </label>
+                  <input
+                    id="customerName"
+                    name="customerName"
+                    autoComplete="name"
+                    required
+                    maxLength={120}
+                    className={`${inputClassName} mt-1.5`}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="businessName" className="text-sm font-bold">
+                    Business{" "}
+                    <span className="font-normal text-ridge">(optional)</span>
+                  </label>
+                  <input
+                    id="businessName"
+                    name="businessName"
+                    autoComplete="organization"
+                    maxLength={150}
+                    className={`${inputClassName} mt-1.5`}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="bookingEmail" className="text-sm font-bold">
+                    Email
+                  </label>
+                  <input
+                    id="bookingEmail"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    maxLength={254}
+                    className={`${inputClassName} mt-1.5`}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="bookingPhone" className="text-sm font-bold">
+                    Phone{" "}
+                    <span className="font-normal text-ridge">(optional)</span>
+                  </label>
+                  <input
+                    id="bookingPhone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    maxLength={40}
+                    className={`${inputClassName} mt-1.5`}
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label htmlFor="bookingNotes" className="text-sm font-bold">
+                    Anything we should know?{" "}
+                    <span className="font-normal text-ridge">(optional)</span>
+                  </label>
+                  <textarea
+                    id="bookingNotes"
+                    name="notes"
+                    rows={3}
+                    maxLength={1000}
+                    className={`${inputClassName} mt-1.5 resize-y`}
+                  />
+                </div>
+                <div className="absolute -left-[10000px]" aria-hidden="true">
+                  <label htmlFor="bookingWebsite">Website</label>
+                  <input
+                    id="bookingWebsite"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
 
-              <div className="sm:col-span-2">
-                {submitState === "error" && (
-                  <p
-                    className="mb-3 text-sm font-semibold text-red-700"
-                    role="alert"
-                  >
-                    {submitMessage}
-                  </p>
-                )}
-                <button
-                  type="submit"
-                  disabled={submitState === "sending"}
-                  className="button-dark w-full sm:w-auto"
-                >
-                  {submitState === "sending" ? (
-                    <>
-                      <LoaderCircle
-                        aria-hidden="true"
-                        className="h-4 w-4 animate-spin motion-reduce:animate-none"
-                      />
-                      Confirming…
-                    </>
-                  ) : (
-                    <>
-                      Confirm appointment
-                      <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                    </>
+                <div className="sm:col-span-2">
+                  {submitState === "error" && (
+                    <p
+                      className="mb-3 text-sm font-semibold text-red-700"
+                      role="alert"
+                    >
+                      {submitMessage}
+                    </p>
                   )}
-                </button>
-                <p className="mt-3 max-w-xl text-xs leading-5 text-ridge">
-                  By confirming, you agree to receive appointment details by
-                  email from N45 and Microsoft Bookings.
-                </p>
-              </div>
+                  <button
+                    type="submit"
+                    disabled={submitState === "sending"}
+                    className="button-dark w-full sm:w-auto"
+                  >
+                    {submitState === "sending" ? (
+                      <>
+                        <LoaderCircle
+                          aria-hidden="true"
+                          className="h-4 w-4 animate-spin motion-reduce:animate-none"
+                        />
+                        Confirming…
+                      </>
+                    ) : (
+                      <>
+                        Book my conversation
+                        <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                      </>
+                    )}
+                  </button>
+                  <p className="mt-3 max-w-xl text-sm leading-6 text-ridge">
+                    By confirming, you agree to receive appointment details by
+                    email from N45 and Microsoft Bookings.{" "}
+                    <a href="/privacy/" className="text-teal underline">
+                      Privacy policy
+                    </a>
+                    .
+                  </p>
+                </div>
+              </fieldset>
             </form>
           </div>
         </section>
