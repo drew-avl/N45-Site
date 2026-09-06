@@ -46,7 +46,7 @@ export default function Book() {
               </h1>
               <p className="mt-3 max-w-2xl text-base leading-7 text-paper/76 md:text-lg">
                 {securityReview
-                  ? "First, book a 15-minute fit call. We will confirm the $495 review is right for your team and explain how to get started. You are booking a conversation today; payment for the review comes separately."
+                  ? "Understand the risks to your business’s Microsoft 365 accounts, files, and data. Start with a 15-minute fit call to confirm the $495 review fits your team. Payment for the review comes separately."
                   : "Choose a time that works for you. We will talk through what is getting in the way and help you find a practical next step."}
               </p>
             </div>

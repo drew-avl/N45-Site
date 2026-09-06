@@ -18,7 +18,7 @@ export default function SecurityTriageCta({
   const areas = conversionDetails
     ? [
         "Account access, former users & sign-in protection",
-        "Email forwarding, outside sharing & sender verification",
+        "Shared files, outside access & email safeguards",
         "Backup coverage & recovery gaps",
       ]
     : reviewAreas;
@@ -31,10 +31,18 @@ export default function SecurityTriageCta({
     >
       <div className="mx-auto max-w-[88rem] px-5 md:px-8">
         <div className="rounded-[2rem] border border-white/12 bg-ink px-7 py-8 text-paper shadow-2xl md:px-10 md:py-10">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+          <div
+            className={
+              conversionDetails
+                ? "grid gap-6 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-center"
+                : "grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center"
+            }
+          >
             <div>
               <div className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-mint">
-                A clear account-security check
+                {conversionDetails
+                  ? "Start with your Microsoft 365 security"
+                  : "A clear account-security check"}
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-4">
                 <h2
@@ -42,7 +50,7 @@ export default function SecurityTriageCta({
                   className="font-display text-4xl leading-none tracking-tight md:text-5xl"
                 >
                   {conversionDetails
-                    ? "How safe is your business email?"
+                    ? "How safe is your business?"
                     : "Know where your account security stands."}
                 </h2>
                 <span className="rounded-full bg-sunrise px-4 py-2 font-mono text-sm font-bold text-ink">
@@ -51,7 +59,7 @@ export default function SecurityTriageCta({
               </div>
               <p className="mt-5 max-w-4xl text-base leading-7 text-paper/72 md:text-lg">
                 {conversionDetails
-                  ? "The N45 Microsoft 365 security review is for teams with approximately 5–25 users. Get a plain-English scorecard and your five highest-priority next steps. The review is read-only, with no settings changed and no long-term contract."
+                  ? "Find gaps that could expose your accounts and files or make recovery harder. Our Microsoft 365 review gives teams of approximately 5–25 users a plain-English scorecard and five prioritized next steps. Read-only, with no settings changed or long-term contract."
                   : "The fixed-price N45 Microsoft Security Triage is a read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized next steps, without N45 changing any settings."}
               </p>
               <ul className="mt-6 grid gap-3 text-sm font-semibold text-paper/80 md:grid-cols-3">
@@ -67,7 +75,7 @@ export default function SecurityTriageCta({
               </ul>
             </div>
 
-            <div className="lg:text-right">
+            <div className={conversionDetails ? "xl:text-right" : "lg:text-right"}>
               <a
                 href={contactHref}
                 className="button-primary group"
@@ -86,7 +94,7 @@ export default function SecurityTriageCta({
               <p
                 className={
                   conversionDetails
-                    ? "mt-3 max-w-xs text-sm font-semibold leading-6 text-paper/75 lg:ml-auto"
+                    ? "mt-3 max-w-xs text-sm font-semibold leading-6 text-paper/75 xl:ml-auto"
                     : "mt-3 text-xs font-semibold text-paper/55"
                 }
               >
