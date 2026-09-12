@@ -72,7 +72,9 @@ function handleLinkClick(event: MouseEvent) {
       const intent = destination.searchParams.get("service");
       trackEvent("booking_cta_clicked", {
         service_intent:
-          intent === "security-review" || intent === "it-call"
+          intent === "security-review" ||
+          intent === "it-call" ||
+          intent === "ai-automation"
             ? intent
             : "unspecified",
         link_location: location,
@@ -90,4 +92,7 @@ function handleLinkClick(event: MouseEvent) {
   }
 }
 
-document.addEventListener("click", handleLinkClick, { capture: true });
+// The homepage is prerendered in Node at build time, where no document exists.
+if (typeof document !== "undefined") {
+  document.addEventListener("click", handleLinkClick, { capture: true });
+}

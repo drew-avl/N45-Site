@@ -165,6 +165,9 @@ export function SiteFooter() {
             >
               Business Security
             </a>
+            <a href="/ai-automation/" className="hover:text-mint">
+              AI &amp; Automation
+            </a>
             <a href="/book/" className="hover:text-mint">
               Book a conversation
             </a>

@@ -1,0 +1,17 @@
+{
+  "category": "Microsoft 365",
+  "date": "September 8, 2026",
+  "datetime": "2026-09-08",
+  "readTime": "2 min read",
+  "title": "More Mailbox Space Is Not a Records Plan",
+  "summary": "Microsoft’s larger business mailboxes create breathing room, but each important mailbox still needs an owner and a clear plan for records, access, and cleanup.",
+  "body": [
+    "Microsoft’s Exchange team explained on August 19 that eligible users of Microsoft 365 Business Basic, Business Standard, and Business Premium are receiving an additional 50 gigabytes of primary email storage. That raises the supported maximum from 50 to 100 gigabytes after the new service is added to a user’s license. Microsoft says the packaging change rolled out from June through September 2026, with advance notice through the Microsoft 365 Message Center.",
+    "For a busy company, more room is welcome. It can reduce the chance that an important mailbox suddenly stops accepting mail because it reached its limit. But capacity and organization are different problems. A larger mailbox can still contain years of large attachments, duplicated conversations, old alerts, and information that should live in a shared business system.",
+    "The practical question is not simply how much email fits. It is who owns the mailbox, who should have access, what information must be kept, and how the business will find it when an employee is absent or leaves. A 100-gigabyte mailbox does not add an online archive, according to Microsoft, and it does not turn one person’s inbox into a dependable shared filing system.",
+    "Today, choose one mailbox that matters to operations and write down five facts: its business owner, its assigned Microsoft 365 plan, its current size, who can access it, and what kinds of messages belong somewhere else. Good candidates include billing, reservations, scheduling, estimating, or a long-serving manager’s mailbox. Ask your Microsoft 365 administrator or provider to confirm the actual quota rather than assuming every account changed.",
+    "Then pick one repeatable improvement. Save shared procedures and final client documents in the approved shared location. Move work that depends on one employee into a properly managed shared mailbox or business application when appropriate. Set a regular review for large attachments and automated notices. Any retention or deletion rule should match the organization’s documented needs and any advice it receives from qualified legal or industry professionals.",
+    "There is no need to mass-delete mail, remove and reassign licenses, or buy an archiving product just because this entitlement changed. Microsoft specifically advises administrators not to remove and reassign an Exchange license merely to force the new quota unless Microsoft Support directs it. Custom mailbox limits also remain in place, so an administrator may need to review an account before its effective size is clear.",
+    "Extra space gives the business time to make better decisions. Use that breathing room to make ownership, access, and recordkeeping clearer, and the mailbox will be easier to manage long after the rollout is old news."
+  ]
+}

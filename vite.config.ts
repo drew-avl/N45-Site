@@ -33,6 +33,10 @@ const googleTagPlugin = {
 };
 
 export default defineConfig({
+  server: {
+    host: "0.0.0.0",
+    allowedHosts: ["terminal.local"],
+  },
   build: {
     rollupOptions: {
       input: {
@@ -45,6 +49,7 @@ export default defineConfig({
         managedIt: "./managed-it-services-asheville/index.html",
         businessIt: "./business-it-support-western-nc/index.html",
         cybersecurity: "./cybersecurity-services-asheville/index.html",
+        aiAutomation: "./ai-automation/index.html",
         listenAndAssess: "./approach/listen-and-assess/index.html",
         stabilizeEssentials: "./approach/stabilize-the-essentials/index.html",
         secureAndDocument: "./approach/secure-and-document/index.html",

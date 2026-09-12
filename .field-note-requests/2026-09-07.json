@@ -1,0 +1,15 @@
+{
+  "title": "Give Every Business AI Tool an Owner",
+  "summary": "Create a simple list of approved AI tools, their owners, and the business information employees may use with them.",
+  "category": "AI Governance",
+  "datetime": "2026-09-07",
+  "body": [
+    "Google announced on September 3 that eligible Google Workspace administrators are gaining detailed activity records for Gemini Notebook. The records can show information such as notebook visibility, the user involved, the internet address used, and the related resource. Google says the feature is rolling out gradually and is available to customers that already have access to its investigation tools.",
+    "The practical change is not that every business must begin monitoring employees. It is that an artificial-intelligence tool used with company information can now leave a clearer administrative record. That makes it easier to answer basic questions about how the service is being used, but the record has value only when the business has decided who owns the tool and what responsible use looks like.",
+    "Small organizations often adopt useful tools one employee at a time. A manager may use one service to summarize a proposal, another employee may upload meeting notes, and someone else may create a shared notebook for a project. None of those actions is automatically a problem. The risk is allowing business information to spread across services without an approved purpose, an accountable owner, or a plan for staff changes.",
+    "A useful action for today is to start a one-page approved-AI list. For each tool, record its business purpose, the person responsible for it, how staff sign in, what kinds of company information may be used, what must stay out, and what happens when an employee leaves. Keep the language simple enough that a new hire can understand it without interpreting a technical policy.",
+    "If the company uses Gemini Notebook and has the eligible Google Workspace tools, ask the administrator to confirm when the new activity records become available. Decide who will review them and what would justify a closer look, such as unexpected public visibility, use by an account that should be inactive, or activity unrelated to an approved business purpose. Document the review rather than checking logs without a plan.",
+    "Do not buy a larger subscription solely because this feature exists, assume every AI interaction is suspicious, or treat activity records as a replacement for clear staff guidance. The records may help with oversight, but they do not decide whether a document was appropriate to use or whether the resulting work is accurate. Those remain business decisions.",
+    "Gemini Notebook may or may not be part of your company’s toolkit, but the operating rule travels well: every business AI service should have a purpose, an owner, clear boundaries, and a sensible way to review its use. That is enough structure to support useful experimentation without turning it into uncontrolled sprawl."
+  ]
+}
