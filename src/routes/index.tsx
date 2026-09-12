@@ -20,7 +20,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import heroImg from "@/assets/hero-mountains.jpg";
 import { trackEvent } from "@/analytics";
 import { MobileNavigation, RemoteSupportButton } from "@/components/SiteChrome";
 import SecurityTriageCta from "@/components/SecurityTriageCta";
@@ -57,6 +56,7 @@ const services: Service[] = [
     title: "Everyday IT help",
     body: "Day-to-day help with computers, email, and software, plus updates and new-employee setup that keep your team working.",
     outcome: "Fewer repeat problems. Faster, calmer workdays.",
+    href: "/business-it-support-western-nc/",
   },
   {
     icon: KeyRound,
@@ -64,6 +64,7 @@ const services: Service[] = [
     title: "Safer access to business data",
     body: "Protect company accounts and files, control who can access sensitive information, and remove access people no longer need.",
     outcome: "The right access for the right people.",
+    href: "/cybersecurity-services-asheville/",
   },
   {
     icon: ShieldCheck,
@@ -71,6 +72,7 @@ const services: Service[] = [
     title: "Protection that fits the risk",
     body: "Protect work computers, review practical risks, and check backups. We prioritize the safeguards that matter to your business.",
     outcome: "Practical safeguards, clearly prioritized—no scare tactics.",
+    href: "/cybersecurity-services-asheville/",
   },
   {
     icon: Network,
@@ -78,6 +80,7 @@ const services: Service[] = [
     title: "Reliable internet and connections",
     body: "Keep office internet, Wi-Fi, and connections between your sites reliable, so your team can get on with work.",
     outcome: "A stable foundation from the front desk to the field.",
+    href: "/business-it-support-western-nc/",
   },
   {
     icon: FileCheck2,
@@ -85,6 +88,7 @@ const services: Service[] = [
     title: "A plan when something breaks",
     body: "Record backup and recovery steps, equipment, vendors, accounts, and ownership so your business knows how to get working again.",
     outcome: "Critical knowledge that never lives in one person’s head.",
+    href: "/managed-it-services-asheville/",
   },
   {
     icon: Workflow,
@@ -334,7 +338,7 @@ function Hero() {
     <section id="top" className="relative isolate bg-ink text-paper">
       <div className="absolute inset-0 -z-20">
         <img
-          src={heroImg}
+          src="/assets/hero-mountains.jpg"
           alt="Layered Blue Ridge Mountains at sunrise"
           width={1920}
           height={1080}
@@ -557,7 +561,7 @@ function Services() {
                     <span className="grid h-12 w-12 place-items-center rounded-2xl bg-mint/12 text-mint ring-1 ring-mint/20">
                       <Icon aria-hidden="true" className="h-5 w-5" />
                     </span>
-                    <span className="font-mono text-xs text-paper/40">
+                    <span className="font-mono text-xs text-paper/60">
                       {service.number}
                     </span>
                   </div>
@@ -806,14 +810,23 @@ function FAQ() {
 }
 
 function Contact() {
-  const initialTopic =
-    new URLSearchParams(window.location.search).get("topic") === "ai-automation"
-      ? "Automation / documentation cleanup"
-      : "";
   const [submitState, setSubmitState] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
   const [statusMessage, setStatusMessage] = useState("");
+
+  // Applied after hydration so the prerendered form matches the client render.
+  useEffect(() => {
+    if (
+      new URLSearchParams(window.location.search).get("topic") !==
+      "ai-automation"
+    )
+      return;
+    const topic = document.getElementById("contact-topic");
+    if (topic instanceof HTMLSelectElement) {
+      topic.value = "Automation / documentation cleanup";
+    }
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -921,6 +934,17 @@ function Contact() {
             Schedule a 20-minute call
             <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </a>
+          <p className="mt-4 max-w-lg text-sm leading-6 text-ink/80">
+            Exploring AI or automation instead?{" "}
+            <a
+              href="/book/?service=ai-automation"
+              data-analytics-location="closing_ai"
+              className="font-bold text-ink underline underline-offset-2"
+            >
+              Schedule a 30-minute AI consultation
+            </a>
+            .
+          </p>
 
           <dl className="mt-10 space-y-5 text-sm">
             <ContactDetail icon={Phone} label="Call" href="tel:+18285151530">
@@ -974,7 +998,7 @@ function Contact() {
                 id="contact-topic"
                 name="topic"
                 required
-                defaultValue={initialTopic}
+                defaultValue=""
                 className="field-control"
               >
                 <option value="" disabled>
@@ -1123,24 +1147,23 @@ function ContactDetail({
     <span className="text-base font-extrabold text-ink">{children}</span>
   );
   return (
-    <div className="flex items-center gap-4">
-      <span className="grid h-10 w-10 place-items-center rounded-full border border-ink/15">
-        <Icon aria-hidden="true" className="h-4 w-4" />
-      </span>
-      <div>
-        <dt className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink/75">
-          {label}
-        </dt>
-        <dd className="mt-1">
-          {href ? (
-            <a href={href} className="hover:text-teal">
-              {content}
-            </a>
-          ) : (
-            content
-          )}
-        </dd>
-      </div>
+    // dt and dd stay direct children of this div so the list remains valid.
+    <div className="relative flex min-h-10 flex-col justify-center pl-14">
+      <dt className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink/75">
+        <span className="absolute top-1/2 left-0 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-ink/15">
+          <Icon aria-hidden="true" className="h-4 w-4" />
+        </span>
+        {label}
+      </dt>
+      <dd className="mt-1">
+        {href ? (
+          <a href={href} className="hover:text-teal">
+            {content}
+          </a>
+        ) : (
+          content
+        )}
+      </dd>
     </div>
   );
 }
@@ -1233,7 +1256,10 @@ function Footer() {
             <a href="/privacy/" className="hover:text-mint">
               Privacy
             </a>
-            <span>© {new Date().getFullYear()} N45 Tech</span>
+            {/* The prerendered year can differ from the visitor's clock at New Year. */}
+            <span suppressHydrationWarning>
+              © {new Date().getFullYear()} N45 Tech
+            </span>
           </div>
         </div>
       </div>

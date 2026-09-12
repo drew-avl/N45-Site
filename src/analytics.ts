@@ -92,4 +92,7 @@ function handleLinkClick(event: MouseEvent) {
   }
 }
 
-document.addEventListener("click", handleLinkClick, { capture: true });
+// The homepage is prerendered in Node at build time, where no document exists.
+if (typeof document !== "undefined") {
+  document.addEventListener("click", handleLinkClick, { capture: true });
+}

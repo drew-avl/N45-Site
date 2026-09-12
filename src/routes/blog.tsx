@@ -122,19 +122,27 @@ export default function Blog() {
                     >
                       {post.date}
                     </time>
-                    <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-ridge/80">
+                    <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-ridge">
                       <Clock3 aria-hidden="true" className="h-3.5 w-3.5" />
                       {post.readTime}
                     </div>
                     <SharePost post={post} />
-                    <div className="mt-8 font-mono text-xs text-ink/30">
+                    <div
+                      aria-hidden="true"
+                      className="mt-8 font-mono text-xs text-ridge"
+                    >
                       {String(blogPosts.length - index).padStart(2, "0")}
                     </div>
                   </div>
 
                   <div className="max-w-3xl">
                     <h3 className="font-display text-4xl leading-[1.02] tracking-tight text-balance md:text-6xl">
-                      {post.title}
+                      <a
+                        href={`/blog/${post.datetime}/`}
+                        className="hover:text-teal"
+                      >
+                        {post.title}
+                      </a>
                     </h3>
                     <p className="mt-6 border-l-2 border-mint pl-5 text-lg font-semibold leading-8 text-ridge md:text-xl">
                       {post.summary}
@@ -180,7 +188,7 @@ export default function Blog() {
 function SharePost({ post }: { post: BlogPost }) {
   const [copied, setCopied] = useState(false);
   const [canUseShareSheet, setCanUseShareSheet] = useState(false);
-  const postUrl = `${window.location.origin}/blog/#post-${post.datetime}`;
+  const postUrl = `${window.location.origin}/blog/${post.datetime}/`;
   const encodedUrl = encodeURIComponent(postUrl);
   const encodedTitle = encodeURIComponent(post.title);
 

@@ -658,13 +658,13 @@ export function NativeBooking({
                           : "border-ink/14 bg-white text-ink hover:border-teal"
                       }`}
                     >
-                      <span className="block text-xs font-bold uppercase opacity-75">
+                      <span className="block text-xs font-bold uppercase opacity-90">
                         {day.weekday}
                       </span>
                       <span className="mt-0.5 block text-lg font-extrabold leading-none">
                         {day.day}
                       </span>
-                      <span className="mt-1 block text-xs opacity-75">
+                      <span className="mt-1 block text-xs opacity-90">
                         {day.month}
                       </span>
                     </button>
