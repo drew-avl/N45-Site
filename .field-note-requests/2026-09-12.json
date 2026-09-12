@@ -1,0 +1,15 @@
+{
+  "title": "Staff Departures Need One Access Checklist",
+  "summary": "Use one coordinated offboarding checklist to close access, preserve needed work, redirect messages, recover equipment, and reclaim licenses.",
+  "category": "Staff Offboarding",
+  "datetime": "2026-09-12",
+  "body": [
+    "When an employee leaves, the technology work is bigger than deleting one email account. Microsoft’s official Microsoft 365 guidance, updated June 15, lays out a sequence: prevent sign-in, preserve needed mailbox information, handle mobile access, redirect incoming messages, transfer access to business files, and then manage licenses and the user account. The order matters because a rushed deletion can make the handoff harder.",
+    "This is especially important for a small business where one person may hold years of customer conversations, vendor contacts, estimates, schedules, or working documents. The risk is not limited to a former employee signing in. The business can also lose continuity when nobody knows where the work lives, which messages still need replies, or which outside services used that employee’s address.",
+    "Today, take the most recent staff departure and run a five-minute review. Confirm the person can no longer sign in, their active sessions were ended, company devices and access cards were returned, needed email and files were assigned to a current owner, and recurring messages now reach the right person. Then check important vendor portals, accounting tools, phone systems, password managers, and line-of-business applications that may sit outside Microsoft 365.",
+    "Do not make email forwarding the whole plan. Forwarding can keep new customer messages from disappearing, but it does not explain who owns old files, shared calendars, saved passwords, or automated workflows. Record the new owner for each business function, not just the destination for one inbox. If nobody needs an account or license after the handoff, document who approved its removal.",
+    "Microsoft notes that deleting an account or removing a license can start time-limited data-retention periods. Before either step, decide what the business needs to keep and who should receive access. Any retention decision should follow the organization’s written requirements and qualified legal or industry guidance. A manager and the Microsoft 365 administrator should agree on the handoff before the account is permanently removed.",
+    "The checklist should also cover the ordinary physical details: laptop, phone, charger, keys, security token, customer paperwork, and any locally stored files. For a planned departure, assign responsibilities and timing before the person’s final day. For an unexpected departure, the same checklist helps the owner, manager, and technology provider work from one record instead of trading urgent messages.",
+    "A calm, repeatable offboarding process protects both the business and the departing employee. Keep the checklist short, name one person responsible for completing it, and save the completed record somewhere managers can find it for the next transition."
+  ]
+}
