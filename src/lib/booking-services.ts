@@ -65,7 +65,7 @@ export function bookingServiceDescription(service: BookingServiceSummary) {
   if (intent === "ai-automation")
     return "A 30-minute conversation about the repeated tasks slowing your team down, where AI or automation could help, and a practical first project. No technical preparation needed.";
   if (intent === "security-review")
-    return "A 15-minute conversation about your Microsoft 365 accounts, files, access, and backup coverage. Confirm whether the $495 review fits your team. Booking this call does not purchase the review.";
+    return "A 15-minute conversation about your Microsoft 365 accounts, files, access, and backup coverage. Confirm whether the $495 review fits your team. Booking this call does not purchase the review. The full $495 is credited toward managed IT or fix-it work started within 30 days of your scorecard.";
   if (intent === "it-call")
     return "Tell us what is getting in the way. We will talk through your current setup and priorities, then explain how N45 can help. No technical preparation needed.";
   return service.description;

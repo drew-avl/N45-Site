@@ -141,4 +141,8 @@ test("the review conversation cannot be mistaken for purchasing the paid review"
     bookingServiceDescription(services[1]),
     /Booking this call does not purchase the review/,
   );
+  assert.match(
+    bookingServiceDescription(services[1]),
+    /\$495 is credited .* within 30 days/,
+  );
 });
