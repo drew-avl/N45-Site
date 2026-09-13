@@ -1,0 +1,15 @@
+{
+  "title": "Keep a Person in the Last Step of Automation",
+  "summary": "Let automation prepare drafts, tasks, and meeting details, while a named employee reviews anything that communicates or commits the business.",
+  "category": "Workflow Automation",
+  "datetime": "2026-09-13",
+  "body": [
+    "Google announced on September 9 that Gemini can now work across several Google Workspace applications without requiring the user to switch between them. Depending on the user’s plan, it can create documents and spreadsheets, prepare email, schedule meetings, and add tasks while someone is working in Gmail, Chat, Drive, Docs, or Slides. Google says the feature is rolling out gradually and is initially supported in English.",
+    "The useful business lesson is larger than this particular product: automation should remove repetitive preparation without quietly taking ownership of a decision. A draft email, proposed meeting time, or generated project tracker can save real time. Sending a message to a customer or putting a commitment on someone’s calendar has a different consequence.",
+    "Google built a review step into actions involving outside communication or calendar commitments. The system presents a preview that the user can review, edit, and confirm before the action is completed. That is a sensible pattern for any business automation, whether it uses artificial intelligence, a workflow platform, or a simple rule inside an existing application.",
+    "Today, choose one recurring office task and divide it into three columns: prepare, approve, and execute. Preparing a follow-up email, collecting notes, or suggesting available meeting times may be safe to automate. Approval should belong to a named person who understands the customer, schedule, and business promise. Execution should happen only after that person can see exactly what will be sent or changed.",
+    "Start with a low-risk task that is easy to reverse. A weekly internal summary, a draft appointment reminder, or a task list built from meeting notes is a better pilot than an automatic price quote, contract message, payment instruction, or cancellation. Record what information the tool can use, who reviews the result, and where errors should be reported.",
+    "There is no need to turn off every new automation feature or require senior management to approve every internal task. Match the review to the consequence. Internal drafts may need only a quick check, while customer messages, purchases, scheduling changes, and anything involving sensitive information deserve a clear confirmation step. Existing access permissions still matter because an automated tool can only be as well governed as the accounts and files behind it.",
+    "Good automation gives people a cleaner starting point and keeps responsibility visible. If the final step can affect a customer, employee, calendar, or payment, leave a person in the loop and make that person’s role explicit."
+  ]
+}
