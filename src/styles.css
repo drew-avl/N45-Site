@@ -337,6 +337,29 @@
   gap: 0.8rem;
 }
 
+.area-link {
+  display: flex;
+  min-height: 4.75rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  color: var(--ink);
+  padding: 1rem 1.1rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.area-link:hover {
+  background: color-mix(in srgb, var(--mint) 18%, transparent);
+}
+
 /* Keep the intended mint service links legible on the dark homepage section. */
 .home-page #services .text-link {
   color: var(--mint);

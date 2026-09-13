@@ -268,7 +268,7 @@ function Nav() {
 
         <nav
           aria-label="Primary navigation"
-          className="hidden items-center gap-8 text-sm font-semibold text-ridge lg:flex"
+          className="hidden items-center gap-6 text-sm font-semibold text-ridge lg:flex xl:gap-8"
         >
           <a className="nav-link" href="#services">
             Services
@@ -278,6 +278,9 @@ function Nav() {
           </a>
           <a className="nav-link" href="#approach">
             Approach
+          </a>
+          <a className="nav-link" href="/business-it-support-western-nc/">
+            Service Areas
           </a>
           <a className="nav-link" href="#about">
             Why N45
