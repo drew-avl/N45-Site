@@ -179,7 +179,7 @@ const faqs = [
   {
     question: "Is the security review $495, or is the call $495?",
     answer:
-      "The Microsoft 365 security review is $495. The 15-minute fit call comes first, to confirm the review is right for your organization. Booking that call does not purchase the review. The review is prepaid and has no long-term contract.",
+      "The Microsoft 365 security review is $495. The 15-minute fit call comes first, to confirm the review is right for your organization. Booking that call does not purchase the review. The review is prepaid and has no long-term contract. If you start managed IT or work on the recommendations with N45 within 30 days of receiving your scorecard, the full $495 is credited toward it.",
   },
   {
     question: "What do we receive from the security review?",

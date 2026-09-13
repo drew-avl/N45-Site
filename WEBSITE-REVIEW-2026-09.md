@@ -49,7 +49,7 @@ screen-reader testing, physical devices.
 | 9 | City pages | Site lists Asheville, Leicester, Arden, Black Mountain, Hendersonville. Fletcher, Weaverville, Mills River, Brevard, Waynesville, and Marion are unverified. `SEO-PLAN.md` bars city pages without local proof | No new location pages | Doorway risk | **Not implemented; coverage needs owner confirmation** |
 | 10 | Industry pages | Homepage industry cards have no case studies or specific proof | Proposals only | — | **Not implemented** |
 | 11 | `www.n45tech.com` | Does not resolve or redirect | DNS change | Out of scope | **Flagged** |
-| 12 | Security triage terms | $495, prepaid, read-only, scorecard, five actions, ~5–25 users. Site and Bookings agree. No delivery-time promise is published | Do not add the 24-hour promise until confirmed | Consistent | **No change** |
+| 12 | Security triage terms | $495, prepaid, read-only, scorecard, five actions, ~5–25 users. Site and Bookings agree. No delivery-time promise is published | Do not add the 24-hour promise until confirmed. Owner decision (Sept 12): keep the price published and credit the full $495 toward managed IT or work on the recommendations started within 30 days of the client receiving the scorecard | Consistent | **Credit added to all price explanations** |
 | 13 | Small tap targets | Flagged footer/sidebar links are spaced enough to meet the WCAG 2.2 SC 2.5.8 spacing exception | None | Preference | **No change** |
 | 14 | Navigation | Header menus link to homepage sections, not directly to service pages; footers already link to all four | Adding four items to six duplicated menus adds clutter and upkeep | Preference | **Not changed** |
 
@@ -216,10 +216,11 @@ or leads.
    `closing_ai` and `field_note`) with `booking_started` and
    `booking_completed` by `service_intent`.
 
-## Rollback
+## Deployment and rollback
 
-- Before merge: close the pull request; production is untouched.
-- After merge: `git revert -m 1 <merge commit>` on `main` and push; the Pages
+- Deployed September 12, 2026 through PR #44 (`next` → `main`, merge commit
+  `de3d593`). PR #43 was closed in favor of #44.
+- To roll back: `git revert -m 1 de3d593` on `main` and push; the Pages
   workflow redeploys the previous build.
 - To keep other fixes but stop generated pages, restore `"build": "vite build"`
   in `package.json`.

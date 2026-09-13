@@ -51,7 +51,7 @@ export default function Book() {
               </h1>
               <p className="mt-3 max-w-2xl text-base leading-7 text-paper/76 md:text-lg">
                 {securityReview
-                  ? "Understand the risks to your business’s Microsoft 365 accounts, files, and data. Start with a 15-minute fit call to confirm the $495 review fits your team. Payment for the review comes separately."
+                  ? "Understand the risks to your business’s Microsoft 365 accounts, files, and data. Start with a 15-minute fit call to confirm the $495 review fits your team. Payment for the review comes separately, and the full $495 is credited toward managed IT or work on the recommendations started within 30 days of your scorecard."
                   : aiConsultation
                     ? "Tell us which tasks take more time than they should. We will discuss where AI or automation could help, what needs oversight, and a sensible first project."
                     : "Choose a time that works for you. We will talk through what is getting in the way and help you find a practical next step."}

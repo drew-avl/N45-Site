@@ -59,8 +59,8 @@ export default function SecurityTriageCta({
               </div>
               <p className="mt-5 max-w-4xl text-base leading-7 text-paper/72 md:text-lg">
                 {conversionDetails
-                  ? "Find gaps that could expose your accounts and files or make recovery harder. Our Microsoft 365 review gives teams of approximately 5–25 users a plain-English scorecard and five prioritized next steps. Read-only, with no settings changed or long-term contract."
-                  : "The fixed-price N45 Microsoft Security Triage is a read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized next steps, without N45 changing any settings."}
+                  ? "Find gaps that could expose your accounts and files or make recovery harder. Our Microsoft 365 review gives teams of approximately 5–25 users a plain-English scorecard and five prioritized next steps. Read-only, with no settings changed or long-term contract. If you start managed IT or work on the recommendations with N45 within 30 days of receiving your scorecard, the full $495 is credited toward it."
+                  : "The fixed-price N45 Microsoft Security Triage is a read-only review for organizations with approximately 5–25 users. You receive a plain-English scorecard and prioritized next steps, without N45 changing any settings. The full $495 is credited toward managed IT or work on the recommendations started with N45 within 30 days."}
               </p>
               <ul className="mt-6 grid gap-3 text-sm font-semibold text-paper/80 md:grid-cols-3">
                 {areas.map((area) => (
