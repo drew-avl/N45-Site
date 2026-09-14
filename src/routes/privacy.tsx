@@ -66,6 +66,41 @@ const sections = [
     ),
   },
   {
+    title: "Text messaging and consent",
+    body: (
+      <>
+        <p>
+          If you enroll in N45 operational text messages, N45 may use your
+          mobile number to send service outage notices, maintenance notices,
+          incident updates, service-restoration notices, support communications,
+          or applicable internal on-call alerts. Message frequency varies and
+          may increase while an incident is active. Message and data rates may
+          apply.
+        </p>
+        <p>
+          N45 does not sell or share mobile phone numbers, text-message opt-in
+          information, or text-message consent with third parties or affiliates
+          for marketing or promotional purposes. Mobile information and consent
+          are used only to provide the operational notifications requested by
+          the recipient, operate and support the messaging service, and satisfy
+          applicable legal requirements.
+        </p>
+        <p>
+          Consent to receive text messages is optional. Reply STOP to any N45
+          text message to unsubscribe or HELP for assistance. For complete
+          program terms, see the{` `}
+          <a
+            href="/sms-terms/"
+            className="font-semibold text-teal underline decoration-teal/35 hover:decoration-teal"
+          >
+            N45 SMS Terms
+          </a>
+          .
+        </p>
+      </>
+    ),
+  },
+  {
     title: "Retention and security",
     body: (
       <p>
@@ -129,7 +164,7 @@ export default function Privacy() {
               operate the website, and understand which outreach is useful.
             </p>
             <p className="mt-6 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-mint">
-              Effective August 28, 2026
+              Effective September 14, 2026
             </p>
           </div>
         </section>
