@@ -458,6 +458,9 @@ function BlogFooter() {
             <a href="/privacy/" className="hover:text-mint">
               Privacy
             </a>
+            <a href="/sms-terms/" className="hover:text-mint">
+              SMS Terms
+            </a>
             <span>© {new Date().getFullYear()} N45 Tech</span>
           </div>
         </div>

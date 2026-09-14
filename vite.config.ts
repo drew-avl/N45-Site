@@ -45,6 +45,7 @@ export default defineConfig({
         book: "./book/index.html",
         refer: "./refer/index.html",
         privacy: "./privacy/index.html",
+        smsTerms: "./sms-terms/index.html",
         blog: "./blog/index.html",
         managedIt: "./managed-it-services-asheville/index.html",
         businessIt: "./business-it-support-western-nc/index.html",

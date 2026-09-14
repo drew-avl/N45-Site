@@ -1259,6 +1259,9 @@ function Footer() {
             <a href="/privacy/" className="hover:text-mint">
               Privacy
             </a>
+            <a href="/sms-terms/" className="hover:text-mint">
+              SMS Terms
+            </a>
             {/* The prerendered year can differ from the visitor's clock at New Year. */}
             <span suppressHydrationWarning>
               © {new Date().getFullYear()} N45 Tech
