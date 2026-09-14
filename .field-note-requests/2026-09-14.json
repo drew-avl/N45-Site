@@ -1,0 +1,15 @@
+{
+  "title": "Plan the Cutover Before Moving Business Email",
+  "summary": "A simpler migration tool can copy data, but a successful email-platform change still needs an inventory, test account, communication plan, and accountable owner.",
+  "category": "Technology Planning",
+  "datetime": "2026-09-14",
+  "body": [
+    "Google announced on September 11 that small businesses setting up Google Workspace can now import up to 10 Microsoft users and selected business data through a simplified setup tool. The supported data includes email, OneDrive files, calendar events, contacts, and tasks. Google says the feature is available now to Workspace customers, with different licensing steps depending on the billing plan.",
+    "That is useful progress for a small organization considering a change, but copying data is only one part of a business email migration. The difficult questions usually involve who owns the change, which accounts and shared resources exist, when new mail begins arriving in the new system, and how employees will work during the transition.",
+    "Before choosing a migration date, make a simple inventory. List every employee account, shared mailbox, group address, calendar, file location, phone or tablet, email-connected application, and website form that depends on the current platform. Include accounting systems, scanners, scheduling tools, customer-management software, and automated reports. A forgotten connection can matter more than the number of messages copied.",
+    "Today, choose one ordinary user as a test case and write down what success would mean. Can the person send and receive mail, find recent and older messages, open required files, use their calendar, access shared information, and sign in from approved devices? Record who will check each item and who has authority to decide whether the larger move proceeds.",
+    "The cutover plan should also explain what employees and customers will notice. Set a time for the change, provide clear sign-in instructions, identify where support questions go, and keep a current contact list outside the system being moved. Decide how long the old environment must remain available and confirm any retention, contractual, or industry requirements with the appropriate advisers before removing data or licenses.",
+    "There is no reason to switch platforms simply because a new import feature exists. If the current service is reliable, properly managed, and supports the business, the announcement may require no action at all. Likewise, a very small user count does not make an unplanned migration harmless. The right decision depends on cost, support, security, workflow fit, and the effort of changing established processes.",
+    "A migration tool can move information, but it cannot decide what the business depends on. Build the inventory, test one account, name the decision-maker, and schedule the cutover only after the business can explain how work will continue."
+  ]
+}
