@@ -1,0 +1,17 @@
+{
+  "category": "Everyday Workflow",
+  "date": "September 15, 2026",
+  "datetime": "2026-09-15",
+  "readTime": "2 min read",
+  "title": "A Draft Message Is Not a Follow-Up System",
+  "summary": "Use chat drafts for unfinished writing, but move every real commitment into a shared task, ticket, or calendar item with an owner and due date.",
+  "body": [
+    "Google announced on September 8 that persistent drafts are rolling out in Google Chat. The feature saves an unfinished message inside its conversation, adds a shortcut for finding drafts, and can retain an unsent draft for up to 30 days. Rollout timing varies by device and account release track, so some teams will see it before others.",
+    "That is a helpful convenience for anyone who starts a message at a desk and finishes it later. It also highlights a familiar business problem: an unfinished message can look like a reminder to the person who wrote it, but nobody else knows the work is waiting. A draft has no assigned owner, due date, or visible status.",
+    "For a small office, that distinction matters. A draft may contain a promised estimate, an answer for a customer, a request to a vendor, or a note about rescheduling work. If the writer gets pulled into another job, takes a day off, or assumes the message was already sent, the commitment can disappear into a private compose box until someone notices the delay.",
+    "Today, ask each person to review their unsent email and chat drafts for anything that represents real work. If a response must be sent later, create a task or ticket with the customer or project name, a due date, and one responsible person. If the follow-up belongs on a schedule, put it on the shared calendar. Keep the draft attached or referenced when it contains useful context.",
+    "A simple office rule can prevent confusion: drafts are for writing, while tasks are for commitments. A task does not need to live in an expensive project-management system. It can be a shared list, a ticket board, or a calendar entry, as long as the team can see who owns it, when it is due, and whether it was completed.",
+    "There is no need to discourage staff from using persistent drafts or to inspect every unfinished message. Draft saving is a practical feature, and most drafts are harmless notes that will be finished soon or discarded. The goal is only to recognize the point where a private reminder becomes work the business is counting on.",
+    "Good follow-up is less about remembering everything and more about making responsibility visible. Let the draft hold the words, then give the commitment a clear owner and a place where the rest of the team can see it through."
+  ]
+}
