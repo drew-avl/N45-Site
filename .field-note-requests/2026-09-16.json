@@ -1,0 +1,15 @@
+{
+  "title": "A New Connector Is a New Access Path",
+  "summary": "Before linking an AI assistant to accounting, sales, marketing, or project tools, decide which connection is needed, who may use it, and how it will be removed.",
+  "category": "Application Access",
+  "datetime": "2026-09-16",
+  "body": [
+    "Google announced on September 15 that Gemini in Workspace can connect directly with business tools used for project work, marketing, accounting, and customer management, including Asana, HubSpot, QuickBooks, and Salesforce. These integrations use Model Context Protocol, a standard for connecting artificial intelligence tools to other software. Google says the connector capability is available now for eligible users, while administrators can control which connectors are enabled and who may use them.",
+    "The convenience is easy to understand: an employee can find information from another business system without repeatedly changing applications. The operational change is just as important. A connector creates another path between systems, so information that once stayed inside an accounting, sales, or project platform may now appear in a different work area.",
+    "For a small business, the right question is not simply whether a connector is useful. Ask which job it supports, what information that job requires, and which employees already have permission to see that information in the original system. Connecting a tool should not become a shortcut around the access decisions the business has already made.",
+    "Today, review the third-party connector settings in any business productivity or artificial intelligence platform you manage. For each enabled connection, record the source system, the business purpose, the group allowed to use it, the person who approved it, and the steps for removing access. If nobody can explain why a connection is needed, leave it disabled until there is a defined use case.",
+    "Start with one connector and a small pilot group. Use ordinary, low-risk work to confirm what information can be found, what actions are available, whether results are accurate enough for the intended task, and whether activity can be reviewed later. Keep the original system's user roles and permissions current; the connector should complement those controls, not replace them.",
+    "There is no reason to block every integration or assume that a newly available connector automatically exposes every business record. Access still depends on configuration, the connected account, and the permissions assigned in each service. The proportionate response is to review the defaults, enable only what supports real work, and expand access after the pilot behaves as expected.",
+    "Good integrations reduce duplicate work without making access harder to explain. Treat each connector like any other business application connection: approve it for a clear purpose, limit it to the people who need it, and keep a simple record so it can be reviewed or removed later."
+  ]
+}
