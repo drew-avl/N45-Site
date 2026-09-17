@@ -1,0 +1,15 @@
+{
+  "title": "Treat Apple Updates and Upgrades Differently",
+  "summary": "Keep supported Apple devices current, but test major operating-system upgrades on a small group before rolling them across the business.",
+  "category": "Device Management",
+  "datetime": "2026-09-17",
+  "body": [
+    "Apple released iOS and iPadOS 27, macOS Golden Gate 27, and several updates for earlier supported systems on September 14. The timing is a useful reminder that an operating-system update and a major upgrade are not the same business decision. Apple describes updates as smaller releases that secure or improve the current system, while upgrades can make broader changes to features, appearance, and compatibility.",
+    "That distinction matters when a phone, tablet, or Mac is part of the workday. A major upgrade can affect accounting software, browser extensions, printers, scanners, remote-access tools, line-of-business applications, and other equipment connected to the device. Installing it everywhere at once turns one compatibility problem into a company-wide interruption.",
+    "Today, make a short list of the Apple devices used for work and the applications or accessories that would stop business if they failed. Note which operating-system version each device runs, who uses it, and whether it is owned by the company or the employee. This does not need to become a large inventory project; a simple table is enough to identify the devices that deserve testing first.",
+    "Choose one representative device for a pilot. Confirm that it has a current backup, install the major upgrade, and test the work that actually matters: sign-in, email, file access, printing, scanning, video meetings, security software, remote support, and any specialized application. Give the pilot enough normal use to expose practical problems before approving the same upgrade for everyone else.",
+    "Keep routine updates moving while that test happens. Apple provides supported-device management options that can keep users on the current major version and continue offering its smaller updates while a new major version is evaluated. Managed organizations can also phase availability across groups instead of opening an upgrade to every device at the same time.",
+    "There is no need to assume a new Apple release will break the business, and there is no benefit in postponing every update indefinitely. The proportionate approach is to apply supported security and maintenance updates promptly, give major upgrades a short compatibility test, and set a clear date for completing the rollout once the important work checks out.",
+    "A small pilot is inexpensive insurance against avoidable downtime. When the test device, critical applications, and backup are all accounted for, a major upgrade becomes a planned change instead of a surprise."
+  ]
+}
