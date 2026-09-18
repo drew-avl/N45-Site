@@ -1,0 +1,17 @@
+{
+  "category": "Information Sharing",
+  "date": "September 18, 2026",
+  "datetime": "2026-09-18",
+  "readTime": "2 min read",
+  "title": "Write the Sharing Rule Before You Configure the Tool",
+  "summary": "Define simple sharing boundaries for business information before asking cloud controls to enforce them.",
+  "body": [
+    "Google Workspace announced on September 15 that some editions can now combine two kinds of Google Drive controls in one rule: how sensitive a file is and who may receive it. An administrator can use the same rule to block external sharing, allow only named groups or domains, or prevent sharing with selected parties. The change is useful, but the more important work happens before anyone opens the Admin console.",
+    "A sharing control cannot decide what your business considers sensitive. A payroll report, customer list, estimate, project photo, and public brochure may all live in the same cloud service, but they do not need the same boundaries. If those boundaries exist only in one employee’s judgment, decisions will vary and exceptions will be hard to explain.",
+    "Today, choose five kinds of information your team handles regularly and place each in one of three plain-language groups: internal only, approved partners, or public. Name the person who can approve an exception. Keep the first version short enough to fit on one page; a usable rule is more valuable than a detailed policy no one consults.",
+    "Next, compare that list with how files are actually shared. Look for links available to anyone, folders shared with former vendors, and documents copied into personal storage because the approved location was inconvenient. Correct obvious problems, but also ask why the workaround happened. A safer process still has to let people finish their work.",
+    "If your Google Workspace edition includes the new controls, an administrator can translate the written boundaries into technical rules. Other businesses may use different Google Drive settings, Microsoft 365 controls, or a documented review process. The product is secondary. The goal is to make the business decision clear before the software enforces it.",
+    "This does not call for blocking every outside share or treating every document as confidential. Western North Carolina businesses routinely collaborate with accountants, contractors, customers, and community partners. The sensible response is to identify the limited information that needs tighter handling while keeping ordinary collaboration straightforward.",
+    "Start with the business rule, test it with a few real examples, and adjust anything that interrupts legitimate work. Clear boundaries, a named approver, and a periodic review can do more good than a complicated control that nobody understands."
+  ]
+}
