@@ -1,0 +1,15 @@
+{
+  "title": "Price One Hour of Downtime Before Buying Redundancy",
+  "summary": "Estimate the business cost of losing three critical systems before deciding what recovery speed or redundancy is worth buying.",
+  "category": "Technology Costs",
+  "datetime": "2026-09-19",
+  "body": [
+    "NIST’s Cybersecurity Framework 2.0 guide for small businesses recommends assessing the effect of a partial or total loss of critical business assets and operations. In plain language, a business should know what happens when an important system stops working before it decides how much protection, backup, or redundancy to buy.",
+    "That calculation does not need to be complicated. An hour without email may be inconvenient for one company and stop customer service for another. The same is true for scheduling, phones, payment processing, cloud files, or a line-of-business application. The value of faster recovery depends on the work the system supports, not simply the name of the technology.",
+    "Today, choose the three systems your staff would notice first if they disappeared. For each one, estimate the effect after one hour, four hours, and one business day. Consider missed sales, employees who cannot work, customer appointments that must be rescheduled, delayed deliveries, and the time required to enter information again. Use a reasonable range when an exact number is not available.",
+    "Add two practical details beside each estimate: the longest interruption the business can accept and the fallback staff should use. A fallback might be a paper intake form, a printed schedule, call forwarding, a cellular hotspot, or a documented manual process. Test the fallback briefly; a plan that depends on an expired login or a missing cable is not much of a plan.",
+    "Then share the list with whoever supports your technology. Ask how quickly each system can realistically be restored, what the recovery depends on, and whether the current service matches the business need. A backup may restore information after a failure, while redundancy may keep a service available during one. They solve different problems and often have different costs.",
+    "This exercise does not mean every system needs a duplicate connection, server, or subscription. Some interruptions are inexpensive enough to tolerate. Others justify a better backup, a second internet path, spare equipment, or a clearer recovery agreement. The goal is to spend according to business impact instead of buying every precaution or discovering the need during an outage.",
+    "Keep the first version to one page and review it when a major system, vendor, or business process changes. A rough, shared estimate gives owners, managers, and technology providers a better basis for calm decisions before anything fails."
+  ]
+}
