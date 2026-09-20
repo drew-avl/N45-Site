@@ -1,0 +1,17 @@
+{
+  "category": "Staff Onboarding",
+  "date": "September 20, 2026",
+  "datetime": "2026-09-20",
+  "readTime": "2 min read",
+  "title": "Build Access From the Job, Not the Last Employee",
+  "summary": "Create a role-based first-day access list instead of copying a predecessor’s accumulated permissions.",
+  "body": [
+    "Microsoft’s current guidance for Microsoft 365 says each person needs an individual account and recommends using administrative roles with the fewest permissions needed. Those are technical instructions, but they point to a broader onboarding rule: decide what the job requires before anyone starts creating accounts and granting access.",
+    "Copying the previous employee’s access can feel efficient. It can also carry forward years of exceptions, temporary permissions, old project folders, and administrative rights that the new person does not need. Starting with no plan creates the opposite problem: the employee spends the first week asking for tools one at a time while managers and support staff guess what should be approved.",
+    "Today, choose one common role in your business and create a first-day access list for it. Include the required email address, shared mailboxes, file locations, business applications, phone or messaging groups, equipment, and security setup. Add the manager or system owner who approves each item. Keep optional tools in a separate section instead of treating every possible permission as standard.",
+    "Split the list into three stages: before arrival, first sign-in, and after the employee has begun working. Before arrival covers the account, license, device, and essential groups. The first sign-in should include a password change, multifactor authentication, and confirmation that required applications work. Later access can be granted when a real task requires it and the appropriate owner approves it.",
+    "Use the completed list as a template for the role, not as a permanent copy of one person’s account. Job duties change, and two people with the same title may support different customers or projects. A manager should review the template periodically and note any approved exception so it can be removed when the work ends.",
+    "This is not an argument for making new employees wait while every small permission moves through a complicated process. A good role-based template should make onboarding faster because the ordinary decisions are already made. It also gives the employee a clear way to report what is missing without relying on informal password sharing or personal accounts.",
+    "Start with one role, test the list during the next onboarding, and improve it based on what was actually needed. A short, owned checklist creates a smoother first day and a cleaner access record without turning hiring into an IT project."
+  ]
+}
