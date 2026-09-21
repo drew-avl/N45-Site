@@ -1,0 +1,17 @@
+{
+  "category": "Email Management",
+  "date": "September 21, 2026",
+  "datetime": "2026-09-21",
+  "readTime": "2 min read",
+  "title": "Stop Sharing the Password for the Shared Inbox",
+  "summary": "Give each employee delegated access to role-based mailboxes so the business can change permissions without passing around one password.",
+  "body": [
+    "Microsoft’s current guidance describes shared mailboxes as the right tool when several people need to monitor and send from an address such as info@, support@, or reception@. Each authorized person should open that mailbox through their own licensed Microsoft 365 account. Microsoft also says the shared mailbox account is not intended for direct sign-in and that sign-in should remain blocked.",
+    "A single password for a shared inbox may feel simple, especially in a small office. It creates an avoidable ownership problem. When someone leaves, changes roles, or loses a device, the business has to decide whether everyone needs a new password. It is also harder to explain who still has access, and staff may end up storing the password in browsers, notes, or messages.",
+    "Today, list every address that represents a role rather than a person: sales, billing, scheduling, service, front desk, or a similar function. Beside each address, name the business owner, the employees who need to read it, the employees who need to send from it, and the backup person who covers an absence. Check whether any former employee, vendor, personal account, or old device still has access.",
+    "Then ask your Microsoft 365 administrator or technology provider to confirm that each role address is configured for its real purpose. For a shared mailbox, grant access to named employee accounts and keep direct sign-in blocked. Microsoft separates permission to open the mailbox from permission to send as the shared address, so give each person only the capabilities the job requires.",
+    "Technical access is only half the job. Decide how the team will show that a message has an owner and whether it has been answered. A small team might use folders, categories, flags, or a connected ticket system. Write down the expected response time and where a message goes when it involves payment, a complaint, a deadline, or information the mailbox team should not handle.",
+    "Do not assume every common address must become a shared mailbox. A distribution list may be enough when messages only need to reach several people, and a group may fit broader collaboration. Licensing, storage, retention, and compliance needs can also change the right setup. Have the administrator confirm those details before converting or deleting an existing mailbox.",
+    "There is no need to rebuild a shared inbox that already uses individual accounts, appropriate permissions, and a clear work process. The useful check is straightforward: nobody should need a common password to cover a business address. Named access and a simple ownership rule make the mailbox easier to manage today and easier to change later."
+  ]
+}
