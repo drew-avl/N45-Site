@@ -1,0 +1,17 @@
+{
+  "category": "Business Data",
+  "date": "September 22, 2026",
+  "datetime": "2026-09-22",
+  "readTime": "2 min read",
+  "title": "Recalculate Before You Trust a Shared Spreadsheet",
+  "summary": "If a critical Google Sheet uses manual calculation, make recalculation and review an explicit step before anyone acts on its numbers.",
+  "body": [
+    "Google announced on September 21 that Google Sheets is gaining a manual calculation setting. Editors of a complex spreadsheet can pause automatic formula updates, make several changes, and then trigger one sheet-wide recalculation. Google says the feature is rolling out gradually to Workspace customers and Workspace Individual subscribers, and it is off by default.",
+    "Manual calculation can make a large forecasting model or data-heavy workbook easier to edit. It also changes what a number on the screen means. A formula result may reflect the last calculation rather than the latest inputs. That is manageable when everyone understands the setting, but it can cause confusion when a shared sheet drives purchasing, staffing, pricing, cash planning, or customer commitments.",
+    "Today, identify the spreadsheets your business uses to make recurring decisions. Start with cash-flow forecasts, sales reports, inventory lists, project budgets, payroll worksheets, and estimating tools. For each important file, open its calculation settings and record whether it updates automatically or manually. If the sheet is simple and performs well, automatic calculation is usually the clearer choice.",
+    "If a complex sheet benefits from manual calculation, give the process an owner. Add a visible note explaining that formulas must be recalculated before review, and decide who performs that step. Before a meeting, export, approval, or customer-facing decision, recalculate the whole sheet and check a few known totals against their source data.",
+    "Separate data entry from approval. One person may paste new transactions or update assumptions, while another confirms the calculation completed and the output makes sense. Keep the source date, reporting period, and last reviewed date visible. This does not need to become a formal audit; a short checklist can prevent an unfinished scenario from being mistaken for a final answer.",
+    "The new setting does not mean Google Sheets has become unreliable, and it does not require every business to change its spreadsheets. Manual calculation is optional and intended for files where constant recalculation interrupts complex work. Most ordinary trackers should continue behaving as they do now, particularly because the feature starts turned off.",
+    "A spreadsheet is useful only when the team knows what its numbers represent. Use manual calculation where it solves a real performance or modeling problem, label the process clearly, and make one final recalculation part of every decision that depends on the file."
+  ]
+}
