@@ -1,0 +1,16 @@
+{
+  "category": "Account Security",
+  "date": "September 23, 2026",
+  "datetime": "2026-09-23",
+  "readTime": "2 min read",
+  "title": "Only Enter a Device Code You Requested",
+  "summary": "Only enter a device sign-in code when you started the sign-in yourself and can identify the device and application requesting access.",
+  "body": [
+    "Microsoft Security published new research on September 22 about device code phishing, a tactic that turns a legitimate sign-in method into an account takeover. Device codes are normally used when a smart TV, conference-room system, printer, or similar device cannot show a full sign-in page. The device displays a short code, and the person completes the sign-in in a browser.",
+    "The dangerous version begins when someone else starts that process and sends the employee a code through an email, chat, attachment, or convincing web page. If the employee enters it and approves the prompt, they can authorize the other person’s session without giving away a password. That is why a familiar Microsoft sign-in page and successful multifactor authentication do not automatically make the request safe.",
+    "For a small business, the practical issue is not the name of a particular phishing kit. It is whether staff can tell who started the sign-in. The rule should be simple: only enter a device code when you personally began signing in to a device in front of you, and only continue when the browser names the application you expected. A code delivered by a caller, message, or unexpected webpage should be treated as a stop sign.",
+    "Today, send that rule to anyone who handles email, payments, customer records, or administrative access. Ask them to pause and contact your normal IT support channel if a code appears unexpectedly. This takes less time than teaching every variation of the scam and gives employees one decision they can apply even when the message looks polished.",
+    "Your Microsoft 365 administrator should also confirm whether device code sign-in is needed at all. Microsoft recommends blocking the flow where possible. If conference-room or other shared devices require it, the exception can be limited to the specific resource accounts that need it. The right setting depends on your environment, so this is an administrative review rather than a switch every owner should change alone.",
+    "An unexpected code does not mean the account is already compromised, and legitimate device code sign-ins do not need to be eliminated blindly. If someone entered a code they did not request, report it promptly so the administrator can review sign-in activity and follow the appropriate account-containment steps. A clear rule, a limited exception, and a quick reporting path are a calm, workable defense."
+  ]
+}
