@@ -1,0 +1,15 @@
+{
+  "title": "Temporary Admin Access Should Expire Automatically",
+  "summary": "Use expiring administrator roles for short-term Google Workspace work so elevated access does not outlast the job.",
+  "category": "Access Management",
+  "datetime": "2026-09-24",
+  "body": [
+    "Google announced on September 23 that Workspace administrators can now assign administrator roles for a defined period. The access is automatically revoked when the selected expiration time arrives. Google says the feature is available now to all Workspace customers and can be used for users, groups, or service accounts.",
+    "This matters because temporary work often creates permanent access. A consultant may need an administrative role for a migration, an employee may cover for someone on leave, or an outside reviewer may need limited access during an audit. When the project ends, removing that role becomes one more manual task, and manual cleanup is easy to overlook.",
+    "For a small organization, the lesson is straightforward: match the length of elevated access to the length of the job. A person who needs one week of administrative authority should not quietly keep it for a year. Automatic expiration also makes the original decision clearer because the administrator must choose how long the exception should last.",
+    "Today, ask whoever manages your Google Workspace account for a current list of assigned administrator roles. Mark each assignment as permanent, temporary, or unknown. Remove access that no longer has a business purpose, investigate anything nobody can explain, and add an expiration to temporary assignments. Record the work owner and expected end date in the related ticket, project note, or vendor record.",
+    "Do not use the new option as a reason to grant a broad role for convenience. Select the narrowest role that completes the task, protect the account with strong sign-in controls, and review what the administrator is expected to change. Expiration limits how long access remains; it does not limit what the role can do while active.",
+    "This update does not mean every administrator is a problem or that essential access should disappear unexpectedly. Google does not allow the organization’s primary administrator role to be temporary, and a business still needs dependable administrative coverage. The feature is also specific to Google Workspace, although the same time-limited-access principle is worth checking in Microsoft 365 and other business systems.",
+    "Start with one real temporary assignment rather than redesigning every permission today. Give it the right role, set a sensible expiration, and name the person responsible for extending it if the work continues. That small discipline reduces forgotten access without making normal administration harder."
+  ]
+}
