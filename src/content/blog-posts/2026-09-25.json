@@ -1,0 +1,17 @@
+{
+  "category": "AI Workflow",
+  "date": "September 25, 2026",
+  "datetime": "2026-09-25",
+  "readTime": "2 min read",
+  "title": "Inline Citations Do Not Replace Source Review",
+  "summary": "Use source-grounded AI drafts to speed preparation, while keeping a named person responsible for checking the cited material and approving the result.",
+  "body": [
+    "Google announced on September 23 that eligible Workspace users can now use an existing Gemini Notebook as a source while drafting in Google Docs. A user can reference the notebook from the Gemini panel, and the generated text can include inline citations pointing back to the curated source material. The feature is available now on specified Workspace and Google AI plans when the required smart features are enabled.",
+    "This can be useful for a business that repeatedly writes from the same approved material. A proposal might draw from current service descriptions, a procedure from internal documentation, or a client summary from a defined project record. Keeping the source set narrow can make the draft easier to review than an answer assembled from unknown material.",
+    "The citation is still the beginning of review, not the end. It shows which source supported a statement, but it does not prove that the source is current, complete, or appropriate for the decision. An old policy can be quoted accurately and still produce the wrong instruction. A partial project note can support a sentence while leaving out an important exception.",
+    "Today, choose one low-risk document your team creates regularly. Build a small notebook from the current approved sources, give the source set an owner, and create a test draft. Ask a second person to open several citations, compare each claim with the original material, and note anything that was overstated, omitted, or taken out of context.",
+    "Keep the review proportional to the document. Internal meeting preparation may need a quick source check. Customer commitments, prices, contracts, personnel decisions, safety instructions, and regulated records need the same responsible human approval they required before AI was added. The tool can speed up preparation, but it should not silently become the person authorized to commit the business.",
+    "Also decide how the notebook stays current. Record the source owner, a last-reviewed date, and which documents should be replaced when a policy or service changes. Do not add confidential information simply because the feature is convenient; use only information your organization permits in that Workspace environment and follow the access rules already attached to the source files.",
+    "This release does not require every business to adopt Gemini Notebook or rebuild its documentation. Availability depends on the plan and settings, and many workflows are already simple enough. For a suitable use case, start small, verify the citations, and keep a named person accountable for the final document. That turns source-grounded AI into a useful drafting aid without treating it as an automatic authority."
+  ]
+}
