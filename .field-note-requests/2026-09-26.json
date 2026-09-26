@@ -1,0 +1,15 @@
+{
+  "title": "Put a Time Zone on Every External Commitment",
+  "summary": "Make the time zone explicit on customer meetings, vendor deadlines, and handoffs so a correct calendar setting does not hide an ambiguous commitment.",
+  "category": "Scheduling",
+  "datetime": "2026-09-26",
+  "body": [
+    "Google announced on September 25 that Google Calendar on the web can display up to three time zones instead of two. The additional zone appears in the calendar grid and in Find a Time, with custom labels available for each one. Google says the feature is rolling out to all Workspace customers, Workspace Individual subscribers, and personal Google accounts.",
+    "That is a useful improvement for a Western North Carolina business working with clients, vendors, or remote staff elsewhere. It can reduce the mental arithmetic involved in comparing working hours. It does not, however, settle an appointment or deadline that was written without a time zone. “Three o’clock Friday” can still mean different things to different people, even when everyone’s calendar is configured correctly.",
+    "The practical rule is simple: put the time zone in the commitment itself whenever someone outside your normal local working group is involved. Use a clear label such as 3:00 p.m. Eastern, and include the calendar invitation rather than relying only on an email or chat message. For a deadline, state both the date and the zone: “Files due September 30 at 5:00 p.m. Eastern.”",
+    "Today, review the next two weeks of customer meetings, vendor appointments, project handoffs, and submission deadlines. Correct any item that could reasonably be read in more than one zone. Then check that the organizer’s calendar profile has the right primary zone and add a labeled secondary or third zone for the region your team coordinates with most often.",
+    "Give recurring appointments extra attention. A copied invitation can preserve an old organizer, outdated conference link, or incorrect time-zone assumption for months. Confirm who owns the series, who is expected to update it, and what happens when daylight-saving rules change. The calendar service handles many conversions automatically, but it cannot correct an event that started with unclear information.",
+    "There is no reason for every local appointment to become cluttered with extra labels, and this update does not require a new scheduling platform. Use the detail where ambiguity has a business cost: a missed client call, a late bid, an unattended support window, or a handoff that starts an hour too early. A few explicit words in the invitation are usually enough to prevent the problem.",
+    "Calendar features can make coordination easier, but they work best when the commitment itself is unambiguous. Set the helpful display options, write the zone into external appointments and deadlines, and keep one person responsible for changes. That is a calm, inexpensive way to make cross-region work more dependable."
+  ]
+}
