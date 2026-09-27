@@ -1,0 +1,17 @@
+{
+  "category": "Business Continuity",
+  "date": "September 27, 2026",
+  "datetime": "2026-09-27",
+  "readTime": "2 min read",
+  "title": "Write the Workaround Before the Software Is Unavailable",
+  "summary": "Document and test a simple manual fallback for one critical business process so staff can keep working during a software or internet outage.",
+  "body": [
+    "Ready.gov’s business continuity guidance, updated in 2026, treats technology recovery as part of a broader continuity plan. Hardware, applications, and data may all need to be restored, but the business also needs a practical way to operate while that recovery is happening. That distinction matters for small organizations that depend on a few cloud services for nearly every customer interaction.",
+    "A backup protects information. It does not automatically tell the front desk how to record a new request when the scheduling system is unavailable, how the sales team should capture an order when the customer platform cannot be reached, or how a manager should approve urgent work without the usual application. Those are operating questions, and they need answers before the screen stops loading.",
+    "Today, choose one process that would cause immediate confusion if its main application were unavailable for four hours. Write a one-page fallback that identifies what staff should record, where they should record it, who is allowed to approve exceptions, how customers will be updated, and who decides when to return to the normal system.",
+    "Keep the fallback deliberately small. A numbered paper form, a protected local template, or a designated spreadsheet may be enough for a short interruption. Include only the minimum information needed to continue safely, and avoid creating an uncontrolled copy of sensitive customer or employee data. The workaround should reduce disruption without creating a new privacy or recordkeeping problem.",
+    "Then test it for 20 minutes with the people who would actually use it. Ask one employee to process a realistic example without opening the normal application. Watch for missing phone numbers, unclear authority, unavailable forms, or steps that rely on another online service. Record who owns the document and set a date to review it after staffing, vendors, or procedures change.",
+    "The return to normal work needs a step as well. Decide who enters the temporary records into the main system, how duplicates will be identified, and how the team will confirm that nothing was missed. Without that reconciliation step, a successful workaround can leave behind incomplete tickets, unbilled work, or customer promises that never reach the usual queue.",
+    "This does not require a binder for every minor tool or an expensive second platform. Start with the process whose interruption would affect customers or revenue first, make the fallback easy to find, and test it calmly. A short, usable workaround gives the business room to operate while technical recovery proceeds at the right pace."
+  ]
+}
