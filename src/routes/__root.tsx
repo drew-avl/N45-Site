@@ -19,12 +19,12 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "N45 Technology Solutions | Managed IT for Western NC",
+        title: "N45 | IT for WNC Accounting & Healthcare Practices",
       },
       {
         name: "description",
         content:
-          "Reliable IT support, safer Microsoft 365 accounts, cybersecurity, and clear technology management for independent businesses across Asheville and Western North Carolina.",
+          "Local IT support for independent accounting and tax firms, medical offices, and dental practices across Asheville and Western North Carolina.",
       },
       {
         name: "theme-color",
@@ -32,12 +32,12 @@ export const Route = createRootRoute({
       },
       {
         property: "og:title",
-        content: "N45 Technology Solutions | Managed IT for Western NC",
+        content: "N45 | IT for WNC Accounting & Healthcare Practices",
       },
       {
         property: "og:description",
         content:
-          "Reliable support, safer systems, and clear ownership for Western North Carolina businesses.",
+          "Dependable local IT, safer accounts, and clear vendor handoffs for WNC tax firms and medical and dental practices.",
       },
       {
         property: "og:type",
