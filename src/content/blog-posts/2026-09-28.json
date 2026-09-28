@@ -1,0 +1,17 @@
+{
+  "category": "Technology Costs",
+  "date": "September 28, 2026",
+  "datetime": "2026-09-28",
+  "readTime": "2 min read",
+  "title": "Review the Usage Limit Before Buying Copilot Business",
+  "summary": "Confirm usage-based billing limits, ownership, and reporting before adding new Microsoft 365 Copilot Business licenses through a provider.",
+  "body": [
+    "Microsoft announced on September 16 that new Microsoft 365 Copilot Business purchases made through its Cloud Solution Provider channel will include usage-based billing by default beginning November 2, 2026. That channel covers licenses purchased through many technology providers and licensing partners. Microsoft says the pay-as-you-go configuration supports eligible advanced experiences and includes a preset monthly limit.",
+    "For a small business, the operational lesson is not that Copilot suddenly has an unlimited meter. The announcement applies specifically to new Copilot Business purchases, including bundles, through that provider channel. It does mean the seat price may not be the only cost setting worth reviewing when advanced usage-based features are available.",
+    "Before approving a new purchase, ask the provider or Microsoft 365 administrator for four answers: which features can consume usage-based credits, what monthly limit will be applied, which billing account receives the charges, and who can change the limit. Put those answers next to the quoted seat price so the decision includes both fixed and possible variable costs.",
+    "Today, assign one business owner and one technical owner to the service. The business owner should approve the budget and the work the tool is meant to improve. The technical owner should confirm the billing configuration, restrict who can enable paid capabilities, and make sure a useful cost report or alert reaches the person responsible for the budget.",
+    "A short pilot is still the sensible way to start. Give access to a small group with a defined task, such as preparing internal summaries or drafting from approved material. Review the output, time saved, usage, and total cost after a set period. If the work is not producing enough value, reduce the scope before wider adoption rather than treating the initial configuration as permanent.",
+    "Keep the purchase record as well. Save the provider’s quote, the billing explanation, the starting limit, the renewal terms, and the date of the next review. If a provider manages the tenant, document whether an internal administrator can inspect or change the usage setting directly. Variable charges are easier to manage when responsibility is clear before the first bill.",
+    "This change does not require businesses to avoid Copilot Business or cancel existing plans. It is a reason to read the billing configuration with the same care given to any metered service. Confirm what is fixed, cap what can vary, test with a real use case, and expand only when the results justify the cost."
+  ]
+}
