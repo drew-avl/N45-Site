@@ -50,6 +50,8 @@ export default defineConfig({
         managedIt: "./managed-it-services-asheville/index.html",
         businessIt: "./business-it-support-western-nc/index.html",
         cybersecurity: "./cybersecurity-services-asheville/index.html",
+        accountingTax: "./it-support-accounting-tax-firms/index.html",
+        medicalDental: "./it-support-medical-dental-practices/index.html",
         aiAutomation: "./ai-automation/index.html",
         hendersonville: "./managed-it-services-hendersonville/index.html",
         arden: "./managed-it-services-arden/index.html",

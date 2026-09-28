@@ -2,10 +2,10 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
   ArrowRight,
   Building2,
+  Calculator,
   Check,
   ChevronRight,
   FileCheck2,
-  Hammer,
   HeartPulse,
   KeyRound,
   Laptop,
@@ -13,9 +13,7 @@ import {
   MapPin,
   Network,
   Phone,
-  Scale,
   ShieldCheck,
-  UtensilsCrossed,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
@@ -102,44 +100,26 @@ const services: Service[] = [
 
 const industries = [
   {
+    icon: Calculator,
+    label: "Accounting & tax",
+    title: "Independent accounting and tax firms",
+    body: "Keep client-file access, staff sign-ins, backups, and the systems your team uses through filing season organized and dependable.",
+    points: [
+      "Safer access to sensitive client files",
+      "Clear owners for accounts, devices, and recovery",
+    ],
+    href: "/it-support-accounting-tax-firms/",
+  },
+  {
     icon: HeartPulse,
-    label: "Healthcare",
-    title: "Clinics, dental & specialty practices",
-    body: "Safer accounts and computers, protected access to patient records, and clear records of who can reach sensitive information.",
+    label: "Medical & dental",
+    title: "Independent medical and dental practices",
+    body: "Give your front desk and clinical team a clearer way to manage staff access, work computers, backups, and technology-vendor handoffs.",
     points: [
-      "Safer account and device access",
-      "Clear records of vendors and access to patient information",
+      "Dependable access for staff and offices",
+      "Documented handoffs with practice-software vendors",
     ],
-  },
-  {
-    icon: Scale,
-    label: "Professional firms",
-    title: "Legal, accounting & advisory teams",
-    body: "Confidential file access, dependable backups, and steady support through tax season, closings, and trial preparation.",
-    points: [
-      "Stronger sign-in protection and appropriate access",
-      "Secure ways to work with clients",
-    ],
-  },
-  {
-    icon: UtensilsCrossed,
-    label: "Hospitality",
-    title: "Hotels, restaurants, taprooms & venues",
-    body: "Separate Wi-Fi for guests and business operations, reliable checkout systems, and clear documentation built for your busiest nights.",
-    points: [
-      "Guest and business traffic kept separate",
-      "Reliable checkout and kiosk systems",
-    ],
-  },
-  {
-    icon: Hammer,
-    label: "Industry & trades",
-    title: "Manufacturers, contractors & field crews",
-    body: "Reliable technology for office, shop, and remote teams—with consistent, work-ready computers and accountable support.",
-    points: [
-      "Connections between offices and job sites",
-      "Consistent computers ready for the job",
-    ],
+    href: "/it-support-medical-dental-practices/",
   },
 ];
 
@@ -356,15 +336,15 @@ function Hero() {
         <div className="max-w-4xl">
           <Eyebrow theme="dark">Asheville-based · Western NC focused</Eyebrow>
           <h1 className="mt-6 max-w-4xl font-display text-[clamp(3rem,5.4vw,5.5rem)] leading-[0.98] tracking-[-0.04em] text-balance">
-            Reliable IT support for businesses across{" "}
+            IT support for the practices that serve{" "}
             <em className="font-display font-normal text-mint">
               Western North Carolina.
             </em>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl">
-            Keep your team working and protect what your business depends on.
-            N45 brings local support, safer accounts and systems, and clear
-            answers when you need them.
+            N45 helps independent accounting and tax firms, medical offices, and
+            dental practices keep their everyday technology dependable, their
+            accounts safer, and their next steps clear.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
@@ -607,11 +587,11 @@ function Industries() {
         <div className="max-w-4xl">
           <Eyebrow>Built for Western North Carolina</Eyebrow>
           <h2 className="mt-6 font-display text-5xl leading-[0.98] tracking-tight text-balance md:text-7xl">
-            Technology shaped around how local business actually runs.
+            Focused on the practices Western North Carolina relies on.
           </h2>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-ridge">
-            N45 stays close to the operations we understand—places where trust,
-            reliable access, confidentiality, and a real human response matter.
+            Sensitive information, busy teams, and a patchwork of software
+            vendors make clear IT ownership matter every day.
           </p>
         </div>
 
@@ -646,6 +626,13 @@ function Industries() {
                     </li>
                   ))}
                 </ul>
+                <a
+                  className="text-link mt-7 inline-flex items-center gap-2 self-start"
+                  href={industry.href}
+                >
+                  Explore IT support{" "}
+                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                </a>
               </article>
             );
           })}
