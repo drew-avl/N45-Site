@@ -1,0 +1,17 @@
+{
+  "category": "Software Lifecycle",
+  "date": "September 29, 2026",
+  "datetime": "2026-09-29",
+  "readTime": "2 min read",
+  "title": "Confirm Your Office Version Before October 13",
+  "summary": "Identify any Office LTSC 2021 installations and test critical accounting workflows before choosing a supported replacement.",
+  "body": [
+    "Microsoft published a lifecycle reminder on April 23 that Office LTSC 2021 reaches end of support on October 13, 2026. After that date, Microsoft says it will no longer provide technical support, bug fixes, or security updates for the product. That is close enough to justify a planned check, especially for an accounting or tax firm that depends on Office every day.",
+    "The name matters. Office LTSC 2021 is the long-term servicing edition; the announcement is not a blanket statement that every product carrying an Office 2021 label has the same lifecycle. Before approving an upgrade, identify the exact edition installed on each workstation. A mismatched assumption can create unnecessary work or leave the affected computers unaddressed.",
+    "For one quick check today, open Excel or Word on a representative computer, select File, then Account, and review the product information. Record the exact product name and version, then ask whoever manages your computers for a firm-wide inventory. If no Office LTSC 2021 installation is present, document the result and move on instead of forcing an unrelated project.",
+    "If the firm does use Office LTSC 2021, treat the change as a workflow test rather than only a software purchase. Choose one representative workstation and try the supported replacement with the work that matters: open a complex spreadsheet, run required add-ins and macros, create a PDF, scan or import a document, print a client-ready file, and exchange a test export with the firm’s accounting or tax software.",
+    "Write down anything that fails, the person responsible for resolving it, and the software vendor or support contact that needs to be involved. Microsoft lists subscription versions of Microsoft 365 and Office LTSC 2024 among the supported paths, but the right choice depends on licensing, connectivity, application compatibility, and how the firm manages updates. There is no single answer for every office.",
+    "Plan a staged move before the deadline. Back up important templates and settings, update one small group first, give staff a clear date, and keep a documented fallback for deadline-sensitive work. Avoid making a firm-wide change in the middle of a filing deadline simply because the calendar became urgent.",
+    "End of support does not mean the applications are scheduled to stop opening the next morning. The practical concern is that support and updates end while the firm continues to rely on the software. Verify the edition, test the real workflow, and make a deliberate move to a supported version."
+  ]
+}
