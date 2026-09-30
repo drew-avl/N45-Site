@@ -1,0 +1,15 @@
+{
+  "title": "Review Automatic Meet Notes Before the Next Sensitive Call",
+  "summary": "Check Google Meet’s new note-taking default and sharing choices before staff use it for sensitive practice conversations.",
+  "category": "Meeting Privacy",
+  "datetime": "2026-09-30",
+  "body": [
+    "Google announced on September 22 that new Google Meet settings for “Take notes for me” would begin affecting users on September 29. For Google Workspace Business Standard and Business Plus, automatic note-taking for meetings with three or more people is being turned on by default. The rollout may take longer than 15 days, so practices should verify their own settings rather than assume the change is already visible.",
+    "For a medical or dental practice, the important issue is not whether AI notes are useful. They can save time on staff meetings, vendor training, and operational discussions. The issue is that the feature creates a new notes document and can distribute access after the meeting. That deserves a deliberate rule before staff use it for conversations that may include sensitive business or patient information.",
+    "Today, have the Google Workspace administrator open the Admin console and review the current Google Meet Gemini settings. Decide whether automatic notes should be off, on for every scheduled meeting, or on only for meetings with three or more people. Then ask frequent meeting hosts to check their own Meet setting, because Google says users can override the administrator’s default.",
+    "Next, review who receives the notes. Google’s current choices include all invited guests, invited guests inside the organization, or hosts and co-hosts only. Invited guests can include people who did not actually attend. For most practices, “hosts and co-hosts only” is the safer starting point while the team decides how notes should be reviewed, stored, and shared.",
+    "Write a one-page operating rule that names which meetings may use automatic notes, who is allowed to start them, who checks the recipient list, and who reviews the generated summary before anyone treats it as a record or task list. Consider leaving the feature off for patient conversations unless the practice has completed its own privacy, contractual, and legal review for that specific use.",
+    "Give meeting hosts one simple pre-call check: confirm whether notes are enabled, confirm the sharing choice, and tell participants what is happening. Google Meet displays an on-screen notice when notes are active, and administrators may require explicit participant consent. Hosts can also stop note-taking when a sensitive discussion begins.",
+    "This setting change is not evidence that Google Meet notes are automatically unsafe, and it is not a compliance determination for any practice. It is a prompt to put ownership around a feature that creates and shares information. Review the default, narrow the audience, and test the process with a low-risk internal meeting first."
+  ]
+}
