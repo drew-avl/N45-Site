@@ -1,0 +1,15 @@
+{
+  "title": "Document the Procedure Behind Every AI Skill",
+  "summary": "Treat reusable AI instructions as controlled office procedures before migrating, sharing, or relying on them.",
+  "category": "Process Documentation",
+  "datetime": "2026-10-01",
+  "body": [
+    "Google announced on September 30 that reusable “skills” will begin replacing Gems as the way users give Gemini instructions for repeatable work. Skills start rolling out in Google Workspace on October 5 for Rapid Release domains and October 19 for Scheduled Release domains. They begin rolling out in the Gemini app on October 13.",
+    "For an accounting or tax firm, a saved AI instruction can quickly become an unofficial office procedure. It might shape how staff draft client reminders, summarize research, format internal checklists, or prepare a first-pass explanation. That can save time, but only if the firm knows what the instruction does, what information may be used with it, and who checks the result.",
+    "Take one practical step today: list every Gem, reusable prompt, or Workspace Studio flow that staff actually use. For each item, record its business purpose, current owner, approved inputs, prohibited inputs, required human review, and last test date. If nobody can explain why an item exists, do not migrate it automatically just because the tool offers a path forward.",
+    "Keep one approved master copy of the instructions outside the AI tool, with a simple version number and change note. Google says skills created in the Gemini app do not currently synchronize with skills in Workspace, so a firm may need to recreate the same instruction in two places. A master copy helps prevent two versions from quietly producing different work.",
+    "Test each recreated skill with sample information rather than taxpayer details. Try a normal request, an incomplete request, and a request that should be refused or handed to a person. Check whether the result follows the firm’s wording, identifies missing information, avoids unsupported conclusions, and clearly leaves professional judgment with the employee reviewing it.",
+    "There is no need for a rushed migration. Google says business and enterprise users can continue creating, editing, and using Gems until no sooner than March 1, 2027, and that administrators will receive more details at least 30 days before automatic migration. Existing Workspace Studio flows using the “Ask a Gem” step are expected to stop when that transition occurs, so those flows deserve an early inventory.",
+    "Reusable AI instructions are not automatically risky, and they are not automatically reliable. Treat them like any other repeatable office process: document the approved version, limit the information it receives, test it, and keep a person responsible for the finished work."
+  ]
+}
