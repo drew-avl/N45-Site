@@ -1,0 +1,16 @@
+{
+  "category": "Clinical Workstations",
+  "date": "October 2, 2026",
+  "datetime": "2026-10-02",
+  "readTime": "2 min read",
+  "title": "A Shared Workstation Still Needs Individual Sign-Ins",
+  "summary": "Give every staff member a unique account and pair quick sign-in with a tested lock or logoff rule on shared clinical computers.",
+  "body": [
+    "Shared computers are common in outpatient medical and dental practices. A front-desk station, a checkout computer, or a treatment-room workstation may serve several people during one day. Sharing the hardware can be practical. Sharing one user identity is not. The U.S. Department of Health and Human Services says each workforce member who uses a system containing electronic protected health information must have a unique name or number so access and activity can be identified and tracked.",
+    "A generic login creates an operational blind spot. If a record is opened, changed, printed, or downloaded, the practice may be unable to tell who performed the action. A shared password also tends to spread, survive staffing changes, and make a clean access review harder. This is not just a technical detail for the IT provider; it affects how the practice investigates mistakes, handles departures, and demonstrates that access is limited to authorized people.",
+    "The practical goal is not to slow care or replace every shared computer. Keep the workstation where the team needs it, but give each employee an individual account for the operating system and every clinical or business application that supports named access. Use the quickest supported sign-in method that still identifies the person, and make sure browser profiles or saved sessions do not quietly hand one employee’s access to the next person.",
+    "Session timing deserves the same practical review. HHS describes automatic logoff as an addressable safeguard: a practice should assess whether it is reasonable and appropriate, document its decision, and use an equivalent alternative when appropriate. The agency’s current Security Rule summary, last reviewed August 7, 2026, explains that addressable does not mean optional. That does not create one universal timeout; it calls for a deliberate, documented approach based on where the computer sits, what it can reach, and how staff use it.",
+    "Today, choose the busiest shared workstation and watch one normal handoff. Check which person’s name appears on the screen, what happens when that person steps away, and whether the next employee can reach patient or business information without authenticating. Write down the result, the systems involved, and one owner for correcting any gap. Then test the proposed fix during a real shift before rolling it out everywhere.",
+    "A sound shared-workstation setup can be simple: named accounts, quick switching, a tested lock or logoff rule, and a separately documented emergency-access process. Review the list when staff roles change and when a major application is replaced. There is no reason for alarm or a rushed hardware purchase. The useful step is to make sure a shared computer never becomes an untraceable shared identity."
+  ]
+}
