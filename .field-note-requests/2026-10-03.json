@@ -1,0 +1,14 @@
+{
+  "title": "Put a Review Date on Your Tax Firm’s Security Plan",
+  "summary": "Assign an owner, schedule the next review, and test one safeguard so the firm’s written security plan stays useful.",
+  "category": "Security Planning",
+  "datetime": "2026-10-03",
+  "body": [
+    "Many tax and accounting firms have a written information security plan saved somewhere, but fewer can quickly name its owner, last review date, or next test. That gap matters because the plan is supposed to guide daily decisions, not simply satisfy a paperwork request. IRS Publication 5708, revised in August 2024, describes the plan as an evergreen document that should be regularly reviewed, tested, and updated as the firm changes.",
+    "The publication’s sample plan calls for a qualified individual to coordinate the security program and for the firm to review the plan at least annually or after a material change. That could include new tax software, a new document portal, remote staff, a different IT provider, an office move, or a major change in how client records are stored. Waiting until filing season is busy makes these changes harder to review carefully.",
+    "A useful review does not begin by rewriting every policy. Start by comparing the document with the office as it operates today. Confirm the current list of people authorized to access client information, the hardware and cloud services that store or process it, and the outside providers that may handle it. Remove items that are gone, add what is missing, and assign each important safeguard to a named person.",
+    "Testing is what separates an active plan from a shelf document. Choose one control and verify that it works as described. You might confirm that a former employee cannot sign in, check that multi-factor authentication is enforced for remote access, or verify that the emergency contact list reaches the right people. Record the date, result, follow-up owner, and target completion date instead of relying on memory.",
+    "Today, open the firm’s security plan and find the last-modified or last-reviewed field. If the date is missing or the next review is not scheduled, place a one-hour meeting on the calendar before year-end work accelerates. Invite the person responsible for the plan and anyone who manages staff access, tax software, Microsoft 365, backups, or outside technology vendors. Bring the current employee, device, and service-provider lists.",
+    "This does not require an alarm-driven overhaul, and a calendar meeting by itself is not a complete security program. The practical improvement is to give the plan a recurring owner, review date, and evidence of testing. A short, documented review now can make the firm’s written procedures more accurate and much easier to use when a staffing change, vendor change, or security concern arrives."
+  ]
+}
