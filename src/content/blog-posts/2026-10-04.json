@@ -1,0 +1,16 @@
+{
+  "category": "Device Lifecycle",
+  "date": "October 4, 2026",
+  "datetime": "2026-10-04",
+  "readTime": "2 min read",
+  "title": "Include the Copier in Your Device Disposal Plan",
+  "summary": "Inventory copier storage and document how its data will be cleared before the machine is returned, replaced, or reused.",
+  "body": [
+    "Medical and dental practices routinely scan identification, insurance forms, referrals, and other documents through multifunction copiers. Many of these machines are networked computers with internal storage, not simple office appliances. The Federal Trade Commission explains that a digital copier’s drive may retain data from documents it copies, prints, scans, faxes, or emails. That makes the copier part of the practice’s device inventory and security plan.",
+    "The risk is easy to miss because copier contracts are often handled as office administration rather than technology. A leased machine may be serviced, replaced, returned, resold, or moved to another location without the same review given to a laptop or server. If the device stored electronic protected health information, the practice needs to know what happens to that information throughout the equipment’s life.",
+    "HHS guidance says covered entities must have procedures for the final disposition of electronic protected health information and the hardware or media holding it. Information must be removed before media is reused, or the media must be appropriately destroyed. The exact method depends on the equipment and circumstances, so the answer should come from the device documentation and a qualified service provider rather than an improvised factory reset.",
+    "Today, record the manufacturer, model, serial number, location, and leasing or service company for each copier or multifunction printer. Ask whether the device contains a hard drive, solid-state storage, or removable media; whether stored data is encrypted or overwritten; and what the contract requires when the machine is returned. Put the answers beside the device in the practice’s inventory.",
+    "Before a return or replacement, assign one person to approve the handoff. Obtain documentation showing that stored data was securely cleared, purged, or destroyed using a method appropriate for that device. If the vendor performs the work, confirm responsibilities in writing and keep the service record with the asset file. Also remove saved destinations, address books, network credentials, and remote-management access according to the manufacturer’s instructions.",
+    "This does not mean every office copier is quietly holding readable records, and it is not a reason to replace working equipment immediately. The practical lesson is to stop treating the copier as invisible furniture. Identify what it stores, secure it while it is in service, and document what happens to its data before it leaves the practice."
+  ]
+}
