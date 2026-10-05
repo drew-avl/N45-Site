@@ -1,0 +1,16 @@
+{
+  "category": "Client Intake",
+  "date": "October 5, 2026",
+  "datetime": "2026-10-05",
+  "readTime": "2 min read",
+  "title": "Use One Intake Path for Prospective-Client Documents",
+  "summary": "Route prospective-client documents through one approved intake channel so staff do not have to judge unexpected attachments in a busy inbox.",
+  "body": [
+    "On October 2, the Internal Revenue Service warned that scammers may pose as prospective clients or use a compromised email account to persuade tax professionals to open malicious links or attachments. That does not mean every unfamiliar inquiry is dangerous. It does mean the first document exchange deserves a repeatable process instead of a quick judgment from a busy inbox.",
+    "For an independent accounting or tax firm, email can feel like the easiest front door. It is also difficult for staff to tell whether a new sender is genuine, especially when an attachment arrives with a deadline or a convincing explanation. A standard intake path reduces that pressure. Staff no longer have to decide whether this particular spreadsheet, PDF, or shared-file link looks safe enough to open.",
+    "Today, choose one approved way for prospective clients to send documents. That might be the secure upload feature in your tax or practice-management system, a managed client portal, or another method your firm has reviewed. Put the same instructions in your website contact response, phone script, and email template. New inquiries can still begin by email, but documents should move through the approved channel.",
+    "Make the staff rule equally clear: do not open an unexpected attachment or follow a document link from a prospective client. Reply with the standard intake instructions, then begin any needed identity or engagement checks through the firm's normal process. If the sender refuses to use the approved route or keeps applying pressure, pause and involve the person responsible for security rather than improvising.",
+    "The IRS also recommends strong unique passwords, multifactor authentication, current software, secure storage, and backups for tax records. Apply those basics to the intake system itself. Give each employee an individual account, limit access to people who need it, turn on multifactor authentication when available, and remove access when responsibilities change. Staff should use a saved portal address instead of trusting a sign-in link in a message.",
+    "This is not a promise that a portal makes every file harmless, and it is not a reason to make legitimate prospects feel unwelcome. It is a simple boundary that gives staff a safe, courteous answer when an unfamiliar message arrives. A calm intake routine protects the workday and makes the client experience more consistent at the same time."
+  ]
+}
