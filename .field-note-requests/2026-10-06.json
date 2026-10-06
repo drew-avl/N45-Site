@@ -1,0 +1,14 @@
+{
+  "title": "Know Which Vendors Can Reach Practice Data",
+  "summary": "Build one current roster of vendors that can reach practice data, then use it to manage agreements, access, renewals, and clean exits.",
+  "category": "Vendor Management",
+  "datetime": "2026-10-06",
+  "body": [
+    "The U.S. Department of Health and Human Services draws an important line for medical and dental practices: simply selling software does not automatically make a vendor a business associate, but a company that hosts patient information or accesses it while troubleshooting may be one. That distinction is difficult to manage if no one can produce a current list of the vendors that can reach practice data.",
+    "A small practice may rely on an electronic health record, imaging system, billing service, online scheduling, cloud fax, backup provider, managed IT company, and several specialty applications. Each relationship has its own contract, support process, administrators, and renewal date. When those details live only in an owner’s inbox or one employee’s memory, routine support and vendor changes become harder than they need to be.",
+    "Today, start a simple vendor roster. For each service, record the vendor name, internal owner, product, support contact, renewal date, what kind of practice information it handles, how support staff gain access, and who holds administrator rights. Add fields for the business associate agreement status and the plan for removing access or retrieving data when the relationship ends. Keep patient details out of this document.",
+    "Then review one vendor at a time. Ask whether the company creates, receives, maintains, or transmits protected health information for the practice, whether its support team can view that information, and whether subcontractors are involved. Do not rely on a broad marketing claim or assume every technology vendor fits the same category. Send uncertain classifications or contract questions to the practice’s privacy, security, or legal adviser.",
+    "Health and Human Services explains that business associate contracts address permitted uses of protected health information, safeguards, incident reporting, subcontractors, and what happens to the information when the contract ends. The roster should point to the signed agreement and contract location rather than trying to replace them. It also does not replace the practice’s required risk analysis; it gives that work a more accurate starting point.",
+    "This is not a reason to distrust every supplier or launch a disruptive contract project. It is a way to make ownership visible and to catch ordinary gaps, such as a former vendor that still has an account or a renewal that no one reviewed. A calm, current vendor list gives the practice a better answer when support is needed, a contract changes, or access must be closed."
+  ]
+}
