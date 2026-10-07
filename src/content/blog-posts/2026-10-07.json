@@ -1,0 +1,16 @@
+{
+  "category": "Document Management",
+  "date": "October 7, 2026",
+  "datetime": "2026-10-07",
+  "readTime": "2 min read",
+  "title": "Keep One Working Copy of Every Shared Workpaper",
+  "summary": "Use one managed working copy and test version history so shared tax workpapers do not fragment across desktops and email attachments.",
+  "body": [
+    "Accounting and tax work often moves through several hands, especially as deadlines approach. If the same spreadsheet is saved as an attachment, downloaded to desktops, and renamed with labels such as final or revised, the firm can lose track of which copy is authoritative. The practical fix is simple: designate one working copy and make everyone return to it.",
+    "Microsoft explains that files stored in OneDrive or SharePoint can use version history to show earlier versions, identify when a file changed, and restore a previous version. That can help when a formula is overwritten, a worksheet is removed, or someone saves an unwanted change. The feature is useful only when the working file is actually stored in the managed location and staff know where to find its history.",
+    "Today, select one recurring workpaper, checklist, or internal template that more than one employee edits. Place the authoritative copy in the firm’s approved SharePoint document library or other managed Microsoft 365 location intended for the team. Confirm that access matches the job: employees who only need to read the file should not automatically receive editing rights.",
+    "Then change the workflow around the file. Share a link to the working copy instead of sending new attachments, and put the link in the related task or procedure. If an outside party must receive a snapshot, label that export clearly and keep it separate from the live working file. The delivered copy should not quietly become a second place where staff continue editing.",
+    "Test the recovery process before relying on it. Make a harmless change, open version history, view an earlier version, and restore it. Record who can perform the recovery and where staff should ask for help. Microsoft notes that version-history settings and limits can be managed, so the administrator should also confirm that the firm’s actual configuration matches its expectations.",
+    "Version history is not a complete backup, retention policy, quality review, or document-management plan. It will not reconcile edits scattered among email attachments and local copies. It does give a small firm a dependable way to work from one file and recover from an ordinary mistake. That is a calm improvement worth making before the next deadline."
+  ]
+}
