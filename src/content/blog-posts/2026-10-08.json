@@ -1,0 +1,16 @@
+{
+  "category": "Mobile Device Policy",
+  "date": "October 8, 2026",
+  "datetime": "2026-10-08",
+  "readTime": "3 min read",
+  "title": "Set the Phone Rule Before Staff Take Practice Photos",
+  "summary": "Decide which phones and apps may capture practice photos, where files go, and how local copies are removed before staff improvise.",
+  "body": [
+    "Phones are useful tools in a medical or dental office, but a camera can move sensitive information into places the practice does not control. The U.S. Department of Health and Human Services says mobile devices may access electronic protected health information when appropriate administrative, physical, and technical safeguards protect the information on the device and in the cloud. The practical lesson is not to ban every phone. It is to decide which devices and apps are allowed before someone needs a photo.",
+    "A photo taken for a legitimate practice purpose can still create an unmanaged copy. It may remain in the camera roll, synchronize to a personal cloud account, appear on another household device, or be shared through an ordinary messaging app. Even an image that was not intended to show a patient can capture a name, schedule, computer screen, or document in the background. That makes the workflow around the photo as important as the reason for taking it.",
+    "Today, write a one-page rule that answers five questions: what kinds of photos are permitted, who may take them, which device and app may be used, where the image must be stored, and who approves an exception. If personal phones are not allowed, say so plainly. If they are allowed for a narrow purpose, define that purpose and the controls the practice requires instead of leaving the decision to each employee.",
+    "For an approved device, choose safeguards that fit the practice’s risk analysis. Common basics include an individual sign-in, a strong screen lock, device encryption, current software, and a way to lock or erase a lost device. Check whether the camera roll automatically backs up to a personal Apple, Google, or other photo account. An approved clinical or practice app should send the image to the intended system without quietly creating extra personal copies.",
+    "The written process should also cover the last mile. Staff should confirm that the image reached the correct record or approved storage location, then handle any temporary copy according to the practice’s retention and deletion procedure. Do not route the file through personal text messages or personal email simply because it is convenient. The rule should also identify whom to call immediately if an approved device is lost or a photo goes to the wrong place.",
+    "This is not a claim that every phone photo is prohibited, and a one-page rule is not a complete HIPAA risk analysis. A small practice may choose a dedicated managed phone, an approved app on managed devices, or no mobile photography at all. Pick the approach the practice can consistently support, test it with a non-sensitive image, and make the safe path the easy path."
+  ]
+}
