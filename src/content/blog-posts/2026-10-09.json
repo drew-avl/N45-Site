@@ -1,0 +1,16 @@
+{
+  "category": "Privilege Management",
+  "date": "October 9, 2026",
+  "datetime": "2026-10-09",
+  "readTime": "2 min read",
+  "title": "Do Tax Work Without Administrator Rights",
+  "summary": "Use standard accounts for returns, email, and browsing, and reserve a separate administrator account for approved software and settings changes.",
+  "body": [
+    "Most tax work does not require administrator rights. Preparing returns, reviewing workpapers, using email, and browsing client portals should normally happen from a standard user account. The Cybersecurity and Infrastructure Security Agency’s current performance goals say ordinary user accounts should not have administrator privileges and that administrators should use separate accounts for work outside the administrator role. That separation limits what one stolen password or malicious attachment can change.",
+    "This matters in a small accounting office because the same computer may hold tax software, document tools, email, and access to cloud storage. An account with administrator rights can install software and change security settings. If that is also the account used all day, a bad download or convincing phishing message gets a wider path than it needs. The goal is not to make routine work difficult; it is to reserve elevated access for the few tasks that actually require it.",
+    "The IRS guide Safeguarding Taxpayer Data tells tax professionals to limit taxpayer-data access to people who need it, give each person unique credentials, keep software current, and avoid unnecessary applications. Separate administrator accounts put those recommendations into a practical workstation rule: employees use named standard accounts for daily work, while an authorized person uses a different named account for approved installations, updates, and configuration changes.",
+    "Today, check one representative workstation while the regular employee is signed in. Record whether that daily account is a local administrator, which other administrator accounts exist, and who owns each one. Do not remove access blindly. Confirm that tax, payroll, scanning, and document-management software still work from a standard account, and ask the software vendor about any function that appears to require elevated rights.",
+    "If an application needs administrator approval for an update, make that a controlled step instead of leaving every user permanently elevated. Protect the separate administrator account with a unique password stored in the firm’s approved password manager and multifactor authentication where the platform supports it. Avoid shared administrator credentials, document who may approve changes, and remove old vendor or employee administrator accounts that no longer have a business purpose.",
+    "This is a focused risk reduction, not a complete written security plan and not a reason to interrupt return preparation without testing. Start with one workstation, document any software exceptions, and expand only after the workflow is proven. A standard daily account plus a separate administrator account is a quiet control that can reduce the impact of an ordinary mistake without changing how the firm serves clients."
+  ]
+}
