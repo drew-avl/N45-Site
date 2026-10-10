@@ -1,0 +1,14 @@
+{
+  "title": "Saved Fax Numbers Need an Owner",
+  "summary": "Verify saved fax destinations, assign an owner, and remove stale entries before a referral or record reaches the wrong office.",
+  "category": "Information Handling",
+  "datetime": "2026-10-10",
+  "body": [
+    "Saved fax destinations deserve the same care as other access paths into and out of a medical or dental practice. U.S. Department of Health and Human Services guidance says practices may exchange protected health information electronically for treatment when they use reasonable safeguards. A saved fax number is convenient, but convenience is not verification.",
+    "A number stored under a familiar office name can stay in a copier or online fax service long after a referral partner moves, merges, changes departments, or stops using that line. When staff choose a name from a list instead of typing the digits, a stale entry can be hard to notice. The practical lesson is simple: every shared fax directory needs a named owner and a review date.",
+    "Today, review the destinations your team uses most. Start with the offices, laboratories, pharmacies, and other organizations that receive the highest volume. Verify each number through a known contact or another trusted channel, record the date checked, remove duplicates, and clearly retire entries that are no longer valid. Do not rely on contact details contained only in an unexpected message asking you to change a destination.",
+    "The send process matters too. Before transmission, have the sender compare the recipient name and number with the request, preview the pages and attachments, and use the practice’s approved cover sheet when one is appropriate. Afterward, check the transmission result. A failed report needs follow-up, while a successful report confirms delivery to a number, not that the intended person reviewed the document.",
+    "For online fax systems, limit who can change the shared address book and review that access when duties change. Keep enough history to answer who changed a destination and when, if the service supports it. If the product cannot provide workable controls, document the gap and decide whether a procedural check or a different service is the better answer.",
+    "This is not a reason to abandon a functioning fax workflow overnight. HHS guidance recognizes that reasonable safeguards depend on an organization’s circumstances and that no process removes every possibility of an unintended disclosure. A clean directory, one accountable owner, and a repeatable check before sending are proportionate improvements that help a small practice reduce avoidable mistakes without disrupting patient care."
+  ]
+}
