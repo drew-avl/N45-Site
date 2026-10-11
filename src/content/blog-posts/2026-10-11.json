@@ -1,0 +1,16 @@
+{
+  "category": "Business Continuity",
+  "date": "October 11, 2026",
+  "datetime": "2026-10-11",
+  "readTime": "2 min read",
+  "title": "Freeze Nonessential IT Changes Before the Filing Deadline",
+  "summary": "Pause nonessential technology changes through the October 15 filing deadline, while preserving a clear path for urgent fixes.",
+  "body": [
+    "The Internal Revenue Service’s current 2026 filing guidance identifies October 15 as the deadline for many individual taxpayers who requested a six-month extension. For an independent accounting or tax firm, the final days before that deadline are a poor time for avoidable changes to the systems staff use to prepare, review, sign, and transmit returns.",
+    "A short change freeze means postponing nonessential upgrades and configuration work until the filing rush has passed. It can cover tax software, document portals, scanners, remote-access tools, Microsoft 365 settings, office networks, and multifunction printers. The goal is not to stop normal support. It is to avoid introducing a new variable while the firm has little room for troubleshooting.",
+    "Today, set a written freeze window through the business day after the deadline. List the systems covered, name the person who can approve an exception, and tell staff where to report a problem. Review any work already scheduled during that window. A feature rollout, equipment replacement, network redesign, or account migration that can safely wait should be moved to a later date.",
+    "Use the same check to prepare for ordinary failures. Confirm the support contacts for your tax application, internet service, document portal, and managed IT provider. Make sure the person working late knows whom to call, what details to capture, and which temporary process is approved. A one-page escalation sheet is more useful during a deadline problem than a long plan nobody can find.",
+    "A freeze should not become an excuse to ignore an urgent security issue. If a vendor identifies an actively exploited flaw or a change is necessary to keep filing systems available, evaluate it promptly. Require a backup or rollback path, confirm who will test the result, and document the approval. Routine improvements can wait; urgent risk decisions still need an accountable owner.",
+    "This is a temporary stability measure, not a permanent ban on maintenance. Reopen the postponed-work list after the deadline, prioritize it, and schedule changes with time for testing and recovery. A few quiet days of disciplined operations can help the firm finish its work without creating its own last-minute disruption."
+  ]
+}
