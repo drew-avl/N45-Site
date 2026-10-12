@@ -1,0 +1,16 @@
+{
+  "category": "Scheduling Privacy",
+  "date": "October 12, 2026",
+  "datetime": "2026-10-12",
+  "readTime": "2 min read",
+  "title": "Shared Practice Calendars Need a Detail Rule",
+  "summary": "Keep shared calendar titles useful without placing unnecessary patient details in broadly visible scheduling views.",
+  "body": [
+    "Shared calendars help a medical or dental practice coordinate rooms, providers, equipment, and staff. They can also spread more information than the schedule requires. A front-desk calendar, a provider’s personal calendar, a room calendar, and an outside booking view do not all need the same level of detail.",
+    "The U.S. Department of Health and Human Services confirms that appointment reminders are permitted under the HIPAA Privacy Rule without a separate authorization. For uses where its minimum-necessary standard applies, HHS calls for reasonable efforts to limit protected health information to what is needed for the purpose. The practical lesson is not to stop using calendars or reminders. It is to decide which details belong in each view.",
+    "Today, open the sharing settings for every calendar used in scheduling. Record the owner, the people or groups with access, whether anyone outside the practice can see it, and whether each person can view details or only free and busy time. Google Calendar, for example, provides a free-and-busy permission that hides event names and descriptions. Other business calendar platforms offer comparable permission levels.",
+    "Then write a short naming rule. Broadly visible titles can use a neutral internal label, the time, and the responsible provider or room. Diagnoses, procedure explanations, insurance notes, phone numbers, and clinical instructions should stay in the approved practice system unless a documented workflow truly requires them in the calendar. The exact format should match the practice’s systems and policies.",
+    "Check reminders separately from internal calendars. A reminder needs enough information to help the recipient act, but the practice should not copy every internal scheduling detail into a text or email. Review the template, the sender name, the callback path, and any patient communication preferences already recorded. Send a test reminder to an approved staff account so formatting and links can be checked without using patient information.",
+    "This is a housekeeping task, not a reason to dismantle a scheduling process that works. Start with the calendars shared most widely, reduce unnecessary visibility, and document the rule for future staff. A clear title standard and a current access list make the schedule easier to use while keeping avoidable details out of broad view."
+  ]
+}
