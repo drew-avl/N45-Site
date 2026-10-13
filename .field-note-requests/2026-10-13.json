@@ -1,0 +1,14 @@
+{
+  "title": "Verify Bank-Detail Changes Outside the Email Thread",
+  "summary": "Use a known phone number and a second approval before changing where vendor, payroll, or client-bookkeeping payments are sent.",
+  "category": "Payment Controls",
+  "datetime": "2026-10-13",
+  "body": [
+    "Independent accounting and tax firms receive a steady stream of invoices, payroll questions, reimbursement requests, and vendor updates. Email is a practical way to handle that work, but it should not be the only evidence used to change where money is sent. A bank-detail change deserves a separate verification step, even when the message appears inside a familiar email thread.",
+    "The Federal Bureau of Investigation describes business email compromise as a scheme in which a message appears to come from a known source making a legitimate request. Its current guidance includes examples involving altered invoices and updated payment instructions. The FBI’s Internet Crime Complaint Center recommends using a secondary channel or another verification factor when someone asks to change account information.",
+    "Today, write a one-page rule for bank-detail changes. Require the employee receiving the request to pause the change, retrieve a known phone number from the existing vendor record, signed agreement, or another trusted source, and speak with an established contact. Do not use a phone number supplied only in the change request. Record who verified the change, when the call occurred, and who approved it.",
+    "Add a second set of eyes before the first payment goes to the new account. In a small firm, that can be the owner or another designated manager. The reviewer should compare the confirmed instructions with the proposed change and check that the payment amount and purpose make sense. The same rule can cover automated clearing house payments, wires, payroll changes, refunds, and vendor direct deposits.",
+    "If the firm performs bookkeeping or bill payment for clients, define the boundary clearly. Use each client’s approved authorization process, keep verification notes with the transaction record, and avoid inventing a shortcut during a deadline. A client email saying “go ahead” should not override the agreed process for changing payment destinations.",
+    "This control does not assume every bank change is suspicious, and it should not turn routine payables into an obstacle course. Legitimate changes can move quickly when everyone knows the steps. If money is ever sent on fraudulent instructions, contact the financial institution immediately and report the incident to the FBI’s Internet Crime Complaint Center. A short verification call before payment is much easier than trying to recover funds afterward."
+  ]
+}
