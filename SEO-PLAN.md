@@ -1,6 +1,53 @@
-# N45 organic search plan
+# N45 SEO execution plan
 
-Updated: August 20, 2026
+Updated: October 13, 2026
+
+## Current priorities
+
+Acquire suitable independent Western NC accounting/tax firms and outpatient medical/dental practices. Keep general local IT service pages, but make new editorial work specific to one of these two audiences. Existing Vyve customers and businesses Drew is targeting at Vyve are excluded from all N45 acquisition contact, including referrals and in-person visits. Unknown eligibility stays on hold.
+
+1. Verify indexing and the search baseline before claiming improved visibility. GSC Wizard currently refuses access because its subscription ended; use native Search Console or an authorized export when available. The August baseline below is historical.
+2. Improve the two existing vertical pages and explain scope, service hours, vendor responsibilities, and the first engagement. Do not invent response guarantees or clinical application expertise.
+3. Publish useful workflow guides, link each to its vertical page, and link the vertical page back to the guide. The first two are `/guides/accounting-seasonal-staff-access/` and `/guides/practice-workstation-vendor-handoffs/`.
+4. Require each routine article to name a specific audience and workflow and provide a checklist, decision questions, or a clearly labeled example. Alternate the two lanes according to recent published work. Generic technology news with a token industry mention does not qualify. Preserve original sources and service boundaries.
+5. Audit GBP categories, services, hours, and the service-area/address setup through a verified manager account. The recorded August category is Computer support and services; current category and review count still need checking. Do not choose categories for the customer's industry, copy every competitor category, or add city keywords to the business name.
+6. Request an honest review after every eligible completed engagement using the verified review link. No incentives, review gating, invented customers, or keyword-stuffed replies. Review volume depends on real engagements rather than a fixed quota.
+7. Correct remaining public-profile audience drift, then earn relevant local or industry mentions through useful contributions and real relationships. No paid ranking links, link exchanges made just for SEO, or employer-derived prospecting.
+8. Review qualified organic/GBP inquiries, held conversations, paid work, and collected revenue monthly. Distinguish GBP call-button clicks from actual calls. Use indexed status, non-branded impressions, clicks, and query/page performance as diagnostics rather than sales outcomes.
+
+## Candidate query-to-page map
+
+These are hypotheses for validation in Search Console, not verified search-volume or ranking claims.
+
+| Candidate search                                  | Existing destination                                                             |
+| ------------------------------------------------- | -------------------------------------------------------------------------------- |
+| IT support for accounting firms Asheville         | `/it-support-accounting-tax-firms/`                                              |
+| IT support for tax firms Western NC               | `/it-support-accounting-tax-firms/`                                              |
+| Medical or dental IT support Asheville            | `/it-support-medical-dental-practices/`                                          |
+| Microsoft 365 security review Asheville           | `/cybersecurity-services-asheville/` with links to the appropriate vertical page |
+| Seasonal preparer access checklist                | `/guides/accounting-seasonal-staff-access/`                                      |
+| Practice workstation and vendor handoff checklist | `/guides/practice-workstation-vendor-handoffs/`                                  |
+
+Expand only when query evidence, distinct service needs, or genuine local evidence justify a new page. Do not create a city-by-service page grid.
+
+## Scheduled-content update
+
+Prepared October 13: stronger vertical-specific editorial requirements for Field Notes, Google Readiness, Google FAQs, Facebook Tips, Facebook Stories, the monthly Microsoft 365 review offer, and paused LinkedIn. The paused LinkedIn update succeeded and stays paused. Updates to active tasks are blocked by the scheduler: nine active tasks exceed the five-task plan limit. Do not report those prompts as applied or pause existing routines without Drew's instruction.
+
+## Sources
+
+- [Google: local ranking](https://support.google.com/business/answer/7091)
+- [Google: business categories and representation](https://support.google.com/business/answer/3038177)
+- [Google: reviews](https://support.google.com/business/answer/3474122)
+- [Google: spam policies](https://developers.google.com/search/docs/essentials/spam-policies)
+- [Google: Business Profile performance definitions](https://support.google.com/business/answer/9918094)
+- [Google: native Search Console](https://support.google.com/webmasters/answer/9128668)
+
+---
+
+## Historical plan and baseline — August 20, 2026
+
+The following records the earlier plan. Counts, deadlines, audience assumptions, and opportunities below are historical; the current priorities above govern execution.
 
 ## Goal and guardrails
 
@@ -36,13 +83,13 @@ Do not buy links, fabricate reviews, copy competitor pages, create dozens of nea
 
 ## Target query map
 
-| Page | Primary query | Supporting queries |
-| --- | --- | --- |
-| Homepage | managed IT Western NC | managed services Western North Carolina, WNC IT company |
-| Managed IT page | managed IT services Asheville NC | Asheville MSP, managed service provider Asheville, IT management Asheville |
-| Business support page | business IT support Western NC | small business IT support Asheville, on-site IT support Asheville, IT company Western NC |
-| Cybersecurity page | cybersecurity services Asheville NC | small business cybersecurity Asheville, Microsoft 365 security Asheville, cyber security company Asheville |
-| Field Notes | informational long-tail questions | cost, comparisons, checklists, Microsoft 365, backup, Wi-Fi, continuity |
+| Page                  | Primary query                       | Supporting queries                                                                                         |
+| --------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Homepage              | managed IT Western NC               | managed services Western North Carolina, WNC IT company                                                    |
+| Managed IT page       | managed IT services Asheville NC    | Asheville MSP, managed service provider Asheville, IT management Asheville                                 |
+| Business support page | business IT support Western NC      | small business IT support Asheville, on-site IT support Asheville, IT company Western NC                   |
+| Cybersecurity page    | cybersecurity services Asheville NC | small business cybersecurity Asheville, Microsoft 365 security Asheville, cyber security company Asheville |
+| Field Notes           | informational long-tail questions   | cost, comparisons, checklists, Microsoft 365, backup, Wi-Fi, continuity                                    |
 
 The highest-probability early wins are longer phrases such as “managed IT services Asheville NC small business” and “business IT support Western North Carolina.” Broad phrases such as “managed services” are national and should not be the initial success test.
 
@@ -73,7 +120,7 @@ Complete every truthful field. Use the real business name only; do not append ke
 
 ### Reviews
 
-The profile currently shows no reviews, and reviews are a major prominence and conversion gap. Ask every genuinely satisfied client after a resolved issue, successful onboarding, project completion, or quarterly review.
+The profile currently shows no reviews, and reviews are a major prominence and conversion gap. Ask every eligible customer after a resolved issue, successful onboarding, project completion, or quarterly review.
 
 Target: five honest reviews in the first 30 days, ten by day 60, and fifteen by day 90. Never gate reviews by asking only people likely to leave five stars, and never offer a reward.
 
@@ -152,15 +199,15 @@ Never invent years in business, response times, client counts, certifications, a
 
 Record results every Monday in one simple scorecard:
 
-| Metric | Baseline | Day 30 target | Day 60 target | Day 90 target |
-| --- | ---: | ---: | ---: | ---: |
-| Indexed canonical pages | 1 | 5 | 5+ | 7+ |
-| Non-branded impressions / 28 days | effectively near zero | 100 | 300 | 750 |
-| Non-branded clicks / 28 days | effectively near zero | 3 | 10 | 25 |
-| Google reviews | 0 shown | 5 | 10 | 15 |
-| Search Console external links | 1 | 3 | 6 | 10 |
-| Published high-quality guides | 1 welcome note | 2 | 4 | 6 |
-| Qualified organic/GBP leads / month | establish in CRM | 1 | 2 | 4 |
+| Metric                              |              Baseline | Day 30 target | Day 60 target | Day 90 target |
+| ----------------------------------- | --------------------: | ------------: | ------------: | ------------: |
+| Indexed canonical pages             |                     1 |             5 |            5+ |            7+ |
+| Non-branded impressions / 28 days   | effectively near zero |           100 |           300 |           750 |
+| Non-branded clicks / 28 days        | effectively near zero |             3 |            10 |            25 |
+| Google reviews                      |               0 shown |             5 |            10 |            15 |
+| Search Console external links       |                     1 |             3 |             6 |            10 |
+| Published high-quality guides       |        1 welcome note |             2 |             4 |             6 |
+| Qualified organic/GBP leads / month |      establish in CRM |             1 |             2 |             4 |
 
 Track these query groups separately in Search Console:
 

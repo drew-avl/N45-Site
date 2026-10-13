@@ -77,9 +77,50 @@ export default function Blog() {
               <em className="font-normal text-mint">from the mountains.</em>
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-paper/72 md:text-xl">
-              Daily, plainspoken notes on the systems, habits, and decisions
-              that keep Western North Carolina businesses moving.
+              Practical notes for Western North Carolina accounting, tax,
+              medical, and dental teams: staff access, office systems, recovery,
+              and clear vendor handoffs.
             </p>
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="practice-guides"
+          className="bg-mist py-12 md:py-16"
+        >
+          <div className="mx-auto max-w-[88rem] px-5 md:px-8">
+            <h2
+              id="practice-guides"
+              className="font-display text-4xl leading-tight tracking-tight md:text-5xl"
+            >
+              Practical guides for your practice
+            </h2>
+            <div className="mt-7 divide-y divide-ink/12 border-y border-ink/12">
+              <a
+                href="/guides/accounting-seasonal-staff-access/"
+                className="block py-6 text-teal hover:text-ink"
+              >
+                <h3 className="font-display text-2xl leading-tight md:text-3xl">
+                  Seasonal staff access for accounting and tax firms
+                </h3>
+                <p className="mt-3 max-w-2xl leading-7 text-ridge">
+                  Approve access, prepare sign-ins, and plan the departure
+                  handoff before filing-season staffing changes.
+                </p>
+              </a>
+              <a
+                href="/guides/practice-workstation-vendor-handoffs/"
+                className="block py-6 text-teal hover:text-ink"
+              >
+                <h3 className="font-display text-2xl leading-tight md:text-3xl">
+                  Front-desk workstation and vendor handoffs
+                </h3>
+                <p className="mt-3 max-w-2xl leading-7 text-ridge">
+                  Give medical and dental practice managers a clear owner for
+                  office-device support, application escalation, and recovery.
+                </p>
+              </a>
+            </div>
           </div>
         </section>
 

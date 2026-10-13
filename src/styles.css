@@ -3,6 +3,7 @@
 @source "../ai-automation/index.html";
 @source "../it-support-accounting-tax-firms/index.html";
 @source "../it-support-medical-dental-practices/index.html";
+@source "../guides/**/*.html";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
