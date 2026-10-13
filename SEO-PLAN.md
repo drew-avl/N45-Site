@@ -32,7 +32,13 @@ Expand only when query evidence, distinct service needs, or genuine local eviden
 
 ## Scheduled-content update
 
-Prepared October 13: stronger vertical-specific editorial requirements for Field Notes, Google Readiness, Google FAQs, Facebook Tips, Facebook Stories, the monthly Microsoft 365 review offer, and paused LinkedIn. The paused LinkedIn update succeeded and stays paused. Updates to active tasks are blocked by the scheduler: nine active tasks exceed the five-task plan limit. Do not report those prompts as applied or pause existing routines without Drew's instruction.
+Completed October 13 after Drew approved consolidation: five routine social tasks now run through **N45 Practice Social Publishing**, reusing Google Readiness Post. Google Service FAQ, Facebook Practical Tip, Facebook N45 Story, and Monthly Security Triage are paused as separate automations. The account now has five active tasks; Field Note, Weekly Growth Review, Major Event Watch, and the unrelated NCPDP watch remain active. Paused LinkedIn remains paused.
+
+The consolidated runner starts October 14 at 8:15 a.m. America/New_York and schedules only that day's due posts through Buffer. Original publication slots are preserved: Monday 11:30 a.m. Facebook tip; Tuesday 10:30 a.m. Google FAQ except the first Tuesday; first Tuesday monthly 9:30 a.m. Google/Facebook review offer replacing the FAQ; Thursday 10:30 a.m. Google checklist and 4:30 p.m. Facebook story. Existing deduplication, source/image checks, platform word lengths, offer scope, and supplemental-alert rules remain in the saved prompt.
+
+Field Note, consolidated social publishing, and Weekly Growth Review now require one specific target vertical and a concrete workflow, with useful checks, decision questions, or a clearly labeled example. Field Note and Weekly Growth Review retain their original schedules. Saved prompts and enabled states were re-read and verified; future execution is not yet claimed.
+
+To preserve the transition-day slot, the October 13 accounting/tax FAQ about the scan-to-folder workflow is queued on Google Business for 10:30 a.m. Eastern. Buffer ID: `6ace397baec61dc273ddcfa0`. Scheduled status, copy, destination, due time, and the accounting-page Learn more link were verified. Queueing is not publication.
 
 ## Sources
 
